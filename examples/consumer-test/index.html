@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumer Test Project — Adaptive Style Engine</title>
+  <!-- Google Fonts required by design languages -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Baseline Consumer Shell Layout (NOT component styles, purely for test organization) */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    .test-suite-header {
+      background-color: #020617;
+      border-bottom: 1px solid #1e293b;
+      padding: 1.5rem 2rem;
+    }
+    .test-suite-header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      color: #38bdf8;
+    }
+    .test-suite-header p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: #94a3b8;
+    }
+    .test-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .test-block {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .test-block-header {
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .test-block-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .test-block-desc {
+      font-size: 0.8125rem;
+      color: #94a3b8;
+      margin: 0.25rem 0 0;
+    }
+    .test-viewport {
+      background-color: #090d16;
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+    .status-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="test-suite-header">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <span class="status-badge">ISOLATED CONSUMER FIXTURE</span>
+        <h1>Style Engine External Consumer Verification</h1>
+        <p>This test fixture imports ONLY from the library's canonical public API (<code>../../src</code>) and tests unstyled raw HTML elements.</p>
+      </div>
+      <div id="engine-status-indicator" style="text-align: right; font-size: 0.8125rem; color: #94a3b8;">
+        Engine Status: <strong style="color: #38bdf8;">Initializing...</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="test-container">
+
+    <!-- ====================================================================
+         SECTION 1: RAW HTML HERO TEST (NO CUSTOM COMPONENT CLASSES)
+         All 3 Styles Applied to Identical Unstyled HTML
+         ==================================================================== -->
+    <section class="test-block" id="test-section-1">
+      <div class="test-block-header">
+        <div class="test-block-title">
+          <span>1. Raw HTML Comparison Across All 3 Styles</span>
+        </div>
+        <p class="test-block-desc">
+          Exact same unstyled HTML: <code>&lt;div&gt;&lt;h1&gt;...&lt;/h1&gt;&lt;p&gt;...&lt;/p&gt;&lt;button&gt;...&lt;/button&gt;&lt;/div&gt;</code>.
+          Zero custom classes (no .hero, .card, .btn). Only the style class is applied.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <!-- 1A: Brutalism Raw HTML -->
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: #ffe600; text-transform: uppercase; margin-bottom: 0.5rem;">
+            A. Brutalism (.style-brutalism)
+          </div>
+          <div class="style-brutalism" id="raw-brutalism-hero">
+            <h1>Launch Your Product</h1>
+            <p>Build something people actually want with high velocity engineering.</p>
+            <button id="btn-raw-brutalism">Get Started</button>
+          </div>
+        </div>
+
+        <!-- 1B: Minimalism Raw HTML -->
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: #cbd5e1; text-transform: uppercase; margin-bottom: 0.5rem;">
+            B. Minimalism (.style-minimalism)
+          </div>
+          <div class="style-minimalism" id="raw-minimalism-hero">
+            <h1>Launch Your Product</h1>
+            <p>Build something people actually want with high velocity engineering.</p>
+            <button id="btn-raw-minimalism">Get Started</button>
+          </div>
+        </div>
+
+        <!-- 1C: Glassmorphism Raw HTML -->
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: #38bdf8; text-transform: uppercase; margin-bottom: 0.5rem;">
+            C. Glassmorphism (.style-glassmorphism)
+          </div>
+          <div class="style-glassmorphism" id="raw-glassmorphism-hero">
+            <h1>Launch Your Product</h1>
+            <p>Build something people actually want with high velocity engineering.</p>
+            <button id="btn-raw-glassmorphism">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: FIVE INDEPENDENT SEMANTIC STRUCTURES (BRUTALISM)
+         A. Simple Hero, B. Card, C. Form, D. Article, E. Navigation
+         ==================================================================== -->
+    <section class="test-block" id="test-section-2">
+      <div class="test-block-header">
+        <div class="test-block-title">
+          <span>2. Five Independent Semantic HTML Structures (Brutalism Design Language)</span>
+        </div>
+        <p class="test-block-desc">
+          Verifies that the Style Engine adapts recipes to distinct semantic structures rather than applying one generic rectangle.
+        </p>
+      </div>
+
+      <div class="style-brutalism" id="structures-brutalism-container" style="padding: 1.5rem;">
+        
+        <!-- Structure E: Navigation -->
+        <nav id="struct-nav">
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <button id="struct-nav-btn">Sign In</button>
+        </nav>
+
+        <!-- Structure A: Simple Hero -->
+        <div id="struct-hero">
+          <h1>Mission-Critical Cloud Platforms</h1>
+          <p>Autonomous deployment pipelines with zero-downtime rolling upgrades.</p>
+          <button id="struct-hero-btn">Start Free Trial</button>
+        </div>
+
+        <!-- Structure B: Card -->
+        <div id="struct-card">
+          <h2>Predictive Telemetry</h2>
+          <p>Real-time distributed tracing and automated anomaly mitigation across clusters.</p>
+          <button id="struct-card-btn">Explore Docs</button>
+        </div>
+
+        <!-- Structure C: Form -->
+        <form id="struct-form" onsubmit="event.preventDefault();">
+          <h2>Developer Newsletter</h2>
+          <label for="sub-email">Enter Work Email</label>
+          <input type="email" id="sub-email" placeholder="alex@company.com" required />
+          <button type="submit" id="struct-form-btn">Subscribe Now</button>
+        </form>
+
+        <!-- Structure D: Article -->
+        <article id="struct-article">
+          <h1>The Evolution of Distributed Architectures</h1>
+          <p>Modern software delivery has transitioned from monolithic deployments to decentralized, self-healing topologies.</p>
+          <blockquote>
+            "Simplicity is prerequisite for reliability." — Edsger W. Dijkstra
+          </blockquote>
+          <p>Engineering teams must design for partial failure modes at every boundary.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: COMPONENT-LEVEL APPLICATION
+         Page remains neutral, ONLY the Card receives style-brutalism
+         ==================================================================== -->
+    <section class="test-block" id="test-section-3">
+      <div class="test-block-header">
+        <div class="test-block-title">
+          <span>3. Component-Level Application (No Style Leakage)</span>
+        </div>
+        <p class="test-block-desc">
+          The outer container and hero section are standard unstyled elements.
+          ONLY the feature card has <code>class="style-brutalism"</code>.
+          The rest of the page must NOT become Brutalist.
+        </p>
+      </div>
+
+      <div class="test-viewport" id="component-scope-wrapper">
+        <!-- Neutral Hero -->
+        <div id="neutral-outer-hero" style="margin-bottom: 1.5rem; padding: 1.5rem; background: #1e293b; border-radius: 8px;">
+          <h2 style="margin: 0 0 0.5rem; font-size: 1.25rem; color: #94a3b8;">Standard Neutral Section Header</h2>
+          <p style="margin: 0; font-size: 0.875rem; color: #64748b;">This text and container are entirely outside any style engine class.</p>
+          <button id="neutral-outer-btn" style="margin-top: 0.75rem; padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid #475569; background: #334155; color: #f8fafc;">
+            Neutral Button
+          </button>
+        </div>
+
+        <!-- Single Isolated Brutalism Card -->
+        <div class="style-brutalism" id="isolated-brutalist-card">
+          <h2>Isolated Brutalist Component</h2>
+          <p>Only this component has .style-brutalism applied. Notice its thick border and acid yellow button.</p>
+          <button id="isolated-brutalist-btn">Claim Access</button>
+        </div>
+
+        <!-- Another Neutral Sibling -->
+        <div id="neutral-outer-footer" style="margin-top: 1.5rem; padding: 1rem; color: #64748b; font-size: 0.8125rem;">
+          Neutral footer text — verifies that .style-brutalism did not pollute sibling cascade.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: NESTED OVERRIDES & CLEAN INHERITANCE
+         Page: Minimalism
+         Section: Inherits Minimalism
+         Button: Brutalism Override
+         ==================================================================== -->
+    <section class="test-block" id="test-section-4">
+      <div class="test-block-header">
+        <div class="test-block-title">
+          <span>4. Nested Overrides & Scope Hierarchy</span>
+        </div>
+        <p class="test-block-desc">
+          Outer container has <code>.style-minimalism</code>.
+          Child section cleanly inherits Minimalism (restrained typography, hairline borders).
+          The button explicitly specifies <code>class="style-brutalism"</code>.
+          Button receives Brutalist styling (yellow background, 3px solid black border, offset shadow)
+          without leaking Brutalism to its siblings.
+        </p>
+      </div>
+
+      <div class="test-viewport" style="background-color: #fafafa; color: #18181b;">
+        <div class="style-minimalism" id="nested-minimalism-root" style="padding: 2rem;">
+          <section id="nested-minimalism-section">
+            <h1 id="nested-inherited-heading">Minimalist Editorial Container</h1>
+            <p id="nested-inherited-paragraph">
+              This paragraph inherits quiet, restrained typography from the Minimalism scope.
+            </p>
+
+            <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem;">
+              <!-- Default Inherited Button (Minimalist) -->
+              <button id="nested-inherited-btn">Inherited Minimalist Button</button>
+
+              <!-- Explicit Component Override (Brutalist Button) -->
+              <button class="style-brutalism" id="nested-override-brutalist-btn">
+                Brutalist Override Button
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Load consumer script which imports strictly from the public library API -->
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

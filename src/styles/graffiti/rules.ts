@@ -1,0 +1,904 @@
+/**
+ * Graffiti Design Language — Street Art Murals, Spray Paint & Urban Culture Stylesheet
+ * 
+ * Inspired by street art, tags, murals, stickers, spray paint, hand lettering,
+ * urban surfaces, and expressive public visual culture.
+ * 
+ * Distinct from Brutalism: Not rigid monochrome boxiness, but authentic street-art
+ * composition, spray-paint textures, die-cut vinyl stickers, and marker typography.
+ * Distinct from Scrapbook: Not nostalgic paper ephemera or washi tape, but raw
+ * concrete, spray paint, stencils, and wheatpasted urban posters.
+ * 
+ * Preserves the user's source HTML with zero DOM mutations.
+ */
+
+export const graffitiSemanticCss = `
+  /* ==========================================================================
+     GRAFFITI DESIGN LANGUAGE — STREET ART & URBAN CULTURE
+     ========================================================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+  /* --------------------------------------------------------------------------
+     1. FOUNDATION & SCOPED VARIABLES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"],
+  .graffiti-styled-container,
+  .style-graffiti,
+  .ds-scope[data-style-id="graffiti"],
+  [data-style="graffiti"] {
+    /* Urban Asphalt & Concrete Surface Palette */
+    --gf-bg: #121214;                    /* Dark urban asphalt substrate */
+    --gf-surface: #1c1d22;               /* Weathered concrete panel / poster substrate */
+    --gf-surface-subtle: #26272e;        /* Layered cement slab */
+    --gf-text: #f5f5f7;                  /* Chalk / off-white spray paint */
+    --gf-text-secondary: #a1a1aa;        /* Concrete slate gray */
+    --gf-text-muted: #71717a;            /* Faded asphalt gray */
+
+    /* Street Art Signal Colors */
+    --gf-red: #ff1e42;                   /* Saturated spray crimson */
+    --gf-red-hover: #ff4765;
+    --gf-yellow: #ffea00;                /* Stencil hazard yellow */
+    --gf-blue: #0066ff;                  /* Electric spray blue */
+    --gf-green: #00ff55;                 /* Acid spray green */
+    --gf-orange: #ff5500;                /* Marker orange */
+    --gf-border: #2e2f38;                /* Asphalt seam border */
+
+    /* Typography */
+    --gf-font-display: 'Anton', 'Space Grotesk', -apple-system, sans-serif;
+    --gf-font-tag: 'Permanent Marker', cursive, sans-serif;
+    --gf-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --gf-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Base Canvas Styling */
+    background-color: var(--gf-bg) !important;
+    color: var(--gf-text) !important;
+    font-family: var(--gf-font-body) !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.65 !important;
+    box-sizing: border-box !important;
+    position: relative;
+    min-height: 100%;
+    padding: 3rem 2.25rem;
+
+    /* Urban concrete wall texture: subtle spray speckles & seam lines */
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(255, 30, 66, 0.12) 0%, transparent 35%),
+      radial-gradient(circle at 82% 78%, rgba(0, 102, 255, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255, 234, 0, 0.05) 0%, transparent 45%),
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px !important;
+
+    /* Top crimson spray boundary */
+    border: 2px solid var(--gf-border) !important;
+    border-top: 3px solid var(--gf-red) !important;
+    box-shadow: 0 0 25px rgba(255, 30, 66, 0.3), 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     2. GLOBAL RESETS & SCOPED ELEMENT STYLING
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] *,
+  .graffiti-styled-container *,
+  .style-graffiti *,
+  .ds-scope[data-style-id="graffiti"] *,
+  [data-style="graffiti"] * {
+    box-sizing: border-box;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. TYPOGRAPHY & HEADING HIERARCHY
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] h1,
+  .lab-styled-preview[data-style="graffiti"] h2,
+  .lab-styled-preview[data-style="graffiti"] h3,
+  .lab-styled-preview[data-style="graffiti"] h4,
+  .lab-styled-preview[data-style="graffiti"] h5,
+  .lab-styled-preview[data-style="graffiti"] h6,
+  .graffiti-styled-container h1,
+  .graffiti-styled-container h2,
+  .graffiti-styled-container h3,
+  .graffiti-styled-container h4,
+  .graffiti-styled-container h5,
+  .graffiti-styled-container h6,
+  .style-graffiti h1,
+  .style-graffiti h2,
+  .style-graffiti h3,
+  .style-graffiti h4,
+  .style-graffiti h5,
+  .style-graffiti h6,
+  .ds-scope[data-style-id="graffiti"] h1,
+  .ds-scope[data-style-id="graffiti"] h2,
+  .ds-scope[data-style-id="graffiti"] h3,
+  .ds-scope[data-style-id="graffiti"] h4,
+  .ds-scope[data-style-id="graffiti"] h5,
+  .ds-scope[data-style-id="graffiti"] h6,
+  [data-style="graffiti"] h1,
+  [data-style="graffiti"] h2,
+  [data-style="graffiti"] h3,
+  [data-style="graffiti"] h4,
+  [data-style="graffiti"] h5,
+  [data-style="graffiti"] h6 {
+    font-family: var(--gf-font-display) !important;
+    text-transform: uppercase !important;
+    margin-top: 0;
+    line-height: 1.15 !important;
+    color: var(--gf-text) !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Main Mural Title H1: High-Impact Street Typography */
+  .lab-styled-preview[data-style="graffiti"] h1,
+  .graffiti-styled-container h1,
+  .style-graffiti h1,
+  .ds-scope[data-style-id="graffiti"] h1,
+  [data-style="graffiti"] h1 {
+    font-size: 3.25rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.5rem !important;
+    color: #ffffff !important;
+    text-shadow: 3px 3px 0px #000000, 0 0 20px rgba(255, 30, 66, 0.4) !important;
+    position: relative;
+    display: inline-block;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] h1::after,
+  .graffiti-styled-container h1::after,
+  .style-graffiti h1::after,
+  .ds-scope[data-style-id="graffiti"] h1::after,
+  [data-style="graffiti"] h1::after {
+    content: '';
+    display: block;
+    width: 140px;
+    height: 6px;
+    background: var(--gf-yellow);
+    margin-top: 0.6rem;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 0px #000000;
+  }
+
+  /* Section Title H2: Bold Urban Headline */
+  .lab-styled-preview[data-style="graffiti"] h2,
+  .graffiti-styled-container h2,
+  .style-graffiti h2,
+  .ds-scope[data-style-id="graffiti"] h2,
+  [data-style="graffiti"] h2 {
+    font-size: 2.15rem !important;
+    font-weight: 800 !important;
+    margin-top: 2.25rem !important;
+    margin-bottom: 1.15rem !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 0px #000000 !important;
+    position: relative;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] h2::before,
+  .graffiti-styled-container h2::before,
+  .style-graffiti h2::before,
+  .ds-scope[data-style-id="graffiti"] h2::before,
+  [data-style="graffiti"] h2::before {
+    content: '// ';
+    color: var(--gf-red);
+    font-family: var(--gf-font-tag);
+    font-size: 1.5rem;
+    margin-right: 0.25rem;
+  }
+
+  /* Subsection Title H3 */
+  .lab-styled-preview[data-style="graffiti"] h3,
+  .graffiti-styled-container h3,
+  .style-graffiti h3,
+  .ds-scope[data-style-id="graffiti"] h3,
+  [data-style="graffiti"] h3 {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.75rem !important;
+    color: #ffffff !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] h4,
+  .graffiti-styled-container h4,
+  .style-graffiti h4,
+  .ds-scope[data-style-id="graffiti"] h4,
+  [data-style="graffiti"] h4 {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: var(--gf-yellow) !important;
+  }
+
+  /* Paragraphs & Text Content */
+  .lab-styled-preview[data-style="graffiti"] p,
+  .graffiti-styled-container p,
+  .style-graffiti p,
+  .ds-scope[data-style-id="graffiti"] p,
+  [data-style="graffiti"] p {
+    font-family: var(--gf-font-body) !important;
+    color: var(--gf-text-secondary) !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.65 !important;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] strong,
+  .graffiti-styled-container strong,
+  .style-synthwave strong,
+  .ds-scope[data-style-id="graffiti"] strong,
+  [data-style="graffiti"] strong {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+
+  /* Street Tag Markers & Eyebrows */
+  .lab-styled-preview[data-style="graffiti"] .tag,
+  .lab-styled-preview[data-style="graffiti"] header > p:first-child,
+  .lab-styled-preview[data-style="graffiti"] .eyebrow,
+  .graffiti-styled-container .tag,
+  .graffiti-styled-container header > p:first-child,
+  .graffiti-styled-container .eyebrow,
+  .style-graffiti .tag,
+  .style-graffiti header > p:first-child,
+  .style-graffiti .eyebrow,
+  .ds-scope[data-style-id="graffiti"] .tag,
+  .ds-scope[data-style-id="graffiti"] header > p:first-child,
+  .ds-scope[data-style-id="graffiti"] .eyebrow,
+  [data-style="graffiti"] .tag,
+  [data-style="graffiti"] header > p:first-child,
+  [data-style="graffiti"] .eyebrow {
+    font-family: var(--gf-font-tag) !important;
+    color: var(--gf-yellow) !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    font-size: 0.9375rem !important;
+    text-shadow: 1px 1px 0px #000000 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     4. NAVIGATION & HEADER SYSTEM
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] nav,
+  .lab-styled-preview[data-style="graffiti"] header:not(.hero),
+  .graffiti-styled-container nav,
+  .graffiti-styled-container header:not(.hero),
+  .style-graffiti nav,
+  .style-graffiti header:not(.hero),
+  .ds-scope[data-style-id="graffiti"] nav,
+  .ds-scope[data-style-id="graffiti"] header:not(.hero),
+  [data-style="graffiti"] nav,
+  [data-style="graffiti"] header:not(.hero) {
+    background: rgba(28, 29, 34, 0.95) !important;
+    border: 2px solid var(--gf-border) !important;
+    border-radius: 6px !important;
+    box-shadow: 3px 3px 0px #000000 !important;
+    padding: 1rem 1.75rem !important;
+    margin-bottom: 2.25rem !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] nav ul,
+  .graffiti-styled-container nav ul,
+  .style-graffiti nav ul,
+  .ds-scope[data-style-id="graffiti"] nav ul,
+  [data-style="graffiti"] nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.75rem !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] nav a,
+  .graffiti-styled-container nav a,
+  .style-graffiti nav a,
+  .ds-scope[data-style-id="graffiti"] nav a,
+  [data-style="graffiti"] nav a {
+    font-family: var(--gf-font-display) !important;
+    font-size: 0.9375rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--gf-text) !important;
+    text-decoration: none !important;
+    transition: all 150ms ease !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 3px !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] nav a:hover,
+  .graffiti-styled-container nav a:hover,
+  .style-graffiti nav a:hover,
+  .ds-scope[data-style-id="graffiti"] nav a:hover,
+  [data-style="graffiti"] nav a:hover {
+    color: #ffffff !important;
+    background: var(--gf-red) !important;
+    transform: rotate(-1deg) scale(1.05) !important;
+    box-shadow: 2px 2px 0px #000000 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     5. HERO / STREET MURAL INTRO
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] header.hero,
+  .lab-styled-preview[data-style="graffiti"] .hero,
+  .graffiti-styled-container header.hero,
+  .graffiti-styled-container .hero,
+  .style-graffiti header.hero,
+  .style-graffiti .hero,
+  .ds-scope[data-style-id="graffiti"] header.hero,
+  .ds-scope[data-style-id="graffiti"] .hero,
+  [data-style="graffiti"] header.hero,
+  [data-style="graffiti"] .hero {
+    position: relative;
+    padding: 3.5rem 2.25rem !important;
+    margin-bottom: 3rem !important;
+    border-radius: 8px !important;
+    background: radial-gradient(ellipse 70% 60% at 50% 25%, rgba(255, 30, 66, 0.22) 0%, rgba(28, 29, 34, 0.9) 60%, rgba(18, 18, 20, 0.98) 100%) !important;
+    border: 2px solid var(--gf-red) !important;
+    box-shadow: 5px 5px 0px #000000, 0 0 25px rgba(255, 30, 66, 0.25) !important;
+    overflow: hidden;
+  }
+
+  /* --------------------------------------------------------------------------
+     6. CARDS, SECTIONS & CONTAINER MODULES
+     -------------------------------------------------------------------------- */
+  /* Un-cardify plain text paragraphs in articles and sections */
+  .lab-styled-preview[data-style="graffiti"] article > p,
+  .lab-styled-preview[data-style="graffiti"] section > p,
+  .lab-styled-preview[data-style="graffiti"] main > p,
+  .graffiti-styled-container article > p,
+  .graffiti-styled-container section > p,
+  .graffiti-styled-container main > p,
+  .style-graffiti article > p,
+  .style-graffiti section > p,
+  .style-graffiti main > p,
+  .ds-scope[data-style-id="graffiti"] article > p,
+  .ds-scope[data-style-id="graffiti"] section > p,
+  .ds-scope[data-style-id="graffiti"] main > p,
+  [data-style="graffiti"] article > p,
+  [data-style="graffiti"] section > p,
+  [data-style="graffiti"] main > p {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* Actual Wheatpaste Poster Panels & Cards */
+  .lab-styled-preview[data-style="graffiti"] .card,
+  .lab-styled-preview[data-style="graffiti"] article:not(.prose),
+  .lab-styled-preview[data-style="graffiti"] .feature-card,
+  .lab-styled-preview[data-style="graffiti"] .pricing-card,
+  .lab-styled-preview[data-style="graffiti"] .tier,
+  .graffiti-styled-container .card,
+  .graffiti-styled-container article:not(.prose),
+  .graffiti-styled-container .feature-card,
+  .graffiti-styled-container .pricing-card,
+  .graffiti-styled-container .tier,
+  .style-graffiti .card,
+  .style-graffiti article:not(.prose),
+  .style-graffiti .feature-card,
+  .style-graffiti .pricing-card,
+  .style-graffiti .tier,
+  .ds-scope[data-style-id="graffiti"] .card,
+  .ds-scope[data-style-id="graffiti"] article:not(.prose),
+  .ds-scope[data-style-id="graffiti"] .feature-card,
+  .ds-scope[data-style-id="graffiti"] .pricing-card,
+  .ds-scope[data-style-id="graffiti"] .tier,
+  [data-style="graffiti"] .card,
+  [data-style="graffiti"] article:not(.prose),
+  [data-style="graffiti"] .feature-card,
+  [data-style="graffiti"] .pricing-card,
+  [data-style="graffiti"] .tier {
+    background: var(--gf-surface) !important;
+    border: 2px solid var(--gf-border) !important;
+    border-radius: 6px !important;
+    padding: 2.25rem 2rem !important;
+    box-shadow: 4px 4px 0px #000000, 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] .card:hover,
+  .lab-styled-preview[data-style="graffiti"] article:not(.prose):hover,
+  .lab-styled-preview[data-style="graffiti"] .feature-card:hover,
+  .lab-styled-preview[data-style="graffiti"] .pricing-card:hover,
+  .lab-styled-preview[data-style="graffiti"] .tier:hover,
+  .graffiti-styled-container .card:hover,
+  .graffiti-styled-container article:not(.prose):hover,
+  .graffiti-styled-container .feature-card:hover,
+  .graffiti-styled-container .pricing-card:hover,
+  .graffiti-styled-container .tier:hover,
+  .style-graffiti .card:hover,
+  .style-graffiti article:not(.prose):hover,
+  .style-graffiti .feature-card:hover,
+  .style-graffiti .pricing-card:hover,
+  .style-graffiti .tier:hover,
+  .ds-scope[data-style-id="graffiti"] .card:hover,
+  .ds-scope[data-style-id="graffiti"] article:not(.prose):hover,
+  .ds-scope[data-style-id="graffiti"] .feature-card:hover,
+  .ds-scope[data-style-id="graffiti"] .pricing-card:hover,
+  .ds-scope[data-style-id="graffiti"] .tier:hover,
+  [data-style="graffiti"] .card:hover,
+  [data-style="graffiti"] article:not(.prose):hover,
+  [data-style="graffiti"] .feature-card:hover,
+  [data-style="graffiti"] .pricing-card:hover,
+  [data-style="graffiti"] .tier:hover {
+    border-color: var(--gf-red) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 6px 6px 0px #000000, 0 0 18px rgba(255, 30, 66, 0.3) !important;
+  }
+
+  /* Grid Layouts */
+  .lab-styled-preview[data-style="graffiti"] .grid,
+  .lab-styled-preview[data-style="graffiti"] .stat-grid,
+  .lab-styled-preview[data-style="graffiti"] .pricing-grid,
+  .lab-styled-preview[data-style="graffiti"] .product-grid,
+  .lab-styled-preview[data-style="graffiti"] section > div:not(.hero),
+  .graffiti-styled-container .grid,
+  .graffiti-styled-container .stat-grid,
+  .graffiti-styled-container .pricing-grid,
+  .graffiti-styled-container .product-grid,
+  .graffiti-styled-container section > div:not(.hero),
+  .style-graffiti .grid,
+  .style-graffiti .stat-grid,
+  .style-graffiti .pricing-grid,
+  .style-graffiti .product-grid,
+  .style-graffiti section > div:not(.hero),
+  .ds-scope[data-style-id="graffiti"] .grid,
+  .ds-scope[data-style-id="graffiti"] .stat-grid,
+  .ds-scope[data-style-id="graffiti"] .pricing-grid,
+  .ds-scope[data-style-id="graffiti"] .product-grid,
+  .ds-scope[data-style-id="graffiti"] section > div:not(.hero),
+  [data-style="graffiti"] .grid,
+  [data-style="graffiti"] .stat-grid,
+  [data-style="graffiti"] .pricing-grid,
+  [data-style="graffiti"] .product-grid,
+  [data-style="graffiti"] section > div:not(.hero) {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.75rem !important;
+  }
+
+  /* Card Button Full-Width */
+  .lab-styled-preview[data-style="graffiti"] .card button,
+  .graffiti-styled-container .card button,
+  .style-graffiti .card button,
+  .ds-scope[data-style-id="graffiti"] .card button,
+  [data-style="graffiti"] .card button {
+    margin-top: 1rem !important;
+    width: 100% !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     7. BUTTONS & INTERACTIVE CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] button,
+  .lab-styled-preview[data-style="graffiti"] .btn,
+  .lab-styled-preview[data-style="graffiti"] a.btn,
+  .lab-styled-preview[data-style="graffiti"] input[type="submit"],
+  .lab-styled-preview[data-style="graffiti"] input[type="button"],
+  .graffiti-styled-container button,
+  .graffiti-styled-container .btn,
+  .graffiti-styled-container a.btn,
+  .graffiti-styled-container input[type="submit"],
+  .graffiti-styled-container input[type="button"],
+  .style-graffiti button,
+  .style-graffiti .btn,
+  .style-graffiti a.btn,
+  .style-graffiti input[type="submit"],
+  .style-graffiti input[type="button"],
+  .ds-scope[data-style-id="graffiti"] button,
+  .ds-scope[data-style-id="graffiti"] .btn,
+  .ds-scope[data-style-id="graffiti"] a.btn,
+  .ds-scope[data-style-id="graffiti"] input[type="submit"],
+  .ds-scope[data-style-id="graffiti"] input[type="button"],
+  [data-style="graffiti"] button,
+  [data-style="graffiti"] .btn,
+  [data-style="graffiti"] a.btn,
+  [data-style="graffiti"] input[type="submit"],
+  [data-style="graffiti"] input[type="button"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.75rem 2rem !important;
+    font-family: var(--gf-font-display) !important;
+    font-size: 0.9375rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border-radius: 4px !important;
+    border: 2px solid var(--gf-red) !important;
+    background: var(--gf-red) !important;
+    color: #ffffff !important;
+    box-shadow: 3px 3px 0px #000000, 0 0 12px rgba(255, 30, 66, 0.35) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] button:hover,
+  .lab-styled-preview[data-style="graffiti"] .btn:hover,
+  .lab-styled-preview[data-style="graffiti"] a.btn:hover,
+  .lab-styled-preview[data-style="graffiti"] input[type="submit"]:hover,
+  .graffiti-styled-container button:hover,
+  .graffiti-styled-container .btn:hover,
+  .graffiti-styled-container a.btn:hover,
+  .graffiti-styled-container input[type="submit"]:hover,
+  .style-graffiti button:hover,
+  .style-graffiti .btn:hover,
+  .style-graffiti a.btn:hover,
+  .style-graffiti input[type="submit"]:hover,
+  .ds-scope[data-style-id="graffiti"] button:hover,
+  .ds-scope[data-style-id="graffiti"] .btn:hover,
+  .ds-scope[data-style-id="graffiti"] a.btn:hover,
+  .ds-scope[data-style-id="graffiti"] input[type="submit"]:hover,
+  [data-style="graffiti"] button:hover,
+  [data-style="graffiti"] .btn:hover,
+  [data-style="graffiti"] a.btn:hover,
+  [data-style="graffiti"] input[type="submit"]:hover {
+    background: var(--gf-red-hover) !important;
+    border-color: var(--gf-yellow) !important;
+    color: #ffffff !important;
+    box-shadow: 4px 4px 0px #000000, 0 0 20px rgba(255, 234, 0, 0.5) !important;
+    transform: translateY(-2px) rotate(-1deg) !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] button:active,
+  .graffiti-styled-container button:active,
+  .style-graffiti button:active,
+  .ds-scope[data-style-id="graffiti"] button:active,
+  [data-style="graffiti"] button:active {
+    transform: translate(2px, 2px) !important;
+    box-shadow: 1px 1px 0px #000000 !important;
+  }
+
+  /* Keyboard Focus Accessibility */
+  .lab-styled-preview[data-style="graffiti"] button:focus-visible,
+  .lab-styled-preview[data-style="graffiti"] a:focus-visible,
+  .lab-styled-preview[data-style="graffiti"] input:focus-visible,
+  .graffiti-styled-container button:focus-visible,
+  .graffiti-styled-container a:focus-visible,
+  .graffiti-styled-container input:focus-visible,
+  .style-graffiti button:focus-visible,
+  .style-graffiti a:focus-visible,
+  .style-graffiti input:focus-visible,
+  .ds-scope[data-style-id="graffiti"] button:focus-visible,
+  .ds-scope[data-style-id="graffiti"] a:focus-visible,
+  .ds-scope[data-style-id="graffiti"] input:focus-visible,
+  [data-style="graffiti"] button:focus-visible,
+  [data-style="graffiti"] a:focus-visible,
+  [data-style="graffiti"] input:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--gf-bg), 0 0 0 4px var(--gf-yellow), 0 0 20px var(--gf-yellow) !important;
+  }
+
+  /* Disabled State */
+  .lab-styled-preview[data-style="graffiti"] button:disabled,
+  .lab-styled-preview[data-style="graffiti"] input:disabled,
+  .graffiti-styled-container button:disabled,
+  .graffiti-styled-container input:disabled,
+  .style-graffiti button:disabled,
+  .style-graffiti input:disabled,
+  .ds-scope[data-style-id="graffiti"] button:disabled,
+  .ds-scope[data-style-id="graffiti"] input:disabled,
+  [data-style="graffiti"] button:disabled,
+  [data-style="graffiti"] input:disabled {
+    opacity: 0.45 !important;
+    cursor: not-allowed !important;
+    filter: grayscale(0.7) !important;
+    box-shadow: none !important;
+  }
+
+  /* Secondary Button: Stencil Yellow Sticker */
+  .lab-styled-preview[data-style="graffiti"] .btn-secondary,
+  .graffiti-styled-container .btn-secondary,
+  .style-graffiti .btn-secondary,
+  .ds-scope[data-style-id="graffiti"] .btn-secondary,
+  [data-style="graffiti"] .btn-secondary {
+    background: var(--gf-yellow) !important;
+    border: 2px solid #000000 !important;
+    color: #121214 !important;
+    box-shadow: 3px 3px 0px #000000 !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] .btn-secondary:hover,
+  .graffiti-styled-container .btn-secondary:hover,
+  .style-graffiti .btn-secondary:hover,
+  .ds-scope[data-style-id="graffiti"] .btn-secondary:hover,
+  [data-style="graffiti"] .btn-secondary:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 4px 4px 0px #000000, 0 0 15px rgba(255, 255, 255, 0.4) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     8. FORMS, INPUTS & CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] input[type="text"],
+  .lab-styled-preview[data-style="graffiti"] input[type="email"],
+  .lab-styled-preview[data-style="graffiti"] input[type="password"],
+  .lab-styled-preview[data-style="graffiti"] input[type="tel"],
+  .lab-styled-preview[data-style="graffiti"] input[type="search"],
+  .lab-styled-preview[data-style="graffiti"] textarea,
+  .lab-styled-preview[data-style="graffiti"] select,
+  .graffiti-styled-container input[type="text"],
+  .graffiti-styled-container input[type="email"],
+  .graffiti-styled-container input[type="password"],
+  .graffiti-styled-container input[type="tel"],
+  .graffiti-styled-container input[type="search"],
+  .graffiti-styled-container textarea,
+  .graffiti-styled-container select,
+  .style-graffiti input[type="text"],
+  .style-graffiti input[type="email"],
+  .style-graffiti input[type="password"],
+  .style-graffiti input[type="tel"],
+  .style-graffiti input[type="search"],
+  .style-graffiti textarea,
+  .style-graffiti select,
+  .ds-scope[data-style-id="graffiti"] input[type="text"],
+  .ds-scope[data-style-id="graffiti"] input[type="email"],
+  .ds-scope[data-style-id="graffiti"] input[type="password"],
+  .ds-scope[data-style-id="graffiti"] input[type="tel"],
+  .ds-scope[data-style-id="graffiti"] input[type="search"],
+  .ds-scope[data-style-id="graffiti"] textarea,
+  .ds-scope[data-style-id="graffiti"] select,
+  [data-style="graffiti"] input[type="text"],
+  [data-style="graffiti"] input[type="email"],
+  [data-style="graffiti"] input[type="password"],
+  [data-style="graffiti"] input[type="tel"],
+  [data-style="graffiti"] input[type="search"],
+  [data-style="graffiti"] textarea,
+  [data-style="graffiti"] select {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-family: var(--gf-font-body) !important;
+    font-size: 0.875rem !important;
+    border-radius: 4px !important;
+    border: 2px solid var(--gf-border) !important;
+    background: #141417 !important;
+    color: var(--gf-text) !important;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+    transition: all 160ms ease !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] input:focus,
+  .lab-styled-preview[data-style="graffiti"] textarea:focus,
+  .lab-styled-preview[data-style="graffiti"] select:focus,
+  .graffiti-styled-container input:focus,
+  .graffiti-styled-container textarea:focus,
+  .graffiti-styled-container select:focus,
+  .style-graffiti input:focus,
+  .style-graffiti textarea:focus,
+  .style-graffiti select:focus,
+  .ds-scope[data-style-id="graffiti"] input:focus,
+  .ds-scope[data-style-id="graffiti"] textarea:focus,
+  .ds-scope[data-style-id="graffiti"] select:focus,
+  [data-style="graffiti"] input:focus,
+  [data-style="graffiti"] textarea:focus,
+  [data-style="graffiti"] select:focus {
+    border-color: var(--gf-red) !important;
+    box-shadow: 0 0 0 2px rgba(255, 30, 66, 0.25), 0 0 15px rgba(255, 30, 66, 0.3) !important;
+    outline: none !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] label,
+  .graffiti-styled-container label,
+  .style-graffiti label,
+  .ds-scope[data-style-id="graffiti"] label,
+  [data-style="graffiti"] label {
+    display: block !important;
+    font-family: var(--gf-font-display) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: var(--gf-text-secondary) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     9. TABLES & URBAN MATRICES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="graffiti"] table,
+  .graffiti-styled-container table,
+  .style-graffiti table,
+  .ds-scope[data-style-id="graffiti"] table,
+  [data-style="graffiti"] table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border: 2px solid var(--gf-border) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    margin-bottom: 1.75rem !important;
+    background: var(--gf-surface) !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] th,
+  .graffiti-styled-container th,
+  .style-graffiti th,
+  .ds-scope[data-style-id="graffiti"] th,
+  [data-style="graffiti"] th {
+    background: #15161a !important;
+    color: var(--gf-yellow) !important;
+    font-family: var(--gf-font-display) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    padding: 0.85rem 1.15rem !important;
+    text-align: left !important;
+    border-bottom: 2px solid var(--gf-red) !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] td,
+  .graffiti-styled-container td,
+  .style-graffiti td,
+  .ds-scope[data-style-id="graffiti"] td,
+  [data-style="graffiti"] td {
+    padding: 0.85rem 1.15rem !important;
+    border-bottom: 1px solid var(--gf-border) !important;
+    color: var(--gf-text-secondary) !important;
+    font-size: 0.875rem !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] tr:hover td,
+  .graffiti-styled-container tr:hover td,
+  .style-graffiti tr:hover td,
+  .ds-scope[data-style-id="graffiti"] tr:hover td,
+  [data-style="graffiti"] tr:hover td {
+    background: rgba(255, 30, 66, 0.08) !important;
+    color: #ffffff !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     10. SPECIFIC ARCHETYPE ADAPTATIONS
+     -------------------------------------------------------------------------- */
+  /* Die-Cut Vinyl Sticker Badges */
+  .lab-styled-preview[data-style="graffiti"] .badge,
+  .lab-styled-preview[data-style="graffiti"] .tag-sticker,
+  .graffiti-styled-container .badge,
+  .graffiti-styled-container .tag-sticker,
+  .style-graffiti .badge,
+  .style-graffiti .tag-sticker,
+  .ds-scope[data-style-id="graffiti"] .badge,
+  .ds-scope[data-style-id="graffiti"] .tag-sticker,
+  [data-style="graffiti"] .badge,
+  [data-style="graffiti"] .tag-sticker {
+    display: inline-block !important;
+    padding: 0.3rem 0.85rem !important;
+    font-family: var(--gf-font-tag) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    border-radius: 3px !important;
+    border: 2px solid #ffffff !important;
+    background: var(--gf-red) !important;
+    color: #ffffff !important;
+    box-shadow: 2px 2px 0px #000000 !important;
+    transform: rotate(-1.5deg) !important;
+    transition: transform 150ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="graffiti"] .badge:hover,
+  .graffiti-styled-container .badge:hover,
+  .style-graffiti .badge:hover,
+  .ds-scope[data-style-id="graffiti"] .badge:hover,
+  [data-style="graffiti"] .badge:hover {
+    transform: rotate(1deg) scale(1.05) !important;
+  }
+
+  /* Featured / Limited Drop Pricing Tier */
+  .lab-styled-preview[data-style="graffiti"] .pricing-card.featured,
+  .lab-styled-preview[data-style="graffiti"] .tier.featured,
+  .graffiti-styled-container .pricing-card.featured,
+  .graffiti-styled-container .tier.featured,
+  .style-graffiti .pricing-card.featured,
+  .style-graffiti .tier.featured,
+  .ds-scope[data-style-id="graffiti"] .pricing-card.featured,
+  .ds-scope[data-style-id="graffiti"] .tier.featured,
+  [data-style="graffiti"] .pricing-card.featured,
+  [data-style="graffiti"] .tier.featured {
+    border: 2px solid var(--gf-red) !important;
+    box-shadow: 6px 6px 0px #000000, 0 0 30px rgba(255, 30, 66, 0.4) !important;
+    transform: scale(1.02);
+  }
+
+  /* Editorial Underground Zine Blockquote */
+  .lab-styled-preview[data-style="graffiti"] blockquote,
+  .graffiti-styled-container blockquote,
+  .style-graffiti blockquote,
+  .ds-scope[data-style-id="graffiti"] blockquote,
+  [data-style="graffiti"] blockquote {
+    border-left: 5px solid var(--gf-red) !important;
+    background: rgba(28, 29, 34, 0.8) !important;
+    padding: 1.25rem 1.75rem !important;
+    margin: 1.75rem 0 !important;
+    color: #ffffff !important;
+    font-style: italic !important;
+    border-radius: 0 6px 6px 0 !important;
+    box-shadow: 3px 3px 0px #000000 !important;
+    position: relative;
+  }
+
+  /* Dashboard Street Studio LED & Status Dots */
+  .lab-styled-preview[data-style="graffiti"] .led,
+  .lab-styled-preview[data-style="graffiti"] .status-dot,
+  .graffiti-styled-container .led,
+  .graffiti-styled-container .status-dot,
+  .style-graffiti .led,
+  .style-graffiti .status-dot,
+  .ds-scope[data-style-id="graffiti"] .led,
+  .ds-scope[data-style-id="graffiti"] .status-dot,
+  [data-style="graffiti"] .led,
+  [data-style="graffiti"] .status-dot {
+    display: inline-block !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: var(--gf-green) !important;
+    box-shadow: 0 0 10px var(--gf-green) !important;
+    border: 1px solid #000000;
+  }
+
+  /* E-Commerce Streetwear Price Tags */
+  .lab-styled-preview[data-style="graffiti"] .price,
+  .graffiti-styled-container .price,
+  .style-graffiti .price,
+  .ds-scope[data-style-id="graffiti"] .price,
+  [data-style="graffiti"] .price {
+    font-family: var(--gf-font-display) !important;
+    font-weight: 800 !important;
+    color: var(--gf-yellow) !important;
+    text-shadow: 2px 2px 0px #000000 !important;
+    font-size: 1.45rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Restaurant Street Food Menu Item */
+  .lab-styled-preview[data-style="graffiti"] .menu-item,
+  .graffiti-styled-container .menu-item,
+  .style-graffiti .menu-item,
+  .ds-scope[data-style-id="graffiti"] .menu-item,
+  [data-style="graffiti"] .menu-item {
+    border-bottom: 2px dashed var(--gf-border) !important;
+    padding-bottom: 0.85rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Footer Styling */
+  .lab-styled-preview[data-style="graffiti"] footer,
+  .graffiti-styled-container footer,
+  .style-graffiti footer,
+  .ds-scope[data-style-id="graffiti"] footer,
+  [data-style="graffiti"] footer {
+    border-top: 2px solid var(--gf-border) !important;
+    padding-top: 2rem !important;
+    margin-top: 3.5rem !important;
+    font-family: var(--gf-font-body) !important;
+    font-size: 0.8125rem !important;
+    color: var(--gf-text-muted) !important;
+    text-align: center;
+  }
+
+  /* --------------------------------------------------------------------------
+     11. PREFERS-REDUCED-MOTION
+     -------------------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .lab-styled-preview[data-style="graffiti"] *,
+    .graffiti-styled-container *,
+    .style-graffiti *,
+    .ds-scope[data-style-id="graffiti"] *,
+    [data-style="graffiti"] * {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+`;

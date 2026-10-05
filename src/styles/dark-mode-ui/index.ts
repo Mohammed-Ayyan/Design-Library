@@ -1,0 +1,196 @@
+import { StyleDefinition } from '../../core/types/style-definition';
+import { darkModeUiSemanticCss } from './rules';
+
+export const darkModeUiStyle: StyleDefinition = {
+  id: 'dark-mode-ui',
+  name: 'Dark Mode UI',
+  description: 'Deep layered surfaces (#09090b, #111113, #18181b), subtle neutral borders, glare-free high-contrast typography, and restrained professional accents for comfortable viewing.',
+  metadata: {
+    version: '1.0.0',
+    category: 'Modern',
+    tags: ['dark-mode', 'dark-ui', 'layered-surfaces', 'elevation', 'accessible', 'professional', 'comfortable'],
+  },
+  compositionConfig: {
+    containerPhilosophy: 'layered-surfaces',
+    groupingPhilosophy: 'deliberate-elevation',
+    featurePresentation: 'elevated-module',
+    heroMode: 'deep-space',
+    maxWidth: '1200px',
+    alignment: 'clean-grid',
+    density: 'comfortable',
+    hasStructuralBorders: true,
+    hasAsymmetricOffsets: false,
+    hasDecorativeFraming: false,
+  },
+  tokens: {
+    colors: {
+      background: '#09090b', // Deep obsidian base canvas
+      surface: '#111113', // Surface content area
+      surfaceSubtle: '#18181b', // Elevated modules, cards
+      textPrimary: '#fafafa', // Near-white crisp heading/text
+      textSecondary: '#a1a1aa', // Cool gray for comfortable contrast
+      textMuted: '#71717a',
+      primary: '#3b82f6', // Restrained royal blue accent
+      primaryHover: '#2563eb',
+      primaryText: '#ffffff',
+      accent: '#60a5fa', // Light blue signal accent
+      border: '#27272a', // Subtle neutral border
+      borderStrong: '#3f3f46',
+      ring: 'rgba(59, 130, 246, 0.4)',
+    },
+    typography: {
+      fontFamilyBase: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      fontFamilyHeading: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      fontFamilyMono: "'JetBrains Mono', monospace",
+      fontSizeXs: '0.75rem',
+      fontSizeSm: '0.875rem',
+      fontSizeBase: '1rem',
+      fontSizeLg: '1.25rem',
+      fontSizeXl: '1.75rem',
+      fontSize2xl: '2.5rem',
+      fontWeightNormal: 400,
+      fontWeightMedium: 500,
+      fontWeightBold: 700,
+      lineHeightBase: 1.65,
+      lineHeightHeading: 1.2,
+      letterSpacingBase: '-0.01em',
+      letterSpacingHeading: '-0.025em',
+    },
+    spacing: {
+      xs: '0.25rem',
+      sm: '0.5rem',
+      md: '1.25rem',
+      lg: '2rem',
+      xl: '3.5rem',
+      '2xl': '5.5rem',
+    },
+    radii: {
+      none: '0px',
+      sm: '6px',
+      md: '10px',
+      lg: '16px',
+      full: '9999px',
+    },
+    borders: {
+      widthThin: '1px',
+      widthBase: '1px',
+      widthThick: '2px',
+      style: 'solid',
+    },
+    shadows: {
+      none: 'none',
+      sm: '0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4)',
+      md: '0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)',
+      lg: '0 12px 28px rgba(0, 0, 0, 0.65), 0 4px 10px rgba(0, 0, 0, 0.4)',
+      glow: '0 0 16px rgba(59, 130, 246, 0.15)',
+    },
+    motion: {
+      durationFast: '120ms',
+      durationNormal: '200ms',
+      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+    },
+    effects: {
+      backdropBlur: 'none',
+      transformHover: 'translateY(-1px)',
+    },
+  },
+  components: {
+    button: {
+      padding: '0.65rem 1.4rem',
+      fontFamily: "'Inter', sans-serif",
+      fontSize: '0.875rem',
+      fontWeight: 600,
+      borderRadius: '8px',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: 'rgba(255, 255, 255, 0.12)',
+      background: '#3b82f6',
+      color: '#ffffff',
+      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)',
+      letterSpacing: '-0.01em',
+      textTransform: 'none',
+      transition: 'all 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+      hover: {
+        background: '#2563eb',
+        boxShadow: '0 4px 12px rgba(59, 130, 246, 0.35)',
+        transform: 'translateY(-1px)',
+      },
+      active: {
+        transform: 'translateY(0)',
+        boxShadow: '0 1px 2px rgba(0, 0, 0, 0.5)',
+      },
+      focusRing: '0 0 0 2px #09090b, 0 0 0 4px #3b82f6',
+    },
+    card: {
+      padding: '1.5rem',
+      borderRadius: '12px',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: '#27272a',
+      background: '#18181b',
+      color: '#fafafa',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+      transition: 'border-color 150ms ease, box-shadow 150ms ease',
+      hover: {
+        borderColor: '#3f3f46',
+        boxShadow: '0 6px 18px rgba(0, 0, 0, 0.5)',
+      },
+    },
+    input: {
+      padding: '0.65rem 0.85rem',
+      fontFamily: "'Inter', sans-serif",
+      fontSize: '0.875rem',
+      borderRadius: '8px',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: '#27272a',
+      background: '#111113',
+      color: '#fafafa',
+      placeholderColor: '#71717a',
+      focusBorderColor: '#3b82f6',
+      focusRing: '0 0 0 2px rgba(59, 130, 246, 0.25)',
+      transition: 'border-color 150ms ease, box-shadow 150ms ease',
+    },
+    heading: {
+      fontFamily: "'Inter', sans-serif",
+      fontWeight: 700,
+      color: '#fafafa',
+      letterSpacing: '-0.025em',
+      lineHeight: 1.2,
+    },
+    paragraph: {
+      fontFamily: "'Inter', sans-serif",
+      fontSize: '0.95rem',
+      lineHeight: 1.65,
+      color: '#a1a1aa',
+    },
+    badge: {
+      padding: '0.3rem 0.85rem',
+      fontFamily: "'Inter', sans-serif",
+      fontSize: '0.75rem',
+      fontWeight: 600,
+      borderRadius: '9999px',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: '#27272a',
+      background: '#18181b',
+      color: '#60a5fa',
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
+    },
+    section: {
+      padding: '2.5rem 1.5rem',
+      background: 'transparent',
+      borderColor: '#27272a',
+      borderWidth: '0px',
+      borderStyle: 'none',
+    },
+    page: {
+      background: '#09090b',
+      color: '#fafafa',
+      fontFamily: "'Inter', -apple-system, sans-serif",
+    },
+  },
+};
+
+export { darkModeUiSemanticCss };

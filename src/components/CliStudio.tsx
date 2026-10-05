@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { executeCliCommand } from '../core/cli-runner';
 import {
   Terminal,
@@ -275,7 +275,7 @@ export const CliStudio: React.FC<CliStudioProps> = ({ onOpenStudio, onOpenDocs }
                   color: '#94a3b8',
                 }}
               >
-                design-library-cli — bash — 80x28
+                design-library-cli â€” bash â€” 80x28
               </span>
             </div>
 
@@ -450,7 +450,7 @@ export const CliStudio: React.FC<CliStudioProps> = ({ onOpenStudio, onOpenDocs }
             Production CLI Integration Guide
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '0.875rem', margin: '0 0 2rem 0', maxWidth: '700px' }}>
-            The CLI can be run on-demand with <code>npx</code> or installed globally into your team’s development environments.
+            The CLI can be run on-demand with <code>npx</code> or installed globally into your teamâ€™s development environments.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '1.5rem' }}>
@@ -483,7 +483,7 @@ export const CliStudio: React.FC<CliStudioProps> = ({ onOpenStudio, onOpenDocs }
                   lineHeight: 1.6,
                 }}
               >
-                {`# Zero installation (recommended)\nnpx design-library list\n\n# Global installation\nnpm install -g design-library\ndesign-library apply page.html --style wabi-sabi`}
+                {`# Zero installation (recommended)\nnpx design-library list\n\n# Global installation\nnpm install -g git+https://github.com/Mohammed-Ayyan/Design-Library.git\ndesign-library apply page.html --style wabi-sabi`}
               </pre>
             </div>
 
@@ -558,3 +558,4 @@ export const CliStudio: React.FC<CliStudioProps> = ({ onOpenStudio, onOpenDocs }
     </div>
   );
 };
+

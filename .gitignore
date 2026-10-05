@@ -1,10 +1,12 @@
-# Dependencies
+﻿# Dependencies
 node_modules/
 .pnp
 .pnp.js
 
 # Production / Build Output
-dist/
+dist/*
+!dist/lib/
+!dist/lib/**
 dist-ssr/
 *.tsbuildinfo
 
@@ -65,3 +67,5 @@ wabi-sabi.css
 
 test library/
 test-library/
+
+

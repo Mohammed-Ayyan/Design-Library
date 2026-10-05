@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, Sparkles, Terminal, BookOpen, ArrowRight } from 'lucide-react';
 import { ALL_SECTIONS } from './docsData';
 import { ALL_29_STYLES } from '../../styles/catalog';
@@ -68,7 +68,7 @@ export const DocsSearchModal: React.FC<DocsSearchModalProps> = ({
         {
           id: 'installation',
           title: 'Installation',
-          subtitle: 'npm install design-library, pnpm, yarn, bun',
+          subtitle: 'npm install git+https://github.com/Mohammed-Ayyan/Design-Library.git, pnpm, yarn, bun',
           category: 'GETTING STARTED',
           type: 'section',
           action: () => {
@@ -146,7 +146,7 @@ export const DocsSearchModal: React.FC<DocsSearchModalProps> = ({
         matches.push({
           id: `style-${style.id}`,
           title: `${style.name} (${style.id})`,
-          subtitle: `${style.category} — ${style.description.slice(0, 75)}...`,
+          subtitle: `${style.category} â€” ${style.description.slice(0, 75)}...`,
           category: 'DESIGN STYLES',
           type: 'style',
           action: () => {
@@ -382,10 +382,11 @@ export const DocsSearchModal: React.FC<DocsSearchModalProps> = ({
             color: '#64748b',
           }}
         >
-          <span>Use ↑ ↓ to navigate, Enter to select</span>
+          <span>Use â†‘ â†“ to navigate, Enter to select</span>
           <span>Press ESC to close</span>
         </div>
       </div>
     </div>
   );
 };
+

@@ -51,15 +51,28 @@ You keep your existing semantic HTML and component hierarchy. The **Adaptive Sty
 
 ## Installation
 
+Install directly from GitHub into any React, Vite, or web application:
+
 ```bash
 # npm
-npm install design-library
+npm install git+https://github.com/Mohammed-Ayyan/Design-Library.git
 
 # pnpm
-pnpm add design-library
+pnpm add git+https://github.com/Mohammed-Ayyan/Design-Library.git
 
 # yarn
-yarn add design-library
+yarn add git+https://github.com/Mohammed-Ayyan/Design-Library.git
+
+# bun
+bun add git+https://github.com/Mohammed-Ayyan/Design-Library.git
+```
+
+### Local Development / Monorepo Installation
+If working locally or pairing with local repositories:
+```bash
+npm install "path/to/Design Library"
+# or
+npm link design-library
 ```
 
 ---

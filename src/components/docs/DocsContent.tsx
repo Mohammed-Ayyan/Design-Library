@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import {
   Sparkles,
   ArrowRight,
@@ -212,7 +212,7 @@ export const DocsContent: React.FC<DocsContentProps> = ({
                   cursor: 'pointer',
                 }}
               >
-                Explore 32 Styles →
+                Explore 32 Styles â†’
               </button>
             </div>
           </div>
@@ -351,16 +351,16 @@ export const DocsContent: React.FC<DocsContentProps> = ({
             </div>
 
             {installTab === 'npm' && (
-              <CodeBlock code="npm install design-library" language="bash" />
+              <CodeBlock code="npm install git+https://github.com/Mohammed-Ayyan/Design-Library.git" language="bash" />
             )}
             {installTab === 'pnpm' && (
-              <CodeBlock code="pnpm add design-library" language="bash" />
+              <CodeBlock code="pnpm add git+https://github.com/Mohammed-Ayyan/Design-Library.git" language="bash" />
             )}
             {installTab === 'yarn' && (
-              <CodeBlock code="yarn add design-library" language="bash" />
+              <CodeBlock code="yarn add git+https://github.com/Mohammed-Ayyan/Design-Library.git" language="bash" />
             )}
             {installTab === 'bun' && (
-              <CodeBlock code="bun add design-library" language="bash" />
+              <CodeBlock code="bun add git+https://github.com/Mohammed-Ayyan/Design-Library.git" language="bash" />
             )}
           </div>
 
@@ -434,7 +434,7 @@ export const DocsContent: React.FC<DocsContentProps> = ({
 
           <CodeBlock
             code={`// 1. Install
-// npm install design-library
+// npm install git+https://github.com/Mohammed-Ayyan/Design-Library.git
 
 // 2. Import stylesheet
 import 'design-library/style.css';
@@ -666,7 +666,7 @@ export function HeroCard() {
   </main>
 
   <footer>
-    <p>© 2026 Sumi Atelier. Natural materials and quiet craftsmanship.</p>
+    <p>Â© 2026 Sumi Atelier. Natural materials and quiet craftsmanship.</p>
   </footer>
 </body>
 </html>`}
@@ -1302,9 +1302,9 @@ const engine = new StyleEngine([brutalismStyle, bauhausStyle, cyberpunkStyle]);`
 
           <CodeBlock
             code={`page (Root level)
- └── section (Major UI zones: Hero, Pricing, Dashboard)
-      └── container (Cards, Modals, Drawers)
-           └── component (Atomic overrides: Button, Badge, Input)`}
+ â””â”€â”€ section (Major UI zones: Hero, Pricing, Dashboard)
+      â””â”€â”€ container (Cards, Modals, Drawers)
+           â””â”€â”€ component (Atomic overrides: Button, Badge, Input)`}
             language="bash"
           />
 
@@ -1508,7 +1508,7 @@ export default function App() {
       </main>
 
       <footer>
-        <p>© 2026 Bauhaus Digital Foundation.</p>
+        <p>Â© 2026 Bauhaus Digital Foundation.</p>
       </footer>
     </div>
   );
@@ -1594,7 +1594,7 @@ npm run build`}
               </tr>
               <tr>
                 <td style={{ padding: '0.65rem 0.5rem' }}><code>getAvailableStyles()</code></td>
-                <td style={{ padding: '0.65rem 0.5rem' }}>—</td>
+                <td style={{ padding: '0.65rem 0.5rem' }}>â€”</td>
                 <td style={{ padding: '0.65rem 0.5rem' }}><code>StyleDefinition[]</code></td>
                 <td style={{ padding: '0.65rem 0.5rem' }}>Lists all registered styles</td>
               </tr>
@@ -1723,3 +1723,4 @@ console.log('Resolved tokens:', resolved.tokens);`}
     </div>
   );
 };
+

@@ -12,7 +12,9 @@
                               "import":  "./dist/lib/index.js",
                               "require":  "./dist/lib/index.cjs"
                           },
-                    "./style.css":  "./dist/lib/style.css"
+                    "./style.css":  "./dist/lib/style.css",
+                    "./dist/lib/style.css":  "./dist/lib/style.css",
+                    "./styles/*":  "./dist/lib/styles/*"
                 },
     "bin":  {
                 "design-library":  "./bin/design-engine.js",
@@ -25,15 +27,15 @@
               ],
     "scripts":  {
                     "dev":  "vite",
-                    "build":  "tsc \u0026\u0026 vite build",
-                    "build:lib":  "vite build --config vite.config.lib.ts \u0026\u0026 tsc -p tsconfig.lib.json \u0026\u0026 node scripts/build-css.js",
-                    "build:all":  "npm run build \u0026\u0026 npm run build:lib",
+                    "build":  "tsc && vite build",
+                    "build:lib":  "vite build --config vite.config.lib.ts && tsc -p tsconfig.lib.json && node scripts/build-css.js",
+                    "build:all":  "npm run build && npm run build:lib",
                     "preview":  "vite preview",
                     "test":  "vitest run",
                     "prepack":  "npm run build:lib",
                     "create:test-library":  "node scripts/create-test-library.js",
                     "test:create-library":  "node scripts/create-test-library.js",
-                    "prepare":  "npm run build:lib"
+                    "prepare":  "node -e \"const fs=require('fs'); if(!fs.existsSync('./dist/lib/style.css')) { require('child_process').execSync('npm run build:lib', {stdio:'inherit'}); }\""
                 },
     "repository":  {
                        "type":  "git",

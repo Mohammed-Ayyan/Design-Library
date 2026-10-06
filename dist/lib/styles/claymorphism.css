@@ -1,0 +1,735 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ==========================================================================
+     CLAYMORPHISM DESIGN LANGUAGE — INFLATED 3D SURFACES & TACTILE CLAY
+     ========================================================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
+
+  /* --------------------------------------------------------------------------
+     1. FOUNDATION & SCOPED VARIABLES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"],
+  .claymorphism-styled-container,
+  .style-claymorphism {
+    /* Foundation clay palette */
+    --clay-bg: #f6f3eb;                  /* Warm soft cream clay ground */
+    --clay-surface: #ffffff;             /* Crisp warm white clay slab */
+    --clay-surface-subtle: #f8fafc;
+    --clay-surface-recessed: #eeebdf;    /* Softly indented clay tray */
+    
+    /* Friendly controlled pastel clay accents */
+    --clay-lavender: #ede9fe;
+    --clay-lavender-text: #5b21b6;
+    --clay-blue: #dbeafe;
+    --clay-blue-text: #1e40af;
+    --clay-mint: #d1fae5;
+    --clay-mint-text: #065f46;
+    --clay-peach: #ffedd5;
+    --clay-peach-text: #9a3412;
+    --clay-yellow: #fef9c3;
+    --clay-yellow-text: #854d0e;
+    --clay-coral: #ffe4e6;
+    --clay-coral-text: #9f1239;
+
+    /* Primary interactive tactile clay */
+    --clay-primary: #6366f1;             /* Tactile indigo clay pill */
+    --clay-primary-hover: #4f46e5;
+    --clay-primary-active: #4338ca;
+    --clay-primary-text: #ffffff;
+
+    /* High-contrast accessible typography */
+    --clay-text: #1e293b;                /* Slate charcoal (>12:1 on cream/white) */
+    --clay-text-secondary: #475569;      /* Slate body gray (>6:1 contrast) */
+    --clay-text-muted: #64748b;          /* Soft metadata slate */
+
+    /* Inflated 3D clay depth tokens */
+    --clay-card-shadow:
+      inset 4px 5px 10px rgba(255, 255, 255, 0.95),
+      inset -5px -6px 14px rgba(70, 60, 90, 0.07),
+      12px 18px 36px -6px rgba(45, 35, 60, 0.08),
+      4px 6px 14px -2px rgba(45, 35, 60, 0.04);
+
+    --clay-card-shadow-hover:
+      inset 4px 5px 10px rgba(255, 255, 255, 1),
+      inset -5px -6px 14px rgba(70, 60, 90, 0.08),
+      16px 24px 44px -6px rgba(45, 35, 60, 0.11),
+      6px 8px 16px -2px rgba(45, 35, 60, 0.05);
+
+    --clay-btn-shadow:
+      inset 3px 3px 6px rgba(255, 255, 255, 0.45),
+      inset -3px -4px 8px rgba(0, 0, 0, 0.22),
+      0 10px 22px -4px rgba(99, 102, 241, 0.4),
+      0 4px 8px -2px rgba(99, 102, 241, 0.2);
+
+    --clay-btn-shadow-hover:
+      inset 3px 3px 6px rgba(255, 255, 255, 0.55),
+      inset -3px -4px 8px rgba(0, 0, 0, 0.22),
+      0 14px 28px -4px rgba(99, 102, 241, 0.45),
+      0 6px 10px -2px rgba(99, 102, 241, 0.25);
+
+    --clay-btn-shadow-active:
+      inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+      inset -2px -2px 5px rgba(255, 255, 255, 0.25),
+      0 4px 8px -2px rgba(99, 102, 241, 0.3);
+
+    --clay-btn-white-shadow:
+      inset 3px 3px 6px rgba(255, 255, 255, 0.95),
+      inset -3px -3px 6px rgba(70, 60, 90, 0.08),
+      0 8px 18px -4px rgba(45, 35, 60, 0.09),
+      0 2px 6px -1px rgba(45, 35, 60, 0.04);
+
+    --clay-input-shadow:
+      inset 3px 3px 6px rgba(60, 50, 75, 0.09),
+      inset -3px -3px 6px rgba(255, 255, 255, 0.95);
+
+    --clay-input-focus-shadow:
+      inset 2px 2px 4px rgba(99, 102, 241, 0.12),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.95),
+      0 0 0 4px rgba(129, 140, 248, 0.25);
+
+    --clay-badge-shadow:
+      inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.05),
+      0 4px 10px -2px rgba(45, 35, 60, 0.06);
+
+    /* Rounded pillowy radii */
+    --clay-radius-sm: 14px;
+    --clay-radius-md: 22px;
+    --clay-radius-lg: 30px;
+    --clay-radius-xl: 36px;
+    --clay-radius-pill: 9999px;
+
+    background-color: var(--clay-bg) !important;
+    color: var(--clay-text) !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    letter-spacing: -0.01em !important;
+    box-sizing: border-box !important;
+    position: relative;
+    min-height: 100%;
+    padding: 2.5rem 2rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     2. GLOBAL RESETS & SCOPED ELEMENT STYLING
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] *,
+  .claymorphism-styled-container *,
+  .style-claymorphism * {
+    box-sizing: border-box;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. TYPOGRAPHY & HEADING HIERARCHY
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] h1,
+  .lab-styled-preview[data-style="claymorphism"] h2,
+  .lab-styled-preview[data-style="claymorphism"] h3,
+  .lab-styled-preview[data-style="claymorphism"] h4,
+  .lab-styled-preview[data-style="claymorphism"] h5,
+  .lab-styled-preview[data-style="claymorphism"] h6,
+  .claymorphism-styled-container h1,
+  .claymorphism-styled-container h2,
+  .claymorphism-styled-container h3,
+  .claymorphism-styled-container h4,
+  .claymorphism-styled-container h5,
+  .claymorphism-styled-container h6,
+  .style-claymorphism h1,
+  .style-claymorphism h2,
+  .style-claymorphism h3,
+  .style-claymorphism h4,
+  .style-claymorphism h5,
+  .style-claymorphism h6 {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+    color: var(--clay-text) !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.025em !important;
+    margin-top: 0;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] h1,
+  .claymorphism-styled-container h1,
+  .style-claymorphism h1 {
+    font-size: clamp(2.2rem, 4vw, 3.25rem) !important;
+    margin-bottom: 1.25rem !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] h2,
+  .claymorphism-styled-container h2,
+  .style-claymorphism h2 {
+    font-size: clamp(1.65rem, 3vw, 2.25rem) !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] h3,
+  .claymorphism-styled-container h3,
+  .style-claymorphism h3 {
+    font-size: 1.35rem !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 700 !important;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] p,
+  .claymorphism-styled-container p,
+  .style-claymorphism p {
+    color: var(--clay-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] strong,
+  .lab-styled-preview[data-style="claymorphism"] b,
+  .claymorphism-styled-container strong,
+  .claymorphism-styled-container b,
+  .style-claymorphism strong,
+  .style-claymorphism b {
+    color: var(--clay-text);
+    font-weight: 800;
+  }
+
+  /* --------------------------------------------------------------------------
+     4. NAVIGATION — INFLATED CLAY PILL BAR
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] nav,
+  .claymorphism-styled-container nav,
+  .style-claymorphism nav {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 0.85rem;
+    background: #ffffff;
+    border-radius: var(--clay-radius-pill);
+    box-shadow: var(--clay-card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 2.5rem;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] nav a,
+  .claymorphism-styled-container nav a,
+  .style-claymorphism nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--clay-text-secondary);
+    text-decoration: none;
+    border-radius: var(--clay-radius-pill);
+    transition: all 180ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] nav a:hover,
+  .claymorphism-styled-container nav a:hover,
+  .style-claymorphism nav a:hover {
+    background: var(--clay-lavender);
+    color: var(--clay-lavender-text);
+    transform: translateY(-2px);
+    box-shadow: var(--clay-badge-shadow);
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] nav a:first-child,
+  .lab-styled-preview[data-style="claymorphism"] nav a.active,
+  .claymorphism-styled-container nav a:first-child,
+  .claymorphism-styled-container nav a.active,
+  .style-claymorphism nav a:first-child,
+  .style-claymorphism nav a.active {
+    background: var(--clay-primary);
+    color: #ffffff;
+    box-shadow: var(--clay-btn-shadow);
+  }
+
+  /* --------------------------------------------------------------------------
+     5. HERO & SECTION HEADERS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] header,
+  .claymorphism-styled-container header,
+  .style-claymorphism header {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Kicker / Category tag above heading */
+  .lab-styled-preview[data-style="claymorphism"] header > p:first-child,
+  .claymorphism-styled-container header > p:first-child,
+  .style-claymorphism header > p:first-child {
+    display: inline-block;
+    padding: 0.35rem 1.15rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--clay-lavender-text);
+    background: var(--clay-lavender);
+    border-radius: var(--clay-radius-pill);
+    box-shadow: var(--clay-badge-shadow);
+    margin-bottom: 0.85rem;
+  }
+
+  /* --------------------------------------------------------------------------
+     6. BUTTONS & INTERACTIVE CONTROLS — INFLATED TACTILE PILLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] button,
+  .lab-styled-preview[data-style="claymorphism"] a[role="button"],
+  .lab-styled-preview[data-style="claymorphism"] input[type="submit"],
+  .lab-styled-preview[data-style="claymorphism"] input[type="button"],
+  .claymorphism-styled-container button,
+  .claymorphism-styled-container a[role="button"],
+  .claymorphism-styled-container input[type="submit"],
+  .claymorphism-styled-container input[type="button"],
+  .style-claymorphism button,
+  .style-claymorphism a[role="button"],
+  .style-claymorphism input[type="submit"],
+  .style-claymorphism input[type="button"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.85rem;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-radius: var(--clay-radius-pill);
+    border: none;
+    cursor: pointer;
+    background: var(--clay-primary);
+    color: var(--clay-primary-text);
+    box-shadow: var(--clay-btn-shadow);
+    transition: transform 160ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 160ms ease,
+                background-color 160ms ease;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] button:hover,
+  .lab-styled-preview[data-style="claymorphism"] a[role="button"]:hover,
+  .lab-styled-preview[data-style="claymorphism"] input[type="submit"]:hover,
+  .claymorphism-styled-container button:hover,
+  .claymorphism-styled-container a[role="button"]:hover,
+  .claymorphism-styled-container input[type="submit"]:hover,
+  .style-claymorphism button:hover,
+  .style-claymorphism a[role="button"]:hover,
+  .style-claymorphism input[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: var(--clay-primary-hover);
+    box-shadow: var(--clay-btn-shadow-hover);
+  }
+
+  /* Pressed / Compressed Squish Active State */
+  .lab-styled-preview[data-style="claymorphism"] button:active,
+  .lab-styled-preview[data-style="claymorphism"] a[role="button"]:active,
+  .lab-styled-preview[data-style="claymorphism"] input[type="submit"]:active,
+  .claymorphism-styled-container button:active,
+  .claymorphism-styled-container a[role="button"]:active,
+  .claymorphism-styled-container input[type="submit"]:active,
+  .style-claymorphism button:active,
+  .style-claymorphism a[role="button"]:active,
+  .style-claymorphism input[type="submit"]:active {
+    transform: translateY(2px) scale(0.97);
+    background: var(--clay-primary-active);
+    box-shadow: var(--clay-btn-shadow-active);
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] button:focus-visible,
+  .lab-styled-preview[data-style="claymorphism"] a[role="button"]:focus-visible,
+  .lab-styled-preview[data-style="claymorphism"] input[type="submit"]:focus-visible,
+  .claymorphism-styled-container button:focus-visible,
+  .claymorphism-styled-container a[role="button"]:focus-visible,
+  .claymorphism-styled-container input[type="submit"]:focus-visible,
+  .style-claymorphism button:focus-visible,
+  .style-claymorphism a[role="button"]:focus-visible,
+  .style-claymorphism input[type="submit"]:focus-visible {
+    outline: none;
+    box-shadow: var(--clay-btn-shadow), 0 0 0 4px rgba(99, 102, 241, 0.35);
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] button:disabled,
+  .claymorphism-styled-container button:disabled,
+  .style-claymorphism button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Secondary white clay button */
+  .lab-styled-preview[data-style="claymorphism"] .secondary,
+  .lab-styled-preview[data-style="claymorphism"] button.secondary,
+  .claymorphism-styled-container .secondary,
+  .claymorphism-styled-container button.secondary,
+  .style-claymorphism .secondary,
+  .style-claymorphism button.secondary {
+    background: #ffffff !important;
+    color: var(--clay-text) !important;
+    box-shadow: var(--clay-btn-white-shadow) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     7. CARDS & GRID CONTAINERS — INFLATED 3D CLAY SLABS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] section > div,
+  .claymorphism-styled-container section > div,
+  .style-claymorphism section > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.85rem;
+    align-items: stretch;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] article,
+  .lab-styled-preview[data-style="claymorphism"] .card,
+  .lab-styled-preview[data-style="claymorphism"] div > article,
+  .lab-styled-preview[data-style="claymorphism"] [class*="card"],
+  .claymorphism-styled-container article,
+  .claymorphism-styled-container .card,
+  .claymorphism-styled-container div > article,
+  .claymorphism-styled-container [class*="card"],
+  .style-claymorphism article,
+  .style-claymorphism .card,
+  .style-claymorphism div > article,
+  .style-claymorphism [class*="card"] {
+    position: relative;
+    background: #ffffff;
+    border-radius: var(--clay-radius-lg);
+    padding: 2.25rem;
+    box-shadow: var(--clay-card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 220ms ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] article:hover,
+  .lab-styled-preview[data-style="claymorphism"] .card:hover,
+  .lab-styled-preview[data-style="claymorphism"] div > article:hover,
+  .lab-styled-preview[data-style="claymorphism"] [class*="card"]:hover,
+  .claymorphism-styled-container article:hover,
+  .claymorphism-styled-container .card:hover,
+  .claymorphism-styled-container div > article:hover,
+  .claymorphism-styled-container [class*="card"]:hover,
+  .style-claymorphism article:hover,
+  .style-claymorphism .card:hover,
+  .style-claymorphism div > article:hover,
+  .style-claymorphism [class*="card"]:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--clay-card-shadow-hover);
+  }
+
+  /* --------------------------------------------------------------------------
+     8. UN-CARDIFIED EDITORIAL ARTICLE & BLOCKQUOTES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] article:only-child,
+  .lab-styled-preview[data-style="claymorphism"] section > article:only-child,
+  .claymorphism-styled-container article:only-child,
+  .claymorphism-styled-container section > article:only-child,
+  .style-claymorphism article:only-child,
+  .style-claymorphism section > article:only-child {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 740px !important;
+    margin: 0 auto !important;
+    padding: 1.5rem 0.5rem !important;
+    transform: none !important;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] blockquote,
+  .claymorphism-styled-container blockquote,
+  .style-claymorphism blockquote {
+    position: relative;
+    background: #ffffff;
+    border-radius: var(--clay-radius-md);
+    padding: 1.85rem 2.25rem;
+    box-shadow: var(--clay-card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-left: 6px solid var(--clay-primary);
+    margin: 2.5rem 0;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--clay-text);
+    font-weight: 500;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] blockquote p,
+  .claymorphism-styled-container blockquote p,
+  .style-claymorphism blockquote p {
+    color: var(--clay-text);
+    margin-bottom: 0;
+  }
+
+  /* --------------------------------------------------------------------------
+     9. SAAS / PRICING TIERS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] [class*="pricing"],
+  .claymorphism-styled-container [class*="pricing"],
+  .style-claymorphism [class*="pricing"] {
+    position: relative;
+  }
+
+  /* Highlighted / Featured Tier */
+  .lab-styled-preview[data-style="claymorphism"] section > div > article:nth-child(2),
+  .lab-styled-preview[data-style="claymorphism"] [class*="popular"],
+  .lab-styled-preview[data-style="claymorphism"] [class*="featured"],
+  .claymorphism-styled-container section > div > article:nth-child(2),
+  .claymorphism-styled-container [class*="popular"],
+  .claymorphism-styled-container [class*="featured"],
+  .style-claymorphism section > div > article:nth-child(2),
+  .style-claymorphism [class*="popular"],
+  .style-claymorphism [class*="featured"] {
+    background: #ffffff;
+    border: 2px solid rgba(99, 102, 241, 0.25);
+    box-shadow:
+      inset 4px 5px 12px rgba(255, 255, 255, 1),
+      inset -6px -7px 16px rgba(99, 102, 241, 0.12),
+      16px 24px 44px -6px rgba(99, 102, 241, 0.15),
+      4px 6px 14px -2px rgba(99, 102, 241, 0.08);
+  }
+
+  /* Big bold rounded pricing rate */
+  .lab-styled-preview[data-style="claymorphism"] section > div > article p:has(+ button),
+  .lab-styled-preview[data-style="claymorphism"] section > div > article p:has(+ a[role="button"]),
+  .claymorphism-styled-container section > div > article p:has(+ button),
+  .claymorphism-styled-container section > div > article p:has(+ a[role="button"]),
+  .style-claymorphism section > div > article p:has(+ button),
+  .style-claymorphism section > div > article p:has(+ a[role="button"]) {
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    color: var(--clay-text) !important;
+    margin: 1.25rem 0 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     10. DASHBOARD & TELEMETRY — TACTILE DESK ORGANIZER
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] article strong,
+  .claymorphism-styled-container article strong,
+  .style-claymorphism article strong {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--clay-primary);
+    letter-spacing: -0.02em;
+    margin: 0.65rem 0 0.5rem 0;
+    line-height: 1.1;
+  }
+
+  /* Telemetry / Data Table */
+  .lab-styled-preview[data-style="claymorphism"] table,
+  .claymorphism-styled-container table,
+  .style-claymorphism table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: var(--clay-radius-lg);
+    box-shadow: var(--clay-card-shadow);
+    overflow: hidden;
+    margin: 2.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] th,
+  .claymorphism-styled-container th,
+  .style-claymorphism th {
+    background: #f8fafc;
+    padding: 1.15rem 1.4rem;
+    text-align: left;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--clay-text-muted);
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] td,
+  .claymorphism-styled-container td,
+  .style-claymorphism td {
+    padding: 1.15rem 1.4rem;
+    font-size: 0.95rem;
+    color: var(--clay-text);
+    border-bottom: 1px solid #f8fafc;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] tr:last-child td,
+  .claymorphism-styled-container tr:last-child td,
+  .style-claymorphism tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* --------------------------------------------------------------------------
+     11. E-COMMERCE PRODUCTS & TAGS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] [class*="product"],
+  .claymorphism-styled-container [class*="product"],
+  .style-claymorphism [class*="product"] {
+    position: relative;
+  }
+
+  /* Size Selector Pills */
+  .lab-styled-preview[data-style="claymorphism"] .size-option,
+  .lab-styled-preview[data-style="claymorphism"] div:has(> button):not(:has(article)) button,
+  .claymorphism-styled-container .size-option,
+  .claymorphism-styled-container div:has(> button):not(:has(article)) button,
+  .style-claymorphism .size-option,
+  .style-claymorphism div:has(> button):not(:has(article)) button {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.875rem;
+    border-radius: var(--clay-radius-pill);
+    background: #ffffff;
+    color: var(--clay-text);
+    box-shadow: var(--clay-btn-white-shadow);
+  }
+
+  /* --------------------------------------------------------------------------
+     12. FORMS & INPUTS — SOFTLY RECESSED CLAY TRAYS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] form,
+  .claymorphism-styled-container form,
+  .style-claymorphism form {
+    background: #ffffff;
+    border-radius: var(--clay-radius-xl);
+    padding: 2.75rem;
+    box-shadow: var(--clay-card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    max-width: 680px;
+    margin: 2rem auto;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] form > div,
+  .claymorphism-styled-container form > div,
+  .style-claymorphism form > div {
+    margin-bottom: 1.5rem;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] label,
+  .claymorphism-styled-container label,
+  .style-claymorphism label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--clay-text);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] input[type="text"],
+  .lab-styled-preview[data-style="claymorphism"] input[type="email"],
+  .lab-styled-preview[data-style="claymorphism"] input[type="password"],
+  .lab-styled-preview[data-style="claymorphism"] input[type="search"],
+  .lab-styled-preview[data-style="claymorphism"] input[type="number"],
+  .lab-styled-preview[data-style="claymorphism"] textarea,
+  .lab-styled-preview[data-style="claymorphism"] select,
+  .claymorphism-styled-container input[type="text"],
+  .claymorphism-styled-container input[type="email"],
+  .claymorphism-styled-container input[type="password"],
+  .claymorphism-styled-container input[type="search"],
+  .claymorphism-styled-container input[type="number"],
+  .claymorphism-styled-container textarea,
+  .claymorphism-styled-container select,
+  .style-claymorphism input[type="text"],
+  .style-claymorphism input[type="email"],
+  .style-claymorphism input[type="password"],
+  .style-claymorphism input[type="search"],
+  .style-claymorphism input[type="number"],
+  .style-claymorphism textarea,
+  .style-claymorphism select {
+    width: 100%;
+    padding: 0.95rem 1.25rem;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+    font-size: 1rem;
+    color: var(--clay-text);
+    background: var(--clay-surface-recessed);
+    border: 1px solid rgba(215, 208, 195, 0.6);
+    border-radius: var(--clay-radius-md);
+    box-shadow: var(--clay-input-shadow);
+    transition: all 180ms ease;
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] input:focus,
+  .lab-styled-preview[data-style="claymorphism"] textarea:focus,
+  .lab-styled-preview[data-style="claymorphism"] select:focus,
+  .claymorphism-styled-container input:focus,
+  .claymorphism-styled-container textarea:focus,
+  .claymorphism-styled-container select:focus,
+  .style-claymorphism input:focus,
+  .style-claymorphism textarea:focus,
+  .style-claymorphism select:focus {
+    background: #ffffff;
+    border-color: #818cf8;
+    box-shadow: var(--clay-input-focus-shadow);
+  }
+
+  .lab-styled-preview[data-style="claymorphism"] input::placeholder,
+  .lab-styled-preview[data-style="claymorphism"] textarea::placeholder,
+  .claymorphism-styled-container input::placeholder,
+  .claymorphism-styled-container textarea::placeholder,
+  .style-claymorphism input::placeholder,
+  .style-claymorphism textarea::placeholder {
+    color: #94a3b8;
+  }
+
+  /* --------------------------------------------------------------------------
+     13. FOOTER
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="claymorphism"] footer,
+  .claymorphism-styled-container footer,
+  .style-claymorphism footer {
+    margin-top: 4rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--clay-text-muted);
+    font-size: 0.9375rem;
+    border-top: 1px solid rgba(215, 208, 195, 0.4);
+  }
+
+  /* --------------------------------------------------------------------------
+     14. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+     -------------------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .lab-styled-preview[data-style="claymorphism"] *,
+    .claymorphism-styled-container *,
+    .style-claymorphism * {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     15. RESPONSIVE BREAKPOINTS
+     -------------------------------------------------------------------------- */
+  @media (max-width: 768px) {
+    .lab-styled-preview[data-style="claymorphism"],
+    .claymorphism-styled-container,
+    .style-claymorphism {
+      padding: 1.5rem 1rem !important;
+    }
+
+    .lab-styled-preview[data-style="claymorphism"] section > div,
+    .claymorphism-styled-container section > div,
+    .style-claymorphism section > div {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+
+    .lab-styled-preview[data-style="claymorphism"] form,
+    .claymorphism-styled-container form,
+    .style-claymorphism form {
+      padding: 1.85rem 1.25rem !important;
+    }
+  }
+[class*="style-"] { overflow-x: hidden; }
+[class*="style-"] * { box-sizing: border-box; }

@@ -9,7 +9,13 @@
 export const brutalistSemanticCss = `
   /* Container Foundation */
   .lab-styled-preview[data-style="brutalism"],
-  .brutalism-styled-container {
+  .brutalism-styled-container,
+  .style-brutalism,
+  [data-style="brutalism"],
+  .ds-scope[data-style-id="brutalism"],
+  .style-brutalist,
+  [data-style="brutalist"],
+  .ds-scope[data-style-id="brutalist"] {
     background-color: #f4f3ed !important;
     color: #000000 !important;
     font-family: 'Space Grotesk', -apple-system, sans-serif !important;
@@ -20,7 +26,13 @@ export const brutalistSemanticCss = `
 
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="brutalism"] nav,
-  .brutalism-styled-container nav {
+  .brutalism-styled-container nav,
+  .style-brutalism nav,
+  [data-style="brutalism"] nav,
+  .ds-scope[data-style-id="brutalism"] nav,
+  .style-brutalist nav,
+  [data-style="brutalist"] nav,
+  .ds-scope[data-style-id="brutalist"] nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -31,7 +43,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] nav a,
-  .brutalism-styled-container nav a {
+  .brutalism-styled-container nav a,
+  .style-brutalism nav a,
+  [data-style="brutalism"] nav a,
+  .ds-scope[data-style-id="brutalism"] nav a,
+  .style-brutalist nav a,
+  [data-style="brutalist"] nav a,
+  .ds-scope[data-style-id="brutalist"] nav a {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.875rem;
     font-weight: 700;
@@ -47,7 +65,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] nav a:hover,
-  .brutalism-styled-container nav a:hover {
+  .brutalism-styled-container nav a:hover,
+  .style-brutalism nav a:hover,
+  [data-style="brutalism"] nav a:hover,
+  .ds-scope[data-style-id="brutalism"] nav a:hover,
+  .style-brutalist nav a:hover,
+  [data-style="brutalist"] nav a:hover,
+  .ds-scope[data-style-id="brutalist"] nav a:hover {
     border-color: #000000;
     background-color: #ffe600;
     box-shadow: 2px 2px 0px #000000;
@@ -56,7 +80,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] nav a:active,
-  .brutalism-styled-container nav a:active {
+  .brutalism-styled-container nav a:active,
+  .style-brutalism nav a:active,
+  [data-style="brutalism"] nav a:active,
+  .ds-scope[data-style-id="brutalism"] nav a:active,
+  .style-brutalist nav a:active,
+  [data-style="brutalist"] nav a:active,
+  .ds-scope[data-style-id="brutalist"] nav a:active {
     transform: translate(1px, 1px);
     box-shadow: none;
   }
@@ -65,7 +95,19 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] header > p:first-child,
   .lab-styled-preview[data-style="brutalism"] section > p:first-child:not(:last-child),
   .brutalism-styled-container header > p:first-child,
-  .brutalism-styled-container section > p:first-child:not(:last-child) {
+  .style-brutalism header > p:first-child,
+  [data-style="brutalism"] header > p:first-child,
+  .ds-scope[data-style-id="brutalism"] header > p:first-child,
+  .style-brutalist header > p:first-child,
+  [data-style="brutalist"] header > p:first-child,
+  .ds-scope[data-style-id="brutalist"] header > p:first-child,
+  .brutalism-styled-container section > p:first-child:not(:last-child),
+  .style-brutalism section > p:first-child:not(:last-child),
+  [data-style="brutalism"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="brutalism"] section > p:first-child:not(:last-child),
+  .style-brutalist section > p:first-child:not(:last-child),
+  [data-style="brutalist"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="brutalist"] section > p:first-child:not(:last-child) {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     font-weight: 700;
@@ -82,7 +124,13 @@ export const brutalistSemanticCss = `
 
   /* 3. Typography Hierarchy */
   .lab-styled-preview[data-style="brutalism"] h1,
-  .brutalism-styled-container h1 {
+  .brutalism-styled-container h1,
+  .style-brutalism h1,
+  [data-style="brutalism"] h1,
+  .ds-scope[data-style-id="brutalism"] h1,
+  .style-brutalist h1,
+  [data-style="brutalist"] h1,
+  .ds-scope[data-style-id="brutalist"] h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 800;
@@ -94,7 +142,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] h2,
-  .brutalism-styled-container h2 {
+  .brutalism-styled-container h2,
+  .style-brutalism h2,
+  [data-style="brutalism"] h2,
+  .ds-scope[data-style-id="brutalism"] h2,
+  .style-brutalist h2,
+  [data-style="brutalist"] h2,
+  .ds-scope[data-style-id="brutalist"] h2 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.5rem, 3vw, 1.85rem);
     font-weight: 800;
@@ -108,7 +162,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] h3,
-  .brutalism-styled-container h3 {
+  .brutalism-styled-container h3,
+  .style-brutalism h3,
+  [data-style="brutalism"] h3,
+  .ds-scope[data-style-id="brutalism"] h3,
+  .style-brutalist h3,
+  [data-style="brutalist"] h3,
+  .ds-scope[data-style-id="brutalist"] h3 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
@@ -120,7 +180,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] h4,
-  .brutalism-styled-container h4 {
+  .brutalism-styled-container h4,
+  .style-brutalism h4,
+  [data-style="brutalism"] h4,
+  .ds-scope[data-style-id="brutalism"] h4,
+  .style-brutalist h4,
+  [data-style="brutalist"] h4,
+  .ds-scope[data-style-id="brutalist"] h4 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 700;
@@ -129,7 +195,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] p,
-  .brutalism-styled-container p {
+  .brutalism-styled-container p,
+  .style-brutalism p,
+  [data-style="brutalism"] p,
+  .ds-scope[data-style-id="brutalism"] p,
+  .style-brutalist p,
+  [data-style="brutalist"] p,
+  .ds-scope[data-style-id="brutalist"] p {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.0625rem;
     line-height: 1.6;
@@ -140,7 +212,19 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] strong,
   .lab-styled-preview[data-style="brutalism"] b,
   .brutalism-styled-container strong,
-  .brutalism-styled-container b {
+  .style-brutalism strong,
+  [data-style="brutalism"] strong,
+  .ds-scope[data-style-id="brutalism"] strong,
+  .style-brutalist strong,
+  [data-style="brutalist"] strong,
+  .ds-scope[data-style-id="brutalist"] strong,
+  .brutalism-styled-container b,
+  .style-brutalism b,
+  [data-style="brutalism"] b,
+  .ds-scope[data-style-id="brutalism"] b,
+  .style-brutalist b,
+  [data-style="brutalist"] b,
+  .ds-scope[data-style-id="brutalist"] b {
     font-weight: 800;
     color: #000000;
   }
@@ -150,8 +234,26 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] input[type="submit"],
   .lab-styled-preview[data-style="brutalism"] input[type="button"],
   .brutalism-styled-container button,
+  .style-brutalism button,
+  [data-style="brutalism"] button,
+  .ds-scope[data-style-id="brutalism"] button,
+  .style-brutalist button,
+  [data-style="brutalist"] button,
+  .ds-scope[data-style-id="brutalist"] button,
   .brutalism-styled-container input[type="submit"],
-  .brutalism-styled-container input[type="button"] {
+  .style-brutalism input[type="submit"],
+  [data-style="brutalism"] input[type="submit"],
+  .ds-scope[data-style-id="brutalism"] input[type="submit"],
+  .style-brutalist input[type="submit"],
+  [data-style="brutalist"] input[type="submit"],
+  .ds-scope[data-style-id="brutalist"] input[type="submit"],
+  .brutalism-styled-container input[type="button"],
+  .style-brutalism input[type="button"],
+  [data-style="brutalism"] input[type="button"],
+  .ds-scope[data-style-id="brutalism"] input[type="button"],
+  .style-brutalist input[type="button"],
+  [data-style="brutalist"] input[type="button"],
+  .ds-scope[data-style-id="brutalist"] input[type="button"] {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.875rem;
     font-weight: 800;
@@ -176,7 +278,19 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] button:hover,
   .lab-styled-preview[data-style="brutalism"] input[type="submit"]:hover,
   .brutalism-styled-container button:hover,
-  .brutalism-styled-container input[type="submit"]:hover {
+  .style-brutalism button:hover,
+  [data-style="brutalism"] button:hover,
+  .ds-scope[data-style-id="brutalism"] button:hover,
+  .style-brutalist button:hover,
+  [data-style="brutalist"] button:hover,
+  .ds-scope[data-style-id="brutalist"] button:hover,
+  .brutalism-styled-container input[type="submit"]:hover,
+  .style-brutalism input[type="submit"]:hover,
+  [data-style="brutalism"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="brutalism"] input[type="submit"]:hover,
+  .style-brutalist input[type="submit"]:hover,
+  [data-style="brutalist"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="brutalist"] input[type="submit"]:hover {
     background-color: #fff04d;
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px #000000;
@@ -185,19 +299,43 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] button:active,
   .lab-styled-preview[data-style="brutalism"] input[type="submit"]:active,
   .brutalism-styled-container button:active,
-  .brutalism-styled-container input[type="submit"]:active {
+  .style-brutalism button:active,
+  [data-style="brutalism"] button:active,
+  .ds-scope[data-style-id="brutalism"] button:active,
+  .style-brutalist button:active,
+  [data-style="brutalist"] button:active,
+  .ds-scope[data-style-id="brutalist"] button:active,
+  .brutalism-styled-container input[type="submit"]:active,
+  .style-brutalism input[type="submit"]:active,
+  [data-style="brutalism"] input[type="submit"]:active,
+  .ds-scope[data-style-id="brutalism"] input[type="submit"]:active,
+  .style-brutalist input[type="submit"]:active,
+  [data-style="brutalist"] input[type="submit"]:active,
+  .ds-scope[data-style-id="brutalist"] input[type="submit"]:active {
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 0px #000000;
   }
 
   .lab-styled-preview[data-style="brutalism"] button:focus-visible,
-  .brutalism-styled-container button:focus-visible {
+  .brutalism-styled-container button:focus-visible,
+  .style-brutalism button:focus-visible,
+  [data-style="brutalism"] button:focus-visible,
+  .ds-scope[data-style-id="brutalism"] button:focus-visible,
+  .style-brutalist button:focus-visible,
+  [data-style="brutalist"] button:focus-visible,
+  .ds-scope[data-style-id="brutalist"] button:focus-visible {
     outline: 3px solid #000000;
     outline-offset: 2px;
   }
 
   .lab-styled-preview[data-style="brutalism"] button:disabled,
-  .brutalism-styled-container button:disabled {
+  .brutalism-styled-container button:disabled,
+  .style-brutalism button:disabled,
+  [data-style="brutalism"] button:disabled,
+  .ds-scope[data-style-id="brutalism"] button:disabled,
+  .style-brutalist button:disabled,
+  [data-style="brutalist"] button:disabled,
+  .ds-scope[data-style-id="brutalist"] button:disabled {
     background-color: #e2e0d5;
     color: #777777;
     border-color: #777777;
@@ -208,7 +346,13 @@ export const brutalistSemanticCss = `
 
   /* 5. Editorial Content & Articles */
   .lab-styled-preview[data-style="brutalism"] article,
-  .brutalism-styled-container article {
+  .brutalism-styled-container article,
+  .style-brutalism article,
+  [data-style="brutalism"] article,
+  .ds-scope[data-style-id="brutalism"] article,
+  .style-brutalist article,
+  [data-style="brutalist"] article,
+  .ds-scope[data-style-id="brutalist"] article {
     background-color: #ffffff;
     border: 2.5px solid #000000;
     border-radius: 0px;
@@ -219,13 +363,25 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] article:hover,
-  .brutalism-styled-container article:hover {
+  .brutalism-styled-container article:hover,
+  .style-brutalism article:hover,
+  [data-style="brutalism"] article:hover,
+  .ds-scope[data-style-id="brutalism"] article:hover,
+  .style-brutalist article:hover,
+  [data-style="brutalist"] article:hover,
+  .ds-scope[data-style-id="brutalist"] article:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px #000000;
   }
 
   .lab-styled-preview[data-style="brutalism"] blockquote,
-  .brutalism-styled-container blockquote {
+  .brutalism-styled-container blockquote,
+  .style-brutalism blockquote,
+  [data-style="brutalism"] blockquote,
+  .ds-scope[data-style-id="brutalism"] blockquote,
+  .style-brutalist blockquote,
+  [data-style="brutalist"] blockquote,
+  .ds-scope[data-style-id="brutalist"] blockquote {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.15rem;
     font-weight: 700;
@@ -244,7 +400,13 @@ export const brutalistSemanticCss = `
 
   /* 6. Raw Data & Tables */
   .lab-styled-preview[data-style="brutalism"] table,
-  .brutalism-styled-container table {
+  .brutalism-styled-container table,
+  .style-brutalism table,
+  [data-style="brutalism"] table,
+  .ds-scope[data-style-id="brutalism"] table,
+  .style-brutalist table,
+  [data-style="brutalist"] table,
+  .ds-scope[data-style-id="brutalist"] table {
     width: 100%;
     border-collapse: collapse;
     border: 3px solid #000000;
@@ -254,7 +416,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] th,
-  .brutalism-styled-container th {
+  .brutalism-styled-container th,
+  .style-brutalism th,
+  [data-style="brutalism"] th,
+  .ds-scope[data-style-id="brutalism"] th,
+  .style-brutalist th,
+  [data-style="brutalist"] th,
+  .ds-scope[data-style-id="brutalist"] th {
     background-color: #000000;
     color: #ffe600;
     font-family: 'JetBrains Mono', monospace;
@@ -268,7 +436,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] td,
-  .brutalism-styled-container td {
+  .brutalism-styled-container td,
+  .style-brutalism td,
+  [data-style="brutalism"] td,
+  .ds-scope[data-style-id="brutalism"] td,
+  .style-brutalist td,
+  [data-style="brutalist"] td,
+  .ds-scope[data-style-id="brutalist"] td {
     border: 2px solid #000000;
     padding: 0.75rem 1rem;
     font-family: 'Space Grotesk', sans-serif;
@@ -277,13 +451,25 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] tr:nth-child(even),
-  .brutalism-styled-container tr:nth-child(even) {
+  .brutalism-styled-container tr:nth-child(even),
+  .style-brutalism tr:nth-child(even),
+  [data-style="brutalism"] tr:nth-child(even),
+  .ds-scope[data-style-id="brutalism"] tr:nth-child(even),
+  .style-brutalist tr:nth-child(even),
+  [data-style="brutalist"] tr:nth-child(even),
+  .ds-scope[data-style-id="brutalist"] tr:nth-child(even) {
     background-color: #f7f6f0;
   }
 
   /* 7. Forms & Fieldsets */
   .lab-styled-preview[data-style="brutalism"] form,
-  .brutalism-styled-container form {
+  .brutalism-styled-container form,
+  .style-brutalism form,
+  [data-style="brutalism"] form,
+  .ds-scope[data-style-id="brutalism"] form,
+  .style-brutalist form,
+  [data-style="brutalist"] form,
+  .ds-scope[data-style-id="brutalist"] form {
     background-color: #ffffff;
     border: 3px solid #000000;
     padding: 2rem;
@@ -292,7 +478,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] fieldset,
-  .brutalism-styled-container fieldset {
+  .brutalism-styled-container fieldset,
+  .style-brutalism fieldset,
+  [data-style="brutalism"] fieldset,
+  .ds-scope[data-style-id="brutalism"] fieldset,
+  .style-brutalist fieldset,
+  [data-style="brutalist"] fieldset,
+  .ds-scope[data-style-id="brutalist"] fieldset {
     border: 2px solid #000000;
     padding: 1.25rem;
     margin-bottom: 1.5rem;
@@ -300,7 +492,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] legend,
-  .brutalism-styled-container legend {
+  .brutalism-styled-container legend,
+  .style-brutalism legend,
+  [data-style="brutalism"] legend,
+  .ds-scope[data-style-id="brutalism"] legend,
+  .style-brutalist legend,
+  [data-style="brutalist"] legend,
+  .ds-scope[data-style-id="brutalist"] legend {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
     font-weight: 700;
@@ -314,7 +512,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] label,
-  .brutalism-styled-container label {
+  .brutalism-styled-container label,
+  .style-brutalism label,
+  [data-style="brutalism"] label,
+  .ds-scope[data-style-id="brutalism"] label,
+  .style-brutalist label,
+  [data-style="brutalist"] label,
+  .ds-scope[data-style-id="brutalist"] label {
     display: block;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
@@ -332,11 +536,47 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] select,
   .lab-styled-preview[data-style="brutalism"] textarea,
   .brutalism-styled-container input[type="text"],
+  .style-brutalism input[type="text"],
+  [data-style="brutalism"] input[type="text"],
+  .ds-scope[data-style-id="brutalism"] input[type="text"],
+  .style-brutalist input[type="text"],
+  [data-style="brutalist"] input[type="text"],
+  .ds-scope[data-style-id="brutalist"] input[type="text"],
   .brutalism-styled-container input[type="email"],
+  .style-brutalism input[type="email"],
+  [data-style="brutalism"] input[type="email"],
+  .ds-scope[data-style-id="brutalism"] input[type="email"],
+  .style-brutalist input[type="email"],
+  [data-style="brutalist"] input[type="email"],
+  .ds-scope[data-style-id="brutalist"] input[type="email"],
   .brutalism-styled-container input[type="tel"],
+  .style-brutalism input[type="tel"],
+  [data-style="brutalism"] input[type="tel"],
+  .ds-scope[data-style-id="brutalism"] input[type="tel"],
+  .style-brutalist input[type="tel"],
+  [data-style="brutalist"] input[type="tel"],
+  .ds-scope[data-style-id="brutalist"] input[type="tel"],
   .brutalism-styled-container input[type="number"],
+  .style-brutalism input[type="number"],
+  [data-style="brutalism"] input[type="number"],
+  .ds-scope[data-style-id="brutalism"] input[type="number"],
+  .style-brutalist input[type="number"],
+  [data-style="brutalist"] input[type="number"],
+  .ds-scope[data-style-id="brutalist"] input[type="number"],
   .brutalism-styled-container select,
-  .brutalism-styled-container textarea {
+  .style-brutalism select,
+  [data-style="brutalism"] select,
+  .ds-scope[data-style-id="brutalism"] select,
+  .style-brutalist select,
+  [data-style="brutalist"] select,
+  .ds-scope[data-style-id="brutalist"] select,
+  .brutalism-styled-container textarea,
+  .style-brutalism textarea,
+  [data-style="brutalism"] textarea,
+  .ds-scope[data-style-id="brutalism"] textarea,
+  .style-brutalist textarea,
+  [data-style="brutalist"] textarea,
+  .ds-scope[data-style-id="brutalist"] textarea {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -357,8 +597,26 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] select:focus,
   .lab-styled-preview[data-style="brutalism"] textarea:focus,
   .brutalism-styled-container input:focus,
+  .style-brutalism input:focus,
+  [data-style="brutalism"] input:focus,
+  .ds-scope[data-style-id="brutalism"] input:focus,
+  .style-brutalist input:focus,
+  [data-style="brutalist"] input:focus,
+  .ds-scope[data-style-id="brutalist"] input:focus,
   .brutalism-styled-container select:focus,
-  .brutalism-styled-container textarea:focus {
+  .style-brutalism select:focus,
+  [data-style="brutalism"] select:focus,
+  .ds-scope[data-style-id="brutalism"] select:focus,
+  .style-brutalist select:focus,
+  [data-style="brutalist"] select:focus,
+  .ds-scope[data-style-id="brutalist"] select:focus,
+  .brutalism-styled-container textarea:focus,
+  .style-brutalism textarea:focus,
+  [data-style="brutalism"] textarea:focus,
+  .ds-scope[data-style-id="brutalism"] textarea:focus,
+  .style-brutalist textarea:focus,
+  [data-style="brutalist"] textarea:focus,
+  .ds-scope[data-style-id="brutalist"] textarea:focus {
     border-color: #000000;
     box-shadow: 5px 5px 0px #ffe600;
     background-color: #ffffff;
@@ -367,7 +625,19 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] input::placeholder,
   .lab-styled-preview[data-style="brutalism"] textarea::placeholder,
   .brutalism-styled-container input::placeholder,
-  .brutalism-styled-container textarea::placeholder {
+  .style-brutalism input::placeholder,
+  [data-style="brutalism"] input::placeholder,
+  .ds-scope[data-style-id="brutalism"] input::placeholder,
+  .style-brutalist input::placeholder,
+  [data-style="brutalist"] input::placeholder,
+  .ds-scope[data-style-id="brutalist"] input::placeholder,
+  .brutalism-styled-container textarea::placeholder,
+  .style-brutalism textarea::placeholder,
+  [data-style="brutalism"] textarea::placeholder,
+  .ds-scope[data-style-id="brutalism"] textarea::placeholder,
+  .style-brutalist textarea::placeholder,
+  [data-style="brutalist"] textarea::placeholder,
+  .ds-scope[data-style-id="brutalist"] textarea::placeholder {
     color: #777777;
     opacity: 1;
   }
@@ -376,13 +646,31 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] ul,
   .lab-styled-preview[data-style="brutalism"] ol,
   .brutalism-styled-container ul,
-  .brutalism-styled-container ol {
+  .style-brutalism ul,
+  [data-style="brutalism"] ul,
+  .ds-scope[data-style-id="brutalism"] ul,
+  .style-brutalist ul,
+  [data-style="brutalist"] ul,
+  .ds-scope[data-style-id="brutalist"] ul,
+  .brutalism-styled-container ol,
+  .style-brutalism ol,
+  [data-style="brutalism"] ol,
+  .ds-scope[data-style-id="brutalism"] ol,
+  .style-brutalist ol,
+  [data-style="brutalist"] ol,
+  .ds-scope[data-style-id="brutalist"] ol {
     padding-left: 1.5rem;
     margin: 1rem 0 1.5rem;
   }
 
   .lab-styled-preview[data-style="brutalism"] li,
-  .brutalism-styled-container li {
+  .brutalism-styled-container li,
+  .style-brutalism li,
+  [data-style="brutalism"] li,
+  .ds-scope[data-style-id="brutalism"] li,
+  .style-brutalist li,
+  [data-style="brutalist"] li,
+  .ds-scope[data-style-id="brutalist"] li {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
@@ -391,7 +679,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] ul > li,
-  .brutalism-styled-container ul > li {
+  .brutalism-styled-container ul > li,
+  .style-brutalism ul > li,
+  [data-style="brutalism"] ul > li,
+  .ds-scope[data-style-id="brutalism"] ul > li,
+  .style-brutalist ul > li,
+  [data-style="brutalist"] ul > li,
+  .ds-scope[data-style-id="brutalist"] ul > li {
     list-style-type: square;
   }
 
@@ -400,8 +694,26 @@ export const brutalistSemanticCss = `
   .lab-styled-preview[data-style="brutalism"] .badge,
   .lab-styled-preview[data-style="brutalism"] span.tag,
   .brutalism-styled-container small,
+  .style-brutalism small,
+  [data-style="brutalism"] small,
+  .ds-scope[data-style-id="brutalism"] small,
+  .style-brutalist small,
+  [data-style="brutalist"] small,
+  .ds-scope[data-style-id="brutalist"] small,
   .brutalism-styled-container .badge,
-  .brutalism-styled-container span.tag {
+  .style-brutalism .badge,
+  [data-style="brutalism"] .badge,
+  .ds-scope[data-style-id="brutalism"] .badge,
+  .style-brutalist .badge,
+  [data-style="brutalist"] .badge,
+  .ds-scope[data-style-id="brutalist"] .badge,
+  .brutalism-styled-container span.tag,
+  .style-brutalism span.tag,
+  [data-style="brutalism"] span.tag,
+  .ds-scope[data-style-id="brutalism"] span.tag,
+  .style-brutalist span.tag,
+  [data-style="brutalist"] span.tag,
+  .ds-scope[data-style-id="brutalist"] span.tag {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
@@ -419,7 +731,13 @@ export const brutalistSemanticCss = `
 
   /* 10. Links */
   .lab-styled-preview[data-style="brutalism"] a,
-  .brutalism-styled-container a {
+  .brutalism-styled-container a,
+  .style-brutalism a,
+  [data-style="brutalism"] a,
+  .ds-scope[data-style-id="brutalism"] a,
+  .style-brutalist a,
+  [data-style="brutalist"] a,
+  .ds-scope[data-style-id="brutalist"] a {
     color: #000000;
     font-weight: 700;
     text-decoration: underline;
@@ -429,7 +747,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] a:hover,
-  .brutalism-styled-container a:hover {
+  .brutalism-styled-container a:hover,
+  .style-brutalism a:hover,
+  [data-style="brutalism"] a:hover,
+  .ds-scope[data-style-id="brutalism"] a:hover,
+  .style-brutalist a:hover,
+  [data-style="brutalist"] a:hover,
+  .ds-scope[data-style-id="brutalist"] a:hover {
     background-color: #ffe600;
     text-decoration: none;
     box-shadow: 2px 2px 0px #000000;
@@ -437,7 +761,13 @@ export const brutalistSemanticCss = `
 
   /* 11. Footer */
   .lab-styled-preview[data-style="brutalism"] footer,
-  .brutalism-styled-container footer {
+  .brutalism-styled-container footer,
+  .style-brutalism footer,
+  [data-style="brutalism"] footer,
+  .ds-scope[data-style-id="brutalism"] footer,
+  .style-brutalist footer,
+  [data-style="brutalist"] footer,
+  .ds-scope[data-style-id="brutalist"] footer {
     border-top: 3px solid #000000;
     padding: 2rem 0 1rem;
     margin-top: 3rem;
@@ -449,7 +779,13 @@ export const brutalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="brutalism"] footer p,
-  .brutalism-styled-container footer p {
+  .brutalism-styled-container footer p,
+  .style-brutalism footer p,
+  [data-style="brutalism"] footer p,
+  .ds-scope[data-style-id="brutalism"] footer p,
+  .style-brutalist footer p,
+  [data-style="brutalist"] footer p,
+  .ds-scope[data-style-id="brutalist"] footer p {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
     color: #555555;

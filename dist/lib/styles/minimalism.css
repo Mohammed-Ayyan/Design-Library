@@ -1,0 +1,954 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Container Foundation */
+  .lab-styled-preview[data-style="minimalism"],
+  .minimalism-styled-container,
+  .style-minimalism,
+  [data-style="minimalism"],
+  .ds-scope[data-style-id="minimalism"],
+  .style-minimalist,
+  [data-style="minimalist"],
+  .ds-scope[data-style-id="minimalist"],
+  .style-minimal,
+  [data-style="minimal"],
+  .ds-scope[data-style-id="minimal"] {
+    background-color: #fafaf9 !important;
+    color: #111111 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    line-height: 1.65 !important;
+    letter-spacing: -0.01em !important;
+    box-shadow: none !important;
+  }
+
+  /* 1. Navigation Bar Language */
+  .lab-styled-preview[data-style="minimalism"] nav,
+  .minimalism-styled-container nav,
+  .style-minimalism nav,
+  [data-style="minimalism"] nav,
+  .ds-scope[data-style-id="minimalism"] nav,
+  .style-minimalist nav,
+  [data-style="minimalist"] nav,
+  .ds-scope[data-style-id="minimalist"] nav,
+  .style-minimal nav,
+  [data-style="minimal"] nav,
+  .ds-scope[data-style-id="minimal"] nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.25rem 0 1.5rem;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 3.5rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav a,
+  .minimalism-styled-container nav a,
+  .style-minimalism nav a,
+  [data-style="minimalism"] nav a,
+  .ds-scope[data-style-id="minimalism"] nav a,
+  .style-minimalist nav a,
+  [data-style="minimalist"] nav a,
+  .ds-scope[data-style-id="minimalist"] nav a,
+  .style-minimal nav a,
+  [data-style="minimal"] nav a,
+  .ds-scope[data-style-id="minimal"] nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #52525b;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color 150ms ease, border-color 150ms ease;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav a:hover,
+  .minimalism-styled-container nav a:hover,
+  .style-minimalism nav a:hover,
+  [data-style="minimalism"] nav a:hover,
+  .ds-scope[data-style-id="minimalism"] nav a:hover,
+  .style-minimalist nav a:hover,
+  [data-style="minimalist"] nav a:hover,
+  .ds-scope[data-style-id="minimalist"] nav a:hover,
+  .style-minimal nav a:hover,
+  [data-style="minimal"] nav a:hover,
+  .ds-scope[data-style-id="minimal"] nav a:hover {
+    color: #111111;
+    border-color: #111111;
+    text-decoration: none;
+    background-color: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  /* 2. Eyebrow Kickers & Metadata */
+  .lab-styled-preview[data-style="minimalism"] header > p:first-child,
+  .lab-styled-preview[data-style="minimalism"] section > p:first-child:not(:last-child),
+  .minimalism-styled-container header > p:first-child,
+  .style-minimalism header > p:first-child,
+  [data-style="minimalism"] header > p:first-child,
+  .ds-scope[data-style-id="minimalism"] header > p:first-child,
+  .style-minimalist header > p:first-child,
+  [data-style="minimalist"] header > p:first-child,
+  .ds-scope[data-style-id="minimalist"] header > p:first-child,
+  .style-minimal header > p:first-child,
+  [data-style="minimal"] header > p:first-child,
+  .ds-scope[data-style-id="minimal"] header > p:first-child,
+  .minimalism-styled-container section > p:first-child:not(:last-child),
+  .style-minimalism section > p:first-child:not(:last-child),
+  [data-style="minimalism"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="minimalism"] section > p:first-child:not(:last-child),
+  .style-minimalist section > p:first-child:not(:last-child),
+  [data-style="minimalist"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="minimalist"] section > p:first-child:not(:last-child),
+  .style-minimal section > p:first-child:not(:last-child),
+  [data-style="minimal"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="minimal"] section > p:first-child:not(:last-child) {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #71717a;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: block;
+    margin-bottom: 0.75rem;
+    box-shadow: none;
+  }
+
+  /* 3. Typography Hierarchy */
+  .lab-styled-preview[data-style="minimalism"] h1,
+  .minimalism-styled-container h1,
+  .style-minimalism h1,
+  [data-style="minimalism"] h1,
+  .ds-scope[data-style-id="minimalism"] h1,
+  .style-minimalist h1,
+  [data-style="minimalist"] h1,
+  .ds-scope[data-style-id="minimalist"] h1,
+  .style-minimal h1,
+  [data-style="minimal"] h1,
+  .ds-scope[data-style-id="minimal"] h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #111111;
+    margin: 0 0 1.25rem;
+    text-transform: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] h2,
+  .minimalism-styled-container h2,
+  .style-minimalism h2,
+  [data-style="minimalism"] h2,
+  .ds-scope[data-style-id="minimalism"] h2,
+  .style-minimalist h2,
+  [data-style="minimalist"] h2,
+  .ds-scope[data-style-id="minimalist"] h2,
+  .style-minimal h2,
+  [data-style="minimal"] h2,
+  .ds-scope[data-style-id="minimal"] h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: #111111;
+    margin: 3.5rem 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e5e5e5;
+    text-transform: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] h3,
+  .minimalism-styled-container h3,
+  .style-minimalism h3,
+  [data-style="minimalism"] h3,
+  .ds-scope[data-style-id="minimalism"] h3,
+  .style-minimalist h3,
+  [data-style="minimalist"] h3,
+  .ds-scope[data-style-id="minimalist"] h3,
+  .style-minimal h3,
+  [data-style="minimal"] h3,
+  .ds-scope[data-style-id="minimal"] h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: #111111;
+    margin: 1.5rem 0 0.4rem;
+    text-transform: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] h4,
+  .minimalism-styled-container h4,
+  .style-minimalism h4,
+  [data-style="minimalism"] h4,
+  .ds-scope[data-style-id="minimalism"] h4,
+  .style-minimalist h4,
+  [data-style="minimalist"] h4,
+  .ds-scope[data-style-id="minimalist"] h4,
+  .style-minimal h4,
+  [data-style="minimal"] h4,
+  .ds-scope[data-style-id="minimal"] h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #111111;
+    margin: 1rem 0 0.35rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] p,
+  .minimalism-styled-container p,
+  .style-minimalism p,
+  [data-style="minimalism"] p,
+  .ds-scope[data-style-id="minimalism"] p,
+  .style-minimalist p,
+  [data-style="minimalist"] p,
+  .ds-scope[data-style-id="minimalist"] p,
+  .style-minimal p,
+  [data-style="minimal"] p,
+  .ds-scope[data-style-id="minimal"] p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #52525b;
+    margin: 0 0 1.5rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] strong,
+  .lab-styled-preview[data-style="minimalism"] b,
+  .minimalism-styled-container strong,
+  .style-minimalism strong,
+  [data-style="minimalism"] strong,
+  .ds-scope[data-style-id="minimalism"] strong,
+  .style-minimalist strong,
+  [data-style="minimalist"] strong,
+  .ds-scope[data-style-id="minimalist"] strong,
+  .style-minimal strong,
+  [data-style="minimal"] strong,
+  .ds-scope[data-style-id="minimal"] strong,
+  .minimalism-styled-container b,
+  .style-minimalism b,
+  [data-style="minimalism"] b,
+  .ds-scope[data-style-id="minimalism"] b,
+  .style-minimalist b,
+  [data-style="minimalist"] b,
+  .ds-scope[data-style-id="minimalist"] b,
+  .style-minimal b,
+  [data-style="minimal"] b,
+  .ds-scope[data-style-id="minimal"] b {
+    font-weight: 600;
+    color: #111111;
+  }
+
+  /* 4. Interactive Buttons */
+  .lab-styled-preview[data-style="minimalism"] button,
+  .lab-styled-preview[data-style="minimalism"] input[type="submit"],
+  .lab-styled-preview[data-style="minimalism"] input[type="button"],
+  .minimalism-styled-container button,
+  .style-minimalism button,
+  [data-style="minimalism"] button,
+  .ds-scope[data-style-id="minimalism"] button,
+  .style-minimalist button,
+  [data-style="minimalist"] button,
+  .ds-scope[data-style-id="minimalist"] button,
+  .style-minimal button,
+  [data-style="minimal"] button,
+  .ds-scope[data-style-id="minimal"] button,
+  .minimalism-styled-container input[type="submit"],
+  .style-minimalism input[type="submit"],
+  [data-style="minimalism"] input[type="submit"],
+  .ds-scope[data-style-id="minimalism"] input[type="submit"],
+  .style-minimalist input[type="submit"],
+  [data-style="minimalist"] input[type="submit"],
+  .ds-scope[data-style-id="minimalist"] input[type="submit"],
+  .style-minimal input[type="submit"],
+  [data-style="minimal"] input[type="submit"],
+  .ds-scope[data-style-id="minimal"] input[type="submit"],
+  .minimalism-styled-container input[type="button"],
+  .style-minimalism input[type="button"],
+  [data-style="minimalism"] input[type="button"],
+  .ds-scope[data-style-id="minimalism"] input[type="button"],
+  .style-minimalist input[type="button"],
+  [data-style="minimalist"] input[type="button"],
+  .ds-scope[data-style-id="minimalist"] input[type="button"],
+  .style-minimal input[type="button"],
+  [data-style="minimal"] input[type="button"],
+  .ds-scope[data-style-id="minimal"] input[type="button"] {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.625rem 1.25rem;
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    border-radius: 2px;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: opacity 150ms ease, background-color 150ms ease;
+    margin: 0.35rem 0.5rem 0.35rem 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] button:hover,
+  .lab-styled-preview[data-style="minimalism"] input[type="submit"]:hover,
+  .minimalism-styled-container button:hover,
+  .style-minimalism button:hover,
+  [data-style="minimalism"] button:hover,
+  .ds-scope[data-style-id="minimalism"] button:hover,
+  .style-minimalist button:hover,
+  [data-style="minimalist"] button:hover,
+  .ds-scope[data-style-id="minimalist"] button:hover,
+  .style-minimal button:hover,
+  [data-style="minimal"] button:hover,
+  .ds-scope[data-style-id="minimal"] button:hover,
+  .minimalism-styled-container input[type="submit"]:hover,
+  .style-minimalism input[type="submit"]:hover,
+  [data-style="minimalism"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="minimalism"] input[type="submit"]:hover,
+  .style-minimalist input[type="submit"]:hover,
+  [data-style="minimalist"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="minimalist"] input[type="submit"]:hover,
+  .style-minimal input[type="submit"]:hover,
+  [data-style="minimal"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="minimal"] input[type="submit"]:hover {
+    background-color: #27272a;
+    opacity: 0.92;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] button:active,
+  .lab-styled-preview[data-style="minimalism"] input[type="submit"]:active,
+  .minimalism-styled-container button:active,
+  .style-minimalism button:active,
+  [data-style="minimalism"] button:active,
+  .ds-scope[data-style-id="minimalism"] button:active,
+  .style-minimalist button:active,
+  [data-style="minimalist"] button:active,
+  .ds-scope[data-style-id="minimalist"] button:active,
+  .style-minimal button:active,
+  [data-style="minimal"] button:active,
+  .ds-scope[data-style-id="minimal"] button:active,
+  .minimalism-styled-container input[type="submit"]:active,
+  .style-minimalism input[type="submit"]:active,
+  [data-style="minimalism"] input[type="submit"]:active,
+  .ds-scope[data-style-id="minimalism"] input[type="submit"]:active,
+  .style-minimalist input[type="submit"]:active,
+  [data-style="minimalist"] input[type="submit"]:active,
+  .ds-scope[data-style-id="minimalist"] input[type="submit"]:active,
+  .style-minimal input[type="submit"]:active,
+  [data-style="minimal"] input[type="submit"]:active,
+  .ds-scope[data-style-id="minimal"] input[type="submit"]:active {
+    transform: scale(0.99);
+    box-shadow: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] button:focus-visible,
+  .minimalism-styled-container button:focus-visible,
+  .style-minimalism button:focus-visible,
+  [data-style="minimalism"] button:focus-visible,
+  .ds-scope[data-style-id="minimalism"] button:focus-visible,
+  .style-minimalist button:focus-visible,
+  [data-style="minimalist"] button:focus-visible,
+  .ds-scope[data-style-id="minimalist"] button:focus-visible,
+  .style-minimal button:focus-visible,
+  [data-style="minimal"] button:focus-visible,
+  .ds-scope[data-style-id="minimal"] button:focus-visible {
+    outline: 2px solid #111111;
+    outline-offset: 2px;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] button:disabled,
+  .minimalism-styled-container button:disabled,
+  .style-minimalism button:disabled,
+  [data-style="minimalism"] button:disabled,
+  .ds-scope[data-style-id="minimalism"] button:disabled,
+  .style-minimalist button:disabled,
+  [data-style="minimalist"] button:disabled,
+  .ds-scope[data-style-id="minimalist"] button:disabled,
+  .style-minimal button:disabled,
+  [data-style="minimal"] button:disabled,
+  .ds-scope[data-style-id="minimal"] button:disabled {
+    background-color: #f4f4f5;
+    color: #a1a1aa;
+    border-color: #e4e4e7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* 5. Editorial Content & Articles (The Anti-Card Rule) */
+  .lab-styled-preview[data-style="minimalism"] article,
+  .minimalism-styled-container article,
+  .style-minimalism article,
+  [data-style="minimalism"] article,
+  .ds-scope[data-style-id="minimalism"] article,
+  .style-minimalist article,
+  [data-style="minimalist"] article,
+  .ds-scope[data-style-id="minimalist"] article,
+  .style-minimal article,
+  [data-style="minimal"] article,
+  .ds-scope[data-style-id="minimal"] article {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0px;
+    padding: 1.75rem 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    transition: background-color 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] article:last-child,
+  .minimalism-styled-container article:last-child,
+  .style-minimalism article:last-child,
+  [data-style="minimalism"] article:last-child,
+  .ds-scope[data-style-id="minimalism"] article:last-child,
+  .style-minimalist article:last-child,
+  [data-style="minimalist"] article:last-child,
+  .ds-scope[data-style-id="minimalist"] article:last-child,
+  .style-minimal article:last-child,
+  [data-style="minimal"] article:last-child,
+  .ds-scope[data-style-id="minimal"] article:last-child {
+    border-bottom: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] article:hover,
+  .minimalism-styled-container article:hover,
+  .style-minimalism article:hover,
+  [data-style="minimalism"] article:hover,
+  .ds-scope[data-style-id="minimalism"] article:hover,
+  .style-minimalist article:hover,
+  [data-style="minimalist"] article:hover,
+  .ds-scope[data-style-id="minimalist"] article:hover,
+  .style-minimal article:hover,
+  [data-style="minimal"] article:hover,
+  .ds-scope[data-style-id="minimal"] article:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] article h3,
+  .minimalism-styled-container article h3,
+  .style-minimalism article h3,
+  [data-style="minimalism"] article h3,
+  .ds-scope[data-style-id="minimalism"] article h3,
+  .style-minimalist article h3,
+  [data-style="minimalist"] article h3,
+  .ds-scope[data-style-id="minimalist"] article h3,
+  .style-minimal article h3,
+  [data-style="minimal"] article h3,
+  .ds-scope[data-style-id="minimal"] article h3 {
+    margin-top: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: -0.02em;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] article p,
+  .minimalism-styled-container article p,
+  .style-minimalism article p,
+  [data-style="minimalism"] article p,
+  .ds-scope[data-style-id="minimalism"] article p,
+  .style-minimalist article p,
+  [data-style="minimalist"] article p,
+  .ds-scope[data-style-id="minimalist"] article p,
+  .style-minimal article p,
+  [data-style="minimal"] article p,
+  .ds-scope[data-style-id="minimal"] article p {
+    color: #52525b;
+    font-size: 0.9375rem;
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] blockquote,
+  .minimalism-styled-container blockquote,
+  .style-minimalism blockquote,
+  [data-style="minimalism"] blockquote,
+  .ds-scope[data-style-id="minimalism"] blockquote,
+  .style-minimalist blockquote,
+  [data-style="minimalist"] blockquote,
+  .ds-scope[data-style-id="minimalist"] blockquote,
+  .style-minimal blockquote,
+  [data-style="minimal"] blockquote,
+  .ds-scope[data-style-id="minimal"] blockquote {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    color: #27272a;
+    background-color: transparent;
+    border: none;
+    border-left: 2px solid #111111;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: none;
+  }
+
+  /* 6. Raw Data & Tables */
+  .lab-styled-preview[data-style="minimalism"] table,
+  .minimalism-styled-container table,
+  .style-minimalism table,
+  [data-style="minimalism"] table,
+  .ds-scope[data-style-id="minimalism"] table,
+  .style-minimalist table,
+  [data-style="minimalist"] table,
+  .ds-scope[data-style-id="minimalist"] table,
+  .style-minimal table,
+  [data-style="minimal"] table,
+  .ds-scope[data-style-id="minimal"] table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin: 2rem 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] th,
+  .minimalism-styled-container th,
+  .style-minimalism th,
+  [data-style="minimalism"] th,
+  .ds-scope[data-style-id="minimalism"] th,
+  .style-minimalist th,
+  [data-style="minimalist"] th,
+  .ds-scope[data-style-id="minimalist"] th,
+  .style-minimal th,
+  [data-style="minimal"] th,
+  .ds-scope[data-style-id="minimal"] th {
+    background-color: transparent;
+    color: #71717a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.85rem 1rem 0.85rem 0;
+    border: none;
+    border-bottom: 1px solid #111111;
+    text-align: left;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] td,
+  .minimalism-styled-container td,
+  .style-minimalism td,
+  [data-style="minimalism"] td,
+  .ds-scope[data-style-id="minimalism"] td,
+  .style-minimalist td,
+  [data-style="minimalist"] td,
+  .ds-scope[data-style-id="minimalist"] td,
+  .style-minimal td,
+  [data-style="minimal"] td,
+  .ds-scope[data-style-id="minimal"] td {
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 1rem 1rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #111111;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] tr:last-child td,
+  .minimalism-styled-container tr:last-child td,
+  .style-minimalism tr:last-child td,
+  [data-style="minimalism"] tr:last-child td,
+  .ds-scope[data-style-id="minimalism"] tr:last-child td,
+  .style-minimalist tr:last-child td,
+  [data-style="minimalist"] tr:last-child td,
+  .ds-scope[data-style-id="minimalist"] tr:last-child td,
+  .style-minimal tr:last-child td,
+  [data-style="minimal"] tr:last-child td,
+  .ds-scope[data-style-id="minimal"] tr:last-child td {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  /* 7. Forms & Inputs */
+  .lab-styled-preview[data-style="minimalism"] form,
+  .minimalism-styled-container form,
+  .style-minimalism form,
+  [data-style="minimalism"] form,
+  .ds-scope[data-style-id="minimalism"] form,
+  .style-minimalist form,
+  [data-style="minimalist"] form,
+  .ds-scope[data-style-id="minimalist"] form,
+  .style-minimal form,
+  [data-style="minimal"] form,
+  .ds-scope[data-style-id="minimal"] form {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] label,
+  .minimalism-styled-container label,
+  .style-minimalism label,
+  [data-style="minimalism"] label,
+  .ds-scope[data-style-id="minimalism"] label,
+  .style-minimalist label,
+  [data-style="minimalist"] label,
+  .ds-scope[data-style-id="minimalist"] label,
+  .style-minimal label,
+  [data-style="minimal"] label,
+  .ds-scope[data-style-id="minimal"] label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #71717a;
+    margin-bottom: 0.35rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] input[type="text"],
+  .lab-styled-preview[data-style="minimalism"] input[type="email"],
+  .lab-styled-preview[data-style="minimalism"] input[type="tel"],
+  .lab-styled-preview[data-style="minimalism"] input[type="number"],
+  .lab-styled-preview[data-style="minimalism"] select,
+  .lab-styled-preview[data-style="minimalism"] textarea,
+  .minimalism-styled-container input[type="text"],
+  .style-minimalism input[type="text"],
+  [data-style="minimalism"] input[type="text"],
+  .ds-scope[data-style-id="minimalism"] input[type="text"],
+  .style-minimalist input[type="text"],
+  [data-style="minimalist"] input[type="text"],
+  .ds-scope[data-style-id="minimalist"] input[type="text"],
+  .style-minimal input[type="text"],
+  [data-style="minimal"] input[type="text"],
+  .ds-scope[data-style-id="minimal"] input[type="text"],
+  .minimalism-styled-container input[type="email"],
+  .style-minimalism input[type="email"],
+  [data-style="minimalism"] input[type="email"],
+  .ds-scope[data-style-id="minimalism"] input[type="email"],
+  .style-minimalist input[type="email"],
+  [data-style="minimalist"] input[type="email"],
+  .ds-scope[data-style-id="minimalist"] input[type="email"],
+  .style-minimal input[type="email"],
+  [data-style="minimal"] input[type="email"],
+  .ds-scope[data-style-id="minimal"] input[type="email"],
+  .minimalism-styled-container input[type="tel"],
+  .style-minimalism input[type="tel"],
+  [data-style="minimalism"] input[type="tel"],
+  .ds-scope[data-style-id="minimalism"] input[type="tel"],
+  .style-minimalist input[type="tel"],
+  [data-style="minimalist"] input[type="tel"],
+  .ds-scope[data-style-id="minimalist"] input[type="tel"],
+  .style-minimal input[type="tel"],
+  [data-style="minimal"] input[type="tel"],
+  .ds-scope[data-style-id="minimal"] input[type="tel"],
+  .minimalism-styled-container input[type="number"],
+  .style-minimalism input[type="number"],
+  [data-style="minimalism"] input[type="number"],
+  .ds-scope[data-style-id="minimalism"] input[type="number"],
+  .style-minimalist input[type="number"],
+  [data-style="minimalist"] input[type="number"],
+  .ds-scope[data-style-id="minimalist"] input[type="number"],
+  .style-minimal input[type="number"],
+  [data-style="minimal"] input[type="number"],
+  .ds-scope[data-style-id="minimal"] input[type="number"],
+  .minimalism-styled-container select,
+  .style-minimalism select,
+  [data-style="minimalism"] select,
+  .ds-scope[data-style-id="minimalism"] select,
+  .style-minimalist select,
+  [data-style="minimalist"] select,
+  .ds-scope[data-style-id="minimalist"] select,
+  .style-minimal select,
+  [data-style="minimal"] select,
+  .ds-scope[data-style-id="minimal"] select,
+  .minimalism-styled-container textarea,
+  .style-minimalism textarea,
+  [data-style="minimalism"] textarea,
+  .ds-scope[data-style-id="minimalism"] textarea,
+  .style-minimalist textarea,
+  [data-style="minimalist"] textarea,
+  .ds-scope[data-style-id="minimalist"] textarea,
+  .style-minimal textarea,
+  [data-style="minimal"] textarea,
+  .ds-scope[data-style-id="minimal"] textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    padding: 0.625rem 0.875rem;
+    color: #111111;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    box-shadow: none;
+    margin-bottom: 1.5rem;
+    outline: none;
+    transition: border-color 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] input:focus,
+  .lab-styled-preview[data-style="minimalism"] select:focus,
+  .lab-styled-preview[data-style="minimalism"] textarea:focus,
+  .minimalism-styled-container input:focus,
+  .style-minimalism input:focus,
+  [data-style="minimalism"] input:focus,
+  .ds-scope[data-style-id="minimalism"] input:focus,
+  .style-minimalist input:focus,
+  [data-style="minimalist"] input:focus,
+  .ds-scope[data-style-id="minimalist"] input:focus,
+  .style-minimal input:focus,
+  [data-style="minimal"] input:focus,
+  .ds-scope[data-style-id="minimal"] input:focus,
+  .minimalism-styled-container select:focus,
+  .style-minimalism select:focus,
+  [data-style="minimalism"] select:focus,
+  .ds-scope[data-style-id="minimalism"] select:focus,
+  .style-minimalist select:focus,
+  [data-style="minimalist"] select:focus,
+  .ds-scope[data-style-id="minimalist"] select:focus,
+  .style-minimal select:focus,
+  [data-style="minimal"] select:focus,
+  .ds-scope[data-style-id="minimal"] select:focus,
+  .minimalism-styled-container textarea:focus,
+  .style-minimalism textarea:focus,
+  [data-style="minimalism"] textarea:focus,
+  .ds-scope[data-style-id="minimalism"] textarea:focus,
+  .style-minimalist textarea:focus,
+  [data-style="minimalist"] textarea:focus,
+  .ds-scope[data-style-id="minimalist"] textarea:focus,
+  .style-minimal textarea:focus,
+  [data-style="minimal"] textarea:focus,
+  .ds-scope[data-style-id="minimal"] textarea:focus {
+    border-color: #111111;
+    box-shadow: 0 0 0 1px #111111;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] input::placeholder,
+  .lab-styled-preview[data-style="minimalism"] textarea::placeholder,
+  .minimalism-styled-container input::placeholder,
+  .style-minimalism input::placeholder,
+  [data-style="minimalism"] input::placeholder,
+  .ds-scope[data-style-id="minimalism"] input::placeholder,
+  .style-minimalist input::placeholder,
+  [data-style="minimalist"] input::placeholder,
+  .ds-scope[data-style-id="minimalist"] input::placeholder,
+  .style-minimal input::placeholder,
+  [data-style="minimal"] input::placeholder,
+  .ds-scope[data-style-id="minimal"] input::placeholder,
+  .minimalism-styled-container textarea::placeholder,
+  .style-minimalism textarea::placeholder,
+  [data-style="minimalism"] textarea::placeholder,
+  .ds-scope[data-style-id="minimalism"] textarea::placeholder,
+  .style-minimalist textarea::placeholder,
+  [data-style="minimalist"] textarea::placeholder,
+  .ds-scope[data-style-id="minimalist"] textarea::placeholder,
+  .style-minimal textarea::placeholder,
+  [data-style="minimal"] textarea::placeholder,
+  .ds-scope[data-style-id="minimal"] textarea::placeholder {
+    color: #a1a1aa;
+    opacity: 1;
+  }
+
+  /* 8. Lists */
+  .lab-styled-preview[data-style="minimalism"] ul,
+  .lab-styled-preview[data-style="minimalism"] ol,
+  .minimalism-styled-container ul,
+  .style-minimalism ul,
+  [data-style="minimalism"] ul,
+  .ds-scope[data-style-id="minimalism"] ul,
+  .style-minimalist ul,
+  [data-style="minimalist"] ul,
+  .ds-scope[data-style-id="minimalist"] ul,
+  .style-minimal ul,
+  [data-style="minimal"] ul,
+  .ds-scope[data-style-id="minimal"] ul,
+  .minimalism-styled-container ol,
+  .style-minimalism ol,
+  [data-style="minimalism"] ol,
+  .ds-scope[data-style-id="minimalism"] ol,
+  .style-minimalist ol,
+  [data-style="minimalist"] ol,
+  .ds-scope[data-style-id="minimalist"] ol,
+  .style-minimal ol,
+  [data-style="minimal"] ol,
+  .ds-scope[data-style-id="minimal"] ol {
+    padding-left: 1.25rem;
+    margin: 1rem 0 1.75rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] li,
+  .minimalism-styled-container li,
+  .style-minimalism li,
+  [data-style="minimalism"] li,
+  .ds-scope[data-style-id="minimalism"] li,
+  .style-minimalist li,
+  [data-style="minimalist"] li,
+  .ds-scope[data-style-id="minimalist"] li,
+  .style-minimal li,
+  [data-style="minimal"] li,
+  .ds-scope[data-style-id="minimal"] li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #52525b;
+    margin-bottom: 0.5rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] ul > li,
+  .minimalism-styled-container ul > li,
+  .style-minimalism ul > li,
+  [data-style="minimalism"] ul > li,
+  .ds-scope[data-style-id="minimalism"] ul > li,
+  .style-minimalist ul > li,
+  [data-style="minimalist"] ul > li,
+  .ds-scope[data-style-id="minimalist"] ul > li,
+  .style-minimal ul > li,
+  [data-style="minimal"] ul > li,
+  .ds-scope[data-style-id="minimal"] ul > li {
+    list-style-type: disc;
+  }
+
+  /* 9. Badges, Tags, Metadata */
+  .lab-styled-preview[data-style="minimalism"] small,
+  .lab-styled-preview[data-style="minimalism"] .badge,
+  .lab-styled-preview[data-style="minimalism"] span.tag,
+  .minimalism-styled-container small,
+  .style-minimalism small,
+  [data-style="minimalism"] small,
+  .ds-scope[data-style-id="minimalism"] small,
+  .style-minimalist small,
+  [data-style="minimalist"] small,
+  .ds-scope[data-style-id="minimalist"] small,
+  .style-minimal small,
+  [data-style="minimal"] small,
+  .ds-scope[data-style-id="minimal"] small,
+  .minimalism-styled-container .badge,
+  .style-minimalism .badge,
+  [data-style="minimalism"] .badge,
+  .ds-scope[data-style-id="minimalism"] .badge,
+  .style-minimalist .badge,
+  [data-style="minimalist"] .badge,
+  .ds-scope[data-style-id="minimalist"] .badge,
+  .style-minimal .badge,
+  [data-style="minimal"] .badge,
+  .ds-scope[data-style-id="minimal"] .badge,
+  .minimalism-styled-container span.tag,
+  .style-minimalism span.tag,
+  [data-style="minimalism"] span.tag,
+  .ds-scope[data-style-id="minimalism"] span.tag,
+  .style-minimalist span.tag,
+  [data-style="minimalist"] span.tag,
+  .ds-scope[data-style-id="minimalist"] span.tag,
+  .style-minimal span.tag,
+  [data-style="minimal"] span.tag,
+  .ds-scope[data-style-id="minimal"] span.tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background-color: #f5f5f4;
+    color: #71717a;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    box-shadow: none;
+    border-radius: 2px;
+    margin-right: 0.35rem;
+  }
+
+  /* 10. Links */
+  .lab-styled-preview[data-style="minimalism"] a,
+  .minimalism-styled-container a,
+  .style-minimalism a,
+  [data-style="minimalism"] a,
+  .ds-scope[data-style-id="minimalism"] a,
+  .style-minimalist a,
+  [data-style="minimalist"] a,
+  .ds-scope[data-style-id="minimalist"] a,
+  .style-minimal a,
+  [data-style="minimal"] a,
+  .ds-scope[data-style-id="minimal"] a {
+    color: #111111;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(0, 0, 0, 0.3);
+    transition: text-decoration-color 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] a:hover,
+  .minimalism-styled-container a:hover,
+  .style-minimalism a:hover,
+  [data-style="minimalism"] a:hover,
+  .ds-scope[data-style-id="minimalism"] a:hover,
+  .style-minimalist a:hover,
+  [data-style="minimalist"] a:hover,
+  .ds-scope[data-style-id="minimalist"] a:hover,
+  .style-minimal a:hover,
+  [data-style="minimal"] a:hover,
+  .ds-scope[data-style-id="minimal"] a:hover {
+    text-decoration-color: #111111;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  /* 11. Footer */
+  .lab-styled-preview[data-style="minimalism"] footer,
+  .minimalism-styled-container footer,
+  .style-minimalism footer,
+  [data-style="minimalism"] footer,
+  .ds-scope[data-style-id="minimalism"] footer,
+  .style-minimalist footer,
+  [data-style="minimalist"] footer,
+  .ds-scope[data-style-id="minimalist"] footer,
+  .style-minimal footer,
+  [data-style="minimal"] footer,
+  .ds-scope[data-style-id="minimal"] footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 2.5rem 0 1.5rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] footer p,
+  .minimalism-styled-container footer p,
+  .style-minimalism footer p,
+  [data-style="minimalism"] footer p,
+  .ds-scope[data-style-id="minimalism"] footer p,
+  .style-minimalist footer p,
+  [data-style="minimalist"] footer p,
+  .ds-scope[data-style-id="minimalist"] footer p,
+  .style-minimal footer p,
+  [data-style="minimal"] footer p,
+  .ds-scope[data-style-id="minimal"] footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: #71717a;
+    margin: 0;
+  }
+[class*="style-"] { overflow-x: hidden; }
+[class*="style-"] * { box-sizing: border-box; }

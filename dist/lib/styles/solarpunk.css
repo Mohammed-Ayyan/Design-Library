@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Container Foundation */
+  .lab-styled-preview[data-style="solarpunk"],
+  .solarpunk-styled-container,
+  .style-solarpunk,
+  .ds-scope[data-style-id="solarpunk"] {
+    background: linear-gradient(175deg, #f7fdf7 0%, #f0fdf4 50%, #fefce8 100%) !important;
+    color: #14532d !important;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.01em !important;
+    box-shadow: none !important;
+    position: relative !important;
+  }
+
+  /* 1. Navigation Bar Language */
+  .lab-styled-preview[data-style="solarpunk"] nav,
+  .solarpunk-styled-container nav,
+  .style-solarpunk nav,
+  .ds-scope[data-style-id="solarpunk"] nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.25rem 2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    box-shadow: 0 4px 20px rgba(22, 101, 52, 0.06);
+    margin-bottom: 3rem;
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] nav a,
+  .solarpunk-styled-container nav a,
+  .style-solarpunk nav a,
+  .ds-scope[data-style-id="solarpunk"] nav a {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #15803d;
+    text-decoration: none;
+    transition: all 200ms ease;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] nav a:hover,
+  .solarpunk-styled-container nav a:hover,
+  .style-solarpunk nav a:hover,
+  .ds-scope[data-style-id="solarpunk"] nav a:hover {
+    color: #166534;
+    background-color: rgba(34, 197, 94, 0.15);
+  }
+
+  /* 2. Headings & Organic Hierarchy */
+  .lab-styled-preview[data-style="solarpunk"] h1,
+  .solarpunk-styled-container h1,
+  .style-solarpunk h1,
+  .ds-scope[data-style-id="solarpunk"] h1 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #14532d;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, #14532d 0%, #15803d 60%, #ca8a04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] h2,
+  .solarpunk-styled-container h2,
+  .style-solarpunk h2,
+  .ds-scope[data-style-id="solarpunk"] h2 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: #166534;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] h2::before,
+  .solarpunk-styled-container h2::before,
+  .style-solarpunk h2::before,
+  .ds-scope[data-style-id="solarpunk"] h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    bottom: 15%;
+    width: 4px;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom, #22c55e, #eab308);
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] h3,
+  .solarpunk-styled-container h3,
+  .style-solarpunk h3,
+  .ds-scope[data-style-id="solarpunk"] h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #166534;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* 3. Paragraphs & Editorial Flow */
+  .lab-styled-preview[data-style="solarpunk"] p,
+  .solarpunk-styled-container p,
+  .style-solarpunk p,
+  .ds-scope[data-style-id="solarpunk"] p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #166534;
+    margin-bottom: 1.5rem;
+    max-width: 68ch;
+  }
+
+  /* 4. Solarpunk Botanical Buttons */
+  .lab-styled-preview[data-style="solarpunk"] button,
+  .solarpunk-styled-container button,
+  .style-solarpunk button,
+  .ds-scope[data-style-id="solarpunk"] button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 0.85rem 2rem;
+    border-radius: 18px 4px 18px 4px;
+    border: 1px solid rgba(234, 179, 8, 0.4);
+    background: linear-gradient(135deg, #15803d 0%, #166534 60%, #14532d 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(22, 101, 52, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] button:hover,
+  .solarpunk-styled-container button:hover,
+  .style-solarpunk button:hover,
+  .ds-scope[data-style-id="solarpunk"] button:hover {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 60%, #166534 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(22, 101, 52, 0.35), 0 0 12px rgba(234, 179, 8, 0.3);
+    border-color: #facc15;
+  }
+
+  /* Secondary Button Alternative */
+  .lab-styled-preview[data-style="solarpunk"] button:nth-of-type(2),
+  .solarpunk-styled-container button:nth-of-type(2),
+  .style-solarpunk button:nth-of-type(2),
+  .ds-scope[data-style-id="solarpunk"] button:nth-of-type(2) {
+    background: rgba(255, 255, 255, 0.9);
+    color: #15803d;
+    border: 1.5px solid #22c55e;
+    box-shadow: 0 4px 12px rgba(22, 101, 52, 0.08);
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] button:nth-of-type(2):hover,
+  .solarpunk-styled-container button:nth-of-type(2):hover,
+  .style-solarpunk button:nth-of-type(2):hover,
+  .ds-scope[data-style-id="solarpunk"] button:nth-of-type(2):hover {
+    background: #f0fdf4;
+    border-color: #16a34a;
+    color: #14532d;
+  }
+
+  /* 5. Solar Canopy Cards */
+  .lab-styled-preview[data-style="solarpunk"] article,
+  .lab-styled-preview[data-style="solarpunk"] .card,
+  .solarpunk-styled-container article,
+  .solarpunk-styled-container .card,
+  .style-solarpunk article,
+  .style-solarpunk .card,
+  .ds-scope[data-style-id="solarpunk"] article,
+  .ds-scope[data-style-id="solarpunk"] .card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(34, 197, 94, 0.22);
+    border-radius: 20px;
+    padding: 2.25rem;
+    box-shadow: 0 10px 30px rgba(22, 101, 52, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] article:hover,
+  .lab-styled-preview[data-style="solarpunk"] .card:hover,
+  .solarpunk-styled-container article:hover,
+  .solarpunk-styled-container .card:hover,
+  .style-solarpunk article:hover,
+  .style-solarpunk .card:hover,
+  .ds-scope[data-style-id="solarpunk"] article:hover,
+  .ds-scope[data-style-id="solarpunk"] .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(34, 197, 94, 0.45);
+    box-shadow: 0 18px 40px rgba(22, 101, 52, 0.12), 0 0 16px rgba(234, 179, 8, 0.15);
+  }
+
+  /* 6. Form Inputs & Bio-Glass Elements */
+  .lab-styled-preview[data-style="solarpunk"] input,
+  .solarpunk-styled-container input,
+  .style-solarpunk input,
+  .ds-scope[data-style-id="solarpunk"] input {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 12px;
+    border: 1.5px solid rgba(34, 197, 94, 0.3);
+    background: #ffffff;
+    color: #14532d;
+    box-shadow: 0 2px 8px rgba(22, 101, 52, 0.04);
+    outline: none;
+    transition: all 200ms ease;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] input:focus,
+  .solarpunk-styled-container input:focus,
+  .style-solarpunk input:focus,
+  .ds-scope[data-style-id="solarpunk"] input:focus {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18), 0 2px 12px rgba(234, 179, 8, 0.1);
+  }
+
+  /* 7. Solar Badges */
+  .lab-styled-preview[data-style="solarpunk"] .badge,
+  .solarpunk-styled-container .badge,
+  .style-solarpunk .badge,
+  .ds-scope[data-style-id="solarpunk"] .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 9999px;
+    background: rgba(34, 197, 94, 0.15);
+    color: #15803d;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  /* 8. Sections & Natural Separators */
+  .lab-styled-preview[data-style="solarpunk"] section,
+  .solarpunk-styled-container section,
+  .style-solarpunk section,
+  .ds-scope[data-style-id="solarpunk"] section {
+    padding: 3.5rem 0;
+    border-bottom: 1px dashed rgba(34, 197, 94, 0.25);
+  }
+
+  .lab-styled-preview[data-style="solarpunk"] section:last-child,
+  .solarpunk-styled-container section:last-child,
+  .style-solarpunk section:last-child,
+  .ds-scope[data-style-id="solarpunk"] section:last-child {
+    border-bottom: none;
+  }
+[class*="style-"] { overflow-x: hidden; }
+[class*="style-"] * { box-sizing: border-box; }

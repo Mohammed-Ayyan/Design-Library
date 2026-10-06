@@ -1,0 +1,1315 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ==========================================================================
+     DARK MODE UI DESIGN LANGUAGE — LAYERED SURFACES & RESTRAINED CONTRAST
+     ========================================================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  /* --------------------------------------------------------------------------
+     1. FOUNDATION & SCOPED VARIABLES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"],
+  .dark-mode-ui-styled-container,
+  .style-dark-mode-ui,
+  [data-style="dark-mode-ui"],
+  .ds-scope[data-style-id="dark-mode-ui"],
+  .style-dark-mode,
+  [data-style="dark-mode"],
+  .ds-scope[data-style-id="dark-mode"],
+  .style-darkmode,
+  [data-style="darkmode"],
+  .ds-scope[data-style-id="darkmode"] {
+    --dark-bg-base: #09090b;       /* Deep obsidian base canvas */
+    --dark-bg-surface: #111113;    /* Surface content area */
+    --dark-bg-elevated: #18181b;   /* Elevated modules, cards, nav */
+    --dark-bg-high: #222225;       /* Higher tier, hover, popovers */
+    
+    --dark-border: #27272a;        /* Subtle neutral border */
+    --dark-border-subtle: rgba(255, 255, 255, 0.06);
+    --dark-border-strong: #3f3f46;  /* High-emphasis border */
+    
+    --dark-text-primary: #fafafa;  /* Crisp near-white */
+    --dark-text-secondary: #a1a1aa;/* Calm cool gray */
+    --dark-text-muted: #71717a;    /* Muted labels & metadata */
+    --dark-text-reading: #d4d4d8;  /* Eye-friendly editorial body */
+    
+    --dark-accent: #3b82f6;        /* Professional royal blue */
+    --dark-accent-hover: #2563eb;
+    --dark-accent-subtle: rgba(59, 130, 246, 0.12);
+    --dark-accent-signal: #60a5fa;
+    
+    --dark-signal-emerald: #10b981;
+    --dark-signal-amber: #f59e0b;
+    --dark-signal-rose: #f43f5e;
+    
+    --dark-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+    --dark-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+    --dark-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.65), 0 4px 10px rgba(0, 0, 0, 0.4);
+    
+    --dark-radius-sm: 6px;
+    --dark-radius-md: 10px;
+    --dark-radius-lg: 16px;
+    --dark-radius-pill: 9999px;
+
+    background-color: var(--dark-bg-base) !important;
+    color: var(--dark-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    letter-spacing: -0.01em !important;
+    box-sizing: border-box !important;
+    padding: 2.5rem 2rem !important;
+    border-radius: var(--dark-radius-lg) !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    border: 1px solid var(--dark-border) !important;
+    box-shadow: var(--dark-shadow-lg) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] *,
+  .dark-mode-ui-styled-container *,
+  .style-dark-mode-ui *,
+  [data-style="dark-mode-ui"] *,
+  .ds-scope[data-style-id="dark-mode-ui"] *,
+  .style-dark-mode *,
+  [data-style="dark-mode"] *,
+  .ds-scope[data-style-id="dark-mode"] *,
+  .style-darkmode *,
+  [data-style="darkmode"] *,
+  .ds-scope[data-style-id="darkmode"] * {
+    box-sizing: border-box;
+  }
+
+  /* --------------------------------------------------------------------------
+     2. TYPOGRAPHY HIERARCHY (Controlled Contrast, Readability First)
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] h1,
+  .lab-styled-preview[data-style="dark-mode-ui"] h2,
+  .lab-styled-preview[data-style="dark-mode-ui"] h3,
+  .lab-styled-preview[data-style="dark-mode-ui"] h4,
+  .lab-styled-preview[data-style="dark-mode-ui"] h5,
+  .lab-styled-preview[data-style="dark-mode-ui"] h6,
+  .dark-mode-ui-styled-container h1,
+  .style-dark-mode-ui h1,
+  [data-style="dark-mode-ui"] h1,
+  .ds-scope[data-style-id="dark-mode-ui"] h1,
+  .style-dark-mode h1,
+  [data-style="dark-mode"] h1,
+  .ds-scope[data-style-id="dark-mode"] h1,
+  .style-darkmode h1,
+  [data-style="darkmode"] h1,
+  .ds-scope[data-style-id="darkmode"] h1,
+  .dark-mode-ui-styled-container h2,
+  .style-dark-mode-ui h2,
+  [data-style="dark-mode-ui"] h2,
+  .ds-scope[data-style-id="dark-mode-ui"] h2,
+  .style-dark-mode h2,
+  [data-style="dark-mode"] h2,
+  .ds-scope[data-style-id="dark-mode"] h2,
+  .style-darkmode h2,
+  [data-style="darkmode"] h2,
+  .ds-scope[data-style-id="darkmode"] h2,
+  .dark-mode-ui-styled-container h3,
+  .style-dark-mode-ui h3,
+  [data-style="dark-mode-ui"] h3,
+  .ds-scope[data-style-id="dark-mode-ui"] h3,
+  .style-dark-mode h3,
+  [data-style="dark-mode"] h3,
+  .ds-scope[data-style-id="dark-mode"] h3,
+  .style-darkmode h3,
+  [data-style="darkmode"] h3,
+  .ds-scope[data-style-id="darkmode"] h3,
+  .dark-mode-ui-styled-container h4,
+  .style-dark-mode-ui h4,
+  [data-style="dark-mode-ui"] h4,
+  .ds-scope[data-style-id="dark-mode-ui"] h4,
+  .style-dark-mode h4,
+  [data-style="dark-mode"] h4,
+  .ds-scope[data-style-id="dark-mode"] h4,
+  .style-darkmode h4,
+  [data-style="darkmode"] h4,
+  .ds-scope[data-style-id="darkmode"] h4,
+  .dark-mode-ui-styled-container h5,
+  .style-dark-mode-ui h5,
+  [data-style="dark-mode-ui"] h5,
+  .ds-scope[data-style-id="dark-mode-ui"] h5,
+  .style-dark-mode h5,
+  [data-style="dark-mode"] h5,
+  .ds-scope[data-style-id="dark-mode"] h5,
+  .style-darkmode h5,
+  [data-style="darkmode"] h5,
+  .ds-scope[data-style-id="darkmode"] h5,
+  .dark-mode-ui-styled-container h6,
+  .style-dark-mode-ui h6,
+  [data-style="dark-mode-ui"] h6,
+  .ds-scope[data-style-id="dark-mode-ui"] h6,
+  .style-dark-mode h6,
+  [data-style="dark-mode"] h6,
+  .ds-scope[data-style-id="dark-mode"] h6,
+  .style-darkmode h6,
+  [data-style="darkmode"] h6,
+  .ds-scope[data-style-id="darkmode"] h6 {
+    font-family: 'Inter', sans-serif !important;
+    color: var(--dark-text-primary) !important;
+    letter-spacing: -0.025em !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0 !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] h1,
+  .dark-mode-ui-styled-container h1,
+  .style-dark-mode-ui h1,
+  [data-style="dark-mode-ui"] h1,
+  .ds-scope[data-style-id="dark-mode-ui"] h1,
+  .style-dark-mode h1,
+  [data-style="dark-mode"] h1,
+  .ds-scope[data-style-id="dark-mode"] h1,
+  .style-darkmode h1,
+  [data-style="darkmode"] h1,
+  .ds-scope[data-style-id="darkmode"] h1 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.035em !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] h2,
+  .dark-mode-ui-styled-container h2,
+  .style-dark-mode-ui h2,
+  [data-style="dark-mode-ui"] h2,
+  .ds-scope[data-style-id="dark-mode-ui"] h2,
+  .style-dark-mode h2,
+  [data-style="dark-mode"] h2,
+  .ds-scope[data-style-id="dark-mode"] h2,
+  .style-darkmode h2,
+  [data-style="darkmode"] h2,
+  .ds-scope[data-style-id="darkmode"] h2 {
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.025em !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] h3,
+  .dark-mode-ui-styled-container h3,
+  .style-dark-mode-ui h3,
+  [data-style="dark-mode-ui"] h3,
+  .ds-scope[data-style-id="dark-mode-ui"] h3,
+  .style-dark-mode h3,
+  [data-style="dark-mode"] h3,
+  .ds-scope[data-style-id="dark-mode"] h3,
+  .style-darkmode h3,
+  [data-style="darkmode"] h3,
+  .ds-scope[data-style-id="darkmode"] h3 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] p,
+  .dark-mode-ui-styled-container p,
+  .style-dark-mode-ui p,
+  [data-style="dark-mode-ui"] p,
+  .ds-scope[data-style-id="dark-mode-ui"] p,
+  .style-dark-mode p,
+  [data-style="dark-mode"] p,
+  .ds-scope[data-style-id="dark-mode"] p,
+  .style-darkmode p,
+  [data-style="darkmode"] p,
+  .ds-scope[data-style-id="darkmode"] p {
+    color: var(--dark-text-secondary) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] strong,
+  .lab-styled-preview[data-style="dark-mode-ui"] b,
+  .dark-mode-ui-styled-container strong,
+  .style-dark-mode-ui strong,
+  [data-style="dark-mode-ui"] strong,
+  .ds-scope[data-style-id="dark-mode-ui"] strong,
+  .style-dark-mode strong,
+  [data-style="dark-mode"] strong,
+  .ds-scope[data-style-id="dark-mode"] strong,
+  .style-darkmode strong,
+  [data-style="darkmode"] strong,
+  .ds-scope[data-style-id="darkmode"] strong,
+  .dark-mode-ui-styled-container b,
+  .style-dark-mode-ui b,
+  [data-style="dark-mode-ui"] b,
+  .ds-scope[data-style-id="dark-mode-ui"] b,
+  .style-dark-mode b,
+  [data-style="dark-mode"] b,
+  .ds-scope[data-style-id="dark-mode"] b,
+  .style-darkmode b,
+  [data-style="darkmode"] b,
+  .ds-scope[data-style-id="darkmode"] b {
+    color: var(--dark-text-primary) !important;
+    font-weight: 700 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. NAVIGATION (Calm, Professional, Elevated Dark Surface)
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] nav,
+  .dark-mode-ui-styled-container nav,
+  .style-dark-mode-ui nav,
+  [data-style="dark-mode-ui"] nav,
+  .ds-scope[data-style-id="dark-mode-ui"] nav,
+  .style-dark-mode nav,
+  [data-style="dark-mode"] nav,
+  .ds-scope[data-style-id="dark-mode"] nav,
+  .style-darkmode nav,
+  [data-style="darkmode"] nav,
+  .ds-scope[data-style-id="darkmode"] nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background-color: var(--dark-bg-elevated) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-md) !important;
+    padding: 0.5rem 0.75rem !important;
+    margin-bottom: 2.5rem !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] nav a,
+  .dark-mode-ui-styled-container nav a,
+  .style-dark-mode-ui nav a,
+  [data-style="dark-mode-ui"] nav a,
+  .ds-scope[data-style-id="dark-mode-ui"] nav a,
+  .style-dark-mode nav a,
+  [data-style="dark-mode"] nav a,
+  .ds-scope[data-style-id="dark-mode"] nav a,
+  .style-darkmode nav a,
+  [data-style="darkmode"] nav a,
+  .ds-scope[data-style-id="darkmode"] nav a {
+    color: var(--dark-text-secondary) !important;
+    text-decoration: none !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    padding: 0.45rem 0.85rem !important;
+    border-radius: var(--dark-radius-sm) !important;
+    border: 1px solid transparent !important;
+    transition: all 150ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] nav a:hover,
+  .dark-mode-ui-styled-container nav a:hover,
+  .style-dark-mode-ui nav a:hover,
+  [data-style="dark-mode-ui"] nav a:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] nav a:hover,
+  .style-dark-mode nav a:hover,
+  [data-style="dark-mode"] nav a:hover,
+  .ds-scope[data-style-id="dark-mode"] nav a:hover,
+  .style-darkmode nav a:hover,
+  [data-style="darkmode"] nav a:hover,
+  .ds-scope[data-style-id="darkmode"] nav a:hover {
+    color: var(--dark-text-primary) !important;
+    background-color: var(--dark-bg-high) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] nav a:first-child,
+  .lab-styled-preview[data-style="dark-mode-ui"] nav a[aria-current],
+  .dark-mode-ui-styled-container nav a:first-child,
+  .style-dark-mode-ui nav a:first-child,
+  [data-style="dark-mode-ui"] nav a:first-child,
+  .ds-scope[data-style-id="dark-mode-ui"] nav a:first-child,
+  .style-dark-mode nav a:first-child,
+  [data-style="dark-mode"] nav a:first-child,
+  .ds-scope[data-style-id="dark-mode"] nav a:first-child,
+  .style-darkmode nav a:first-child,
+  [data-style="darkmode"] nav a:first-child,
+  .ds-scope[data-style-id="darkmode"] nav a:first-child,
+  .dark-mode-ui-styled-container nav a[aria-current],
+  .style-dark-mode-ui nav a[aria-current],
+  [data-style="dark-mode-ui"] nav a[aria-current],
+  .ds-scope[data-style-id="dark-mode-ui"] nav a[aria-current],
+  .style-dark-mode nav a[aria-current],
+  [data-style="dark-mode"] nav a[aria-current],
+  .ds-scope[data-style-id="dark-mode"] nav a[aria-current],
+  .style-darkmode nav a[aria-current],
+  [data-style="darkmode"] nav a[aria-current],
+  .ds-scope[data-style-id="darkmode"] nav a[aria-current] {
+    color: var(--dark-text-primary) !important;
+    background-color: var(--dark-bg-high) !important;
+    border: 1px solid var(--dark-border) !important;
+    font-weight: 600 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     4. HERO SECTION & ACCENT KICKERS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] section:first-of-type > p:first-of-type,
+  .lab-styled-preview[data-style="dark-mode-ui"] header > p:first-of-type,
+  .dark-mode-ui-styled-container section:first-of-type > p:first-of-type,
+  .style-dark-mode-ui section:first-of-type > p:first-of-type,
+  [data-style="dark-mode-ui"] section:first-of-type > p:first-of-type,
+  .ds-scope[data-style-id="dark-mode-ui"] section:first-of-type > p:first-of-type,
+  .style-dark-mode section:first-of-type > p:first-of-type,
+  [data-style="dark-mode"] section:first-of-type > p:first-of-type,
+  .ds-scope[data-style-id="dark-mode"] section:first-of-type > p:first-of-type,
+  .style-darkmode section:first-of-type > p:first-of-type,
+  [data-style="darkmode"] section:first-of-type > p:first-of-type,
+  .ds-scope[data-style-id="darkmode"] section:first-of-type > p:first-of-type,
+  .dark-mode-ui-styled-container header > p:first-of-type,
+  .style-dark-mode-ui header > p:first-of-type,
+  [data-style="dark-mode-ui"] header > p:first-of-type,
+  .ds-scope[data-style-id="dark-mode-ui"] header > p:first-of-type,
+  .style-dark-mode header > p:first-of-type,
+  [data-style="dark-mode"] header > p:first-of-type,
+  .ds-scope[data-style-id="dark-mode"] header > p:first-of-type,
+  .style-darkmode header > p:first-of-type,
+  [data-style="darkmode"] header > p:first-of-type,
+  .ds-scope[data-style-id="darkmode"] header > p:first-of-type {
+    display: inline-flex !important;
+    align-items: center !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--dark-accent-signal) !important;
+    background-color: var(--dark-bg-elevated) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-pill) !important;
+    padding: 0.3rem 0.85rem !important;
+    margin-bottom: 1rem !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] section:first-of-type > p:nth-of-type(2),
+  .dark-mode-ui-styled-container section:first-of-type > p:nth-of-type(2),
+  .style-dark-mode-ui section:first-of-type > p:nth-of-type(2),
+  [data-style="dark-mode-ui"] section:first-of-type > p:nth-of-type(2),
+  .ds-scope[data-style-id="dark-mode-ui"] section:first-of-type > p:nth-of-type(2),
+  .style-dark-mode section:first-of-type > p:nth-of-type(2),
+  [data-style="dark-mode"] section:first-of-type > p:nth-of-type(2),
+  .ds-scope[data-style-id="dark-mode"] section:first-of-type > p:nth-of-type(2),
+  .style-darkmode section:first-of-type > p:nth-of-type(2),
+  [data-style="darkmode"] section:first-of-type > p:nth-of-type(2),
+  .ds-scope[data-style-id="darkmode"] section:first-of-type > p:nth-of-type(2) {
+    font-size: 1.125rem !important;
+    line-height: 1.65 !important;
+    color: var(--dark-text-secondary) !important;
+    max-width: 650px !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     5. BUTTONS & INTERACTIVE CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] button,
+  .lab-styled-preview[data-style="dark-mode-ui"] input[type="submit"],
+  .dark-mode-ui-styled-container button,
+  .style-dark-mode-ui button,
+  [data-style="dark-mode-ui"] button,
+  .ds-scope[data-style-id="dark-mode-ui"] button,
+  .style-dark-mode button,
+  [data-style="dark-mode"] button,
+  .ds-scope[data-style-id="dark-mode"] button,
+  .style-darkmode button,
+  [data-style="darkmode"] button,
+  .ds-scope[data-style-id="darkmode"] button,
+  .dark-mode-ui-styled-container input[type="submit"],
+  .style-dark-mode-ui input[type="submit"],
+  [data-style="dark-mode-ui"] input[type="submit"],
+  .ds-scope[data-style-id="dark-mode-ui"] input[type="submit"],
+  .style-dark-mode input[type="submit"],
+  [data-style="dark-mode"] input[type="submit"],
+  .ds-scope[data-style-id="dark-mode"] input[type="submit"],
+  .style-darkmode input[type="submit"],
+  [data-style="darkmode"] input[type="submit"],
+  .ds-scope[data-style-id="darkmode"] input[type="submit"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    padding: 0.65rem 1.4rem !important;
+    border-radius: var(--dark-radius-sm) !important;
+    background-color: var(--dark-accent) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] button:hover,
+  .lab-styled-preview[data-style="dark-mode-ui"] input[type="submit"]:hover,
+  .dark-mode-ui-styled-container button:hover,
+  .style-dark-mode-ui button:hover,
+  [data-style="dark-mode-ui"] button:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] button:hover,
+  .style-dark-mode button:hover,
+  [data-style="dark-mode"] button:hover,
+  .ds-scope[data-style-id="dark-mode"] button:hover,
+  .style-darkmode button:hover,
+  [data-style="darkmode"] button:hover,
+  .ds-scope[data-style-id="darkmode"] button:hover,
+  .dark-mode-ui-styled-container input[type="submit"]:hover,
+  .style-dark-mode-ui input[type="submit"]:hover,
+  [data-style="dark-mode-ui"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] input[type="submit"]:hover,
+  .style-dark-mode input[type="submit"]:hover,
+  [data-style="dark-mode"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="dark-mode"] input[type="submit"]:hover,
+  .style-darkmode input[type="submit"]:hover,
+  [data-style="darkmode"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="darkmode"] input[type="submit"]:hover {
+    background-color: var(--dark-accent-hover) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] button:active,
+  .lab-styled-preview[data-style="dark-mode-ui"] input[type="submit"]:active,
+  .dark-mode-ui-styled-container button:active,
+  .style-dark-mode-ui button:active,
+  [data-style="dark-mode-ui"] button:active,
+  .ds-scope[data-style-id="dark-mode-ui"] button:active,
+  .style-dark-mode button:active,
+  [data-style="dark-mode"] button:active,
+  .ds-scope[data-style-id="dark-mode"] button:active,
+  .style-darkmode button:active,
+  [data-style="darkmode"] button:active,
+  .ds-scope[data-style-id="darkmode"] button:active,
+  .dark-mode-ui-styled-container input[type="submit"]:active,
+  .style-dark-mode-ui input[type="submit"]:active,
+  [data-style="dark-mode-ui"] input[type="submit"]:active,
+  .ds-scope[data-style-id="dark-mode-ui"] input[type="submit"]:active,
+  .style-dark-mode input[type="submit"]:active,
+  [data-style="dark-mode"] input[type="submit"]:active,
+  .ds-scope[data-style-id="dark-mode"] input[type="submit"]:active,
+  .style-darkmode input[type="submit"]:active,
+  [data-style="darkmode"] input[type="submit"]:active,
+  .ds-scope[data-style-id="darkmode"] input[type="submit"]:active {
+    transform: translateY(0) !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] button:focus-visible,
+  .lab-styled-preview[data-style="dark-mode-ui"] input[type="submit"]:focus-visible,
+  .dark-mode-ui-styled-container button:focus-visible,
+  .style-dark-mode-ui button:focus-visible,
+  [data-style="dark-mode-ui"] button:focus-visible,
+  .ds-scope[data-style-id="dark-mode-ui"] button:focus-visible,
+  .style-dark-mode button:focus-visible,
+  [data-style="dark-mode"] button:focus-visible,
+  .ds-scope[data-style-id="dark-mode"] button:focus-visible,
+  .style-darkmode button:focus-visible,
+  [data-style="darkmode"] button:focus-visible,
+  .ds-scope[data-style-id="darkmode"] button:focus-visible,
+  .dark-mode-ui-styled-container input[type="submit"]:focus-visible,
+  .style-dark-mode-ui input[type="submit"]:focus-visible,
+  [data-style="dark-mode-ui"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="dark-mode-ui"] input[type="submit"]:focus-visible,
+  .style-dark-mode input[type="submit"]:focus-visible,
+  [data-style="dark-mode"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="dark-mode"] input[type="submit"]:focus-visible,
+  .style-darkmode input[type="submit"]:focus-visible,
+  [data-style="darkmode"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="darkmode"] input[type="submit"]:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--dark-bg-base), 0 0 0 4px var(--dark-accent) !important;
+  }
+
+  /* Secondary button styling (in option lists, size selectors, etc.) */
+  .lab-styled-preview[data-style="dark-mode-ui"] article > div:has(button) button,
+  .dark-mode-ui-styled-container article > div:has(button) button,
+  .style-dark-mode-ui article > div:has(button) button,
+  [data-style="dark-mode-ui"] article > div:has(button) button,
+  .ds-scope[data-style-id="dark-mode-ui"] article > div:has(button) button,
+  .style-dark-mode article > div:has(button) button,
+  [data-style="dark-mode"] article > div:has(button) button,
+  .ds-scope[data-style-id="dark-mode"] article > div:has(button) button,
+  .style-darkmode article > div:has(button) button,
+  [data-style="darkmode"] article > div:has(button) button,
+  .ds-scope[data-style-id="darkmode"] article > div:has(button) button {
+    background-color: var(--dark-bg-elevated) !important;
+    color: var(--dark-text-secondary) !important;
+    border: 1px solid var(--dark-border) !important;
+    box-shadow: none !important;
+    padding: 0.45rem 0.95rem !important;
+    margin-right: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] article > div:has(button) button:hover,
+  .dark-mode-ui-styled-container article > div:has(button) button:hover,
+  .style-dark-mode-ui article > div:has(button) button:hover,
+  [data-style="dark-mode-ui"] article > div:has(button) button:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] article > div:has(button) button:hover,
+  .style-dark-mode article > div:has(button) button:hover,
+  [data-style="dark-mode"] article > div:has(button) button:hover,
+  .ds-scope[data-style-id="dark-mode"] article > div:has(button) button:hover,
+  .style-darkmode article > div:has(button) button:hover,
+  [data-style="darkmode"] article > div:has(button) button:hover,
+  .ds-scope[data-style-id="darkmode"] article > div:has(button) button:hover {
+    background-color: var(--dark-bg-high) !important;
+    color: var(--dark-text-primary) !important;
+    border-color: var(--dark-border-strong) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] article > div:has(button) button:first-of-type,
+  .dark-mode-ui-styled-container article > div:has(button) button:first-of-type,
+  .style-dark-mode-ui article > div:has(button) button:first-of-type,
+  [data-style="dark-mode-ui"] article > div:has(button) button:first-of-type,
+  .ds-scope[data-style-id="dark-mode-ui"] article > div:has(button) button:first-of-type,
+  .style-dark-mode article > div:has(button) button:first-of-type,
+  [data-style="dark-mode"] article > div:has(button) button:first-of-type,
+  .ds-scope[data-style-id="dark-mode"] article > div:has(button) button:first-of-type,
+  .style-darkmode article > div:has(button) button:first-of-type,
+  [data-style="darkmode"] article > div:has(button) button:first-of-type,
+  .ds-scope[data-style-id="darkmode"] article > div:has(button) button:first-of-type {
+    background-color: var(--dark-bg-high) !important;
+    color: var(--dark-accent-signal) !important;
+    border-color: var(--dark-accent) !important;
+    font-weight: 700 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     6. CARDS & ELEVATED CONTENT MODULES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] article,
+  .lab-styled-preview[data-style="dark-mode-ui"] .card,
+  .dark-mode-ui-styled-container article,
+  .style-dark-mode-ui article,
+  [data-style="dark-mode-ui"] article,
+  .ds-scope[data-style-id="dark-mode-ui"] article,
+  .style-dark-mode article,
+  [data-style="dark-mode"] article,
+  .ds-scope[data-style-id="dark-mode"] article,
+  .style-darkmode article,
+  [data-style="darkmode"] article,
+  .ds-scope[data-style-id="darkmode"] article,
+  .dark-mode-ui-styled-container .card,
+  .style-dark-mode-ui .card,
+  [data-style="dark-mode-ui"] .card,
+  .ds-scope[data-style-id="dark-mode-ui"] .card,
+  .style-dark-mode .card,
+  [data-style="dark-mode"] .card,
+  .ds-scope[data-style-id="dark-mode"] .card,
+  .style-darkmode .card,
+  [data-style="darkmode"] .card,
+  .ds-scope[data-style-id="darkmode"] .card {
+    background-color: var(--dark-bg-elevated) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-md) !important;
+    padding: 1.5rem !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+    margin-bottom: 1.25rem !important;
+    transition: border-color 150ms ease, box-shadow 150ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] article:hover,
+  .lab-styled-preview[data-style="dark-mode-ui"] .card:hover,
+  .dark-mode-ui-styled-container article:hover,
+  .style-dark-mode-ui article:hover,
+  [data-style="dark-mode-ui"] article:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] article:hover,
+  .style-dark-mode article:hover,
+  [data-style="dark-mode"] article:hover,
+  .ds-scope[data-style-id="dark-mode"] article:hover,
+  .style-darkmode article:hover,
+  [data-style="darkmode"] article:hover,
+  .ds-scope[data-style-id="darkmode"] article:hover,
+  .dark-mode-ui-styled-container .card:hover,
+  .style-dark-mode-ui .card:hover,
+  [data-style="dark-mode-ui"] .card:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] .card:hover,
+  .style-dark-mode .card:hover,
+  [data-style="dark-mode"] .card:hover,
+  .ds-scope[data-style-id="dark-mode"] .card:hover,
+  .style-darkmode .card:hover,
+  [data-style="darkmode"] .card:hover,
+  .ds-scope[data-style-id="darkmode"] .card:hover {
+    border-color: var(--dark-border-strong) !important;
+    box-shadow: var(--dark-shadow-md) !important;
+  }
+
+  /* Grid layout for multi-card sections */
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(> article:nth-of-type(2)),
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(> div > article:nth-of-type(2)) > div,
+  .dark-mode-ui-styled-container section:has(> article:nth-of-type(2)),
+  .style-dark-mode-ui section:has(> article:nth-of-type(2)),
+  [data-style="dark-mode-ui"] section:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(> article:nth-of-type(2)),
+  .style-dark-mode section:has(> article:nth-of-type(2)),
+  [data-style="dark-mode"] section:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="dark-mode"] section:has(> article:nth-of-type(2)),
+  .style-darkmode section:has(> article:nth-of-type(2)),
+  [data-style="darkmode"] section:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="darkmode"] section:has(> article:nth-of-type(2)),
+  .dark-mode-ui-styled-container section:has(> div > article:nth-of-type(2)) > div,
+  .style-dark-mode-ui section:has(> div > article:nth-of-type(2)) > div,
+  [data-style="dark-mode-ui"] section:has(> div > article:nth-of-type(2)) > div,
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(> div > article:nth-of-type(2)) > div,
+  .style-dark-mode section:has(> div > article:nth-of-type(2)) > div,
+  [data-style="dark-mode"] section:has(> div > article:nth-of-type(2)) > div,
+  .ds-scope[data-style-id="dark-mode"] section:has(> div > article:nth-of-type(2)) > div,
+  .style-darkmode section:has(> div > article:nth-of-type(2)) > div,
+  [data-style="darkmode"] section:has(> div > article:nth-of-type(2)) > div,
+  .ds-scope[data-style-id="darkmode"] section:has(> div > article:nth-of-type(2)) > div {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.25rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     7. SAAS PRICING TIERS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(article:has(strong:has-text('$'))),
+  .dark-mode-ui-styled-container section:has(article:has(strong:has-text('$'))),
+  .style-dark-mode-ui section:has(article:has(strong:has-text('$'))),
+  [data-style="dark-mode-ui"] section:has(article:has(strong:has-text('$'))),
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(article:has(strong:has-text('$'))),
+  .style-dark-mode section:has(article:has(strong:has-text('$'))),
+  [data-style="dark-mode"] section:has(article:has(strong:has-text('$'))),
+  .ds-scope[data-style-id="dark-mode"] section:has(article:has(strong:has-text('$'))),
+  .style-darkmode section:has(article:has(strong:has-text('$'))),
+  [data-style="darkmode"] section:has(article:has(strong:has-text('$'))),
+  .ds-scope[data-style-id="darkmode"] section:has(article:has(strong:has-text('$'))) {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Featured pricing tier (middle card elevation) */
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .dark-mode-ui-styled-container section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .style-dark-mode-ui section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  [data-style="dark-mode-ui"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .style-dark-mode section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  [data-style="dark-mode"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .ds-scope[data-style-id="dark-mode"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .style-darkmode section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  [data-style="darkmode"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .ds-scope[data-style-id="darkmode"] section:has(article:nth-of-type(3)) article:nth-of-type(2) {
+    background-color: #1a1a22 !important;
+    border: 1px solid var(--dark-accent) !important;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15) !important;
+    position: relative !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] article strong,
+  .dark-mode-ui-styled-container article strong,
+  .style-dark-mode-ui article strong,
+  [data-style="dark-mode-ui"] article strong,
+  .ds-scope[data-style-id="dark-mode-ui"] article strong,
+  .style-dark-mode article strong,
+  [data-style="dark-mode"] article strong,
+  .ds-scope[data-style-id="dark-mode"] article strong,
+  .style-darkmode article strong,
+  [data-style="darkmode"] article strong,
+  .ds-scope[data-style-id="darkmode"] article strong {
+    display: block !important;
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    color: var(--dark-text-primary) !important;
+    letter-spacing: -0.03em !important;
+    margin: 1rem 0 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     8. EDITORIAL ARTICLES (Glare-Free, Un-Cardified 720px Reading Measure)
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] > article:only-child,
+  .dark-mode-ui-styled-container > article:only-child,
+  .style-dark-mode-ui > article:only-child,
+  [data-style="dark-mode-ui"] > article:only-child,
+  .ds-scope[data-style-id="dark-mode-ui"] > article:only-child,
+  .style-dark-mode > article:only-child,
+  [data-style="dark-mode"] > article:only-child,
+  .ds-scope[data-style-id="dark-mode"] > article:only-child,
+  .style-darkmode > article:only-child,
+  [data-style="darkmode"] > article:only-child,
+  .ds-scope[data-style-id="darkmode"] > article:only-child {
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] > article:only-child p,
+  .dark-mode-ui-styled-container > article:only-child p,
+  .style-dark-mode-ui > article:only-child p,
+  [data-style="dark-mode-ui"] > article:only-child p,
+  .ds-scope[data-style-id="dark-mode-ui"] > article:only-child p,
+  .style-dark-mode > article:only-child p,
+  [data-style="dark-mode"] > article:only-child p,
+  .ds-scope[data-style-id="dark-mode"] > article:only-child p,
+  .style-darkmode > article:only-child p,
+  [data-style="darkmode"] > article:only-child p,
+  .ds-scope[data-style-id="darkmode"] > article:only-child p {
+    color: var(--dark-text-reading) !important;
+    font-size: 1.0625rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] blockquote,
+  .dark-mode-ui-styled-container blockquote,
+  .style-dark-mode-ui blockquote,
+  [data-style="dark-mode-ui"] blockquote,
+  .ds-scope[data-style-id="dark-mode-ui"] blockquote,
+  .style-dark-mode blockquote,
+  [data-style="dark-mode"] blockquote,
+  .ds-scope[data-style-id="dark-mode"] blockquote,
+  .style-darkmode blockquote,
+  [data-style="darkmode"] blockquote,
+  .ds-scope[data-style-id="darkmode"] blockquote {
+    background-color: var(--dark-bg-surface) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-left: 3px solid var(--dark-accent) !important;
+    border-radius: 0 var(--dark-radius-sm) var(--dark-radius-sm) 0 !important;
+    padding: 1.5rem 1.75rem !important;
+    margin: 2.25rem 0 !important;
+    font-style: italic !important;
+    font-size: 1.125rem !important;
+    line-height: 1.65 !important;
+    color: var(--dark-text-primary) !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     9. DASHBOARD TELEMETRY & METRICS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(table) > div > article,
+  .dark-mode-ui-styled-container section:has(table) > div > article,
+  .style-dark-mode-ui section:has(table) > div > article,
+  [data-style="dark-mode-ui"] section:has(table) > div > article,
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(table) > div > article,
+  .style-dark-mode section:has(table) > div > article,
+  [data-style="dark-mode"] section:has(table) > div > article,
+  .ds-scope[data-style-id="dark-mode"] section:has(table) > div > article,
+  .style-darkmode section:has(table) > div > article,
+  [data-style="darkmode"] section:has(table) > div > article,
+  .ds-scope[data-style-id="darkmode"] section:has(table) > div > article {
+    background-color: var(--dark-bg-elevated) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-md) !important;
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(table) > div > article h3,
+  .dark-mode-ui-styled-container section:has(table) > div > article h3,
+  .style-dark-mode-ui section:has(table) > div > article h3,
+  [data-style="dark-mode-ui"] section:has(table) > div > article h3,
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(table) > div > article h3,
+  .style-dark-mode section:has(table) > div > article h3,
+  [data-style="dark-mode"] section:has(table) > div > article h3,
+  .ds-scope[data-style-id="dark-mode"] section:has(table) > div > article h3,
+  .style-darkmode section:has(table) > div > article h3,
+  [data-style="darkmode"] section:has(table) > div > article h3,
+  .ds-scope[data-style-id="darkmode"] section:has(table) > div > article h3 {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--dark-text-muted) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] section:has(table) > div > article strong,
+  .dark-mode-ui-styled-container section:has(table) > div > article strong,
+  .style-dark-mode-ui section:has(table) > div > article strong,
+  [data-style="dark-mode-ui"] section:has(table) > div > article strong,
+  .ds-scope[data-style-id="dark-mode-ui"] section:has(table) > div > article strong,
+  .style-dark-mode section:has(table) > div > article strong,
+  [data-style="dark-mode"] section:has(table) > div > article strong,
+  .ds-scope[data-style-id="dark-mode"] section:has(table) > div > article strong,
+  .style-darkmode section:has(table) > div > article strong,
+  [data-style="darkmode"] section:has(table) > div > article strong,
+  .ds-scope[data-style-id="darkmode"] section:has(table) > div > article strong {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: var(--dark-text-primary) !important;
+    font-variant-numeric: tabular-nums !important;
+    letter-spacing: -0.03em !important;
+    display: block !important;
+    margin: 0.25rem 0 0.4rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     10. TABLES (Crisp Rules, Strong Headers, Tabular Precision)
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] table,
+  .dark-mode-ui-styled-container table,
+  .style-dark-mode-ui table,
+  [data-style="dark-mode-ui"] table,
+  .ds-scope[data-style-id="dark-mode-ui"] table,
+  .style-dark-mode table,
+  [data-style="dark-mode"] table,
+  .ds-scope[data-style-id="dark-mode"] table,
+  .style-darkmode table,
+  [data-style="darkmode"] table,
+  .ds-scope[data-style-id="darkmode"] table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background-color: var(--dark-bg-surface) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-md) !important;
+    overflow: hidden !important;
+    margin: 1.75rem 0 !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] thead,
+  .dark-mode-ui-styled-container thead,
+  .style-dark-mode-ui thead,
+  [data-style="dark-mode-ui"] thead,
+  .ds-scope[data-style-id="dark-mode-ui"] thead,
+  .style-dark-mode thead,
+  [data-style="dark-mode"] thead,
+  .ds-scope[data-style-id="dark-mode"] thead,
+  .style-darkmode thead,
+  [data-style="darkmode"] thead,
+  .ds-scope[data-style-id="darkmode"] thead {
+    background-color: var(--dark-bg-elevated) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] th,
+  .dark-mode-ui-styled-container th,
+  .style-dark-mode-ui th,
+  [data-style="dark-mode-ui"] th,
+  .ds-scope[data-style-id="dark-mode-ui"] th,
+  .style-dark-mode th,
+  [data-style="dark-mode"] th,
+  .ds-scope[data-style-id="dark-mode"] th,
+  .style-darkmode th,
+  [data-style="darkmode"] th,
+  .ds-scope[data-style-id="darkmode"] th {
+    color: var(--dark-text-secondary) !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.85rem 1rem !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] td,
+  .dark-mode-ui-styled-container td,
+  .style-dark-mode-ui td,
+  [data-style="dark-mode-ui"] td,
+  .ds-scope[data-style-id="dark-mode-ui"] td,
+  .style-dark-mode td,
+  [data-style="dark-mode"] td,
+  .ds-scope[data-style-id="dark-mode"] td,
+  .style-darkmode td,
+  [data-style="darkmode"] td,
+  .ds-scope[data-style-id="darkmode"] td {
+    padding: 0.85rem 1rem !important;
+    color: var(--dark-text-primary) !important;
+    font-size: 0.875rem !important;
+    border-bottom: 1px solid var(--dark-border-subtle) !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] tbody tr:last-child td,
+  .dark-mode-ui-styled-container tbody tr:last-child td,
+  .style-dark-mode-ui tbody tr:last-child td,
+  [data-style="dark-mode-ui"] tbody tr:last-child td,
+  .ds-scope[data-style-id="dark-mode-ui"] tbody tr:last-child td,
+  .style-dark-mode tbody tr:last-child td,
+  [data-style="dark-mode"] tbody tr:last-child td,
+  .ds-scope[data-style-id="dark-mode"] tbody tr:last-child td,
+  .style-darkmode tbody tr:last-child td,
+  [data-style="darkmode"] tbody tr:last-child td,
+  .ds-scope[data-style-id="darkmode"] tbody tr:last-child td {
+    border-bottom: none !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] tbody tr:hover,
+  .dark-mode-ui-styled-container tbody tr:hover,
+  .style-dark-mode-ui tbody tr:hover,
+  [data-style="dark-mode-ui"] tbody tr:hover,
+  .ds-scope[data-style-id="dark-mode-ui"] tbody tr:hover,
+  .style-dark-mode tbody tr:hover,
+  [data-style="dark-mode"] tbody tr:hover,
+  .ds-scope[data-style-id="dark-mode"] tbody tr:hover,
+  .style-darkmode tbody tr:hover,
+  [data-style="darkmode"] tbody tr:hover,
+  .ds-scope[data-style-id="darkmode"] tbody tr:hover {
+    background-color: var(--dark-bg-elevated) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     11. FORMS & INPUTS (Recessed/Dark Surfaces with High Contrast)
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] form,
+  .dark-mode-ui-styled-container form,
+  .style-dark-mode-ui form,
+  [data-style="dark-mode-ui"] form,
+  .ds-scope[data-style-id="dark-mode-ui"] form,
+  .style-dark-mode form,
+  [data-style="dark-mode"] form,
+  .ds-scope[data-style-id="dark-mode"] form,
+  .style-darkmode form,
+  [data-style="darkmode"] form,
+  .ds-scope[data-style-id="darkmode"] form {
+    background-color: var(--dark-bg-elevated) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-lg) !important;
+    padding: 2rem !important;
+    max-width: 600px !important;
+    box-shadow: var(--dark-shadow-sm) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] form > div,
+  .dark-mode-ui-styled-container form > div,
+  .style-dark-mode-ui form > div,
+  [data-style="dark-mode-ui"] form > div,
+  .ds-scope[data-style-id="dark-mode-ui"] form > div,
+  .style-dark-mode form > div,
+  [data-style="dark-mode"] form > div,
+  .ds-scope[data-style-id="dark-mode"] form > div,
+  .style-darkmode form > div,
+  [data-style="darkmode"] form > div,
+  .ds-scope[data-style-id="darkmode"] form > div {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] label,
+  .dark-mode-ui-styled-container label,
+  .style-dark-mode-ui label,
+  [data-style="dark-mode-ui"] label,
+  .ds-scope[data-style-id="dark-mode-ui"] label,
+  .style-dark-mode label,
+  [data-style="dark-mode"] label,
+  .ds-scope[data-style-id="dark-mode"] label,
+  .style-darkmode label,
+  [data-style="darkmode"] label,
+  .ds-scope[data-style-id="darkmode"] label {
+    display: block !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    color: var(--dark-text-primary) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] input,
+  .lab-styled-preview[data-style="dark-mode-ui"] select,
+  .lab-styled-preview[data-style="dark-mode-ui"] textarea,
+  .dark-mode-ui-styled-container input,
+  .style-dark-mode-ui input,
+  [data-style="dark-mode-ui"] input,
+  .ds-scope[data-style-id="dark-mode-ui"] input,
+  .style-dark-mode input,
+  [data-style="dark-mode"] input,
+  .ds-scope[data-style-id="dark-mode"] input,
+  .style-darkmode input,
+  [data-style="darkmode"] input,
+  .ds-scope[data-style-id="darkmode"] input,
+  .dark-mode-ui-styled-container select,
+  .style-dark-mode-ui select,
+  [data-style="dark-mode-ui"] select,
+  .ds-scope[data-style-id="dark-mode-ui"] select,
+  .style-dark-mode select,
+  [data-style="dark-mode"] select,
+  .ds-scope[data-style-id="dark-mode"] select,
+  .style-darkmode select,
+  [data-style="darkmode"] select,
+  .ds-scope[data-style-id="darkmode"] select,
+  .dark-mode-ui-styled-container textarea,
+  .style-dark-mode-ui textarea,
+  [data-style="dark-mode-ui"] textarea,
+  .ds-scope[data-style-id="dark-mode-ui"] textarea,
+  .style-dark-mode textarea,
+  [data-style="dark-mode"] textarea,
+  .ds-scope[data-style-id="dark-mode"] textarea,
+  .style-darkmode textarea,
+  [data-style="darkmode"] textarea,
+  .ds-scope[data-style-id="darkmode"] textarea {
+    background-color: var(--dark-bg-surface) !important;
+    color: var(--dark-text-primary) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--dark-radius-sm) !important;
+    padding: 0.65rem 0.85rem !important;
+    font-size: 0.875rem !important;
+    font-family: 'Inter', sans-serif !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    transition: border-color 150ms ease, box-shadow 150ms ease !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] input:focus,
+  .lab-styled-preview[data-style="dark-mode-ui"] select:focus,
+  .lab-styled-preview[data-style="dark-mode-ui"] textarea:focus,
+  .dark-mode-ui-styled-container input:focus,
+  .style-dark-mode-ui input:focus,
+  [data-style="dark-mode-ui"] input:focus,
+  .ds-scope[data-style-id="dark-mode-ui"] input:focus,
+  .style-dark-mode input:focus,
+  [data-style="dark-mode"] input:focus,
+  .ds-scope[data-style-id="dark-mode"] input:focus,
+  .style-darkmode input:focus,
+  [data-style="darkmode"] input:focus,
+  .ds-scope[data-style-id="darkmode"] input:focus,
+  .dark-mode-ui-styled-container select:focus,
+  .style-dark-mode-ui select:focus,
+  [data-style="dark-mode-ui"] select:focus,
+  .ds-scope[data-style-id="dark-mode-ui"] select:focus,
+  .style-dark-mode select:focus,
+  [data-style="dark-mode"] select:focus,
+  .ds-scope[data-style-id="dark-mode"] select:focus,
+  .style-darkmode select:focus,
+  [data-style="darkmode"] select:focus,
+  .ds-scope[data-style-id="darkmode"] select:focus,
+  .dark-mode-ui-styled-container textarea:focus,
+  .style-dark-mode-ui textarea:focus,
+  [data-style="dark-mode-ui"] textarea:focus,
+  .ds-scope[data-style-id="dark-mode-ui"] textarea:focus,
+  .style-dark-mode textarea:focus,
+  [data-style="dark-mode"] textarea:focus,
+  .ds-scope[data-style-id="dark-mode"] textarea:focus,
+  .style-darkmode textarea:focus,
+  [data-style="darkmode"] textarea:focus,
+  .ds-scope[data-style-id="darkmode"] textarea:focus {
+    outline: none !important;
+    border-color: var(--dark-accent) !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25) !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] input::placeholder,
+  .lab-styled-preview[data-style="dark-mode-ui"] textarea::placeholder,
+  .dark-mode-ui-styled-container input::placeholder,
+  .style-dark-mode-ui input::placeholder,
+  [data-style="dark-mode-ui"] input::placeholder,
+  .ds-scope[data-style-id="dark-mode-ui"] input::placeholder,
+  .style-dark-mode input::placeholder,
+  [data-style="dark-mode"] input::placeholder,
+  .ds-scope[data-style-id="dark-mode"] input::placeholder,
+  .style-darkmode input::placeholder,
+  [data-style="darkmode"] input::placeholder,
+  .ds-scope[data-style-id="darkmode"] input::placeholder,
+  .dark-mode-ui-styled-container textarea::placeholder,
+  .style-dark-mode-ui textarea::placeholder,
+  [data-style="dark-mode-ui"] textarea::placeholder,
+  .ds-scope[data-style-id="dark-mode-ui"] textarea::placeholder,
+  .style-dark-mode textarea::placeholder,
+  [data-style="dark-mode"] textarea::placeholder,
+  .ds-scope[data-style-id="dark-mode"] textarea::placeholder,
+  .style-darkmode textarea::placeholder,
+  [data-style="darkmode"] textarea::placeholder,
+  .ds-scope[data-style-id="darkmode"] textarea::placeholder {
+    color: var(--dark-text-muted) !important;
+    opacity: 0.8 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     12. LISTS & SPECIFICATIONS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] ul,
+  .dark-mode-ui-styled-container ul,
+  .style-dark-mode-ui ul,
+  [data-style="dark-mode-ui"] ul,
+  .ds-scope[data-style-id="dark-mode-ui"] ul,
+  .style-dark-mode ul,
+  [data-style="dark-mode"] ul,
+  .ds-scope[data-style-id="dark-mode"] ul,
+  .style-darkmode ul,
+  [data-style="darkmode"] ul,
+  .ds-scope[data-style-id="darkmode"] ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 1rem 0 !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] li,
+  .dark-mode-ui-styled-container li,
+  .style-dark-mode-ui li,
+  [data-style="dark-mode-ui"] li,
+  .ds-scope[data-style-id="dark-mode-ui"] li,
+  .style-dark-mode li,
+  [data-style="dark-mode"] li,
+  .ds-scope[data-style-id="dark-mode"] li,
+  .style-darkmode li,
+  [data-style="darkmode"] li,
+  .ds-scope[data-style-id="darkmode"] li {
+    padding: 0.65rem 0 !important;
+    border-bottom: 1px solid var(--dark-border-subtle) !important;
+    color: var(--dark-text-secondary) !important;
+    font-size: 0.875rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] li:last-child,
+  .dark-mode-ui-styled-container li:last-child,
+  .style-dark-mode-ui li:last-child,
+  [data-style="dark-mode-ui"] li:last-child,
+  .ds-scope[data-style-id="dark-mode-ui"] li:last-child,
+  .style-dark-mode li:last-child,
+  [data-style="dark-mode"] li:last-child,
+  .ds-scope[data-style-id="dark-mode"] li:last-child,
+  .style-darkmode li:last-child,
+  [data-style="darkmode"] li:last-child,
+  .ds-scope[data-style-id="darkmode"] li:last-child {
+    border-bottom: none !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     13. FOOTER
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="dark-mode-ui"] footer,
+  .dark-mode-ui-styled-container footer,
+  .style-dark-mode-ui footer,
+  [data-style="dark-mode-ui"] footer,
+  .ds-scope[data-style-id="dark-mode-ui"] footer,
+  .style-dark-mode footer,
+  [data-style="dark-mode"] footer,
+  .ds-scope[data-style-id="dark-mode"] footer,
+  .style-darkmode footer,
+  [data-style="darkmode"] footer,
+  .ds-scope[data-style-id="darkmode"] footer {
+    border-top: 1px solid var(--dark-border) !important;
+    margin-top: 3.5rem !important;
+    padding-top: 1.5rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="dark-mode-ui"] footer p,
+  .dark-mode-ui-styled-container footer p,
+  .style-dark-mode-ui footer p,
+  [data-style="dark-mode-ui"] footer p,
+  .ds-scope[data-style-id="dark-mode-ui"] footer p,
+  .style-dark-mode footer p,
+  [data-style="dark-mode"] footer p,
+  .ds-scope[data-style-id="dark-mode"] footer p,
+  .style-darkmode footer p,
+  [data-style="darkmode"] footer p,
+  .ds-scope[data-style-id="darkmode"] footer p {
+    color: var(--dark-text-muted) !important;
+    font-size: 0.8125rem !important;
+    margin: 0 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     14. RESPONSIVE BREAKPOINTS & ACCESSIBILITY
+     -------------------------------------------------------------------------- */
+  @media (max-width: 768px) {
+    .lab-styled-preview[data-style="dark-mode-ui"],
+    .dark-mode-ui-styled-container,
+    .style-dark-mode-ui,
+    [data-style="dark-mode-ui"],
+    .ds-scope[data-style-id="dark-mode-ui"],
+    .style-dark-mode,
+    [data-style="dark-mode"],
+    .ds-scope[data-style-id="dark-mode"],
+    .style-darkmode,
+    [data-style="darkmode"],
+    .ds-scope[data-style-id="darkmode"] {
+      padding: 1.5rem 1rem !important;
+    }
+
+    .lab-styled-preview[data-style="dark-mode-ui"] h1,
+    .dark-mode-ui-styled-container h1,
+    .style-dark-mode-ui h1,
+    [data-style="dark-mode-ui"] h1,
+    .ds-scope[data-style-id="dark-mode-ui"] h1,
+    .style-dark-mode h1,
+    [data-style="dark-mode"] h1,
+    .ds-scope[data-style-id="dark-mode"] h1,
+    .style-darkmode h1,
+    [data-style="darkmode"] h1,
+    .ds-scope[data-style-id="darkmode"] h1 {
+      font-size: 1.85rem !important;
+    }
+
+    .lab-styled-preview[data-style="dark-mode-ui"] h2,
+    .dark-mode-ui-styled-container h2,
+    .style-dark-mode-ui h2,
+    [data-style="dark-mode-ui"] h2,
+    .ds-scope[data-style-id="dark-mode-ui"] h2,
+    .style-dark-mode h2,
+    [data-style="dark-mode"] h2,
+    .ds-scope[data-style-id="dark-mode"] h2,
+    .style-darkmode h2,
+    [data-style="darkmode"] h2,
+    .ds-scope[data-style-id="darkmode"] h2 {
+      font-size: 1.35rem !important;
+    }
+
+    .lab-styled-preview[data-style="dark-mode-ui"] nav,
+    .dark-mode-ui-styled-container nav,
+    .style-dark-mode-ui nav,
+    [data-style="dark-mode-ui"] nav,
+    .ds-scope[data-style-id="dark-mode-ui"] nav,
+    .style-dark-mode nav,
+    [data-style="dark-mode"] nav,
+    .ds-scope[data-style-id="dark-mode"] nav,
+    .style-darkmode nav,
+    [data-style="darkmode"] nav,
+    .ds-scope[data-style-id="darkmode"] nav {
+      gap: 0.35rem !important;
+      padding: 0.35rem !important;
+    }
+
+    .lab-styled-preview[data-style="dark-mode-ui"] section:has(> article:nth-of-type(2)),
+    .lab-styled-preview[data-style="dark-mode-ui"] section:has(> div > article:nth-of-type(2)) > div,
+    .dark-mode-ui-styled-container section:has(> article:nth-of-type(2)),
+    .style-dark-mode-ui section:has(> article:nth-of-type(2)),
+    [data-style="dark-mode-ui"] section:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="dark-mode-ui"] section:has(> article:nth-of-type(2)),
+    .style-dark-mode section:has(> article:nth-of-type(2)),
+    [data-style="dark-mode"] section:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="dark-mode"] section:has(> article:nth-of-type(2)),
+    .style-darkmode section:has(> article:nth-of-type(2)),
+    [data-style="darkmode"] section:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="darkmode"] section:has(> article:nth-of-type(2)),
+    .dark-mode-ui-styled-container section:has(> div > article:nth-of-type(2)) > div,
+    .style-dark-mode-ui section:has(> div > article:nth-of-type(2)) > div,
+    [data-style="dark-mode-ui"] section:has(> div > article:nth-of-type(2)) > div,
+    .ds-scope[data-style-id="dark-mode-ui"] section:has(> div > article:nth-of-type(2)) > div,
+    .style-dark-mode section:has(> div > article:nth-of-type(2)) > div,
+    [data-style="dark-mode"] section:has(> div > article:nth-of-type(2)) > div,
+    .ds-scope[data-style-id="dark-mode"] section:has(> div > article:nth-of-type(2)) > div,
+    .style-darkmode section:has(> div > article:nth-of-type(2)) > div,
+    [data-style="darkmode"] section:has(> div > article:nth-of-type(2)) > div,
+    .ds-scope[data-style-id="darkmode"] section:has(> div > article:nth-of-type(2)) > div {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lab-styled-preview[data-style="dark-mode-ui"] *,
+    .dark-mode-ui-styled-container *,
+    .style-dark-mode-ui *,
+    [data-style="dark-mode-ui"] *,
+    .ds-scope[data-style-id="dark-mode-ui"] *,
+    .style-dark-mode *,
+    [data-style="dark-mode"] *,
+    .ds-scope[data-style-id="dark-mode"] *,
+    .style-darkmode *,
+    [data-style="darkmode"] *,
+    .ds-scope[data-style-id="darkmode"] * {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+[class*="style-"] { overflow-x: hidden; }
+[class*="style-"] * { box-sizing: border-box; }

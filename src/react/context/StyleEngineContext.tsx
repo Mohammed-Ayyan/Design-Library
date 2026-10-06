@@ -1,9 +1,10 @@
-import React, { createContext, useContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState, useEffect } from 'react';
 import { StyleEngine } from '../../core/engine';
 import { ScopeContext, StyleScopeLevel } from '../../core/types/scope';
 import { ResolvedStyle } from '../../core/resolver/style-resolver';
 import { TokenOverrides } from '../../core/types/tokens';
 import { ComponentStyleOverrides } from '../../core/types/components';
+import { injectAdaptiveStyles } from '../../core/adaptive/adaptive-css';
 
 export interface StyleEngineContextValue {
   engine: StyleEngine;
@@ -37,6 +38,12 @@ export const StyleEngineProvider: React.FC<StyleEngineProviderProps> = ({
 }) => {
   const engine = useMemo(() => externalEngine || new StyleEngine(), [externalEngine]);
   const [activeStyleId, setActiveStyleId] = useState<string>(initialStyle || initialStyleId || 'base');
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      injectAdaptiveStyles(document);
+    }
+  }, []);
 
   const rootScope: ScopeContext = useMemo(() => {
     return {

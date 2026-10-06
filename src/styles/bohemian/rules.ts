@@ -25,7 +25,13 @@ export const bohemianSemanticCss = `
      CSS VARIABLES & ROOT TOKENS
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"],
-  .bohemian-styled-container {
+  .bohemian-styled-container,
+  .style-bohemian,
+  [data-style="bohemian"],
+  .ds-scope[data-style-id="bohemian"],
+  .style-boho,
+  [data-style="boho"],
+  .ds-scope[data-style-id="boho"] {
     --boh-font-display: 'Fraunces', Georgia, serif;
     --boh-font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --boh-font-accent: 'Caveat', cursive, Georgia, serif;
@@ -78,7 +84,13 @@ export const bohemianSemanticCss = `
      Sun-warmed linen tone with subtle atmospheric radiance
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"],
-  .bohemian-styled-container {
+  .bohemian-styled-container,
+  .style-bohemian,
+  [data-style="bohemian"],
+  .ds-scope[data-style-id="bohemian"],
+  .style-boho,
+  [data-style="boho"],
+  .ds-scope[data-style-id="boho"] {
     background-color: var(--boh-cream) !important;
     background-image:
       radial-gradient(ellipse at 88% 12%, rgba(212, 139, 22, 0.06) 0%, transparent 45%),
@@ -96,7 +108,13 @@ export const bohemianSemanticCss = `
 
   /* Clean universal reset within container */
   .lab-styled-preview[data-style="bohemian"] *,
-  .bohemian-styled-container * {
+  .bohemian-styled-container *,
+  .style-bohemian *,
+  [data-style="bohemian"] *,
+  .ds-scope[data-style-id="bohemian"] *,
+  .style-boho *,
+  [data-style="boho"] *,
+  .ds-scope[data-style-id="boho"] * {
     box-sizing: border-box !important;
   }
 
@@ -111,11 +129,47 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] h5,
   .lab-styled-preview[data-style="bohemian"] h6,
   .bohemian-styled-container h1,
+  .style-bohemian h1,
+  [data-style="bohemian"] h1,
+  .ds-scope[data-style-id="bohemian"] h1,
+  .style-boho h1,
+  [data-style="boho"] h1,
+  .ds-scope[data-style-id="boho"] h1,
   .bohemian-styled-container h2,
+  .style-bohemian h2,
+  [data-style="bohemian"] h2,
+  .ds-scope[data-style-id="bohemian"] h2,
+  .style-boho h2,
+  [data-style="boho"] h2,
+  .ds-scope[data-style-id="boho"] h2,
   .bohemian-styled-container h3,
+  .style-bohemian h3,
+  [data-style="bohemian"] h3,
+  .ds-scope[data-style-id="bohemian"] h3,
+  .style-boho h3,
+  [data-style="boho"] h3,
+  .ds-scope[data-style-id="boho"] h3,
   .bohemian-styled-container h4,
+  .style-bohemian h4,
+  [data-style="bohemian"] h4,
+  .ds-scope[data-style-id="bohemian"] h4,
+  .style-boho h4,
+  [data-style="boho"] h4,
+  .ds-scope[data-style-id="boho"] h4,
   .bohemian-styled-container h5,
-  .bohemian-styled-container h6 {
+  .style-bohemian h5,
+  [data-style="bohemian"] h5,
+  .ds-scope[data-style-id="bohemian"] h5,
+  .style-boho h5,
+  [data-style="boho"] h5,
+  .ds-scope[data-style-id="boho"] h5,
+  .bohemian-styled-container h6,
+  .style-bohemian h6,
+  [data-style="bohemian"] h6,
+  .ds-scope[data-style-id="bohemian"] h6,
+  .style-boho h6,
+  [data-style="boho"] h6,
+  .ds-scope[data-style-id="boho"] h6 {
     font-family: var(--boh-font-display) !important;
     color: var(--boh-charcoal) !important;
     font-weight: 600 !important;
@@ -126,7 +180,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] h1,
-  .bohemian-styled-container h1 {
+  .bohemian-styled-container h1,
+  .style-bohemian h1,
+  [data-style="bohemian"] h1,
+  .ds-scope[data-style-id="bohemian"] h1,
+  .style-boho h1,
+  [data-style="boho"] h1,
+  .ds-scope[data-style-id="boho"] h1 {
     font-size: clamp(2.35rem, 4.5vw, 3.4rem) !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
@@ -135,28 +195,52 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] h2,
-  .bohemian-styled-container h2 {
+  .bohemian-styled-container h2,
+  .style-bohemian h2,
+  [data-style="bohemian"] h2,
+  .ds-scope[data-style-id="bohemian"] h2,
+  .style-boho h2,
+  [data-style="boho"] h2,
+  .ds-scope[data-style-id="boho"] h2 {
     font-size: clamp(1.85rem, 3.2vw, 2.35rem) !important;
     letter-spacing: -0.025em !important;
     margin-bottom: 1rem !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] h3,
-  .bohemian-styled-container h3 {
+  .bohemian-styled-container h3,
+  .style-bohemian h3,
+  [data-style="bohemian"] h3,
+  .ds-scope[data-style-id="bohemian"] h3,
+  .style-boho h3,
+  [data-style="boho"] h3,
+  .ds-scope[data-style-id="boho"] h3 {
     font-size: clamp(1.35rem, 2vw, 1.65rem) !important;
     letter-spacing: -0.015em !important;
     margin-bottom: 0.75rem !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] h4,
-  .bohemian-styled-container h4 {
+  .bohemian-styled-container h4,
+  .style-bohemian h4,
+  [data-style="bohemian"] h4,
+  .ds-scope[data-style-id="bohemian"] h4,
+  .style-boho h4,
+  [data-style="boho"] h4,
+  .ds-scope[data-style-id="boho"] h4 {
     font-size: 1.15rem !important;
     font-weight: 600 !important;
     margin-bottom: 0.5rem !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] p,
-  .bohemian-styled-container p {
+  .bohemian-styled-container p,
+  .style-bohemian p,
+  [data-style="bohemian"] p,
+  .ds-scope[data-style-id="bohemian"] p,
+  .style-boho p,
+  [data-style="boho"] p,
+  .ds-scope[data-style-id="boho"] p {
     color: var(--boh-charcoal-light) !important;
     line-height: 1.75 !important;
     margin-top: 0 !important;
@@ -168,7 +252,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] header > span:first-child,
   .lab-styled-preview[data-style="bohemian"] .kicker,
   .bohemian-styled-container header > span:first-child,
-  .bohemian-styled-container .kicker {
+  .style-bohemian header > span:first-child,
+  [data-style="bohemian"] header > span:first-child,
+  .ds-scope[data-style-id="bohemian"] header > span:first-child,
+  .style-boho header > span:first-child,
+  [data-style="boho"] header > span:first-child,
+  .ds-scope[data-style-id="boho"] header > span:first-child,
+  .bohemian-styled-container .kicker,
+  .style-bohemian .kicker,
+  [data-style="bohemian"] .kicker,
+  .ds-scope[data-style-id="bohemian"] .kicker,
+  .style-boho .kicker,
+  [data-style="boho"] .kicker,
+  .ds-scope[data-style-id="boho"] .kicker {
     font-family: var(--boh-font-accent) !important;
     font-size: 1.25rem !important;
     font-weight: 700 !important;
@@ -183,7 +279,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] em,
   .lab-styled-preview[data-style="bohemian"] i,
   .bohemian-styled-container em,
-  .bohemian-styled-container i {
+  .style-bohemian em,
+  [data-style="bohemian"] em,
+  .ds-scope[data-style-id="bohemian"] em,
+  .style-boho em,
+  [data-style="boho"] em,
+  .ds-scope[data-style-id="boho"] em,
+  .bohemian-styled-container i,
+  .style-bohemian i,
+  [data-style="bohemian"] i,
+  .ds-scope[data-style-id="bohemian"] i,
+  .style-boho i,
+  [data-style="boho"] i,
+  .ds-scope[data-style-id="boho"] i {
     font-family: var(--boh-font-display) !important;
     font-style: italic !important;
     color: var(--boh-terracotta) !important;
@@ -192,7 +300,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] strong,
   .lab-styled-preview[data-style="bohemian"] b,
   .bohemian-styled-container strong,
-  .bohemian-styled-container b {
+  .style-bohemian strong,
+  [data-style="bohemian"] strong,
+  .ds-scope[data-style-id="bohemian"] strong,
+  .style-boho strong,
+  [data-style="boho"] strong,
+  .ds-scope[data-style-id="boho"] strong,
+  .bohemian-styled-container b,
+  .style-bohemian b,
+  [data-style="bohemian"] b,
+  .ds-scope[data-style-id="bohemian"] b,
+  .style-boho b,
+  [data-style="boho"] b,
+  .ds-scope[data-style-id="boho"] b {
     color: var(--boh-charcoal) !important;
     font-weight: 600 !important;
   }
@@ -202,7 +322,13 @@ export const bohemianSemanticCss = `
      Relaxed creative studio masthead, understated wordmark, warm capsule active
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"] nav,
-  .bohemian-styled-container nav {
+  .bohemian-styled-container nav,
+  .style-bohemian nav,
+  [data-style="bohemian"] nav,
+  .ds-scope[data-style-id="bohemian"] nav,
+  .style-boho nav,
+  [data-style="boho"] nav,
+  .ds-scope[data-style-id="boho"] nav {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -219,7 +345,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] nav > span:first-child,
   .lab-styled-preview[data-style="bohemian"] nav > a:first-child,
   .bohemian-styled-container nav > span:first-child,
-  .bohemian-styled-container nav > a:first-child {
+  .style-bohemian nav > span:first-child,
+  [data-style="bohemian"] nav > span:first-child,
+  .ds-scope[data-style-id="bohemian"] nav > span:first-child,
+  .style-boho nav > span:first-child,
+  [data-style="boho"] nav > span:first-child,
+  .ds-scope[data-style-id="boho"] nav > span:first-child,
+  .bohemian-styled-container nav > a:first-child,
+  .style-bohemian nav > a:first-child,
+  [data-style="bohemian"] nav > a:first-child,
+  .ds-scope[data-style-id="bohemian"] nav > a:first-child,
+  .style-boho nav > a:first-child,
+  [data-style="boho"] nav > a:first-child,
+  .ds-scope[data-style-id="boho"] nav > a:first-child {
     font-family: var(--boh-font-display) !important;
     font-size: 1.35rem !important;
     font-weight: 700 !important;
@@ -235,7 +373,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] nav > span:first-child::after,
   .lab-styled-preview[data-style="bohemian"] nav > a:first-child::after,
   .bohemian-styled-container nav > span:first-child::after,
-  .bohemian-styled-container nav > a:first-child::after {
+  .style-bohemian nav > span:first-child::after,
+  [data-style="bohemian"] nav > span:first-child::after,
+  .ds-scope[data-style-id="bohemian"] nav > span:first-child::after,
+  .style-boho nav > span:first-child::after,
+  [data-style="boho"] nav > span:first-child::after,
+  .ds-scope[data-style-id="boho"] nav > span:first-child::after,
+  .bohemian-styled-container nav > a:first-child::after,
+  .style-bohemian nav > a:first-child::after,
+  [data-style="bohemian"] nav > a:first-child::after,
+  .ds-scope[data-style-id="bohemian"] nav > a:first-child::after,
+  .style-boho nav > a:first-child::after,
+  [data-style="boho"] nav > a:first-child::after,
+  .ds-scope[data-style-id="boho"] nav > a:first-child::after {
     content: '' !important;
     display: inline-block !important;
     width: 7px !important;
@@ -246,7 +396,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] nav ul,
-  .bohemian-styled-container nav ul {
+  .bohemian-styled-container nav ul,
+  .style-bohemian nav ul,
+  [data-style="bohemian"] nav ul,
+  .ds-scope[data-style-id="bohemian"] nav ul,
+  .style-boho nav ul,
+  [data-style="boho"] nav ul,
+  .ds-scope[data-style-id="boho"] nav ul {
     display: flex !important;
     list-style: none !important;
     align-items: center !important;
@@ -256,7 +412,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] nav a,
-  .bohemian-styled-container nav a {
+  .bohemian-styled-container nav a,
+  .style-bohemian nav a,
+  [data-style="bohemian"] nav a,
+  .ds-scope[data-style-id="bohemian"] nav a,
+  .style-boho nav a,
+  [data-style="boho"] nav a,
+  .ds-scope[data-style-id="boho"] nav a {
     font-family: var(--boh-font-body) !important;
     color: var(--boh-charcoal-light) !important;
     text-decoration: none !important;
@@ -270,7 +432,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] nav a:hover,
-  .bohemian-styled-container nav a:hover {
+  .bohemian-styled-container nav a:hover,
+  .style-bohemian nav a:hover,
+  [data-style="bohemian"] nav a:hover,
+  .ds-scope[data-style-id="bohemian"] nav a:hover,
+  .style-boho nav a:hover,
+  [data-style="boho"] nav a:hover,
+  .ds-scope[data-style-id="boho"] nav a:hover {
     color: var(--boh-terracotta) !important;
     background: var(--boh-terracotta-soft) !important;
   }
@@ -278,7 +446,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] nav a[aria-current="page"],
   .lab-styled-preview[data-style="bohemian"] nav a.active,
   .bohemian-styled-container nav a[aria-current="page"],
-  .bohemian-styled-container nav a.active {
+  .style-bohemian nav a[aria-current="page"],
+  [data-style="bohemian"] nav a[aria-current="page"],
+  .ds-scope[data-style-id="bohemian"] nav a[aria-current="page"],
+  .style-boho nav a[aria-current="page"],
+  [data-style="boho"] nav a[aria-current="page"],
+  .ds-scope[data-style-id="boho"] nav a[aria-current="page"],
+  .bohemian-styled-container nav a.active,
+  .style-bohemian nav a.active,
+  [data-style="bohemian"] nav a.active,
+  .ds-scope[data-style-id="bohemian"] nav a.active,
+  .style-boho nav a.active,
+  [data-style="boho"] nav a.active,
+  .ds-scope[data-style-id="boho"] nav a.active {
     color: var(--boh-terracotta-dark) !important;
     background: var(--boh-terracotta-soft) !important;
     font-weight: 600 !important;
@@ -291,7 +471,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] header:not(nav header),
   .lab-styled-preview[data-style="bohemian"] section:first-of-type:not(nav + section):has(h1),
   .bohemian-styled-container header:not(nav header),
-  .bohemian-styled-container section:first-of-type:not(nav + section):has(h1) {
+  .style-bohemian header:not(nav header),
+  [data-style="bohemian"] header:not(nav header),
+  .ds-scope[data-style-id="bohemian"] header:not(nav header),
+  .style-boho header:not(nav header),
+  [data-style="boho"] header:not(nav header),
+  .ds-scope[data-style-id="boho"] header:not(nav header),
+  .bohemian-styled-container section:first-of-type:not(nav + section):has(h1),
+  .style-bohemian section:first-of-type:not(nav + section):has(h1),
+  [data-style="bohemian"] section:first-of-type:not(nav + section):has(h1),
+  .ds-scope[data-style-id="bohemian"] section:first-of-type:not(nav + section):has(h1),
+  .style-boho section:first-of-type:not(nav + section):has(h1),
+  [data-style="boho"] section:first-of-type:not(nav + section):has(h1),
+  .ds-scope[data-style-id="boho"] section:first-of-type:not(nav + section):has(h1) {
     position: relative !important;
     padding: 3.5rem 2.75rem !important;
     background: var(--boh-surface-elevated) !important;
@@ -304,7 +496,13 @@ export const bohemianSemanticCss = `
 
   /* Subtle sun-warmed decorative shape in Hero */
   .lab-styled-preview[data-style="bohemian"] header:not(nav header)::before,
-  .bohemian-styled-container header:not(nav header)::before {
+  .bohemian-styled-container header:not(nav header)::before,
+  .style-bohemian header:not(nav header)::before,
+  [data-style="bohemian"] header:not(nav header)::before,
+  .ds-scope[data-style-id="bohemian"] header:not(nav header)::before,
+  .style-boho header:not(nav header)::before,
+  [data-style="boho"] header:not(nav header)::before,
+  .ds-scope[data-style-id="boho"] header:not(nav header)::before {
     content: '' !important;
     position: absolute !important;
     top: -50px !important;
@@ -318,13 +516,25 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] header:not(nav header) > *,
-  .bohemian-styled-container header:not(nav header) > * {
+  .bohemian-styled-container header:not(nav header) > *,
+  .style-bohemian header:not(nav header) > *,
+  [data-style="bohemian"] header:not(nav header) > *,
+  .ds-scope[data-style-id="bohemian"] header:not(nav header) > *,
+  .style-boho header:not(nav header) > *,
+  [data-style="boho"] header:not(nav header) > *,
+  .ds-scope[data-style-id="boho"] header:not(nav header) > * {
     position: relative !important;
     z-index: 1 !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] header p,
-  .bohemian-styled-container header p {
+  .bohemian-styled-container header p,
+  .style-bohemian header p,
+  [data-style="bohemian"] header p,
+  .ds-scope[data-style-id="bohemian"] header p,
+  .style-boho header p,
+  [data-style="boho"] header p,
+  .ds-scope[data-style-id="boho"] header p {
     font-size: 1.15rem !important;
     color: var(--boh-charcoal-light) !important;
     line-height: 1.7 !important;
@@ -340,8 +550,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] input[type="submit"],
   .lab-styled-preview[data-style="bohemian"] .btn,
   .bohemian-styled-container button,
+  .style-bohemian button,
+  [data-style="bohemian"] button,
+  .ds-scope[data-style-id="bohemian"] button,
+  .style-boho button,
+  [data-style="boho"] button,
+  .ds-scope[data-style-id="boho"] button,
   .bohemian-styled-container input[type="submit"],
-  .bohemian-styled-container .btn {
+  .style-bohemian input[type="submit"],
+  [data-style="bohemian"] input[type="submit"],
+  .ds-scope[data-style-id="bohemian"] input[type="submit"],
+  .style-boho input[type="submit"],
+  [data-style="boho"] input[type="submit"],
+  .ds-scope[data-style-id="boho"] input[type="submit"],
+  .bohemian-styled-container .btn,
+  .style-bohemian .btn,
+  [data-style="bohemian"] .btn,
+  .ds-scope[data-style-id="bohemian"] .btn,
+  .style-boho .btn,
+  [data-style="boho"] .btn,
+  .ds-scope[data-style-id="boho"] .btn {
     font-family: var(--boh-font-body) !important;
     font-size: 0.95rem !important;
     font-weight: 600 !important;
@@ -365,8 +593,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] input[type="submit"]:hover,
   .lab-styled-preview[data-style="bohemian"] .btn:hover,
   .bohemian-styled-container button:hover,
+  .style-bohemian button:hover,
+  [data-style="bohemian"] button:hover,
+  .ds-scope[data-style-id="bohemian"] button:hover,
+  .style-boho button:hover,
+  [data-style="boho"] button:hover,
+  .ds-scope[data-style-id="boho"] button:hover,
   .bohemian-styled-container input[type="submit"]:hover,
-  .bohemian-styled-container .btn:hover {
+  .style-bohemian input[type="submit"]:hover,
+  [data-style="bohemian"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="bohemian"] input[type="submit"]:hover,
+  .style-boho input[type="submit"]:hover,
+  [data-style="boho"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="boho"] input[type="submit"]:hover,
+  .bohemian-styled-container .btn:hover,
+  .style-bohemian .btn:hover,
+  [data-style="bohemian"] .btn:hover,
+  .ds-scope[data-style-id="bohemian"] .btn:hover,
+  .style-boho .btn:hover,
+  [data-style="boho"] .btn:hover,
+  .ds-scope[data-style-id="boho"] .btn:hover {
     background-color: var(--boh-terracotta-dark) !important;
     transform: translateY(-2px) rotate(-0.5deg) !important;
     box-shadow: 0 7px 18px rgba(200, 90, 50, 0.28), 0 2px 5px rgba(74, 56, 44, 0.12) !important;
@@ -375,7 +621,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] button:active,
   .lab-styled-preview[data-style="bohemian"] input[type="submit"]:active,
   .bohemian-styled-container button:active,
-  .bohemian-styled-container input[type="submit"]:active {
+  .style-bohemian button:active,
+  [data-style="bohemian"] button:active,
+  .ds-scope[data-style-id="bohemian"] button:active,
+  .style-boho button:active,
+  [data-style="boho"] button:active,
+  .ds-scope[data-style-id="boho"] button:active,
+  .bohemian-styled-container input[type="submit"]:active,
+  .style-bohemian input[type="submit"]:active,
+  [data-style="bohemian"] input[type="submit"]:active,
+  .ds-scope[data-style-id="bohemian"] input[type="submit"]:active,
+  .style-boho input[type="submit"]:active,
+  [data-style="boho"] input[type="submit"]:active,
+  .ds-scope[data-style-id="boho"] input[type="submit"]:active {
     transform: translateY(1px) !important;
     box-shadow: 0 2px 6px rgba(200, 90, 50, 0.18) !important;
   }
@@ -384,7 +642,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] button.secondary,
   .lab-styled-preview[data-style="bohemian"] button + button,
   .bohemian-styled-container button.secondary,
-  .bohemian-styled-container button + button {
+  .style-bohemian button.secondary,
+  [data-style="bohemian"] button.secondary,
+  .ds-scope[data-style-id="bohemian"] button.secondary,
+  .style-boho button.secondary,
+  [data-style="boho"] button.secondary,
+  .ds-scope[data-style-id="boho"] button.secondary,
+  .bohemian-styled-container button + button,
+  .style-bohemian button + button,
+  [data-style="bohemian"] button + button,
+  .ds-scope[data-style-id="bohemian"] button + button,
+  .style-boho button + button,
+  [data-style="boho"] button + button,
+  .ds-scope[data-style-id="boho"] button + button {
     background-color: var(--boh-parchment) !important;
     color: var(--boh-charcoal) !important;
     border: 1.5px solid var(--boh-border-strong) !important;
@@ -394,7 +664,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] button.secondary:hover,
   .lab-styled-preview[data-style="bohemian"] button + button:hover,
   .bohemian-styled-container button.secondary:hover,
-  .bohemian-styled-container button + button:hover {
+  .style-bohemian button.secondary:hover,
+  [data-style="bohemian"] button.secondary:hover,
+  .ds-scope[data-style-id="bohemian"] button.secondary:hover,
+  .style-boho button.secondary:hover,
+  [data-style="boho"] button.secondary:hover,
+  .ds-scope[data-style-id="boho"] button.secondary:hover,
+  .bohemian-styled-container button + button:hover,
+  .style-bohemian button + button:hover,
+  [data-style="bohemian"] button + button:hover,
+  .ds-scope[data-style-id="bohemian"] button + button:hover,
+  .style-boho button + button:hover,
+  [data-style="boho"] button + button:hover,
+  .ds-scope[data-style-id="boho"] button + button:hover {
     background-color: var(--boh-surface-card) !important;
     color: var(--boh-terracotta) !important;
     border-color: var(--boh-terracotta) !important;
@@ -407,7 +689,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] section:has(article + article),
   .lab-styled-preview[data-style="bohemian"] div:has(> article + article),
   .bohemian-styled-container section:has(article + article),
-  .bohemian-styled-container div:has(> article + article) {
+  .style-bohemian section:has(article + article),
+  [data-style="bohemian"] section:has(article + article),
+  .ds-scope[data-style-id="bohemian"] section:has(article + article),
+  .style-boho section:has(article + article),
+  [data-style="boho"] section:has(article + article),
+  .ds-scope[data-style-id="boho"] section:has(article + article),
+  .bohemian-styled-container div:has(> article + article),
+  .style-bohemian div:has(> article + article),
+  [data-style="bohemian"] div:has(> article + article),
+  .ds-scope[data-style-id="bohemian"] div:has(> article + article),
+  .style-boho div:has(> article + article),
+  [data-style="boho"] div:has(> article + article),
+  .ds-scope[data-style-id="boho"] div:has(> article + article) {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 2rem !important;
@@ -419,8 +713,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] div article,
   .lab-styled-preview[data-style="bohemian"] .card,
   .bohemian-styled-container section article,
+  .style-bohemian section article,
+  [data-style="bohemian"] section article,
+  .ds-scope[data-style-id="bohemian"] section article,
+  .style-boho section article,
+  [data-style="boho"] section article,
+  .ds-scope[data-style-id="boho"] section article,
   .bohemian-styled-container div article,
-  .bohemian-styled-container .card {
+  .style-bohemian div article,
+  [data-style="bohemian"] div article,
+  .ds-scope[data-style-id="bohemian"] div article,
+  .style-boho div article,
+  [data-style="boho"] div article,
+  .ds-scope[data-style-id="boho"] div article,
+  .bohemian-styled-container .card,
+  .style-bohemian .card,
+  [data-style="bohemian"] .card,
+  .ds-scope[data-style-id="bohemian"] .card,
+  .style-boho .card,
+  [data-style="boho"] .card,
+  .ds-scope[data-style-id="boho"] .card {
     background: var(--boh-surface-card) !important;
     border: 1.5px solid var(--boh-border-craft) !important;
     padding: 2.25rem 2rem !important;
@@ -436,8 +748,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] div article:nth-child(3n+1),
   .lab-styled-preview[data-style="bohemian"] .card:nth-child(3n+1),
   .bohemian-styled-container section article:nth-child(3n+1),
+  .style-bohemian section article:nth-child(3n+1),
+  [data-style="bohemian"] section article:nth-child(3n+1),
+  .ds-scope[data-style-id="bohemian"] section article:nth-child(3n+1),
+  .style-boho section article:nth-child(3n+1),
+  [data-style="boho"] section article:nth-child(3n+1),
+  .ds-scope[data-style-id="boho"] section article:nth-child(3n+1),
   .bohemian-styled-container div article:nth-child(3n+1),
-  .bohemian-styled-container .card:nth-child(3n+1) {
+  .style-bohemian div article:nth-child(3n+1),
+  [data-style="bohemian"] div article:nth-child(3n+1),
+  .ds-scope[data-style-id="bohemian"] div article:nth-child(3n+1),
+  .style-boho div article:nth-child(3n+1),
+  [data-style="boho"] div article:nth-child(3n+1),
+  .ds-scope[data-style-id="boho"] div article:nth-child(3n+1),
+  .bohemian-styled-container .card:nth-child(3n+1),
+  .style-bohemian .card:nth-child(3n+1),
+  [data-style="bohemian"] .card:nth-child(3n+1),
+  .ds-scope[data-style-id="bohemian"] .card:nth-child(3n+1),
+  .style-boho .card:nth-child(3n+1),
+  [data-style="boho"] .card:nth-child(3n+1),
+  .ds-scope[data-style-id="boho"] .card:nth-child(3n+1) {
     border-radius: var(--boh-radius-card-a) !important;
     border-top: 3.5px solid var(--boh-terracotta) !important;
   }
@@ -447,8 +777,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] div article:nth-child(3n+2),
   .lab-styled-preview[data-style="bohemian"] .card:nth-child(3n+2),
   .bohemian-styled-container section article:nth-child(3n+2),
+  .style-bohemian section article:nth-child(3n+2),
+  [data-style="bohemian"] section article:nth-child(3n+2),
+  .ds-scope[data-style-id="bohemian"] section article:nth-child(3n+2),
+  .style-boho section article:nth-child(3n+2),
+  [data-style="boho"] section article:nth-child(3n+2),
+  .ds-scope[data-style-id="boho"] section article:nth-child(3n+2),
   .bohemian-styled-container div article:nth-child(3n+2),
-  .bohemian-styled-container .card:nth-child(3n+2) {
+  .style-bohemian div article:nth-child(3n+2),
+  [data-style="bohemian"] div article:nth-child(3n+2),
+  .ds-scope[data-style-id="bohemian"] div article:nth-child(3n+2),
+  .style-boho div article:nth-child(3n+2),
+  [data-style="boho"] div article:nth-child(3n+2),
+  .ds-scope[data-style-id="boho"] div article:nth-child(3n+2),
+  .bohemian-styled-container .card:nth-child(3n+2),
+  .style-bohemian .card:nth-child(3n+2),
+  [data-style="bohemian"] .card:nth-child(3n+2),
+  .ds-scope[data-style-id="bohemian"] .card:nth-child(3n+2),
+  .style-boho .card:nth-child(3n+2),
+  [data-style="boho"] .card:nth-child(3n+2),
+  .ds-scope[data-style-id="boho"] .card:nth-child(3n+2) {
     background: #fbf6ee !important;
     border-radius: var(--boh-radius-card-b) !important;
     border-top: 3.5px solid var(--boh-olive) !important;
@@ -459,8 +807,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] div article:nth-child(3n),
   .lab-styled-preview[data-style="bohemian"] .card:nth-child(3n),
   .bohemian-styled-container section article:nth-child(3n),
+  .style-bohemian section article:nth-child(3n),
+  [data-style="bohemian"] section article:nth-child(3n),
+  .ds-scope[data-style-id="bohemian"] section article:nth-child(3n),
+  .style-boho section article:nth-child(3n),
+  [data-style="boho"] section article:nth-child(3n),
+  .ds-scope[data-style-id="boho"] section article:nth-child(3n),
   .bohemian-styled-container div article:nth-child(3n),
-  .bohemian-styled-container .card:nth-child(3n) {
+  .style-bohemian div article:nth-child(3n),
+  [data-style="bohemian"] div article:nth-child(3n),
+  .ds-scope[data-style-id="bohemian"] div article:nth-child(3n),
+  .style-boho div article:nth-child(3n),
+  [data-style="boho"] div article:nth-child(3n),
+  .ds-scope[data-style-id="boho"] div article:nth-child(3n),
+  .bohemian-styled-container .card:nth-child(3n),
+  .style-bohemian .card:nth-child(3n),
+  [data-style="bohemian"] .card:nth-child(3n),
+  .ds-scope[data-style-id="bohemian"] .card:nth-child(3n),
+  .style-boho .card:nth-child(3n),
+  [data-style="boho"] .card:nth-child(3n),
+  .ds-scope[data-style-id="boho"] .card:nth-child(3n) {
     background: #faf4e8 !important;
     border-radius: var(--boh-radius-card-c) !important;
     border-top: 3.5px solid var(--boh-mustard) !important;
@@ -470,8 +836,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] div article:hover,
   .lab-styled-preview[data-style="bohemian"] .card:hover,
   .bohemian-styled-container section article:hover,
+  .style-bohemian section article:hover,
+  [data-style="bohemian"] section article:hover,
+  .ds-scope[data-style-id="bohemian"] section article:hover,
+  .style-boho section article:hover,
+  [data-style="boho"] section article:hover,
+  .ds-scope[data-style-id="boho"] section article:hover,
   .bohemian-styled-container div article:hover,
-  .bohemian-styled-container .card:hover {
+  .style-bohemian div article:hover,
+  [data-style="bohemian"] div article:hover,
+  .ds-scope[data-style-id="bohemian"] div article:hover,
+  .style-boho div article:hover,
+  [data-style="boho"] div article:hover,
+  .ds-scope[data-style-id="boho"] div article:hover,
+  .bohemian-styled-container .card:hover,
+  .style-bohemian .card:hover,
+  [data-style="bohemian"] .card:hover,
+  .ds-scope[data-style-id="bohemian"] .card:hover,
+  .style-boho .card:hover,
+  [data-style="boho"] .card:hover,
+  .ds-scope[data-style-id="boho"] .card:hover {
     transform: translateY(-4px) !important;
     box-shadow: var(--boh-shadow-craft-lg) !important;
   }
@@ -481,8 +865,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] article h3,
   .lab-styled-preview[data-style="bohemian"] .card h3,
   .bohemian-styled-container article h2,
+  .style-bohemian article h2,
+  [data-style="bohemian"] article h2,
+  .ds-scope[data-style-id="bohemian"] article h2,
+  .style-boho article h2,
+  [data-style="boho"] article h2,
+  .ds-scope[data-style-id="boho"] article h2,
   .bohemian-styled-container article h3,
-  .bohemian-styled-container .card h3 {
+  .style-bohemian article h3,
+  [data-style="bohemian"] article h3,
+  .ds-scope[data-style-id="bohemian"] article h3,
+  .style-boho article h3,
+  [data-style="boho"] article h3,
+  .ds-scope[data-style-id="boho"] article h3,
+  .bohemian-styled-container .card h3,
+  .style-bohemian .card h3,
+  [data-style="bohemian"] .card h3,
+  .ds-scope[data-style-id="bohemian"] .card h3,
+  .style-boho .card h3,
+  [data-style="boho"] .card h3,
+  .ds-scope[data-style-id="boho"] .card h3 {
     font-size: 1.35rem !important;
     margin-bottom: 0.65rem !important;
   }
@@ -494,7 +896,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] article:only-of-type,
   .lab-styled-preview[data-style="bohemian"] main > article,
   .bohemian-styled-container article:only-of-type,
-  .bohemian-styled-container main > article {
+  .style-bohemian article:only-of-type,
+  [data-style="bohemian"] article:only-of-type,
+  .ds-scope[data-style-id="bohemian"] article:only-of-type,
+  .style-boho article:only-of-type,
+  [data-style="boho"] article:only-of-type,
+  .ds-scope[data-style-id="boho"] article:only-of-type,
+  .bohemian-styled-container main > article,
+  .style-bohemian main > article,
+  [data-style="bohemian"] main > article,
+  .ds-scope[data-style-id="bohemian"] main > article,
+  .style-boho main > article,
+  [data-style="boho"] main > article,
+  .ds-scope[data-style-id="boho"] main > article {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -508,7 +922,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] article .byline,
   .lab-styled-preview[data-style="bohemian"] article footer,
   .bohemian-styled-container article .byline,
-  .bohemian-styled-container article footer {
+  .style-bohemian article .byline,
+  [data-style="bohemian"] article .byline,
+  .ds-scope[data-style-id="bohemian"] article .byline,
+  .style-boho article .byline,
+  [data-style="boho"] article .byline,
+  .ds-scope[data-style-id="boho"] article .byline,
+  .bohemian-styled-container article footer,
+  .style-bohemian article footer,
+  [data-style="bohemian"] article footer,
+  .ds-scope[data-style-id="bohemian"] article footer,
+  .style-boho article footer,
+  [data-style="boho"] article footer,
+  .ds-scope[data-style-id="boho"] article footer {
     font-family: var(--boh-font-accent) !important;
     font-size: 1.25rem !important;
     color: var(--boh-charcoal-muted) !important;
@@ -519,7 +945,13 @@ export const bohemianSemanticCss = `
 
   /* Expressive Pull Quotes */
   .lab-styled-preview[data-style="bohemian"] blockquote,
-  .bohemian-styled-container blockquote {
+  .bohemian-styled-container blockquote,
+  .style-bohemian blockquote,
+  [data-style="bohemian"] blockquote,
+  .ds-scope[data-style-id="bohemian"] blockquote,
+  .style-boho blockquote,
+  [data-style="boho"] blockquote,
+  .ds-scope[data-style-id="boho"] blockquote {
     font-family: var(--boh-font-display) !important;
     font-size: 1.45rem !important;
     font-style: italic !important;
@@ -534,7 +966,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] blockquote cite,
-  .bohemian-styled-container blockquote cite {
+  .bohemian-styled-container blockquote cite,
+  .style-bohemian blockquote cite,
+  [data-style="bohemian"] blockquote cite,
+  .ds-scope[data-style-id="bohemian"] blockquote cite,
+  .style-boho blockquote cite,
+  [data-style="boho"] blockquote cite,
+  .ds-scope[data-style-id="boho"] blockquote cite {
     display: block !important;
     font-family: var(--boh-font-accent) !important;
     font-size: 1.25rem !important;
@@ -546,7 +984,13 @@ export const bohemianSemanticCss = `
 
   /* Organic Dividers & Separators */
   .lab-styled-preview[data-style="bohemian"] hr,
-  .bohemian-styled-container hr {
+  .bohemian-styled-container hr,
+  .style-bohemian hr,
+  [data-style="bohemian"] hr,
+  .ds-scope[data-style-id="bohemian"] hr,
+  .style-boho hr,
+  [data-style="boho"] hr,
+  .ds-scope[data-style-id="boho"] hr {
     border: none !important;
     height: 2px !important;
     background: linear-gradient(to right, transparent, var(--boh-clay), var(--boh-terracotta), var(--boh-clay), transparent) !important;
@@ -559,7 +1003,13 @@ export const bohemianSemanticCss = `
      Warm craft hierarchy, featured tier in rich terracotta frame, non-corporate
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"] section:has([data-role="pricing-card"]),
-  .bohemian-styled-container section:has([data-role="pricing-card"]) {
+  .bohemian-styled-container section:has([data-role="pricing-card"]),
+  .style-bohemian section:has([data-role="pricing-card"]),
+  [data-style="bohemian"] section:has([data-role="pricing-card"]),
+  .ds-scope[data-style-id="bohemian"] section:has([data-role="pricing-card"]),
+  .style-boho section:has([data-role="pricing-card"]),
+  [data-style="boho"] section:has([data-role="pricing-card"]),
+  .ds-scope[data-style-id="boho"] section:has([data-role="pricing-card"]) {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 2rem !important;
@@ -571,7 +1021,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] article:has(.featured),
   .lab-styled-preview[data-style="bohemian"] article:nth-child(2),
   .bohemian-styled-container article:has(.featured),
-  .bohemian-styled-container article:nth-child(2) {
+  .style-bohemian article:has(.featured),
+  [data-style="bohemian"] article:has(.featured),
+  .ds-scope[data-style-id="bohemian"] article:has(.featured),
+  .style-boho article:has(.featured),
+  [data-style="boho"] article:has(.featured),
+  .ds-scope[data-style-id="boho"] article:has(.featured),
+  .bohemian-styled-container article:nth-child(2),
+  .style-bohemian article:nth-child(2),
+  [data-style="bohemian"] article:nth-child(2),
+  .ds-scope[data-style-id="bohemian"] article:nth-child(2),
+  .style-boho article:nth-child(2),
+  [data-style="boho"] article:nth-child(2),
+  .ds-scope[data-style-id="boho"] article:nth-child(2) {
     border: 2px solid var(--boh-terracotta) !important;
     background: #fffdf9 !important;
     box-shadow: 0 12px 32px rgba(200, 90, 50, 0.12), var(--boh-shadow-craft-md) !important;
@@ -581,7 +1043,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] .price,
   .lab-styled-preview[data-style="bohemian"] article p:has(+ button),
   .bohemian-styled-container .price,
-  .bohemian-styled-container article p:has(+ button) {
+  .style-bohemian .price,
+  [data-style="bohemian"] .price,
+  .ds-scope[data-style-id="bohemian"] .price,
+  .style-boho .price,
+  [data-style="boho"] .price,
+  .ds-scope[data-style-id="boho"] .price,
+  .bohemian-styled-container article p:has(+ button),
+  .style-bohemian article p:has(+ button),
+  [data-style="bohemian"] article p:has(+ button),
+  .ds-scope[data-style-id="bohemian"] article p:has(+ button),
+  .style-boho article p:has(+ button),
+  [data-style="boho"] article p:has(+ button),
+  .ds-scope[data-style-id="boho"] article p:has(+ button) {
     font-family: var(--boh-font-display) !important;
     font-size: 2.25rem !important;
     font-weight: 700 !important;
@@ -597,7 +1071,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] [data-role="dashboard"],
   .lab-styled-preview[data-style="bohemian"] .metrics-grid,
   .bohemian-styled-container [data-role="dashboard"],
-  .bohemian-styled-container .metrics-grid {
+  .style-bohemian [data-role="dashboard"],
+  [data-style="bohemian"] [data-role="dashboard"],
+  .ds-scope[data-style-id="bohemian"] [data-role="dashboard"],
+  .style-boho [data-role="dashboard"],
+  [data-style="boho"] [data-role="dashboard"],
+  .ds-scope[data-style-id="boho"] [data-role="dashboard"],
+  .bohemian-styled-container .metrics-grid,
+  .style-bohemian .metrics-grid,
+  [data-style="bohemian"] .metrics-grid,
+  .ds-scope[data-style-id="bohemian"] .metrics-grid,
+  .style-boho .metrics-grid,
+  [data-style="boho"] .metrics-grid,
+  .ds-scope[data-style-id="boho"] .metrics-grid {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
     gap: 1.5rem !important;
@@ -606,7 +1092,13 @@ export const bohemianSemanticCss = `
 
   /* Metric Value Display */
   .lab-styled-preview[data-style="bohemian"] .metric-value,
-  .bohemian-styled-container .metric-value {
+  .bohemian-styled-container .metric-value,
+  .style-bohemian .metric-value,
+  [data-style="bohemian"] .metric-value,
+  .ds-scope[data-style-id="bohemian"] .metric-value,
+  .style-boho .metric-value,
+  [data-style="boho"] .metric-value,
+  .ds-scope[data-style-id="boho"] .metric-value {
     font-family: var(--boh-font-display) !important;
     font-size: 2.5rem !important;
     font-weight: 700 !important;
@@ -619,7 +1111,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] .badge,
   .lab-styled-preview[data-style="bohemian"] span:has(+ h3),
   .bohemian-styled-container .badge,
-  .bohemian-styled-container span:has(+ h3) {
+  .style-bohemian .badge,
+  [data-style="bohemian"] .badge,
+  .ds-scope[data-style-id="bohemian"] .badge,
+  .style-boho .badge,
+  [data-style="boho"] .badge,
+  .ds-scope[data-style-id="boho"] .badge,
+  .bohemian-styled-container span:has(+ h3),
+  .style-bohemian span:has(+ h3),
+  [data-style="bohemian"] span:has(+ h3),
+  .ds-scope[data-style-id="bohemian"] span:has(+ h3),
+  .style-boho span:has(+ h3),
+  [data-style="boho"] span:has(+ h3),
+  .ds-scope[data-style-id="boho"] span:has(+ h3) {
     display: inline-block !important;
     font-size: 0.785rem !important;
     font-weight: 600 !important;
@@ -635,21 +1139,39 @@ export const bohemianSemanticCss = `
 
   /* Earthy Status Indicators */
   .lab-styled-preview[data-style="bohemian"] .status-olive,
-  .bohemian-styled-container .status-olive {
+  .bohemian-styled-container .status-olive,
+  .style-bohemian .status-olive,
+  [data-style="bohemian"] .status-olive,
+  .ds-scope[data-style-id="bohemian"] .status-olive,
+  .style-boho .status-olive,
+  [data-style="boho"] .status-olive,
+  .ds-scope[data-style-id="boho"] .status-olive {
     background: var(--boh-olive-soft) !important;
     color: var(--boh-olive) !important;
     border-color: rgba(74, 88, 64, 0.25) !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] .status-mustard,
-  .bohemian-styled-container .status-mustard {
+  .bohemian-styled-container .status-mustard,
+  .style-bohemian .status-mustard,
+  [data-style="bohemian"] .status-mustard,
+  .ds-scope[data-style-id="bohemian"] .status-mustard,
+  .style-boho .status-mustard,
+  [data-style="boho"] .status-mustard,
+  .ds-scope[data-style-id="boho"] .status-mustard {
     background: var(--boh-mustard-soft) !important;
     color: var(--boh-mustard) !important;
     border-color: rgba(212, 139, 22, 0.25) !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] .status-turquoise,
-  .bohemian-styled-container .status-turquoise {
+  .bohemian-styled-container .status-turquoise,
+  .style-bohemian .status-turquoise,
+  [data-style="bohemian"] .status-turquoise,
+  .ds-scope[data-style-id="bohemian"] .status-turquoise,
+  .style-boho .status-turquoise,
+  [data-style="boho"] .status-turquoise,
+  .ds-scope[data-style-id="boho"] .status-turquoise {
     background: var(--boh-turquoise-soft) !important;
     color: var(--boh-turquoise) !important;
     border-color: rgba(42, 157, 143, 0.25) !important;
@@ -657,7 +1179,13 @@ export const bohemianSemanticCss = `
 
   /* Data Tables */
   .lab-styled-preview[data-style="bohemian"] table,
-  .bohemian-styled-container table {
+  .bohemian-styled-container table,
+  .style-bohemian table,
+  [data-style="bohemian"] table,
+  .ds-scope[data-style-id="bohemian"] table,
+  .style-boho table,
+  [data-style="boho"] table,
+  .ds-scope[data-style-id="boho"] table {
     width: 100% !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
@@ -670,7 +1198,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] th,
-  .bohemian-styled-container th {
+  .bohemian-styled-container th,
+  .style-bohemian th,
+  [data-style="bohemian"] th,
+  .ds-scope[data-style-id="bohemian"] th,
+  .style-boho th,
+  [data-style="boho"] th,
+  .ds-scope[data-style-id="boho"] th {
     font-family: var(--boh-font-display) !important;
     font-weight: 600 !important;
     font-size: 0.95rem !important;
@@ -682,7 +1216,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] td,
-  .bohemian-styled-container td {
+  .bohemian-styled-container td,
+  .style-bohemian td,
+  [data-style="bohemian"] td,
+  .ds-scope[data-style-id="bohemian"] td,
+  .style-boho td,
+  [data-style="boho"] td,
+  .ds-scope[data-style-id="boho"] td {
     padding: 0.95rem 1.25rem !important;
     border-bottom: 1px solid var(--boh-border-craft) !important;
     color: var(--boh-charcoal-light) !important;
@@ -690,12 +1230,24 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] tr:last-child td,
-  .bohemian-styled-container tr:last-child td {
+  .bohemian-styled-container tr:last-child td,
+  .style-bohemian tr:last-child td,
+  [data-style="bohemian"] tr:last-child td,
+  .ds-scope[data-style-id="bohemian"] tr:last-child td,
+  .style-boho tr:last-child td,
+  [data-style="boho"] tr:last-child td,
+  .ds-scope[data-style-id="boho"] tr:last-child td {
     border-bottom: none !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] tr:hover td,
-  .bohemian-styled-container tr:hover td {
+  .bohemian-styled-container tr:hover td,
+  .style-bohemian tr:hover td,
+  [data-style="bohemian"] tr:hover td,
+  .ds-scope[data-style-id="bohemian"] tr:hover td,
+  .style-boho tr:hover td,
+  [data-style="boho"] tr:hover td,
+  .ds-scope[data-style-id="boho"] tr:hover td {
     background: rgba(200, 90, 50, 0.03) !important;
   }
 
@@ -704,7 +1256,13 @@ export const bohemianSemanticCss = `
      Artisan shop presentation: warm product card, handcrafted specs list
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"] [data-role="product-card"],
-  .bohemian-styled-container [data-role="product-card"] {
+  .bohemian-styled-container [data-role="product-card"],
+  .style-bohemian [data-role="product-card"],
+  [data-style="bohemian"] [data-role="product-card"],
+  .ds-scope[data-style-id="bohemian"] [data-role="product-card"],
+  .style-boho [data-role="product-card"],
+  [data-style="boho"] [data-role="product-card"],
+  .ds-scope[data-style-id="boho"] [data-role="product-card"] {
     background: var(--boh-surface-card) !important;
     border: 1.5px solid var(--boh-border-craft) !important;
     border-radius: 24px 18px 26px 16px !important;
@@ -714,14 +1272,26 @@ export const bohemianSemanticCss = `
 
   /* Product Lists with artisanal markers */
   .lab-styled-preview[data-style="bohemian"] ul:not(nav ul),
-  .bohemian-styled-container ul:not(nav ul) {
+  .bohemian-styled-container ul:not(nav ul),
+  .style-bohemian ul:not(nav ul),
+  [data-style="bohemian"] ul:not(nav ul),
+  .ds-scope[data-style-id="bohemian"] ul:not(nav ul),
+  .style-boho ul:not(nav ul),
+  [data-style="boho"] ul:not(nav ul),
+  .ds-scope[data-style-id="boho"] ul:not(nav ul) {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 1.25rem 0 !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] ul:not(nav ul) li,
-  .bohemian-styled-container ul:not(nav ul) li {
+  .bohemian-styled-container ul:not(nav ul) li,
+  .style-bohemian ul:not(nav ul) li,
+  [data-style="bohemian"] ul:not(nav ul) li,
+  .ds-scope[data-style-id="bohemian"] ul:not(nav ul) li,
+  .style-boho ul:not(nav ul) li,
+  [data-style="boho"] ul:not(nav ul) li,
+  .ds-scope[data-style-id="boho"] ul:not(nav ul) li {
     position: relative !important;
     padding-left: 1.65rem !important;
     margin-bottom: 0.65rem !important;
@@ -731,7 +1301,13 @@ export const bohemianSemanticCss = `
 
   /* Terracotta handcrafted bullet marker */
   .lab-styled-preview[data-style="bohemian"] ul:not(nav ul) li::before,
-  .bohemian-styled-container ul:not(nav ul) li::before {
+  .bohemian-styled-container ul:not(nav ul) li::before,
+  .style-bohemian ul:not(nav ul) li::before,
+  [data-style="bohemian"] ul:not(nav ul) li::before,
+  .ds-scope[data-style-id="bohemian"] ul:not(nav ul) li::before,
+  .style-boho ul:not(nav ul) li::before,
+  [data-style="boho"] ul:not(nav ul) li::before,
+  .ds-scope[data-style-id="boho"] ul:not(nav ul) li::before {
     content: '✦' !important;
     position: absolute !important;
     left: 0 !important;
@@ -745,12 +1321,24 @@ export const bohemianSemanticCss = `
      Cultural food journal: expressive Fraunces headings, ink-tapered leaders
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"] .menu-section,
-  .bohemian-styled-container .menu-section {
+  .bohemian-styled-container .menu-section,
+  .style-bohemian .menu-section,
+  [data-style="bohemian"] .menu-section,
+  .ds-scope[data-style-id="bohemian"] .menu-section,
+  .style-boho .menu-section,
+  [data-style="boho"] .menu-section,
+  .ds-scope[data-style-id="boho"] .menu-section {
     margin-bottom: 3.5rem !important;
   }
 
   .lab-styled-preview[data-style="bohemian"] .menu-item,
-  .bohemian-styled-container .menu-item {
+  .bohemian-styled-container .menu-item,
+  .style-bohemian .menu-item,
+  [data-style="bohemian"] .menu-item,
+  .ds-scope[data-style-id="bohemian"] .menu-item,
+  .style-boho .menu-item,
+  [data-style="boho"] .menu-item,
+  .ds-scope[data-style-id="boho"] .menu-item {
     display: flex !important;
     align-items: baseline !important;
     justify-content: space-between !important;
@@ -759,7 +1347,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] .menu-item-title,
-  .bohemian-styled-container .menu-item-title {
+  .bohemian-styled-container .menu-item-title,
+  .style-bohemian .menu-item-title,
+  [data-style="bohemian"] .menu-item-title,
+  .ds-scope[data-style-id="bohemian"] .menu-item-title,
+  .style-boho .menu-item-title,
+  [data-style="boho"] .menu-item-title,
+  .ds-scope[data-style-id="boho"] .menu-item-title {
     font-family: var(--boh-font-display) !important;
     font-weight: 600 !important;
     font-size: 1.15rem !important;
@@ -767,7 +1361,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] .menu-item-price,
-  .bohemian-styled-container .menu-item-price {
+  .bohemian-styled-container .menu-item-price,
+  .style-bohemian .menu-item-price,
+  [data-style="bohemian"] .menu-item-price,
+  .ds-scope[data-style-id="bohemian"] .menu-item-price,
+  .style-boho .menu-item-price,
+  [data-style="boho"] .menu-item-price,
+  .ds-scope[data-style-id="boho"] .menu-item-price {
     font-family: var(--boh-font-display) !important;
     font-weight: 700 !important;
     font-size: 1.15rem !important;
@@ -780,7 +1380,13 @@ export const bohemianSemanticCss = `
      Crafted human inputs with warm parchment fields and terracotta focus halo
      ========================================================================== */
   .lab-styled-preview[data-style="bohemian"] form,
-  .bohemian-styled-container form {
+  .bohemian-styled-container form,
+  .style-bohemian form,
+  [data-style="bohemian"] form,
+  .ds-scope[data-style-id="bohemian"] form,
+  .style-boho form,
+  [data-style="boho"] form,
+  .ds-scope[data-style-id="boho"] form {
     background: var(--boh-surface-card) !important;
     border: 1.5px solid var(--boh-border-craft) !important;
     border-radius: 24px 18px 28px 16px !important;
@@ -791,7 +1397,13 @@ export const bohemianSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bohemian"] label,
-  .bohemian-styled-container label {
+  .bohemian-styled-container label,
+  .style-bohemian label,
+  [data-style="bohemian"] label,
+  .ds-scope[data-style-id="bohemian"] label,
+  .style-boho label,
+  [data-style="boho"] label,
+  .ds-scope[data-style-id="boho"] label {
     display: block !important;
     font-family: var(--boh-font-body) !important;
     font-size: 0.9rem !important;
@@ -809,12 +1421,54 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] textarea,
   .lab-styled-preview[data-style="bohemian"] select,
   .bohemian-styled-container input[type="text"],
+  .style-bohemian input[type="text"],
+  [data-style="bohemian"] input[type="text"],
+  .ds-scope[data-style-id="bohemian"] input[type="text"],
+  .style-boho input[type="text"],
+  [data-style="boho"] input[type="text"],
+  .ds-scope[data-style-id="boho"] input[type="text"],
   .bohemian-styled-container input[type="email"],
+  .style-bohemian input[type="email"],
+  [data-style="bohemian"] input[type="email"],
+  .ds-scope[data-style-id="bohemian"] input[type="email"],
+  .style-boho input[type="email"],
+  [data-style="boho"] input[type="email"],
+  .ds-scope[data-style-id="boho"] input[type="email"],
   .bohemian-styled-container input[type="password"],
+  .style-bohemian input[type="password"],
+  [data-style="bohemian"] input[type="password"],
+  .ds-scope[data-style-id="bohemian"] input[type="password"],
+  .style-boho input[type="password"],
+  [data-style="boho"] input[type="password"],
+  .ds-scope[data-style-id="boho"] input[type="password"],
   .bohemian-styled-container input[type="number"],
+  .style-bohemian input[type="number"],
+  [data-style="bohemian"] input[type="number"],
+  .ds-scope[data-style-id="bohemian"] input[type="number"],
+  .style-boho input[type="number"],
+  [data-style="boho"] input[type="number"],
+  .ds-scope[data-style-id="boho"] input[type="number"],
   .bohemian-styled-container input[type="search"],
+  .style-bohemian input[type="search"],
+  [data-style="bohemian"] input[type="search"],
+  .ds-scope[data-style-id="bohemian"] input[type="search"],
+  .style-boho input[type="search"],
+  [data-style="boho"] input[type="search"],
+  .ds-scope[data-style-id="boho"] input[type="search"],
   .bohemian-styled-container textarea,
-  .bohemian-styled-container select {
+  .style-bohemian textarea,
+  [data-style="bohemian"] textarea,
+  .ds-scope[data-style-id="bohemian"] textarea,
+  .style-boho textarea,
+  [data-style="boho"] textarea,
+  .ds-scope[data-style-id="boho"] textarea,
+  .bohemian-styled-container select,
+  .style-bohemian select,
+  [data-style="bohemian"] select,
+  .ds-scope[data-style-id="bohemian"] select,
+  .style-boho select,
+  [data-style="boho"] select,
+  .ds-scope[data-style-id="boho"] select {
     width: 100% !important;
     padding: 0.85rem 1.15rem !important;
     font-family: var(--boh-font-body) !important;
@@ -834,8 +1488,26 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] textarea:focus,
   .lab-styled-preview[data-style="bohemian"] select:focus,
   .bohemian-styled-container input:focus,
+  .style-bohemian input:focus,
+  [data-style="bohemian"] input:focus,
+  .ds-scope[data-style-id="bohemian"] input:focus,
+  .style-boho input:focus,
+  [data-style="boho"] input:focus,
+  .ds-scope[data-style-id="boho"] input:focus,
   .bohemian-styled-container textarea:focus,
-  .bohemian-styled-container select:focus {
+  .style-bohemian textarea:focus,
+  [data-style="bohemian"] textarea:focus,
+  .ds-scope[data-style-id="bohemian"] textarea:focus,
+  .style-boho textarea:focus,
+  [data-style="boho"] textarea:focus,
+  .ds-scope[data-style-id="boho"] textarea:focus,
+  .bohemian-styled-container select:focus,
+  .style-bohemian select:focus,
+  [data-style="bohemian"] select:focus,
+  .ds-scope[data-style-id="bohemian"] select:focus,
+  .style-boho select:focus,
+  [data-style="boho"] select:focus,
+  .ds-scope[data-style-id="boho"] select:focus {
     border-color: var(--boh-terracotta) !important;
     background: #ffffff !important;
     box-shadow: 0 0 0 3px rgba(200, 90, 50, 0.18) !important;
@@ -844,7 +1516,19 @@ export const bohemianSemanticCss = `
   .lab-styled-preview[data-style="bohemian"] input::placeholder,
   .lab-styled-preview[data-style="bohemian"] textarea::placeholder,
   .bohemian-styled-container input::placeholder,
-  .bohemian-styled-container textarea::placeholder {
+  .style-bohemian input::placeholder,
+  [data-style="bohemian"] input::placeholder,
+  .ds-scope[data-style-id="bohemian"] input::placeholder,
+  .style-boho input::placeholder,
+  [data-style="boho"] input::placeholder,
+  .ds-scope[data-style-id="boho"] input::placeholder,
+  .bohemian-styled-container textarea::placeholder,
+  .style-bohemian textarea::placeholder,
+  [data-style="bohemian"] textarea::placeholder,
+  .ds-scope[data-style-id="bohemian"] textarea::placeholder,
+  .style-boho textarea::placeholder,
+  [data-style="boho"] textarea::placeholder,
+  .ds-scope[data-style-id="boho"] textarea::placeholder {
     color: var(--boh-charcoal-muted) !important;
     font-style: italic !important;
   }
@@ -855,12 +1539,24 @@ export const bohemianSemanticCss = `
      ========================================================================== */
   @media (max-width: 768px) {
     .lab-styled-preview[data-style="bohemian"],
-    .bohemian-styled-container {
+    .bohemian-styled-container,
+    .style-bohemian,
+    [data-style="bohemian"],
+    .ds-scope[data-style-id="bohemian"],
+    .style-boho,
+    [data-style="boho"],
+    .ds-scope[data-style-id="boho"] {
       padding: 2rem 1.25rem !important;
     }
 
     .lab-styled-preview[data-style="bohemian"] nav,
-    .bohemian-styled-container nav {
+    .bohemian-styled-container nav,
+    .style-bohemian nav,
+    [data-style="bohemian"] nav,
+    .ds-scope[data-style-id="bohemian"] nav,
+    .style-boho nav,
+    [data-style="boho"] nav,
+    .ds-scope[data-style-id="boho"] nav {
       padding: 0.85rem 1.25rem !important;
       gap: 1rem !important;
       border-radius: 16px !important;
@@ -868,21 +1564,39 @@ export const bohemianSemanticCss = `
     }
 
     .lab-styled-preview[data-style="bohemian"] header:not(nav header),
-    .bohemian-styled-container header:not(nav header) {
+    .bohemian-styled-container header:not(nav header),
+    .style-bohemian header:not(nav header),
+    [data-style="bohemian"] header:not(nav header),
+    .ds-scope[data-style-id="bohemian"] header:not(nav header),
+    .style-boho header:not(nav header),
+    [data-style="boho"] header:not(nav header),
+    .ds-scope[data-style-id="boho"] header:not(nav header) {
       padding: 2.25rem 1.5rem !important;
       border-radius: 20px !important;
       margin-bottom: 2.5rem !important;
     }
 
     .lab-styled-preview[data-style="bohemian"] h1,
-    .bohemian-styled-container h1 {
+    .bohemian-styled-container h1,
+    .style-bohemian h1,
+    [data-style="bohemian"] h1,
+    .ds-scope[data-style-id="bohemian"] h1,
+    .style-boho h1,
+    [data-style="boho"] h1,
+    .ds-scope[data-style-id="boho"] h1 {
       font-size: 2.15rem !important;
       line-height: 1.2 !important;
       margin-bottom: 1rem !important;
     }
 
     .lab-styled-preview[data-style="bohemian"] h2,
-    .bohemian-styled-container h2 {
+    .bohemian-styled-container h2,
+    .style-bohemian h2,
+    [data-style="bohemian"] h2,
+    .ds-scope[data-style-id="bohemian"] h2,
+    .style-boho h2,
+    [data-style="boho"] h2,
+    .ds-scope[data-style-id="boho"] h2 {
       font-size: 1.65rem !important;
     }
 
@@ -890,33 +1604,75 @@ export const bohemianSemanticCss = `
     .lab-styled-preview[data-style="bohemian"] div article,
     .lab-styled-preview[data-style="bohemian"] .card,
     .bohemian-styled-container section article,
+    .style-bohemian section article,
+    [data-style="bohemian"] section article,
+    .ds-scope[data-style-id="bohemian"] section article,
+    .style-boho section article,
+    [data-style="boho"] section article,
+    .ds-scope[data-style-id="boho"] section article,
     .bohemian-styled-container div article,
-    .bohemian-styled-container .card {
+    .style-bohemian div article,
+    [data-style="bohemian"] div article,
+    .ds-scope[data-style-id="bohemian"] div article,
+    .style-boho div article,
+    [data-style="boho"] div article,
+    .ds-scope[data-style-id="boho"] div article,
+    .bohemian-styled-container .card,
+    .style-bohemian .card,
+    [data-style="bohemian"] .card,
+    .ds-scope[data-style-id="bohemian"] .card,
+    .style-boho .card,
+    [data-style="boho"] .card,
+    .ds-scope[data-style-id="boho"] .card {
       padding: 1.75rem 1.5rem !important;
     }
 
     .lab-styled-preview[data-style="bohemian"] section:has(article + article),
-    .bohemian-styled-container section:has(article + article) {
+    .bohemian-styled-container section:has(article + article),
+    .style-bohemian section:has(article + article),
+    [data-style="bohemian"] section:has(article + article),
+    .ds-scope[data-style-id="bohemian"] section:has(article + article),
+    .style-boho section:has(article + article),
+    [data-style="boho"] section:has(article + article),
+    .ds-scope[data-style-id="boho"] section:has(article + article) {
       grid-template-columns: 1fr !important;
       gap: 1.5rem !important;
     }
 
     .lab-styled-preview[data-style="bohemian"] form,
-    .bohemian-styled-container form {
+    .bohemian-styled-container form,
+    .style-bohemian form,
+    [data-style="bohemian"] form,
+    .ds-scope[data-style-id="bohemian"] form,
+    .style-boho form,
+    [data-style="boho"] form,
+    .ds-scope[data-style-id="boho"] form {
       padding: 2rem 1.25rem !important;
     }
   }
 
   @media (max-width: 480px) {
     .lab-styled-preview[data-style="bohemian"] nav,
-    .bohemian-styled-container nav {
+    .bohemian-styled-container nav,
+    .style-bohemian nav,
+    [data-style="bohemian"] nav,
+    .ds-scope[data-style-id="bohemian"] nav,
+    .style-boho nav,
+    [data-style="boho"] nav,
+    .ds-scope[data-style-id="boho"] nav {
       flex-direction: column !important;
       align-items: flex-start !important;
       gap: 0.75rem !important;
     }
 
     .lab-styled-preview[data-style="bohemian"] nav ul,
-    .bohemian-styled-container nav ul {
+    .bohemian-styled-container nav ul,
+    .style-bohemian nav ul,
+    [data-style="bohemian"] nav ul,
+    .ds-scope[data-style-id="bohemian"] nav ul,
+    .style-boho nav ul,
+    [data-style="boho"] nav ul,
+    .ds-scope[data-style-id="boho"] nav ul {
       flex-wrap: wrap !important;
       gap: 0.75rem !important;
     }
@@ -924,7 +1680,19 @@ export const bohemianSemanticCss = `
     .lab-styled-preview[data-style="bohemian"] button,
     .lab-styled-preview[data-style="bohemian"] input[type="submit"],
     .bohemian-styled-container button,
-    .bohemian-styled-container input[type="submit"] {
+    .style-bohemian button,
+    [data-style="bohemian"] button,
+    .ds-scope[data-style-id="bohemian"] button,
+    .style-boho button,
+    [data-style="boho"] button,
+    .ds-scope[data-style-id="boho"] button,
+    .bohemian-styled-container input[type="submit"],
+    .style-bohemian input[type="submit"],
+    [data-style="bohemian"] input[type="submit"],
+    .ds-scope[data-style-id="bohemian"] input[type="submit"],
+    .style-boho input[type="submit"],
+    [data-style="boho"] input[type="submit"],
+    .ds-scope[data-style-id="boho"] input[type="submit"] {
       width: 100% !important;
     }
   }

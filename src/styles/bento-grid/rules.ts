@@ -25,7 +25,13 @@ export const bentoGridSemanticCss = `
 
   /* 0. Canvas Foundation: Modern Neutral Slate */
   .lab-styled-preview[data-style="bento-grid"],
-  .bento-grid-styled-container {
+  .bento-grid-styled-container,
+  .style-bento-grid,
+  [data-style="bento-grid"],
+  .ds-scope[data-style-id="bento-grid"],
+  .style-bento,
+  [data-style="bento"],
+  .ds-scope[data-style-id="bento"] {
     background-color: #f8fafc !important;
     background: radial-gradient(ellipse 90% 60% at 50% -10%, #ffffff 0%, #f8fafc 60%, #f1f5f9 100%) !important;
     color: #0f172a !important;
@@ -40,7 +46,13 @@ export const bentoGridSemanticCss = `
 
   /* 1. Navigation: Elevated Clean Modular Bar */
   .lab-styled-preview[data-style="bento-grid"] nav,
-  .bento-grid-styled-container nav {
+  .bento-grid-styled-container nav,
+  .style-bento-grid nav,
+  [data-style="bento-grid"] nav,
+  .ds-scope[data-style-id="bento-grid"] nav,
+  .style-bento nav,
+  [data-style="bento"] nav,
+  .ds-scope[data-style-id="bento"] nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -58,7 +70,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] nav a,
-  .bento-grid-styled-container nav a {
+  .bento-grid-styled-container nav a,
+  .style-bento-grid nav a,
+  [data-style="bento-grid"] nav a,
+  .ds-scope[data-style-id="bento-grid"] nav a,
+  .style-bento nav a,
+  [data-style="bento"] nav a,
+  .ds-scope[data-style-id="bento"] nav a {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     font-size: 0.8125rem;
     font-weight: 600;
@@ -74,7 +92,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] nav a:hover,
-  .bento-grid-styled-container nav a:hover {
+  .bento-grid-styled-container nav a:hover,
+  .style-bento-grid nav a:hover,
+  [data-style="bento-grid"] nav a:hover,
+  .ds-scope[data-style-id="bento-grid"] nav a:hover,
+  .style-bento nav a:hover,
+  [data-style="bento"] nav a:hover,
+  .ds-scope[data-style-id="bento"] nav a:hover {
     color: #4f46e5;
     background: rgba(79, 70, 229, 0.06);
     text-decoration: none;
@@ -82,7 +106,13 @@ export const bentoGridSemanticCss = `
 
   /* First Link: Wordmark Brand Tile */
   .lab-styled-preview[data-style="bento-grid"] nav a:first-child,
-  .bento-grid-styled-container nav a:first-child {
+  .bento-grid-styled-container nav a:first-child,
+  .style-bento-grid nav a:first-child,
+  [data-style="bento-grid"] nav a:first-child,
+  .ds-scope[data-style-id="bento-grid"] nav a:first-child,
+  .style-bento nav a:first-child,
+  [data-style="bento"] nav a:first-child,
+  .ds-scope[data-style-id="bento"] nav a:first-child {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.15rem;
     font-weight: 800;
@@ -93,7 +123,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] nav a:first-child::before,
-  .bento-grid-styled-container nav a:first-child::before {
+  .bento-grid-styled-container nav a:first-child::before,
+  .style-bento-grid nav a:first-child::before,
+  [data-style="bento-grid"] nav a:first-child::before,
+  .ds-scope[data-style-id="bento-grid"] nav a:first-child::before,
+  .style-bento nav a:first-child::before,
+  [data-style="bento"] nav a:first-child::before,
+  .ds-scope[data-style-id="bento"] nav a:first-child::before {
     content: "■";
     font-size: 0.85rem;
     color: #4f46e5;
@@ -102,7 +138,13 @@ export const bentoGridSemanticCss = `
 
   /* 2. Typographic Hierarchy: Modern Grotesk & Spatial Weight */
   .lab-styled-preview[data-style="bento-grid"] h1,
-  .bento-grid-styled-container h1 {
+  .bento-grid-styled-container h1,
+  .style-bento-grid h1,
+  [data-style="bento-grid"] h1,
+  .ds-scope[data-style-id="bento-grid"] h1,
+  .style-bento h1,
+  [data-style="bento"] h1,
+  .ds-scope[data-style-id="bento"] h1 {
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
     font-size: clamp(2.35rem, 5.2vw, 3.85rem) !important;
     font-weight: 800 !important;
@@ -116,7 +158,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] h2,
-  .bento-grid-styled-container h2 {
+  .bento-grid-styled-container h2,
+  .style-bento-grid h2,
+  [data-style="bento-grid"] h2,
+  .ds-scope[data-style-id="bento-grid"] h2,
+  .style-bento h2,
+  [data-style="bento"] h2,
+  .ds-scope[data-style-id="bento"] h2 {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: clamp(1.45rem, 3.2vw, 2.15rem) !important;
     font-weight: 800 !important;
@@ -131,7 +179,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] h2::before,
-  .bento-grid-styled-container h2::before {
+  .bento-grid-styled-container h2::before,
+  .style-bento-grid h2::before,
+  [data-style="bento-grid"] h2::before,
+  .ds-scope[data-style-id="bento-grid"] h2::before,
+  .style-bento h2::before,
+  [data-style="bento"] h2::before,
+  .ds-scope[data-style-id="bento"] h2::before {
     content: "";
     display: inline-block;
     width: 6px;
@@ -141,7 +195,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] h3,
-  .bento-grid-styled-container h3 {
+  .bento-grid-styled-container h3,
+  .style-bento-grid h3,
+  [data-style="bento-grid"] h3,
+  .ds-scope[data-style-id="bento-grid"] h3,
+  .style-bento h3,
+  [data-style="bento"] h3,
+  .ds-scope[data-style-id="bento"] h3 {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 1.25rem !important;
     font-weight: 700 !important;
@@ -155,7 +215,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] header > p:first-child,
   .lab-styled-preview[data-style="bento-grid"] section > p:first-child,
   .bento-grid-styled-container header > p:first-child,
-  .bento-grid-styled-container section > p:first-child {
+  .style-bento-grid header > p:first-child,
+  [data-style="bento-grid"] header > p:first-child,
+  .ds-scope[data-style-id="bento-grid"] header > p:first-child,
+  .style-bento header > p:first-child,
+  [data-style="bento"] header > p:first-child,
+  .ds-scope[data-style-id="bento"] header > p:first-child,
+  .bento-grid-styled-container section > p:first-child,
+  .style-bento-grid section > p:first-child,
+  [data-style="bento-grid"] section > p:first-child,
+  .ds-scope[data-style-id="bento-grid"] section > p:first-child,
+  .style-bento section > p:first-child,
+  [data-style="bento"] section > p:first-child,
+  .ds-scope[data-style-id="bento"] section > p:first-child {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
@@ -176,7 +248,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] header > p:first-child::before,
   .lab-styled-preview[data-style="bento-grid"] section > p:first-child::before,
   .bento-grid-styled-container header > p:first-child::before,
-  .bento-grid-styled-container section > p:first-child::before {
+  .style-bento-grid header > p:first-child::before,
+  [data-style="bento-grid"] header > p:first-child::before,
+  .ds-scope[data-style-id="bento-grid"] header > p:first-child::before,
+  .style-bento header > p:first-child::before,
+  [data-style="bento"] header > p:first-child::before,
+  .ds-scope[data-style-id="bento"] header > p:first-child::before,
+  .bento-grid-styled-container section > p:first-child::before,
+  .style-bento-grid section > p:first-child::before,
+  [data-style="bento-grid"] section > p:first-child::before,
+  .ds-scope[data-style-id="bento-grid"] section > p:first-child::before,
+  .style-bento section > p:first-child::before,
+  [data-style="bento"] section > p:first-child::before,
+  .ds-scope[data-style-id="bento"] section > p:first-child::before {
     content: "●";
     color: #4f46e5;
     font-size: 0.65rem;
@@ -184,7 +268,13 @@ export const bentoGridSemanticCss = `
 
   /* Body Paragraphs */
   .lab-styled-preview[data-style="bento-grid"] p,
-  .bento-grid-styled-container p {
+  .bento-grid-styled-container p,
+  .style-bento-grid p,
+  [data-style="bento-grid"] p,
+  .ds-scope[data-style-id="bento-grid"] p,
+  .style-bento p,
+  [data-style="bento"] p,
+  .ds-scope[data-style-id="bento"] p {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
     font-size: 1rem !important;
     line-height: 1.7 !important;
@@ -198,7 +288,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] button,
   .lab-styled-preview[data-style="bento-grid"] input[type="submit"],
   .bento-grid-styled-container button,
-  .bento-grid-styled-container input[type="submit"] {
+  .style-bento-grid button,
+  [data-style="bento-grid"] button,
+  .ds-scope[data-style-id="bento-grid"] button,
+  .style-bento button,
+  [data-style="bento"] button,
+  .ds-scope[data-style-id="bento"] button,
+  .bento-grid-styled-container input[type="submit"],
+  .style-bento-grid input[type="submit"],
+  [data-style="bento-grid"] input[type="submit"],
+  .ds-scope[data-style-id="bento-grid"] input[type="submit"],
+  .style-bento input[type="submit"],
+  [data-style="bento"] input[type="submit"],
+  .ds-scope[data-style-id="bento"] input[type="submit"] {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 0.875rem !important;
     font-weight: 600 !important;
@@ -220,7 +322,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] button:hover,
   .lab-styled-preview[data-style="bento-grid"] input[type="submit"]:hover,
   .bento-grid-styled-container button:hover,
-  .bento-grid-styled-container input[type="submit"]:hover {
+  .style-bento-grid button:hover,
+  [data-style="bento-grid"] button:hover,
+  .ds-scope[data-style-id="bento-grid"] button:hover,
+  .style-bento button:hover,
+  [data-style="bento"] button:hover,
+  .ds-scope[data-style-id="bento"] button:hover,
+  .bento-grid-styled-container input[type="submit"]:hover,
+  .style-bento-grid input[type="submit"]:hover,
+  [data-style="bento-grid"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="bento-grid"] input[type="submit"]:hover,
+  .style-bento input[type="submit"]:hover,
+  [data-style="bento"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="bento"] input[type="submit"]:hover {
     background: #4f46e5 !important;
     border-color: #4f46e5 !important;
     box-shadow: 0 6px 18px rgba(79, 70, 229, 0.28) !important;
@@ -229,7 +343,13 @@ export const bentoGridSemanticCss = `
 
   /* Secondary Button: Clean Outlined Bento Action */
   .lab-styled-preview[data-style="bento-grid"] button + button,
-  .bento-grid-styled-container button + button {
+  .bento-grid-styled-container button + button,
+  .style-bento-grid button + button,
+  [data-style="bento-grid"] button + button,
+  .ds-scope[data-style-id="bento-grid"] button + button,
+  .style-bento button + button,
+  [data-style="bento"] button + button,
+  .ds-scope[data-style-id="bento"] button + button {
     background: #ffffff !important;
     color: #0f172a !important;
     border: 1px solid #e2e8f0 !important;
@@ -237,7 +357,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] button + button:hover,
-  .bento-grid-styled-container button + button:hover {
+  .bento-grid-styled-container button + button:hover,
+  .style-bento-grid button + button:hover,
+  [data-style="bento-grid"] button + button:hover,
+  .ds-scope[data-style-id="bento-grid"] button + button:hover,
+  .style-bento button + button:hover,
+  [data-style="bento"] button + button:hover,
+  .ds-scope[data-style-id="bento"] button + button:hover {
     background: #f8fafc !important;
     border-color: #cbd5e1 !important;
     color: #0f172a !important;
@@ -249,7 +375,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] section:has(> article:nth-of-type(2)),
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2)),
   .bento-grid-styled-container section:has(> article:nth-of-type(2)),
-  .bento-grid-styled-container div:has(> article:nth-of-type(2)) {
+  .style-bento-grid section:has(> article:nth-of-type(2)),
+  [data-style="bento-grid"] section:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)),
+  .style-bento section:has(> article:nth-of-type(2)),
+  [data-style="bento"] section:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)),
+  .bento-grid-styled-container div:has(> article:nth-of-type(2)),
+  .style-bento-grid div:has(> article:nth-of-type(2)),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)),
+  .style-bento div:has(> article:nth-of-type(2)),
+  [data-style="bento"] div:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) {
     display: grid !important;
     grid-template-columns: repeat(12, 1fr) !important;
     gap: 1.5rem !important;
@@ -265,18 +403,60 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2)) > header,
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2)) > footer,
   .bento-grid-styled-container section:has(> article:nth-of-type(2)) > h2,
+  .style-bento-grid section:has(> article:nth-of-type(2)) > h2,
+  [data-style="bento-grid"] section:has(> article:nth-of-type(2)) > h2,
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)) > h2,
+  .style-bento section:has(> article:nth-of-type(2)) > h2,
+  [data-style="bento"] section:has(> article:nth-of-type(2)) > h2,
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)) > h2,
   .bento-grid-styled-container section:has(> article:nth-of-type(2)) > header,
+  .style-bento-grid section:has(> article:nth-of-type(2)) > header,
+  [data-style="bento-grid"] section:has(> article:nth-of-type(2)) > header,
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)) > header,
+  .style-bento section:has(> article:nth-of-type(2)) > header,
+  [data-style="bento"] section:has(> article:nth-of-type(2)) > header,
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)) > header,
   .bento-grid-styled-container section:has(> article:nth-of-type(2)) > footer,
+  .style-bento-grid section:has(> article:nth-of-type(2)) > footer,
+  [data-style="bento-grid"] section:has(> article:nth-of-type(2)) > footer,
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)) > footer,
+  .style-bento section:has(> article:nth-of-type(2)) > footer,
+  [data-style="bento"] section:has(> article:nth-of-type(2)) > footer,
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)) > footer,
   .bento-grid-styled-container div:has(> article:nth-of-type(2)) > h2,
+  .style-bento-grid div:has(> article:nth-of-type(2)) > h2,
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2)) > h2,
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)) > h2,
+  .style-bento div:has(> article:nth-of-type(2)) > h2,
+  [data-style="bento"] div:has(> article:nth-of-type(2)) > h2,
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) > h2,
   .bento-grid-styled-container div:has(> article:nth-of-type(2)) > header,
-  .bento-grid-styled-container div:has(> article:nth-of-type(2)) > footer {
+  .style-bento-grid div:has(> article:nth-of-type(2)) > header,
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2)) > header,
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)) > header,
+  .style-bento div:has(> article:nth-of-type(2)) > header,
+  [data-style="bento"] div:has(> article:nth-of-type(2)) > header,
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) > header,
+  .bento-grid-styled-container div:has(> article:nth-of-type(2)) > footer,
+  .style-bento-grid div:has(> article:nth-of-type(2)) > footer,
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2)) > footer,
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)) > footer,
+  .style-bento div:has(> article:nth-of-type(2)) > footer,
+  [data-style="bento"] div:has(> article:nth-of-type(2)) > footer,
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) > footer {
     grid-column: 1 / -1 !important;
     width: 100% !important;
   }
 
   /* Bento Base Module Styling */
   .lab-styled-preview[data-style="bento-grid"] article,
-  .bento-grid-styled-container article {
+  .bento-grid-styled-container article,
+  .style-bento-grid article,
+  [data-style="bento-grid"] article,
+  .ds-scope[data-style-id="bento-grid"] article,
+  .style-bento article,
+  [data-style="bento"] article,
+  .ds-scope[data-style-id="bento"] article {
     background: #ffffff !important;
     border: 1px solid rgba(15, 23, 42, 0.08) !important;
     border-radius: 20px !important;
@@ -291,7 +471,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] article:hover,
-  .bento-grid-styled-container article:hover {
+  .bento-grid-styled-container article:hover,
+  .style-bento-grid article:hover,
+  [data-style="bento-grid"] article:hover,
+  .ds-scope[data-style-id="bento-grid"] article:hover,
+  .style-bento article:hover,
+  [data-style="bento"] article:hover,
+  .ds-scope[data-style-id="bento"] article:hover {
     border-color: rgba(79, 70, 229, 0.3) !important;
     box-shadow: 0 10px 28px -4px rgba(15, 23, 42, 0.08) !important;
     transform: translateY(-2px) !important;
@@ -301,7 +487,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
   .bento-grid-styled-container section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
-  .bento-grid-styled-container div:has(> article:nth-of-type(2)) > article:nth-of-type(1) {
+  .style-bento-grid section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  [data-style="bento-grid"] section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .style-bento section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  [data-style="bento"] section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .bento-grid-styled-container div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .style-bento-grid div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .style-bento div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  [data-style="bento"] div:has(> article:nth-of-type(2)) > article:nth-of-type(1),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) > article:nth-of-type(1) {
     grid-column: span 7 !important;
     background: #ffffff !important;
     border-color: rgba(79, 70, 229, 0.25) !important;
@@ -313,7 +511,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
   .bento-grid-styled-container section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
-  .bento-grid-styled-container div:has(> article:nth-of-type(2)) > article:nth-of-type(2) {
+  .style-bento-grid section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  [data-style="bento-grid"] section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .style-bento section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  [data-style="bento"] section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .bento-grid-styled-container div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .style-bento-grid div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .style-bento div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  [data-style="bento"] div:has(> article:nth-of-type(2)) > article:nth-of-type(2),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) > article:nth-of-type(2) {
     grid-column: span 5 !important;
     background: #f8fafc !important;
     border-color: #e2e8f0 !important;
@@ -324,7 +534,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
   .bento-grid-styled-container section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
-  .bento-grid-styled-container div:has(> article:nth-of-type(3)) > article:nth-of-type(3) {
+  .style-bento-grid section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  [data-style="bento-grid"] section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .style-bento section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  [data-style="bento"] section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .bento-grid-styled-container div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .style-bento-grid div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .style-bento div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  [data-style="bento"] div:has(> article:nth-of-type(3)) > article:nth-of-type(3),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(3)) > article:nth-of-type(3) {
     grid-column: span 6 !important;
     background: #ffffff !important;
   }
@@ -333,14 +555,32 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
   .bento-grid-styled-container section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
-  .bento-grid-styled-container div:has(> article:nth-of-type(4)) > article:nth-of-type(4) {
+  .style-bento-grid section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  [data-style="bento-grid"] section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .style-bento section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  [data-style="bento"] section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .bento-grid-styled-container div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .style-bento-grid div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .style-bento div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  [data-style="bento"] div:has(> article:nth-of-type(4)) > article:nth-of-type(4),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(4)) > article:nth-of-type(4) {
     grid-column: span 6 !important;
     background: #ffffff !important;
   }
 
   /* Special Case: 3 Articles total in a section (e.g. Portfolio Selected Work 1=7, 2=5, 3=12) */
   .lab-styled-preview[data-style="bento-grid"] section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
-  .bento-grid-styled-container section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3) {
+  .bento-grid-styled-container section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
+  .style-bento-grid section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
+  [data-style="bento-grid"] section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
+  .style-bento section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
+  [data-style="bento"] section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3),
+  .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(3):last-of-type) > article:nth-of-type(3) {
     grid-column: span 12 !important;
   }
 
@@ -348,7 +588,19 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] main > article,
   .lab-styled-preview[data-style="bento-grid"] .dispatch,
   .bento-grid-styled-container main > article,
-  .bento-grid-styled-container .dispatch {
+  .style-bento-grid main > article,
+  [data-style="bento-grid"] main > article,
+  .ds-scope[data-style-id="bento-grid"] main > article,
+  .style-bento main > article,
+  [data-style="bento"] main > article,
+  .ds-scope[data-style-id="bento"] main > article,
+  .bento-grid-styled-container .dispatch,
+  .style-bento-grid .dispatch,
+  [data-style="bento-grid"] .dispatch,
+  .ds-scope[data-style-id="bento-grid"] .dispatch,
+  .style-bento .dispatch,
+  [data-style="bento"] .dispatch,
+  .ds-scope[data-style-id="bento"] .dispatch {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -359,14 +611,32 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] main > article:hover,
   .lab-styled-preview[data-style="bento-grid"] .dispatch:hover,
   .bento-grid-styled-container main > article:hover,
-  .bento-grid-styled-container .dispatch:hover {
+  .style-bento-grid main > article:hover,
+  [data-style="bento-grid"] main > article:hover,
+  .ds-scope[data-style-id="bento-grid"] main > article:hover,
+  .style-bento main > article:hover,
+  [data-style="bento"] main > article:hover,
+  .ds-scope[data-style-id="bento"] main > article:hover,
+  .bento-grid-styled-container .dispatch:hover,
+  .style-bento-grid .dispatch:hover,
+  [data-style="bento-grid"] .dispatch:hover,
+  .ds-scope[data-style-id="bento-grid"] .dispatch:hover,
+  .style-bento .dispatch:hover,
+  [data-style="bento"] .dispatch:hover,
+  .ds-scope[data-style-id="bento"] .dispatch:hover {
     transform: none !important;
     box-shadow: none !important;
   }
 
   /* 5. Pullquotes: Modular Highlight Callout */
   .lab-styled-preview[data-style="bento-grid"] blockquote,
-  .bento-grid-styled-container blockquote {
+  .bento-grid-styled-container blockquote,
+  .style-bento-grid blockquote,
+  [data-style="bento-grid"] blockquote,
+  .ds-scope[data-style-id="bento-grid"] blockquote,
+  .style-bento blockquote,
+  [data-style="bento"] blockquote,
+  .ds-scope[data-style-id="bento"] blockquote {
     background: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
     border-left: 5px solid #4f46e5 !important;
@@ -384,7 +654,13 @@ export const bentoGridSemanticCss = `
 
   /* 6. Pricing: Asymmetric Modular Tiers */
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2) button),
-  .bento-grid-styled-container div:has(> article:nth-of-type(2) button) {
+  .bento-grid-styled-container div:has(> article:nth-of-type(2) button),
+  .style-bento-grid div:has(> article:nth-of-type(2) button),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2) button),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2) button),
+  .style-bento div:has(> article:nth-of-type(2) button),
+  [data-style="bento"] div:has(> article:nth-of-type(2) button),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2) button) {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 1.75rem !important;
@@ -393,7 +669,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2) button) > article,
-  .bento-grid-styled-container div:has(> article:nth-of-type(2) button) > article {
+  .bento-grid-styled-container div:has(> article:nth-of-type(2) button) > article,
+  .style-bento-grid div:has(> article:nth-of-type(2) button) > article,
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2) button) > article,
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2) button) > article,
+  .style-bento div:has(> article:nth-of-type(2) button) > article,
+  [data-style="bento"] div:has(> article:nth-of-type(2) button) > article,
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2) button) > article {
     grid-column: span 1 !important;
     border-radius: 22px !important;
     background: #ffffff !important;
@@ -404,7 +686,13 @@ export const bentoGridSemanticCss = `
 
   /* Featured Bento Pricing Plan: Elevated Middle Tier in a 3-tier layout */
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
-  .bento-grid-styled-container div:has(> article:nth-of-type(3) button) > article:nth-of-type(2) {
+  .bento-grid-styled-container div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+  .style-bento-grid div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+  [data-style="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+  .style-bento div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+  [data-style="bento"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2) {
     border: 2px solid #4f46e5 !important;
     background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%) !important;
     box-shadow: 0 16px 40px -4px rgba(79, 70, 229, 0.16) !important;
@@ -414,7 +702,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
-  .bento-grid-styled-container div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before {
+  .bento-grid-styled-container div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
+  .style-bento-grid div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
+  [data-style="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
+  .style-bento div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
+  [data-style="bento"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before,
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2)::before {
     content: "RECOMMENDED TIER";
     position: absolute;
     top: -13px;
@@ -433,7 +727,13 @@ export const bentoGridSemanticCss = `
 
   /* Price Numbers in Pricing Modules */
   .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2) button) strong,
-  .bento-grid-styled-container div:has(> article:nth-of-type(2) button) strong {
+  .bento-grid-styled-container div:has(> article:nth-of-type(2) button) strong,
+  .style-bento-grid div:has(> article:nth-of-type(2) button) strong,
+  [data-style="bento-grid"] div:has(> article:nth-of-type(2) button) strong,
+  .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2) button) strong,
+  .style-bento div:has(> article:nth-of-type(2) button) strong,
+  [data-style="bento"] div:has(> article:nth-of-type(2) button) strong,
+  .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2) button) strong {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 2.5rem !important;
     font-weight: 800 !important;
@@ -444,7 +744,13 @@ export const bentoGridSemanticCss = `
 
   /* 6b. E-Commerce: Product Feature + Specifications Bento Pairing */
   .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section),
-  .bento-grid-styled-container section:has(> article):has(> section) {
+  .bento-grid-styled-container section:has(> article):has(> section),
+  .style-bento-grid section:has(> article):has(> section),
+  [data-style="bento-grid"] section:has(> article):has(> section),
+  .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section),
+  .style-bento section:has(> article):has(> section),
+  [data-style="bento"] section:has(> article):has(> section),
+  .ds-scope[data-style-id="bento"] section:has(> article):has(> section) {
     display: grid !important;
     grid-template-columns: repeat(12, 1fr) !important;
     gap: 1.75rem !important;
@@ -453,13 +759,25 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section) > header,
-  .bento-grid-styled-container section:has(> article):has(> section) > header {
+  .bento-grid-styled-container section:has(> article):has(> section) > header,
+  .style-bento-grid section:has(> article):has(> section) > header,
+  [data-style="bento-grid"] section:has(> article):has(> section) > header,
+  .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section) > header,
+  .style-bento section:has(> article):has(> section) > header,
+  [data-style="bento"] section:has(> article):has(> section) > header,
+  .ds-scope[data-style-id="bento"] section:has(> article):has(> section) > header {
     grid-column: 1 / -1 !important;
     width: 100% !important;
   }
 
   .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section) > article,
-  .bento-grid-styled-container section:has(> article):has(> section) > article {
+  .bento-grid-styled-container section:has(> article):has(> section) > article,
+  .style-bento-grid section:has(> article):has(> section) > article,
+  [data-style="bento-grid"] section:has(> article):has(> section) > article,
+  .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section) > article,
+  .style-bento section:has(> article):has(> section) > article,
+  [data-style="bento"] section:has(> article):has(> section) > article,
+  .ds-scope[data-style-id="bento"] section:has(> article):has(> section) > article {
     grid-column: span 7 !important;
     background: #ffffff !important;
     border: 1px solid rgba(15, 23, 42, 0.08) !important;
@@ -469,7 +787,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section) > section,
-  .bento-grid-styled-container section:has(> article):has(> section) > section {
+  .bento-grid-styled-container section:has(> article):has(> section) > section,
+  .style-bento-grid section:has(> article):has(> section) > section,
+  [data-style="bento-grid"] section:has(> article):has(> section) > section,
+  .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section) > section,
+  .style-bento section:has(> article):has(> section) > section,
+  [data-style="bento"] section:has(> article):has(> section) > section,
+  .ds-scope[data-style-id="bento"] section:has(> article):has(> section) > section {
     grid-column: span 5 !important;
     background: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
@@ -480,7 +804,13 @@ export const bentoGridSemanticCss = `
 
   /* 7. Dashboard & Telemetry: High-Density Modular Bento Units */
   .lab-styled-preview[data-style="bento-grid"] section:has(> table),
-  .bento-grid-styled-container section:has(> table) {
+  .bento-grid-styled-container section:has(> table),
+  .style-bento-grid section:has(> table),
+  [data-style="bento-grid"] section:has(> table),
+  .ds-scope[data-style-id="bento-grid"] section:has(> table),
+  .style-bento section:has(> table),
+  [data-style="bento"] section:has(> table),
+  .ds-scope[data-style-id="bento"] section:has(> table) {
     margin: 2.5rem 0 !important;
   }
 
@@ -488,13 +818,31 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] section:has(table) ~ section:nth-of-type(1) article:first-child,
   .lab-styled-preview[data-style="bento-grid"] section:has(article:has(h3)) > article:first-child,
   .bento-grid-styled-container section:has(table) ~ section:nth-of-type(1) article:first-child,
-  .bento-grid-styled-container section:has(article:has(h3)) > article:first-child {
+  .style-bento-grid section:has(table) ~ section:nth-of-type(1) article:first-child,
+  [data-style="bento-grid"] section:has(table) ~ section:nth-of-type(1) article:first-child,
+  .ds-scope[data-style-id="bento-grid"] section:has(table) ~ section:nth-of-type(1) article:first-child,
+  .style-bento section:has(table) ~ section:nth-of-type(1) article:first-child,
+  [data-style="bento"] section:has(table) ~ section:nth-of-type(1) article:first-child,
+  .ds-scope[data-style-id="bento"] section:has(table) ~ section:nth-of-type(1) article:first-child,
+  .bento-grid-styled-container section:has(article:has(h3)) > article:first-child,
+  .style-bento-grid section:has(article:has(h3)) > article:first-child,
+  [data-style="bento-grid"] section:has(article:has(h3)) > article:first-child,
+  .ds-scope[data-style-id="bento-grid"] section:has(article:has(h3)) > article:first-child,
+  .style-bento section:has(article:has(h3)) > article:first-child,
+  [data-style="bento"] section:has(article:has(h3)) > article:first-child,
+  .ds-scope[data-style-id="bento"] section:has(article:has(h3)) > article:first-child {
     background: #ffffff !important;
   }
 
   /* 8. Tables: Disciplined Ledger Tiles */
   .lab-styled-preview[data-style="bento-grid"] table,
-  .bento-grid-styled-container table {
+  .bento-grid-styled-container table,
+  .style-bento-grid table,
+  [data-style="bento-grid"] table,
+  .ds-scope[data-style-id="bento-grid"] table,
+  .style-bento table,
+  [data-style="bento"] table,
+  .ds-scope[data-style-id="bento"] table {
     width: 100% !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
@@ -507,7 +855,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] th,
-  .bento-grid-styled-container th {
+  .bento-grid-styled-container th,
+  .style-bento-grid th,
+  [data-style="bento-grid"] th,
+  .ds-scope[data-style-id="bento-grid"] th,
+  .style-bento th,
+  [data-style="bento"] th,
+  .ds-scope[data-style-id="bento"] th {
     background: #f8fafc !important;
     color: #475569 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -521,7 +875,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] td,
-  .bento-grid-styled-container td {
+  .bento-grid-styled-container td,
+  .style-bento-grid td,
+  [data-style="bento-grid"] td,
+  .ds-scope[data-style-id="bento-grid"] td,
+  .style-bento td,
+  [data-style="bento"] td,
+  .ds-scope[data-style-id="bento"] td {
     padding: 0.95rem 1.25rem !important;
     border-bottom: 1px solid #f1f5f9 !important;
     color: #334155 !important;
@@ -530,18 +890,36 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] tr:last-child td,
-  .bento-grid-styled-container tr:last-child td {
+  .bento-grid-styled-container tr:last-child td,
+  .style-bento-grid tr:last-child td,
+  [data-style="bento-grid"] tr:last-child td,
+  .ds-scope[data-style-id="bento-grid"] tr:last-child td,
+  .style-bento tr:last-child td,
+  [data-style="bento"] tr:last-child td,
+  .ds-scope[data-style-id="bento"] tr:last-child td {
     border-bottom: none !important;
   }
 
   .lab-styled-preview[data-style="bento-grid"] tr:hover td,
-  .bento-grid-styled-container tr:hover td {
+  .bento-grid-styled-container tr:hover td,
+  .style-bento-grid tr:hover td,
+  [data-style="bento-grid"] tr:hover td,
+  .ds-scope[data-style-id="bento-grid"] tr:hover td,
+  .style-bento tr:hover td,
+  [data-style="bento"] tr:hover td,
+  .ds-scope[data-style-id="bento"] tr:hover td {
     background-color: #f8faff !important;
   }
 
   /* 9. Forms: Structured Cohesive Bento Module */
   .lab-styled-preview[data-style="bento-grid"] form,
-  .bento-grid-styled-container form {
+  .bento-grid-styled-container form,
+  .style-bento-grid form,
+  [data-style="bento-grid"] form,
+  .ds-scope[data-style-id="bento-grid"] form,
+  .style-bento form,
+  [data-style="bento"] form,
+  .ds-scope[data-style-id="bento"] form {
     display: flex !important;
     flex-direction: column !important;
     gap: 1.25rem !important;
@@ -554,7 +932,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] label,
-  .bento-grid-styled-container label {
+  .bento-grid-styled-container label,
+  .style-bento-grid label,
+  [data-style="bento-grid"] label,
+  .ds-scope[data-style-id="bento-grid"] label,
+  .style-bento label,
+  [data-style="bento"] label,
+  .ds-scope[data-style-id="bento"] label {
     display: block !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 0.75rem !important;
@@ -569,8 +953,26 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] select,
   .lab-styled-preview[data-style="bento-grid"] textarea,
   .bento-grid-styled-container input,
+  .style-bento-grid input,
+  [data-style="bento-grid"] input,
+  .ds-scope[data-style-id="bento-grid"] input,
+  .style-bento input,
+  [data-style="bento"] input,
+  .ds-scope[data-style-id="bento"] input,
   .bento-grid-styled-container select,
-  .bento-grid-styled-container textarea {
+  .style-bento-grid select,
+  [data-style="bento-grid"] select,
+  .ds-scope[data-style-id="bento-grid"] select,
+  .style-bento select,
+  [data-style="bento"] select,
+  .ds-scope[data-style-id="bento"] select,
+  .bento-grid-styled-container textarea,
+  .style-bento-grid textarea,
+  [data-style="bento-grid"] textarea,
+  .ds-scope[data-style-id="bento-grid"] textarea,
+  .style-bento textarea,
+  [data-style="bento"] textarea,
+  .ds-scope[data-style-id="bento"] textarea {
     background: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 12px !important;
@@ -587,8 +989,26 @@ export const bentoGridSemanticCss = `
   .lab-styled-preview[data-style="bento-grid"] select:focus,
   .lab-styled-preview[data-style="bento-grid"] textarea:focus,
   .bento-grid-styled-container input:focus,
+  .style-bento-grid input:focus,
+  [data-style="bento-grid"] input:focus,
+  .ds-scope[data-style-id="bento-grid"] input:focus,
+  .style-bento input:focus,
+  [data-style="bento"] input:focus,
+  .ds-scope[data-style-id="bento"] input:focus,
   .bento-grid-styled-container select:focus,
-  .bento-grid-styled-container textarea:focus {
+  .style-bento-grid select:focus,
+  [data-style="bento-grid"] select:focus,
+  .ds-scope[data-style-id="bento-grid"] select:focus,
+  .style-bento select:focus,
+  [data-style="bento"] select:focus,
+  .ds-scope[data-style-id="bento"] select:focus,
+  .bento-grid-styled-container textarea:focus,
+  .style-bento-grid textarea:focus,
+  [data-style="bento-grid"] textarea:focus,
+  .ds-scope[data-style-id="bento-grid"] textarea:focus,
+  .style-bento textarea:focus,
+  [data-style="bento"] textarea:focus,
+  .ds-scope[data-style-id="bento"] textarea:focus {
     background: #ffffff !important;
     border-color: #4f46e5 !important;
     outline: none !important;
@@ -597,14 +1017,26 @@ export const bentoGridSemanticCss = `
 
   /* 10. Lists & Specifications */
   .lab-styled-preview[data-style="bento-grid"] ul,
-  .bento-grid-styled-container ul {
+  .bento-grid-styled-container ul,
+  .style-bento-grid ul,
+  [data-style="bento-grid"] ul,
+  .ds-scope[data-style-id="bento-grid"] ul,
+  .style-bento ul,
+  [data-style="bento"] ul,
+  .ds-scope[data-style-id="bento"] ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 1rem 0 !important;
   }
 
   .lab-styled-preview[data-style="bento-grid"] li,
-  .bento-grid-styled-container li {
+  .bento-grid-styled-container li,
+  .style-bento-grid li,
+  [data-style="bento-grid"] li,
+  .ds-scope[data-style-id="bento-grid"] li,
+  .style-bento li,
+  [data-style="bento"] li,
+  .ds-scope[data-style-id="bento"] li {
     padding: 0.5rem 0 !important;
     border-bottom: 1px solid #f1f5f9 !important;
     color: #475569 !important;
@@ -615,7 +1047,13 @@ export const bentoGridSemanticCss = `
   }
 
   .lab-styled-preview[data-style="bento-grid"] li::before,
-  .bento-grid-styled-container li::before {
+  .bento-grid-styled-container li::before,
+  .style-bento-grid li::before,
+  [data-style="bento-grid"] li::before,
+  .ds-scope[data-style-id="bento-grid"] li::before,
+  .style-bento li::before,
+  [data-style="bento"] li::before,
+  .ds-scope[data-style-id="bento"] li::before {
     content: "✓";
     color: #4f46e5;
     font-weight: 800;
@@ -624,7 +1062,13 @@ export const bentoGridSemanticCss = `
 
   /* 11. Footer: Structured Modular Footer */
   .lab-styled-preview[data-style="bento-grid"] footer,
-  .bento-grid-styled-container footer {
+  .bento-grid-styled-container footer,
+  .style-bento-grid footer,
+  [data-style="bento-grid"] footer,
+  .ds-scope[data-style-id="bento-grid"] footer,
+  .style-bento footer,
+  [data-style="bento"] footer,
+  .ds-scope[data-style-id="bento"] footer {
     border-top: 1px solid #e2e8f0;
     padding-top: 2.25rem;
     margin-top: 4rem;
@@ -643,8 +1087,26 @@ export const bentoGridSemanticCss = `
     .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2)),
     .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section),
     .bento-grid-styled-container section:has(> article:nth-of-type(2)),
+    .style-bento-grid section:has(> article:nth-of-type(2)),
+    [data-style="bento-grid"] section:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)),
+    .style-bento section:has(> article:nth-of-type(2)),
+    [data-style="bento"] section:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)),
     .bento-grid-styled-container div:has(> article:nth-of-type(2)),
-    .bento-grid-styled-container section:has(> article):has(> section) {
+    .style-bento-grid div:has(> article:nth-of-type(2)),
+    [data-style="bento-grid"] div:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)),
+    .style-bento div:has(> article:nth-of-type(2)),
+    [data-style="bento"] div:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)),
+    .bento-grid-styled-container section:has(> article):has(> section),
+    .style-bento-grid section:has(> article):has(> section),
+    [data-style="bento-grid"] section:has(> article):has(> section),
+    .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section),
+    .style-bento section:has(> article):has(> section),
+    [data-style="bento"] section:has(> article):has(> section),
+    .ds-scope[data-style-id="bento"] section:has(> article):has(> section) {
       grid-template-columns: 1fr !important;
     }
 
@@ -653,32 +1115,80 @@ export const bentoGridSemanticCss = `
     .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section) > article,
     .lab-styled-preview[data-style="bento-grid"] section:has(> article):has(> section) > section,
     .bento-grid-styled-container section:has(> article:nth-of-type(2)) > article,
+    .style-bento-grid section:has(> article:nth-of-type(2)) > article,
+    [data-style="bento-grid"] section:has(> article:nth-of-type(2)) > article,
+    .ds-scope[data-style-id="bento-grid"] section:has(> article:nth-of-type(2)) > article,
+    .style-bento section:has(> article:nth-of-type(2)) > article,
+    [data-style="bento"] section:has(> article:nth-of-type(2)) > article,
+    .ds-scope[data-style-id="bento"] section:has(> article:nth-of-type(2)) > article,
     .bento-grid-styled-container div:has(> article:nth-of-type(2)) > article,
+    .style-bento-grid div:has(> article:nth-of-type(2)) > article,
+    [data-style="bento-grid"] div:has(> article:nth-of-type(2)) > article,
+    .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2)) > article,
+    .style-bento div:has(> article:nth-of-type(2)) > article,
+    [data-style="bento"] div:has(> article:nth-of-type(2)) > article,
+    .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2)) > article,
     .bento-grid-styled-container section:has(> article):has(> section) > article,
-    .bento-grid-styled-container section:has(> article):has(> section) > section {
+    .style-bento-grid section:has(> article):has(> section) > article,
+    [data-style="bento-grid"] section:has(> article):has(> section) > article,
+    .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section) > article,
+    .style-bento section:has(> article):has(> section) > article,
+    [data-style="bento"] section:has(> article):has(> section) > article,
+    .ds-scope[data-style-id="bento"] section:has(> article):has(> section) > article,
+    .bento-grid-styled-container section:has(> article):has(> section) > section,
+    .style-bento-grid section:has(> article):has(> section) > section,
+    [data-style="bento-grid"] section:has(> article):has(> section) > section,
+    .ds-scope[data-style-id="bento-grid"] section:has(> article):has(> section) > section,
+    .style-bento section:has(> article):has(> section) > section,
+    [data-style="bento"] section:has(> article):has(> section) > section,
+    .ds-scope[data-style-id="bento"] section:has(> article):has(> section) > section {
       grid-column: span 1 !important;
     }
   }
 
   @media (max-width: 640px) {
     .lab-styled-preview[data-style="bento-grid"] nav,
-    .bento-grid-styled-container nav {
+    .bento-grid-styled-container nav,
+    .style-bento-grid nav,
+    [data-style="bento-grid"] nav,
+    .ds-scope[data-style-id="bento-grid"] nav,
+    .style-bento nav,
+    [data-style="bento"] nav,
+    .ds-scope[data-style-id="bento"] nav {
       border-radius: 14px !important;
       padding: 0.75rem 1rem !important;
     }
 
     .lab-styled-preview[data-style="bento-grid"] h1,
-    .bento-grid-styled-container h1 {
+    .bento-grid-styled-container h1,
+    .style-bento-grid h1,
+    [data-style="bento-grid"] h1,
+    .ds-scope[data-style-id="bento-grid"] h1,
+    .style-bento h1,
+    [data-style="bento"] h1,
+    .ds-scope[data-style-id="bento"] h1 {
       font-size: 2.15rem !important;
     }
 
     .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(2) button),
-    .bento-grid-styled-container div:has(> article:nth-of-type(2) button) {
+    .bento-grid-styled-container div:has(> article:nth-of-type(2) button),
+    .style-bento-grid div:has(> article:nth-of-type(2) button),
+    [data-style="bento-grid"] div:has(> article:nth-of-type(2) button),
+    .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(2) button),
+    .style-bento div:has(> article:nth-of-type(2) button),
+    [data-style="bento"] div:has(> article:nth-of-type(2) button),
+    .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(2) button) {
       grid-template-columns: 1fr !important;
     }
 
     .lab-styled-preview[data-style="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
-    .bento-grid-styled-container div:has(> article:nth-of-type(3) button) > article:nth-of-type(2) {
+    .bento-grid-styled-container div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+    .style-bento-grid div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+    [data-style="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+    .ds-scope[data-style-id="bento-grid"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+    .style-bento div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+    [data-style="bento"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2),
+    .ds-scope[data-style-id="bento"] div:has(> article:nth-of-type(3) button) > article:nth-of-type(2) {
       transform: none !important;
     }
   }

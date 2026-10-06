@@ -12,7 +12,13 @@ export const maximalistSemanticCss = `
 
   /* Container Foundation: Warm Tactile Canvas with Micro-Lattice Grid */
   .lab-styled-preview[data-style="maximalism"],
-  .maximalism-styled-container {
+  .maximalism-styled-container,
+  .style-maximalism,
+  [data-style="maximalism"],
+  .ds-scope[data-style-id="maximalism"],
+  .style-maximalist,
+  [data-style="maximalist"],
+  .ds-scope[data-style-id="maximalist"] {
     background-color: #faf6ef !important;
     background-image: 
       radial-gradient(#dcd2be 0.75px, transparent 0.75px),
@@ -29,7 +35,13 @@ export const maximalistSemanticCss = `
 
   /* 1. Masthead Navigation: Expressive Editorial Masthead with Ornamental Separators */
   .lab-styled-preview[data-style="maximalism"] nav,
-  .maximalism-styled-container nav {
+  .maximalism-styled-container nav,
+  .style-maximalism nav,
+  [data-style="maximalism"] nav,
+  .ds-scope[data-style-id="maximalism"] nav,
+  .style-maximalist nav,
+  [data-style="maximalist"] nav,
+  .ds-scope[data-style-id="maximalist"] nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -41,7 +53,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] nav a,
-  .maximalism-styled-container nav a {
+  .maximalism-styled-container nav a,
+  .style-maximalism nav a,
+  [data-style="maximalism"] nav a,
+  .ds-scope[data-style-id="maximalism"] nav a,
+  .style-maximalist nav a,
+  [data-style="maximalist"] nav a,
+  .ds-scope[data-style-id="maximalist"] nav a {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 0.9375rem;
     font-weight: 700;
@@ -57,7 +75,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] nav a:not(:last-child)::after,
-  .maximalism-styled-container nav a:not(:last-child)::after {
+  .maximalism-styled-container nav a:not(:last-child)::after,
+  .style-maximalism nav a:not(:last-child)::after,
+  [data-style="maximalism"] nav a:not(:last-child)::after,
+  .ds-scope[data-style-id="maximalism"] nav a:not(:last-child)::after,
+  .style-maximalist nav a:not(:last-child)::after,
+  [data-style="maximalist"] nav a:not(:last-child)::after,
+  .ds-scope[data-style-id="maximalist"] nav a:not(:last-child)::after {
     content: '◆';
     color: #701a2b;
     font-size: 0.55rem;
@@ -67,7 +91,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] nav a:hover,
-  .maximalism-styled-container nav a:hover {
+  .maximalism-styled-container nav a:hover,
+  .style-maximalism nav a:hover,
+  [data-style="maximalism"] nav a:hover,
+  .ds-scope[data-style-id="maximalism"] nav a:hover,
+  .style-maximalist nav a:hover,
+  [data-style="maximalist"] nav a:hover,
+  .ds-scope[data-style-id="maximalist"] nav a:hover {
     color: #701a2b;
     border-color: #701a2b;
     text-decoration: none;
@@ -80,8 +110,26 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] section > p:first-child:not(:last-child),
   .lab-styled-preview[data-style="maximalism"] article > p:first-child:not(:last-child),
   .maximalism-styled-container header > p:first-child,
+  .style-maximalism header > p:first-child,
+  [data-style="maximalism"] header > p:first-child,
+  .ds-scope[data-style-id="maximalism"] header > p:first-child,
+  .style-maximalist header > p:first-child,
+  [data-style="maximalist"] header > p:first-child,
+  .ds-scope[data-style-id="maximalist"] header > p:first-child,
   .maximalism-styled-container section > p:first-child:not(:last-child),
-  .maximalism-styled-container article > p:first-child:not(:last-child) {
+  .style-maximalism section > p:first-child:not(:last-child),
+  [data-style="maximalism"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="maximalism"] section > p:first-child:not(:last-child),
+  .style-maximalist section > p:first-child:not(:last-child),
+  [data-style="maximalist"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="maximalist"] section > p:first-child:not(:last-child),
+  .maximalism-styled-container article > p:first-child:not(:last-child),
+  .style-maximalism article > p:first-child:not(:last-child),
+  [data-style="maximalism"] article > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="maximalism"] article > p:first-child:not(:last-child),
+  .style-maximalist article > p:first-child:not(:last-child),
+  [data-style="maximalist"] article > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="maximalist"] article > p:first-child:not(:last-child) {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 800;
@@ -98,8 +146,26 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] section > p:first-child:not(:last-child)::before,
   .lab-styled-preview[data-style="maximalism"] article > p:first-child:not(:last-child)::before,
   .maximalism-styled-container header > p:first-child::before,
+  .style-maximalism header > p:first-child::before,
+  [data-style="maximalism"] header > p:first-child::before,
+  .ds-scope[data-style-id="maximalism"] header > p:first-child::before,
+  .style-maximalist header > p:first-child::before,
+  [data-style="maximalist"] header > p:first-child::before,
+  .ds-scope[data-style-id="maximalist"] header > p:first-child::before,
   .maximalism-styled-container section > p:first-child:not(:last-child)::before,
-  .maximalism-styled-container article > p:first-child:not(:last-child)::before {
+  .style-maximalism section > p:first-child:not(:last-child)::before,
+  [data-style="maximalism"] section > p:first-child:not(:last-child)::before,
+  .ds-scope[data-style-id="maximalism"] section > p:first-child:not(:last-child)::before,
+  .style-maximalist section > p:first-child:not(:last-child)::before,
+  [data-style="maximalist"] section > p:first-child:not(:last-child)::before,
+  .ds-scope[data-style-id="maximalist"] section > p:first-child:not(:last-child)::before,
+  .maximalism-styled-container article > p:first-child:not(:last-child)::before,
+  .style-maximalism article > p:first-child:not(:last-child)::before,
+  [data-style="maximalism"] article > p:first-child:not(:last-child)::before,
+  .ds-scope[data-style-id="maximalism"] article > p:first-child:not(:last-child)::before,
+  .style-maximalist article > p:first-child:not(:last-child)::before,
+  [data-style="maximalist"] article > p:first-child:not(:last-child)::before,
+  .ds-scope[data-style-id="maximalist"] article > p:first-child:not(:last-child)::before {
     content: '§';
     color: #d97706;
     font-size: 0.95rem;
@@ -109,7 +175,13 @@ export const maximalistSemanticCss = `
 
   /* 3. Grand Typographic Hierarchy: Expressive Display Serif */
   .lab-styled-preview[data-style="maximalism"] h1,
-  .maximalism-styled-container h1 {
+  .maximalism-styled-container h1,
+  .style-maximalism h1,
+  [data-style="maximalism"] h1,
+  .ds-scope[data-style-id="maximalism"] h1,
+  .style-maximalist h1,
+  [data-style="maximalist"] h1,
+  .ds-scope[data-style-id="maximalist"] h1 {
     font-family: 'Playfair Display', 'Didot', 'Bodoni MT', Georgia, serif !important;
     font-size: clamp(2.1rem, 4.8vw, 3.6rem) !important;
     font-weight: 800 !important;
@@ -123,7 +195,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] h2,
-  .maximalism-styled-container h2 {
+  .maximalism-styled-container h2,
+  .style-maximalism h2,
+  [data-style="maximalism"] h2,
+  .ds-scope[data-style-id="maximalism"] h2,
+  .style-maximalist h2,
+  [data-style="maximalist"] h2,
+  .ds-scope[data-style-id="maximalist"] h2 {
     font-family: 'Playfair Display', Georgia, serif !important;
     font-size: clamp(1.75rem, 3.6vw, 2.35rem) !important;
     font-weight: 700 !important;
@@ -139,7 +217,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] h2::after,
-  .maximalism-styled-container h2::after {
+  .maximalism-styled-container h2::after,
+  .style-maximalism h2::after,
+  [data-style="maximalism"] h2::after,
+  .ds-scope[data-style-id="maximalism"] h2::after,
+  .style-maximalist h2::after,
+  [data-style="maximalist"] h2::after,
+  .ds-scope[data-style-id="maximalist"] h2::after {
     content: '◆';
     position: absolute;
     right: 0;
@@ -151,7 +235,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] h3,
-  .maximalism-styled-container h3 {
+  .maximalism-styled-container h3,
+  .style-maximalism h3,
+  [data-style="maximalism"] h3,
+  .ds-scope[data-style-id="maximalism"] h3,
+  .style-maximalist h3,
+  [data-style="maximalist"] h3,
+  .ds-scope[data-style-id="maximalist"] h3 {
     font-family: 'Playfair Display', Georgia, serif !important;
     font-size: 1.35rem !important;
     font-weight: 700 !important;
@@ -163,7 +253,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] h4,
-  .maximalism-styled-container h4 {
+  .maximalism-styled-container h4,
+  .style-maximalism h4,
+  [data-style="maximalism"] h4,
+  .ds-scope[data-style-id="maximalism"] h4,
+  .style-maximalist h4,
+  [data-style="maximalist"] h4,
+  .ds-scope[data-style-id="maximalist"] h4 {
     font-family: 'Inter', sans-serif !important;
     font-size: 0.9375rem !important;
     font-weight: 700 !important;
@@ -176,7 +272,13 @@ export const maximalistSemanticCss = `
 
   /* 4. Body Copy, Lead Paragraph & Drop Cap */
   .lab-styled-preview[data-style="maximalism"] p,
-  .maximalism-styled-container p {
+  .maximalism-styled-container p,
+  .style-maximalism p,
+  [data-style="maximalism"] p,
+  .ds-scope[data-style-id="maximalism"] p,
+  .style-maximalist p,
+  [data-style="maximalist"] p,
+  .ds-scope[data-style-id="maximalist"] p {
     font-family: 'Inter', -apple-system, sans-serif;
     font-size: 1.03125rem;
     line-height: 1.7;
@@ -189,7 +291,19 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] article > p:nth-of-type(1),
   .lab-styled-preview[data-style="maximalism"] section > p:nth-of-type(2):not(:last-child),
   .maximalism-styled-container article > p:nth-of-type(1),
-  .maximalism-styled-container section > p:nth-of-type(2):not(:last-child) {
+  .style-maximalism article > p:nth-of-type(1),
+  [data-style="maximalism"] article > p:nth-of-type(1),
+  .ds-scope[data-style-id="maximalism"] article > p:nth-of-type(1),
+  .style-maximalist article > p:nth-of-type(1),
+  [data-style="maximalist"] article > p:nth-of-type(1),
+  .ds-scope[data-style-id="maximalist"] article > p:nth-of-type(1),
+  .maximalism-styled-container section > p:nth-of-type(2):not(:last-child),
+  .style-maximalism section > p:nth-of-type(2):not(:last-child),
+  [data-style="maximalism"] section > p:nth-of-type(2):not(:last-child),
+  .ds-scope[data-style-id="maximalism"] section > p:nth-of-type(2):not(:last-child),
+  .style-maximalist section > p:nth-of-type(2):not(:last-child),
+  [data-style="maximalist"] section > p:nth-of-type(2):not(:last-child),
+  .ds-scope[data-style-id="maximalist"] section > p:nth-of-type(2):not(:last-child) {
     font-size: 1.15rem;
     line-height: 1.75;
     color: #18130f;
@@ -198,7 +312,13 @@ export const maximalistSemanticCss = `
 
   /* Editorial Drop Cap in long-form Article */
   .lab-styled-preview[data-style="maximalism"] article:has(blockquote) > p:first-of-type::first-letter,
-  .maximalism-styled-container article:has(blockquote) > p:first-of-type::first-letter {
+  .maximalism-styled-container article:has(blockquote) > p:first-of-type::first-letter,
+  .style-maximalism article:has(blockquote) > p:first-of-type::first-letter,
+  [data-style="maximalism"] article:has(blockquote) > p:first-of-type::first-letter,
+  .ds-scope[data-style-id="maximalism"] article:has(blockquote) > p:first-of-type::first-letter,
+  .style-maximalist article:has(blockquote) > p:first-of-type::first-letter,
+  [data-style="maximalist"] article:has(blockquote) > p:first-of-type::first-letter,
+  .ds-scope[data-style-id="maximalist"] article:has(blockquote) > p:first-of-type::first-letter {
     font-family: 'Playfair Display', 'Didot', Georgia, serif;
     font-size: 3.5rem;
     float: left;
@@ -212,7 +332,13 @@ export const maximalistSemanticCss = `
 
   /* 5. Blockquote: Editorial Pull-Quote with Inset Framing */
   .lab-styled-preview[data-style="maximalism"] blockquote,
-  .maximalism-styled-container blockquote {
+  .maximalism-styled-container blockquote,
+  .style-maximalism blockquote,
+  [data-style="maximalism"] blockquote,
+  .ds-scope[data-style-id="maximalism"] blockquote,
+  .style-maximalist blockquote,
+  [data-style="maximalist"] blockquote,
+  .ds-scope[data-style-id="maximalist"] blockquote {
     position: relative;
     margin: 2.5rem 0;
     padding: 1.85rem 2.25rem 1.85rem 2.5rem;
@@ -228,7 +354,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] blockquote::before,
-  .maximalism-styled-container blockquote::before {
+  .maximalism-styled-container blockquote::before,
+  .style-maximalism blockquote::before,
+  [data-style="maximalism"] blockquote::before,
+  .ds-scope[data-style-id="maximalism"] blockquote::before,
+  .style-maximalist blockquote::before,
+  [data-style="maximalist"] blockquote::before,
+  .ds-scope[data-style-id="maximalist"] blockquote::before {
     content: '“';
     position: absolute;
     top: 0.15rem;
@@ -243,7 +375,13 @@ export const maximalistSemanticCss = `
 
   /* 6. Action Buttons: Tactile, Ornamental & Firmly Offset */
   .lab-styled-preview[data-style="maximalism"] button,
-  .maximalism-styled-container button {
+  .maximalism-styled-container button,
+  .style-maximalism button,
+  [data-style="maximalism"] button,
+  .ds-scope[data-style-id="maximalism"] button,
+  .style-maximalist button,
+  [data-style="maximalist"] button,
+  .ds-scope[data-style-id="maximalist"] button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -266,7 +404,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] button:hover,
-  .maximalism-styled-container button:hover {
+  .maximalism-styled-container button:hover,
+  .style-maximalism button:hover,
+  [data-style="maximalism"] button:hover,
+  .ds-scope[data-style-id="maximalism"] button:hover,
+  .style-maximalist button:hover,
+  [data-style="maximalist"] button:hover,
+  .ds-scope[data-style-id="maximalist"] button:hover {
     background: linear-gradient(180deg, #9f1239 0%, #881337 100%);
     transform: translate(-1px, -1px);
     box-shadow: 4px 4px 0px #18130f;
@@ -274,14 +418,26 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] button:active,
-  .maximalism-styled-container button:active {
+  .maximalism-styled-container button:active,
+  .style-maximalism button:active,
+  [data-style="maximalism"] button:active,
+  .ds-scope[data-style-id="maximalism"] button:active,
+  .style-maximalist button:active,
+  [data-style="maximalist"] button:active,
+  .ds-scope[data-style-id="maximalist"] button:active {
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 0px #18130f;
   }
 
   /* Secondary button groups (e.g., size selection pills or sub-actions) */
   .lab-styled-preview[data-style="maximalism"] div > button,
-  .maximalism-styled-container div > button {
+  .maximalism-styled-container div > button,
+  .style-maximalism div > button,
+  [data-style="maximalism"] div > button,
+  .ds-scope[data-style-id="maximalism"] div > button,
+  .style-maximalist div > button,
+  [data-style="maximalist"] div > button,
+  .ds-scope[data-style-id="maximalist"] div > button {
     background: #fffdf9;
     color: #18130f;
     border: 2px solid #18130f;
@@ -293,7 +449,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] div > button:hover,
-  .maximalism-styled-container div > button:hover {
+  .maximalism-styled-container div > button:hover,
+  .style-maximalism div > button:hover,
+  [data-style="maximalism"] div > button:hover,
+  .ds-scope[data-style-id="maximalism"] div > button:hover,
+  .style-maximalist div > button:hover,
+  [data-style="maximalist"] div > button:hover,
+  .ds-scope[data-style-id="maximalist"] div > button:hover {
     background: #701a2b;
     color: #ffffff;
     box-shadow: 3px 3px 0px #18130f;
@@ -301,7 +463,13 @@ export const maximalistSemanticCss = `
 
   /* 7. Articles & Deterministic Collection Variation (Zero Randomness) */
   .lab-styled-preview[data-style="maximalism"] article,
-  .maximalism-styled-container article {
+  .maximalism-styled-container article,
+  .style-maximalism article,
+  [data-style="maximalism"] article,
+  .ds-scope[data-style-id="maximalism"] article,
+  .style-maximalist article,
+  [data-style="maximalist"] article,
+  .ds-scope[data-style-id="maximalist"] article {
     position: relative;
     padding: 1.65rem 1.85rem;
     margin-bottom: 1.5rem;
@@ -313,7 +481,13 @@ export const maximalistSemanticCss = `
 
   /* Variation 1: Crimson Accent Ribbon & Inset Corner Flourish */
   .lab-styled-preview[data-style="maximalism"] article:nth-child(3n+1),
-  .maximalism-styled-container article:nth-child(3n+1) {
+  .maximalism-styled-container article:nth-child(3n+1),
+  .style-maximalism article:nth-child(3n+1),
+  [data-style="maximalism"] article:nth-child(3n+1),
+  .ds-scope[data-style-id="maximalism"] article:nth-child(3n+1),
+  .style-maximalist article:nth-child(3n+1),
+  [data-style="maximalist"] article:nth-child(3n+1),
+  .ds-scope[data-style-id="maximalist"] article:nth-child(3n+1) {
     background-color: #fffdf9;
     border-left: 5px solid #701a2b;
     border-top: 1px solid #dcd2be;
@@ -323,7 +497,13 @@ export const maximalistSemanticCss = `
 
   /* Variation 2: Cobalt / Lapis Accent Ribbon & Parchment Ground */
   .lab-styled-preview[data-style="maximalism"] article:nth-child(3n+2),
-  .maximalism-styled-container article:nth-child(3n+2) {
+  .maximalism-styled-container article:nth-child(3n+2),
+  .style-maximalism article:nth-child(3n+2),
+  [data-style="maximalism"] article:nth-child(3n+2),
+  .ds-scope[data-style-id="maximalism"] article:nth-child(3n+2),
+  .style-maximalist article:nth-child(3n+2),
+  [data-style="maximalist"] article:nth-child(3n+2),
+  .ds-scope[data-style-id="maximalist"] article:nth-child(3n+2) {
     background-color: #f8f2e8;
     border-left: 5px solid #1e40af;
     border-top: 1px solid #dcd2be;
@@ -333,7 +513,13 @@ export const maximalistSemanticCss = `
 
   /* Variation 3: Antique Forest Accent Ribbon & Fine Double Border */
   .lab-styled-preview[data-style="maximalism"] article:nth-child(3n+3),
-  .maximalism-styled-container article:nth-child(3n+3) {
+  .maximalism-styled-container article:nth-child(3n+3),
+  .style-maximalism article:nth-child(3n+3),
+  [data-style="maximalism"] article:nth-child(3n+3),
+  .ds-scope[data-style-id="maximalism"] article:nth-child(3n+3),
+  .style-maximalist article:nth-child(3n+3),
+  [data-style="maximalist"] article:nth-child(3n+3),
+  .ds-scope[data-style-id="maximalist"] article:nth-child(3n+3) {
     background-color: #f4ede2;
     border-left: 5px solid #166534;
     border-top: 1px solid #dcd2be;
@@ -342,14 +528,26 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] article:hover,
-  .maximalism-styled-container article:hover {
+  .maximalism-styled-container article:hover,
+  .style-maximalism article:hover,
+  [data-style="maximalism"] article:hover,
+  .ds-scope[data-style-id="maximalism"] article:hover,
+  .style-maximalist article:hover,
+  [data-style="maximalist"] article:hover,
+  .ds-scope[data-style-id="maximalist"] article:hover {
     transform: translateY(-2px);
     box-shadow: 4px 4px 0px rgba(24, 19, 15, 0.14);
   }
 
   /* Featured Pricing Tier Accentuation: Art-directed prominence without DOM restructuring */
   .lab-styled-preview[data-style="maximalism"] div > article:has(button):nth-child(2),
-  .maximalism-styled-container div > article:has(button):nth-child(2) {
+  .maximalism-styled-container div > article:has(button):nth-child(2),
+  .style-maximalism div > article:has(button):nth-child(2),
+  [data-style="maximalism"] div > article:has(button):nth-child(2),
+  .ds-scope[data-style-id="maximalism"] div > article:has(button):nth-child(2),
+  .style-maximalist div > article:has(button):nth-child(2),
+  [data-style="maximalist"] div > article:has(button):nth-child(2),
+  .ds-scope[data-style-id="maximalist"] div > article:has(button):nth-child(2) {
     background: #18130f !important;
     color: #faf6ef !important;
     border: 2px solid #d97706 !important;
@@ -358,22 +556,46 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] div > article:has(button):nth-child(2) h3,
-  .maximalism-styled-container div > article:has(button):nth-child(2) h3 {
+  .maximalism-styled-container div > article:has(button):nth-child(2) h3,
+  .style-maximalism div > article:has(button):nth-child(2) h3,
+  [data-style="maximalism"] div > article:has(button):nth-child(2) h3,
+  .ds-scope[data-style-id="maximalism"] div > article:has(button):nth-child(2) h3,
+  .style-maximalist div > article:has(button):nth-child(2) h3,
+  [data-style="maximalist"] div > article:has(button):nth-child(2) h3,
+  .ds-scope[data-style-id="maximalist"] div > article:has(button):nth-child(2) h3 {
     color: #ffffff !important;
   }
 
   .lab-styled-preview[data-style="maximalism"] div > article:has(button):nth-child(2) p,
-  .maximalism-styled-container div > article:has(button):nth-child(2) p {
+  .maximalism-styled-container div > article:has(button):nth-child(2) p,
+  .style-maximalism div > article:has(button):nth-child(2) p,
+  [data-style="maximalism"] div > article:has(button):nth-child(2) p,
+  .ds-scope[data-style-id="maximalism"] div > article:has(button):nth-child(2) p,
+  .style-maximalist div > article:has(button):nth-child(2) p,
+  [data-style="maximalist"] div > article:has(button):nth-child(2) p,
+  .ds-scope[data-style-id="maximalist"] div > article:has(button):nth-child(2) p {
     color: #d5c8bb !important;
   }
 
   .lab-styled-preview[data-style="maximalism"] div > article:has(button):nth-child(2) strong,
-  .maximalism-styled-container div > article:has(button):nth-child(2) strong {
+  .maximalism-styled-container div > article:has(button):nth-child(2) strong,
+  .style-maximalism div > article:has(button):nth-child(2) strong,
+  [data-style="maximalism"] div > article:has(button):nth-child(2) strong,
+  .ds-scope[data-style-id="maximalism"] div > article:has(button):nth-child(2) strong,
+  .style-maximalist div > article:has(button):nth-child(2) strong,
+  [data-style="maximalist"] div > article:has(button):nth-child(2) strong,
+  .ds-scope[data-style-id="maximalist"] div > article:has(button):nth-child(2) strong {
     color: #f59e0b !important;
   }
 
   .lab-styled-preview[data-style="maximalism"] div > article:has(button):nth-child(2) button,
-  .maximalism-styled-container div > article:has(button):nth-child(2) button {
+  .maximalism-styled-container div > article:has(button):nth-child(2) button,
+  .style-maximalism div > article:has(button):nth-child(2) button,
+  [data-style="maximalism"] div > article:has(button):nth-child(2) button,
+  .ds-scope[data-style-id="maximalism"] div > article:has(button):nth-child(2) button,
+  .style-maximalist div > article:has(button):nth-child(2) button,
+  [data-style="maximalist"] div > article:has(button):nth-child(2) button,
+  .ds-scope[data-style-id="maximalist"] div > article:has(button):nth-child(2) button {
     background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%) !important;
     color: #18130f !important;
     border-color: #18130f !important;
@@ -382,7 +604,13 @@ export const maximalistSemanticCss = `
 
   /* Metric Card Typography (Dashboard / Telemetry) */
   .lab-styled-preview[data-style="maximalism"] article > strong,
-  .maximalism-styled-container article > strong {
+  .maximalism-styled-container article > strong,
+  .style-maximalism article > strong,
+  [data-style="maximalism"] article > strong,
+  .ds-scope[data-style-id="maximalism"] article > strong,
+  .style-maximalist article > strong,
+  [data-style="maximalist"] article > strong,
+  .ds-scope[data-style-id="maximalist"] article > strong {
     font-family: 'Playfair Display', 'Space Grotesk', serif;
     font-size: 2.15rem;
     font-weight: 800;
@@ -395,7 +623,13 @@ export const maximalistSemanticCss = `
 
   /* 8. Dense Editorial Almanac Table */
   .lab-styled-preview[data-style="maximalism"] table,
-  .maximalism-styled-container table {
+  .maximalism-styled-container table,
+  .style-maximalism table,
+  [data-style="maximalism"] table,
+  .ds-scope[data-style-id="maximalism"] table,
+  .style-maximalist table,
+  [data-style="maximalist"] table,
+  .ds-scope[data-style-id="maximalist"] table {
     width: 100%;
     border-collapse: collapse;
     margin: 2.25rem 0;
@@ -406,13 +640,25 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] thead,
-  .maximalism-styled-container thead {
+  .maximalism-styled-container thead,
+  .style-maximalism thead,
+  [data-style="maximalism"] thead,
+  .ds-scope[data-style-id="maximalism"] thead,
+  .style-maximalist thead,
+  [data-style="maximalist"] thead,
+  .ds-scope[data-style-id="maximalist"] thead {
     background-color: #701a2b;
     color: #ffffff;
   }
 
   .lab-styled-preview[data-style="maximalism"] th,
-  .maximalism-styled-container th {
+  .maximalism-styled-container th,
+  .style-maximalism th,
+  [data-style="maximalism"] th,
+  .ds-scope[data-style-id="maximalism"] th,
+  .style-maximalist th,
+  [data-style="maximalist"] th,
+  .ds-scope[data-style-id="maximalist"] th {
     padding: 0.9rem 1.25rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
@@ -425,33 +671,69 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] th:last-child,
-  .maximalism-styled-container th:last-child {
+  .maximalism-styled-container th:last-child,
+  .style-maximalism th:last-child,
+  [data-style="maximalism"] th:last-child,
+  .ds-scope[data-style-id="maximalism"] th:last-child,
+  .style-maximalist th:last-child,
+  [data-style="maximalist"] th:last-child,
+  .ds-scope[data-style-id="maximalist"] th:last-child {
     border-right: none;
   }
 
   .lab-styled-preview[data-style="maximalism"] tbody tr,
-  .maximalism-styled-container tbody tr {
+  .maximalism-styled-container tbody tr,
+  .style-maximalism tbody tr,
+  [data-style="maximalism"] tbody tr,
+  .ds-scope[data-style-id="maximalism"] tbody tr,
+  .style-maximalist tbody tr,
+  [data-style="maximalist"] tbody tr,
+  .ds-scope[data-style-id="maximalist"] tbody tr {
     border-bottom: 1px solid #dcd2be;
     transition: background-color 100ms ease;
   }
 
   .lab-styled-preview[data-style="maximalism"] tbody tr:nth-child(even),
-  .maximalism-styled-container tbody tr:nth-child(even) {
+  .maximalism-styled-container tbody tr:nth-child(even),
+  .style-maximalism tbody tr:nth-child(even),
+  [data-style="maximalism"] tbody tr:nth-child(even),
+  .ds-scope[data-style-id="maximalism"] tbody tr:nth-child(even),
+  .style-maximalist tbody tr:nth-child(even),
+  [data-style="maximalist"] tbody tr:nth-child(even),
+  .ds-scope[data-style-id="maximalist"] tbody tr:nth-child(even) {
     background-color: #f5eee4;
   }
 
   .lab-styled-preview[data-style="maximalism"] tbody tr:nth-child(odd),
-  .maximalism-styled-container tbody tr:nth-child(odd) {
+  .maximalism-styled-container tbody tr:nth-child(odd),
+  .style-maximalism tbody tr:nth-child(odd),
+  [data-style="maximalism"] tbody tr:nth-child(odd),
+  .ds-scope[data-style-id="maximalism"] tbody tr:nth-child(odd),
+  .style-maximalist tbody tr:nth-child(odd),
+  [data-style="maximalist"] tbody tr:nth-child(odd),
+  .ds-scope[data-style-id="maximalist"] tbody tr:nth-child(odd) {
     background-color: #fffdf9;
   }
 
   .lab-styled-preview[data-style="maximalism"] tbody tr:hover,
-  .maximalism-styled-container tbody tr:hover {
+  .maximalism-styled-container tbody tr:hover,
+  .style-maximalism tbody tr:hover,
+  [data-style="maximalism"] tbody tr:hover,
+  .ds-scope[data-style-id="maximalism"] tbody tr:hover,
+  .style-maximalist tbody tr:hover,
+  [data-style="maximalist"] tbody tr:hover,
+  .ds-scope[data-style-id="maximalist"] tbody tr:hover {
     background-color: #ede2d2;
   }
 
   .lab-styled-preview[data-style="maximalism"] td,
-  .maximalism-styled-container td {
+  .maximalism-styled-container td,
+  .style-maximalism td,
+  [data-style="maximalism"] td,
+  .ds-scope[data-style-id="maximalism"] td,
+  .style-maximalist td,
+  [data-style="maximalist"] td,
+  .ds-scope[data-style-id="maximalist"] td {
     padding: 0.85rem 1.25rem;
     color: #18130f;
     border-right: 1px solid #dcd2be;
@@ -459,7 +741,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] td:last-child,
-  .maximalism-styled-container td:last-child {
+  .maximalism-styled-container td:last-child,
+  .style-maximalism td:last-child,
+  [data-style="maximalism"] td:last-child,
+  .ds-scope[data-style-id="maximalism"] td:last-child,
+  .style-maximalist td:last-child,
+  [data-style="maximalist"] td:last-child,
+  .ds-scope[data-style-id="maximalist"] td:last-child {
     border-right: none;
     font-weight: 700;
     color: #166534;
@@ -468,7 +756,13 @@ export const maximalistSemanticCss = `
 
   /* 9. Forms & Inputs: Rich Labels and Tactile Focus */
   .lab-styled-preview[data-style="maximalism"] form,
-  .maximalism-styled-container form {
+  .maximalism-styled-container form,
+  .style-maximalism form,
+  [data-style="maximalism"] form,
+  .ds-scope[data-style-id="maximalism"] form,
+  .style-maximalist form,
+  [data-style="maximalist"] form,
+  .ds-scope[data-style-id="maximalist"] form {
     display: flex;
     flex-direction: column;
     gap: 1.35rem;
@@ -477,13 +771,25 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] form > div,
-  .maximalism-styled-container form > div {
+  .maximalism-styled-container form > div,
+  .style-maximalism form > div,
+  [data-style="maximalism"] form > div,
+  .ds-scope[data-style-id="maximalism"] form > div,
+  .style-maximalist form > div,
+  [data-style="maximalist"] form > div,
+  .ds-scope[data-style-id="maximalist"] form > div {
     display: flex;
     flex-direction: column;
   }
 
   .lab-styled-preview[data-style="maximalism"] label,
-  .maximalism-styled-container label {
+  .maximalism-styled-container label,
+  .style-maximalism label,
+  [data-style="maximalism"] label,
+  .ds-scope[data-style-id="maximalism"] label,
+  .style-maximalist label,
+  [data-style="maximalist"] label,
+  .ds-scope[data-style-id="maximalist"] label {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 800;
@@ -497,8 +803,26 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] textarea,
   .lab-styled-preview[data-style="maximalism"] select,
   .maximalism-styled-container input,
+  .style-maximalism input,
+  [data-style="maximalism"] input,
+  .ds-scope[data-style-id="maximalism"] input,
+  .style-maximalist input,
+  [data-style="maximalist"] input,
+  .ds-scope[data-style-id="maximalist"] input,
   .maximalism-styled-container textarea,
-  .maximalism-styled-container select {
+  .style-maximalism textarea,
+  [data-style="maximalism"] textarea,
+  .ds-scope[data-style-id="maximalism"] textarea,
+  .style-maximalist textarea,
+  [data-style="maximalist"] textarea,
+  .ds-scope[data-style-id="maximalist"] textarea,
+  .maximalism-styled-container select,
+  .style-maximalism select,
+  [data-style="maximalism"] select,
+  .ds-scope[data-style-id="maximalism"] select,
+  .style-maximalist select,
+  [data-style="maximalist"] select,
+  .ds-scope[data-style-id="maximalist"] select {
     width: 100%;
     box-sizing: border-box;
     padding: 0.8rem 1.1rem;
@@ -516,8 +840,26 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] textarea:focus,
   .lab-styled-preview[data-style="maximalism"] select:focus,
   .maximalism-styled-container input:focus,
+  .style-maximalism input:focus,
+  [data-style="maximalism"] input:focus,
+  .ds-scope[data-style-id="maximalism"] input:focus,
+  .style-maximalist input:focus,
+  [data-style="maximalist"] input:focus,
+  .ds-scope[data-style-id="maximalist"] input:focus,
   .maximalism-styled-container textarea:focus,
-  .maximalism-styled-container select:focus {
+  .style-maximalism textarea:focus,
+  [data-style="maximalism"] textarea:focus,
+  .ds-scope[data-style-id="maximalism"] textarea:focus,
+  .style-maximalist textarea:focus,
+  [data-style="maximalist"] textarea:focus,
+  .ds-scope[data-style-id="maximalist"] textarea:focus,
+  .maximalism-styled-container select:focus,
+  .style-maximalism select:focus,
+  [data-style="maximalism"] select:focus,
+  .ds-scope[data-style-id="maximalism"] select:focus,
+  .style-maximalist select:focus,
+  [data-style="maximalist"] select:focus,
+  .ds-scope[data-style-id="maximalist"] select:focus {
     outline: none;
     border-color: #701a2b;
     box-shadow: 3px 3px 0px #701a2b;
@@ -527,7 +869,19 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] ul,
   .lab-styled-preview[data-style="maximalism"] ol,
   .maximalism-styled-container ul,
-  .maximalism-styled-container ol {
+  .style-maximalism ul,
+  [data-style="maximalism"] ul,
+  .ds-scope[data-style-id="maximalism"] ul,
+  .style-maximalist ul,
+  [data-style="maximalist"] ul,
+  .ds-scope[data-style-id="maximalist"] ul,
+  .maximalism-styled-container ol,
+  .style-maximalism ol,
+  [data-style="maximalism"] ol,
+  .ds-scope[data-style-id="maximalism"] ol,
+  .style-maximalist ol,
+  [data-style="maximalist"] ol,
+  .ds-scope[data-style-id="maximalist"] ol {
     padding-left: 1.5rem;
     margin: 1rem 0 1.5rem 0;
   }
@@ -535,7 +889,19 @@ export const maximalistSemanticCss = `
   .lab-styled-preview[data-style="maximalism"] ul li,
   .lab-styled-preview[data-style="maximalism"] ol li,
   .maximalism-styled-container ul li,
-  .maximalism-styled-container ol li {
+  .style-maximalism ul li,
+  [data-style="maximalism"] ul li,
+  .ds-scope[data-style-id="maximalism"] ul li,
+  .style-maximalist ul li,
+  [data-style="maximalist"] ul li,
+  .ds-scope[data-style-id="maximalist"] ul li,
+  .maximalism-styled-container ol li,
+  .style-maximalism ol li,
+  [data-style="maximalism"] ol li,
+  .ds-scope[data-style-id="maximalism"] ol li,
+  .style-maximalist ol li,
+  [data-style="maximalist"] ol li,
+  .ds-scope[data-style-id="maximalist"] ol li {
     margin-bottom: 0.75rem;
     line-height: 1.6;
     color: #2c241e;
@@ -543,32 +909,62 @@ export const maximalistSemanticCss = `
 
   /* Ornamental list bullets for unnumbered lists */
   .lab-styled-preview[data-style="maximalism"] ul:not([class]) li::marker,
-  .maximalism-styled-container ul:not([class]) li::marker {
+  .maximalism-styled-container ul:not([class]) li::marker,
+  .style-maximalism ul:not([class]) li::marker,
+  [data-style="maximalism"] ul:not([class]) li::marker,
+  .ds-scope[data-style-id="maximalism"] ul:not([class]) li::marker,
+  .style-maximalist ul:not([class]) li::marker,
+  [data-style="maximalist"] ul:not([class]) li::marker,
+  .ds-scope[data-style-id="maximalist"] ul:not([class]) li::marker {
     color: #701a2b;
   }
 
   /* Menu Item Styling (Sample 6) */
   .lab-styled-preview[data-style="maximalism"] section:has(p:contains("EST.")) article ul,
-  .maximalism-styled-container section:has(p:contains("EST.")) article ul {
+  .maximalism-styled-container section:has(p:contains("EST.")) article ul,
+  .style-maximalism section:has(p:contains("EST.")) article ul,
+  [data-style="maximalism"] section:has(p:contains("EST.")) article ul,
+  .ds-scope[data-style-id="maximalism"] section:has(p:contains("EST.")) article ul,
+  .style-maximalist section:has(p:contains("EST.")) article ul,
+  [data-style="maximalist"] section:has(p:contains("EST.")) article ul,
+  .ds-scope[data-style-id="maximalist"] section:has(p:contains("EST.")) article ul {
     list-style: none;
     padding-left: 0;
   }
 
   .lab-styled-preview[data-style="maximalism"] section:has(p:contains("EST.")) article li,
-  .maximalism-styled-container section:has(p:contains("EST.")) article li {
+  .maximalism-styled-container section:has(p:contains("EST.")) article li,
+  .style-maximalism section:has(p:contains("EST.")) article li,
+  [data-style="maximalism"] section:has(p:contains("EST.")) article li,
+  .ds-scope[data-style-id="maximalism"] section:has(p:contains("EST.")) article li,
+  .style-maximalist section:has(p:contains("EST.")) article li,
+  [data-style="maximalist"] section:has(p:contains("EST.")) article li,
+  .ds-scope[data-style-id="maximalist"] section:has(p:contains("EST.")) article li {
     padding: 0.75rem 0;
     border-bottom: 1px dashed #dcd2be;
   }
 
   .lab-styled-preview[data-style="maximalism"] section:has(p:contains("EST.")) article li > strong,
-  .maximalism-styled-container section:has(p:contains("EST.")) article li > strong {
+  .maximalism-styled-container section:has(p:contains("EST.")) article li > strong,
+  .style-maximalism section:has(p:contains("EST.")) article li > strong,
+  [data-style="maximalism"] section:has(p:contains("EST.")) article li > strong,
+  .ds-scope[data-style-id="maximalism"] section:has(p:contains("EST.")) article li > strong,
+  .style-maximalist section:has(p:contains("EST.")) article li > strong,
+  [data-style="maximalist"] section:has(p:contains("EST.")) article li > strong,
+  .ds-scope[data-style-id="maximalist"] section:has(p:contains("EST.")) article li > strong {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.15rem;
     color: #18130f;
   }
 
   .lab-styled-preview[data-style="maximalism"] section:has(p:contains("EST.")) article li > p,
-  .maximalism-styled-container section:has(p:contains("EST.")) article li > p {
+  .maximalism-styled-container section:has(p:contains("EST.")) article li > p,
+  .style-maximalism section:has(p:contains("EST.")) article li > p,
+  [data-style="maximalism"] section:has(p:contains("EST.")) article li > p,
+  .ds-scope[data-style-id="maximalism"] section:has(p:contains("EST.")) article li > p,
+  .style-maximalist section:has(p:contains("EST.")) article li > p,
+  [data-style="maximalist"] section:has(p:contains("EST.")) article li > p,
+  .ds-scope[data-style-id="maximalist"] section:has(p:contains("EST.")) article li > p {
     font-style: italic;
     font-size: 0.9375rem;
     color: #5c4e42;
@@ -578,7 +974,13 @@ export const maximalistSemanticCss = `
 
   /* 11. Footers: Dense Typographic Termination */
   .lab-styled-preview[data-style="maximalism"] footer,
-  .maximalism-styled-container footer {
+  .maximalism-styled-container footer,
+  .style-maximalism footer,
+  [data-style="maximalism"] footer,
+  .ds-scope[data-style-id="maximalism"] footer,
+  .style-maximalist footer,
+  [data-style="maximalist"] footer,
+  .ds-scope[data-style-id="maximalist"] footer {
     border-top: 3px double #dcd2be;
     padding: 2rem 0 1.25rem;
     margin-top: 3.5rem;
@@ -590,7 +992,13 @@ export const maximalistSemanticCss = `
   }
 
   .lab-styled-preview[data-style="maximalism"] footer p,
-  .maximalism-styled-container footer p {
+  .maximalism-styled-container footer p,
+  .style-maximalism footer p,
+  [data-style="maximalism"] footer p,
+  .ds-scope[data-style-id="maximalism"] footer p,
+  .style-maximalist footer p,
+  [data-style="maximalist"] footer p,
+  .ds-scope[data-style-id="maximalist"] footer p {
     font-family: 'Inter', sans-serif;
     font-size: 0.8125rem;
     font-weight: 500;
@@ -601,31 +1009,61 @@ export const maximalistSemanticCss = `
 
   /* 12. General Structural Spacing and Clean Fallbacks */
   .lab-styled-preview[data-style="maximalism"] section,
-  .maximalism-styled-container section {
+  .maximalism-styled-container section,
+  .style-maximalism section,
+  [data-style="maximalism"] section,
+  .ds-scope[data-style-id="maximalism"] section,
+  .style-maximalist section,
+  [data-style="maximalist"] section,
+  .ds-scope[data-style-id="maximalist"] section {
     margin-bottom: 3rem;
   }
 
   .lab-styled-preview[data-style="maximalism"] section:last-child,
-  .maximalism-styled-container section:last-child {
+  .maximalism-styled-container section:last-child,
+  .style-maximalism section:last-child,
+  [data-style="maximalism"] section:last-child,
+  .ds-scope[data-style-id="maximalism"] section:last-child,
+  .style-maximalist section:last-child,
+  [data-style="maximalist"] section:last-child,
+  .ds-scope[data-style-id="maximalist"] section:last-child {
     margin-bottom: 0;
   }
 
   /* Responsive Graceful Degradation */
   @media (max-width: 768px) {
     .lab-styled-preview[data-style="maximalism"] nav,
-    .maximalism-styled-container nav {
+    .maximalism-styled-container nav,
+    .style-maximalism nav,
+    [data-style="maximalism"] nav,
+    .ds-scope[data-style-id="maximalism"] nav,
+    .style-maximalist nav,
+    [data-style="maximalist"] nav,
+    .ds-scope[data-style-id="maximalist"] nav {
       gap: 0.75rem;
     }
 
     .lab-styled-preview[data-style="maximalism"] table,
-    .maximalism-styled-container table {
+    .maximalism-styled-container table,
+    .style-maximalism table,
+    [data-style="maximalism"] table,
+    .ds-scope[data-style-id="maximalism"] table,
+    .style-maximalist table,
+    [data-style="maximalist"] table,
+    .ds-scope[data-style-id="maximalist"] table {
       display: block;
       overflow-x: auto;
       white-space: nowrap;
     }
 
     .lab-styled-preview[data-style="maximalism"] button,
-    .maximalism-styled-container button {
+    .maximalism-styled-container button,
+    .style-maximalism button,
+    [data-style="maximalism"] button,
+    .ds-scope[data-style-id="maximalism"] button,
+    .style-maximalist button,
+    [data-style="maximalist"] button,
+    .ds-scope[data-style-id="maximalist"] button {
       width: 100%;
     }
   }

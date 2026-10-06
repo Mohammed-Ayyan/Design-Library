@@ -51,20 +51,23 @@ You keep your existing semantic HTML and component hierarchy. The **Adaptive Sty
 
 ## Installation
 
-Install directly from GitHub into any React, Vite, or web application:
+Install directly from GitHub into any React, Vite, Next.js, or web application:
 
 ```bash
-# npm
+# npm (GitHub shorthand)
+npm install github:Mohammed-Ayyan/Design-Library
+
+# npm (Git URL)
 npm install git+https://github.com/Mohammed-Ayyan/Design-Library.git
 
 # pnpm
-pnpm add git+https://github.com/Mohammed-Ayyan/Design-Library.git
+pnpm add github:Mohammed-Ayyan/Design-Library
 
 # yarn
-yarn add git+https://github.com/Mohammed-Ayyan/Design-Library.git
+yarn add github:Mohammed-Ayyan/Design-Library
 
 # bun
-bun add git+https://github.com/Mohammed-Ayyan/Design-Library.git
+bun add github:Mohammed-Ayyan/Design-Library
 ```
 
 ### Local Development / Monorepo Installation
@@ -79,9 +82,58 @@ npm link design-library
 
 ## Quick Start
 
-### 1. Vanilla HTML & CSS
+### 1. Framework Setup (Vite, React, Next.js)
 
-Import the precompiled production stylesheet or generate it using the CLI:
+Import the stylesheet once at your application entry point:
+
+```tsx
+// In main.tsx, App.tsx, or app/layout.tsx:
+import 'design-library/style.css';
+```
+
+Then apply any design language anywhere using standard class names on any HTML or React component:
+
+```tsx
+export function App() {
+  return (
+    <div className="style-brutalism">
+      <section>
+        <h1>Raw Architectural Impact</h1>
+        <p>Instant visual transformation applied to standard HTML tags.</p>
+        <button>Explore Language</button>
+      </section>
+    </div>
+  );
+}
+```
+
+You can use any of the 32 design styles:
+- `<div className="style-brutalism">`
+- `<div className="style-minimalism">`
+- `<div className="style-glassmorphism">`
+- `<div className="style-wabi-sabi">`
+- `<div className="style-swiss-design">` (or `style-swiss`)
+- `<div className="style-y2k">` (or `style-y2k-aesthetic`)
+- `<div className="style-neo-brutalism">` (or `style-neobrutalism`)
+- `<div className="style-bauhaus">`
+- `<div className="style-art-deco">`
+- `<div className="style-cyberpunk">`
+
+#### Modular Stylesheets (Optional)
+If you only need a single design language in your application bundle, import its standalone stylesheet:
+```ts
+import 'design-library/styles/brutalism.css';
+// or
+import 'design-library/styles/neo-brutalism.css';
+import 'design-library/styles/wabi-sabi.css';
+import 'design-library/styles/y2k.css';
+```
+
+---
+
+### 2. Vanilla HTML & CSS
+
+Link the stylesheet directly from `node_modules` or generate a standalone file using `npx design-library init`:
 
 ```html
 <!DOCTYPE html>
@@ -90,10 +142,10 @@ Import the precompiled production stylesheet or generate it using the CLI:
   <meta charset="UTF-8">
   <link rel="stylesheet" href="node_modules/design-library/dist/lib/style.css">
   <!-- Or generate standalone CSS: npx design-library init -->
-  <link rel="stylesheet" href="./design-library.css">
+  <!-- <link rel="stylesheet" href="./design-library.css"> -->
 </head>
 <body>
-  <!-- Simply add the style class to any container or section -->
+  <!-- Simply add the style class to any container, section, or body -->
   <div class="style-brutalism">
     <section>
       <h1>Raw Architectural Impact</h1>
@@ -105,12 +157,15 @@ Import the precompiled production stylesheet or generate it using the CLI:
 </html>
 ```
 
-### 2. React Applications
+---
 
-Wrap your application or sub-trees in `<StyleEngineProvider>` and use semantic primitives:
+### 3. React Primitives & Provider (Optional)
+
+You can also use the built-in React primitives and context provider. `<StyleEngineProvider>` automatically mounts the styles in the document:
 
 ```tsx
 import React from 'react';
+import 'design-library/style.css'; // Recommended
 import {
   StyleEngineProvider,
   Page,

@@ -192,21 +192,26 @@ function exportCss(cmdArgs) {
     }
   }
 
-  const allCss = AdaptiveCSSGenerator.getAdaptiveStyles();
-  let resultCss = allCss;
-
+  let resultCss = '';
   if (styleId) {
-    // Extract section for the requested style
-    const marker = `.style-${styleId}`;
-    const startIndex = allCss.indexOf(marker);
-    if (startIndex !== -1) {
-      // Find start of comment or block
-      const prevComment = allCss.lastIndexOf('/* ---', startIndex);
-      const start = prevComment !== -1 ? prevComment : startIndex;
-      // Find next section comment or end
-      const nextComment = allCss.indexOf('/* ---', startIndex + 50);
-      resultCss = nextComment !== -1 ? allCss.slice(start, nextComment).trim() : allCss.slice(start).trim();
+    if (typeof AdaptiveCSSGenerator.getStyleCSS === 'function') {
+      resultCss = AdaptiveCSSGenerator.getStyleCSS(styleId);
     }
+    if (!resultCss) {
+      const allCss = AdaptiveCSSGenerator.getAdaptiveStyles();
+      const marker = `.style-${styleId}`;
+      const startIndex = allCss.indexOf(marker);
+      if (startIndex !== -1) {
+        const prevComment = allCss.lastIndexOf('/* ---', startIndex);
+        const start = prevComment !== -1 ? prevComment : startIndex;
+        const nextComment = allCss.indexOf('/* ---', startIndex + 50);
+        resultCss = nextComment !== -1 ? allCss.slice(start, nextComment).trim() : allCss.slice(start).trim();
+      } else {
+        resultCss = allCss;
+      }
+    }
+  } else {
+    resultCss = AdaptiveCSSGenerator.getAdaptiveStyles();
   }
 
   if (outputPath) {
@@ -296,7 +301,7 @@ async function handleApply(cliArgs) {
   let finalOutput = '';
 
   if (standalone) {
-    const allCss = AdaptiveCSSGenerator.getAdaptiveStyles();
+    const standaloneCss = (typeof AdaptiveCSSGenerator.getStyleCSS === 'function' ? AdaptiveCSSGenerator.getStyleCSS(styleId) : '') || AdaptiveCSSGenerator.getAdaptiveStyles();
     const bgColor = styleDef.tokens.colors.background || '#ffffff';
     const textColor = styleDef.tokens.colors.textPrimary || styleDef.tokens.colors.text || '#000000';
     const font = styleDef.tokens.typography.fontFamilyBase || styleDef.tokens.typography.fontFamily || 'sans-serif';
@@ -324,7 +329,7 @@ async function handleApply(cliArgs) {
       max-width: 1200px;
       margin: 0 auto;
     }
-    ${allCss}
+    ${standaloneCss}
   </style>
 </head>
 <body>

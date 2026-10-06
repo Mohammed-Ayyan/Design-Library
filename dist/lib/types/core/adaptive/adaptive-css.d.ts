@@ -6,7 +6,10 @@
  * the source HTML layout intent without DOM re-parenting or forced sidebars.
  */
 export declare class AdaptiveCSSGenerator {
+    static getCoreAdaptiveStyles(): string;
+    static getAllSemanticStyles(): string;
     static getAdaptiveStyles(): string;
+    static getStyleCSS(styleId: string): string;
 }
 /**
  * Injects the universal adaptive style rules into the document <head>.

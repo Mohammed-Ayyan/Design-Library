@@ -25,7 +25,16 @@ export const neumorphicSemanticCss = `
      1. FOUNDATION & SCOPED VARIABLES
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"],
-  .neumorphism-styled-container {
+  .neumorphism-styled-container,
+  .style-neumorphism,
+  [data-style="neumorphism"],
+  .ds-scope[data-style-id="neumorphism"],
+  .style-neumorphic,
+  [data-style="neumorphic"],
+  .ds-scope[data-style-id="neumorphic"],
+  .style-soft-ui,
+  [data-style="soft-ui"],
+  .ds-scope[data-style-id="soft-ui"] {
     --neu-bg: #e0e5ec;
     --neu-surface: #e0e5ec;
     --neu-surface-subtle: #d7dde5;
@@ -66,7 +75,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] *,
-  .neumorphism-styled-container * {
+  .neumorphism-styled-container *,
+  .style-neumorphism *,
+  [data-style="neumorphism"] *,
+  .ds-scope[data-style-id="neumorphism"] *,
+  .style-neumorphic *,
+  [data-style="neumorphic"] *,
+  .ds-scope[data-style-id="neumorphic"] *,
+  .style-soft-ui *,
+  [data-style="soft-ui"] *,
+  .ds-scope[data-style-id="soft-ui"] * {
     box-sizing: border-box;
   }
 
@@ -80,11 +98,65 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] h5,
   .lab-styled-preview[data-style="neumorphism"] h6,
   .neumorphism-styled-container h1,
+  .style-neumorphism h1,
+  [data-style="neumorphism"] h1,
+  .ds-scope[data-style-id="neumorphism"] h1,
+  .style-neumorphic h1,
+  [data-style="neumorphic"] h1,
+  .ds-scope[data-style-id="neumorphic"] h1,
+  .style-soft-ui h1,
+  [data-style="soft-ui"] h1,
+  .ds-scope[data-style-id="soft-ui"] h1,
   .neumorphism-styled-container h2,
+  .style-neumorphism h2,
+  [data-style="neumorphism"] h2,
+  .ds-scope[data-style-id="neumorphism"] h2,
+  .style-neumorphic h2,
+  [data-style="neumorphic"] h2,
+  .ds-scope[data-style-id="neumorphic"] h2,
+  .style-soft-ui h2,
+  [data-style="soft-ui"] h2,
+  .ds-scope[data-style-id="soft-ui"] h2,
   .neumorphism-styled-container h3,
+  .style-neumorphism h3,
+  [data-style="neumorphism"] h3,
+  .ds-scope[data-style-id="neumorphism"] h3,
+  .style-neumorphic h3,
+  [data-style="neumorphic"] h3,
+  .ds-scope[data-style-id="neumorphic"] h3,
+  .style-soft-ui h3,
+  [data-style="soft-ui"] h3,
+  .ds-scope[data-style-id="soft-ui"] h3,
   .neumorphism-styled-container h4,
+  .style-neumorphism h4,
+  [data-style="neumorphism"] h4,
+  .ds-scope[data-style-id="neumorphism"] h4,
+  .style-neumorphic h4,
+  [data-style="neumorphic"] h4,
+  .ds-scope[data-style-id="neumorphic"] h4,
+  .style-soft-ui h4,
+  [data-style="soft-ui"] h4,
+  .ds-scope[data-style-id="soft-ui"] h4,
   .neumorphism-styled-container h5,
-  .neumorphism-styled-container h6 {
+  .style-neumorphism h5,
+  [data-style="neumorphism"] h5,
+  .ds-scope[data-style-id="neumorphism"] h5,
+  .style-neumorphic h5,
+  [data-style="neumorphic"] h5,
+  .ds-scope[data-style-id="neumorphic"] h5,
+  .style-soft-ui h5,
+  [data-style="soft-ui"] h5,
+  .ds-scope[data-style-id="soft-ui"] h5,
+  .neumorphism-styled-container h6,
+  .style-neumorphism h6,
+  [data-style="neumorphism"] h6,
+  .ds-scope[data-style-id="neumorphism"] h6,
+  .style-neumorphic h6,
+  [data-style="neumorphic"] h6,
+  .ds-scope[data-style-id="neumorphic"] h6,
+  .style-soft-ui h6,
+  [data-style="soft-ui"] h6,
+  .ds-scope[data-style-id="soft-ui"] h6 {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     color: var(--neu-text) !important;
     letter-spacing: -0.025em !important;
@@ -94,7 +166,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] h1,
-  .neumorphism-styled-container h1 {
+  .neumorphism-styled-container h1,
+  .style-neumorphism h1,
+  [data-style="neumorphism"] h1,
+  .ds-scope[data-style-id="neumorphism"] h1,
+  .style-neumorphic h1,
+  [data-style="neumorphic"] h1,
+  .ds-scope[data-style-id="neumorphic"] h1,
+  .style-soft-ui h1,
+  [data-style="soft-ui"] h1,
+  .ds-scope[data-style-id="soft-ui"] h1 {
     font-size: 2.5rem !important;
     font-weight: 800 !important;
     line-height: 1.15 !important;
@@ -103,7 +184,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] h2,
-  .neumorphism-styled-container h2 {
+  .neumorphism-styled-container h2,
+  .style-neumorphism h2,
+  [data-style="neumorphism"] h2,
+  .ds-scope[data-style-id="neumorphism"] h2,
+  .style-neumorphic h2,
+  [data-style="neumorphic"] h2,
+  .ds-scope[data-style-id="neumorphic"] h2,
+  .style-soft-ui h2,
+  [data-style="soft-ui"] h2,
+  .ds-scope[data-style-id="soft-ui"] h2 {
     font-size: 1.85rem !important;
     font-weight: 700 !important;
     line-height: 1.22 !important;
@@ -112,7 +202,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] h3,
-  .neumorphism-styled-container h3 {
+  .neumorphism-styled-container h3,
+  .style-neumorphism h3,
+  [data-style="neumorphism"] h3,
+  .ds-scope[data-style-id="neumorphism"] h3,
+  .style-neumorphic h3,
+  [data-style="neumorphic"] h3,
+  .ds-scope[data-style-id="neumorphic"] h3,
+  .style-soft-ui h3,
+  [data-style="soft-ui"] h3,
+  .ds-scope[data-style-id="soft-ui"] h3 {
     font-size: 1.3rem !important;
     font-weight: 700 !important;
     line-height: 1.3 !important;
@@ -120,14 +219,32 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] h4,
-  .neumorphism-styled-container h4 {
+  .neumorphism-styled-container h4,
+  .style-neumorphism h4,
+  [data-style="neumorphism"] h4,
+  .ds-scope[data-style-id="neumorphism"] h4,
+  .style-neumorphic h4,
+  [data-style="neumorphic"] h4,
+  .ds-scope[data-style-id="neumorphic"] h4,
+  .style-soft-ui h4,
+  [data-style="soft-ui"] h4,
+  .ds-scope[data-style-id="soft-ui"] h4 {
     font-size: 1.1rem !important;
     font-weight: 700 !important;
     margin-bottom: 0.5rem !important;
   }
 
   .lab-styled-preview[data-style="neumorphism"] p,
-  .neumorphism-styled-container p {
+  .neumorphism-styled-container p,
+  .style-neumorphism p,
+  [data-style="neumorphism"] p,
+  .ds-scope[data-style-id="neumorphism"] p,
+  .style-neumorphic p,
+  [data-style="neumorphic"] p,
+  .ds-scope[data-style-id="neumorphic"] p,
+  .style-soft-ui p,
+  [data-style="soft-ui"] p,
+  .ds-scope[data-style-id="soft-ui"] p {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     color: var(--neu-text-secondary) !important;
     font-size: 1rem !important;
@@ -140,7 +257,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] header > p:first-child,
   .lab-styled-preview[data-style="neumorphism"] section > p:first-child,
   .neumorphism-styled-container header > p:first-child,
-  .neumorphism-styled-container section > p:first-child {
+  .style-neumorphism header > p:first-child,
+  [data-style="neumorphism"] header > p:first-child,
+  .ds-scope[data-style-id="neumorphism"] header > p:first-child,
+  .style-neumorphic header > p:first-child,
+  [data-style="neumorphic"] header > p:first-child,
+  .ds-scope[data-style-id="neumorphic"] header > p:first-child,
+  .style-soft-ui header > p:first-child,
+  [data-style="soft-ui"] header > p:first-child,
+  .ds-scope[data-style-id="soft-ui"] header > p:first-child,
+  .neumorphism-styled-container section > p:first-child,
+  .style-neumorphism section > p:first-child,
+  [data-style="neumorphism"] section > p:first-child,
+  .ds-scope[data-style-id="neumorphism"] section > p:first-child,
+  .style-neumorphic section > p:first-child,
+  [data-style="neumorphic"] section > p:first-child,
+  .ds-scope[data-style-id="neumorphic"] section > p:first-child,
+  .style-soft-ui section > p:first-child,
+  [data-style="soft-ui"] section > p:first-child,
+  .ds-scope[data-style-id="soft-ui"] section > p:first-child {
     display: inline-block !important;
     background-color: var(--neu-bg) !important;
     color: var(--neu-text-muted) !important;
@@ -160,7 +295,16 @@ export const neumorphicSemanticCss = `
      3. NAVIGATION (Soft Molded Floating Bar)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"] nav,
-  .neumorphism-styled-container nav {
+  .neumorphism-styled-container nav,
+  .style-neumorphism nav,
+  [data-style="neumorphism"] nav,
+  .ds-scope[data-style-id="neumorphism"] nav,
+  .style-neumorphic nav,
+  [data-style="neumorphic"] nav,
+  .ds-scope[data-style-id="neumorphic"] nav,
+  .style-soft-ui nav,
+  [data-style="soft-ui"] nav,
+  .ds-scope[data-style-id="soft-ui"] nav {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -175,7 +319,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] nav a,
-  .neumorphism-styled-container nav a {
+  .neumorphism-styled-container nav a,
+  .style-neumorphism nav a,
+  [data-style="neumorphism"] nav a,
+  .ds-scope[data-style-id="neumorphism"] nav a,
+  .style-neumorphic nav a,
+  [data-style="neumorphic"] nav a,
+  .ds-scope[data-style-id="neumorphic"] nav a,
+  .style-soft-ui nav a,
+  [data-style="soft-ui"] nav a,
+  .ds-scope[data-style-id="soft-ui"] nav a {
     color: var(--neu-text-secondary) !important;
     text-decoration: none !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -189,13 +342,31 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] nav a:hover,
-  .neumorphism-styled-container nav a:hover {
+  .neumorphism-styled-container nav a:hover,
+  .style-neumorphism nav a:hover,
+  [data-style="neumorphism"] nav a:hover,
+  .ds-scope[data-style-id="neumorphism"] nav a:hover,
+  .style-neumorphic nav a:hover,
+  [data-style="neumorphic"] nav a:hover,
+  .ds-scope[data-style-id="neumorphic"] nav a:hover,
+  .style-soft-ui nav a:hover,
+  [data-style="soft-ui"] nav a:hover,
+  .ds-scope[data-style-id="soft-ui"] nav a:hover {
     color: var(--neu-accent) !important;
     box-shadow: var(--neu-shadow-raised-sm) !important;
   }
 
   .lab-styled-preview[data-style="neumorphism"] nav a:first-child,
-  .neumorphism-styled-container nav a:first-child {
+  .neumorphism-styled-container nav a:first-child,
+  .style-neumorphism nav a:first-child,
+  [data-style="neumorphism"] nav a:first-child,
+  .ds-scope[data-style-id="neumorphism"] nav a:first-child,
+  .style-neumorphic nav a:first-child,
+  [data-style="neumorphic"] nav a:first-child,
+  .ds-scope[data-style-id="neumorphic"] nav a:first-child,
+  .style-soft-ui nav a:first-child,
+  [data-style="soft-ui"] nav a:first-child,
+  .ds-scope[data-style-id="soft-ui"] nav a:first-child {
     box-shadow: var(--neu-shadow-inset-sm) !important;
     color: var(--neu-accent) !important;
     font-weight: 700 !important;
@@ -207,7 +378,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] button,
   .lab-styled-preview[data-style="neumorphism"] input[type="submit"],
   .neumorphism-styled-container button,
-  .neumorphism-styled-container input[type="submit"] {
+  .style-neumorphism button,
+  [data-style="neumorphism"] button,
+  .ds-scope[data-style-id="neumorphism"] button,
+  .style-neumorphic button,
+  [data-style="neumorphic"] button,
+  .ds-scope[data-style-id="neumorphic"] button,
+  .style-soft-ui button,
+  [data-style="soft-ui"] button,
+  .ds-scope[data-style-id="soft-ui"] button,
+  .neumorphism-styled-container input[type="submit"],
+  .style-neumorphism input[type="submit"],
+  [data-style="neumorphism"] input[type="submit"],
+  .ds-scope[data-style-id="neumorphism"] input[type="submit"],
+  .style-neumorphic input[type="submit"],
+  [data-style="neumorphic"] input[type="submit"],
+  .ds-scope[data-style-id="neumorphic"] input[type="submit"],
+  .style-soft-ui input[type="submit"],
+  [data-style="soft-ui"] input[type="submit"],
+  .ds-scope[data-style-id="soft-ui"] input[type="submit"] {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -232,7 +421,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] button:hover,
   .lab-styled-preview[data-style="neumorphism"] input[type="submit"]:hover,
   .neumorphism-styled-container button:hover,
-  .neumorphism-styled-container input[type="submit"]:hover {
+  .style-neumorphism button:hover,
+  [data-style="neumorphism"] button:hover,
+  .ds-scope[data-style-id="neumorphism"] button:hover,
+  .style-neumorphic button:hover,
+  [data-style="neumorphic"] button:hover,
+  .ds-scope[data-style-id="neumorphic"] button:hover,
+  .style-soft-ui button:hover,
+  [data-style="soft-ui"] button:hover,
+  .ds-scope[data-style-id="soft-ui"] button:hover,
+  .neumorphism-styled-container input[type="submit"]:hover,
+  .style-neumorphism input[type="submit"]:hover,
+  [data-style="neumorphism"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="neumorphism"] input[type="submit"]:hover,
+  .style-neumorphic input[type="submit"]:hover,
+  [data-style="neumorphic"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="neumorphic"] input[type="submit"]:hover,
+  .style-soft-ui input[type="submit"]:hover,
+  [data-style="soft-ui"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="soft-ui"] input[type="submit"]:hover {
     box-shadow: var(--neu-shadow-raised-hover) !important;
     color: var(--neu-accent) !important;
     transform: translateY(-1px) !important;
@@ -241,7 +448,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] button:active,
   .lab-styled-preview[data-style="neumorphism"] input[type="submit"]:active,
   .neumorphism-styled-container button:active,
-  .neumorphism-styled-container input[type="submit"]:active {
+  .style-neumorphism button:active,
+  [data-style="neumorphism"] button:active,
+  .ds-scope[data-style-id="neumorphism"] button:active,
+  .style-neumorphic button:active,
+  [data-style="neumorphic"] button:active,
+  .ds-scope[data-style-id="neumorphic"] button:active,
+  .style-soft-ui button:active,
+  [data-style="soft-ui"] button:active,
+  .ds-scope[data-style-id="soft-ui"] button:active,
+  .neumorphism-styled-container input[type="submit"]:active,
+  .style-neumorphism input[type="submit"]:active,
+  [data-style="neumorphism"] input[type="submit"]:active,
+  .ds-scope[data-style-id="neumorphism"] input[type="submit"]:active,
+  .style-neumorphic input[type="submit"]:active,
+  [data-style="neumorphic"] input[type="submit"]:active,
+  .ds-scope[data-style-id="neumorphic"] input[type="submit"]:active,
+  .style-soft-ui input[type="submit"]:active,
+  [data-style="soft-ui"] input[type="submit"]:active,
+  .ds-scope[data-style-id="soft-ui"] input[type="submit"]:active {
     box-shadow: var(--neu-shadow-inset-md) !important;
     color: var(--neu-accent-hover) !important;
     transform: translateY(1px) !important;
@@ -250,7 +475,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] button:focus-visible,
   .lab-styled-preview[data-style="neumorphism"] input[type="submit"]:focus-visible,
   .neumorphism-styled-container button:focus-visible,
-  .neumorphism-styled-container input[type="submit"]:focus-visible {
+  .style-neumorphism button:focus-visible,
+  [data-style="neumorphism"] button:focus-visible,
+  .ds-scope[data-style-id="neumorphism"] button:focus-visible,
+  .style-neumorphic button:focus-visible,
+  [data-style="neumorphic"] button:focus-visible,
+  .ds-scope[data-style-id="neumorphic"] button:focus-visible,
+  .style-soft-ui button:focus-visible,
+  [data-style="soft-ui"] button:focus-visible,
+  .ds-scope[data-style-id="soft-ui"] button:focus-visible,
+  .neumorphism-styled-container input[type="submit"]:focus-visible,
+  .style-neumorphism input[type="submit"]:focus-visible,
+  [data-style="neumorphism"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="neumorphism"] input[type="submit"]:focus-visible,
+  .style-neumorphic input[type="submit"]:focus-visible,
+  [data-style="neumorphic"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="neumorphic"] input[type="submit"]:focus-visible,
+  .style-soft-ui input[type="submit"]:focus-visible,
+  [data-style="soft-ui"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="soft-ui"] input[type="submit"]:focus-visible {
     outline: none !important;
     box-shadow: var(--neu-shadow-raised-md), 0 0 0 3px rgba(59, 130, 246, 0.4) !important;
   }
@@ -258,7 +501,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] button:disabled,
   .lab-styled-preview[data-style="neumorphism"] input[type="submit"]:disabled,
   .neumorphism-styled-container button:disabled,
-  .neumorphism-styled-container input[type="submit"]:disabled {
+  .style-neumorphism button:disabled,
+  [data-style="neumorphism"] button:disabled,
+  .ds-scope[data-style-id="neumorphism"] button:disabled,
+  .style-neumorphic button:disabled,
+  [data-style="neumorphic"] button:disabled,
+  .ds-scope[data-style-id="neumorphic"] button:disabled,
+  .style-soft-ui button:disabled,
+  [data-style="soft-ui"] button:disabled,
+  .ds-scope[data-style-id="soft-ui"] button:disabled,
+  .neumorphism-styled-container input[type="submit"]:disabled,
+  .style-neumorphism input[type="submit"]:disabled,
+  [data-style="neumorphism"] input[type="submit"]:disabled,
+  .ds-scope[data-style-id="neumorphism"] input[type="submit"]:disabled,
+  .style-neumorphic input[type="submit"]:disabled,
+  [data-style="neumorphic"] input[type="submit"]:disabled,
+  .ds-scope[data-style-id="neumorphic"] input[type="submit"]:disabled,
+  .style-soft-ui input[type="submit"]:disabled,
+  [data-style="soft-ui"] input[type="submit"]:disabled,
+  .ds-scope[data-style-id="soft-ui"] input[type="submit"]:disabled {
     opacity: 0.55 !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
@@ -266,7 +527,16 @@ export const neumorphicSemanticCss = `
 
   /* Secondary button variation (e.g. within e-commerce sizes) */
   .lab-styled-preview[data-style="neumorphism"] button:nth-of-type(2),
-  .neumorphism-styled-container button:nth-of-type(2) {
+  .neumorphism-styled-container button:nth-of-type(2),
+  .style-neumorphism button:nth-of-type(2),
+  [data-style="neumorphism"] button:nth-of-type(2),
+  .ds-scope[data-style-id="neumorphism"] button:nth-of-type(2),
+  .style-neumorphic button:nth-of-type(2),
+  [data-style="neumorphic"] button:nth-of-type(2),
+  .ds-scope[data-style-id="neumorphic"] button:nth-of-type(2),
+  .style-soft-ui button:nth-of-type(2),
+  [data-style="soft-ui"] button:nth-of-type(2),
+  .ds-scope[data-style-id="soft-ui"] button:nth-of-type(2) {
     box-shadow: var(--neu-shadow-inset-sm) !important;
     color: var(--neu-accent) !important;
   }
@@ -277,7 +547,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] article,
   .lab-styled-preview[data-style="neumorphism"] .card,
   .neumorphism-styled-container article,
-  .neumorphism-styled-container .card {
+  .style-neumorphism article,
+  [data-style="neumorphism"] article,
+  .ds-scope[data-style-id="neumorphism"] article,
+  .style-neumorphic article,
+  [data-style="neumorphic"] article,
+  .ds-scope[data-style-id="neumorphic"] article,
+  .style-soft-ui article,
+  [data-style="soft-ui"] article,
+  .ds-scope[data-style-id="soft-ui"] article,
+  .neumorphism-styled-container .card,
+  .style-neumorphism .card,
+  [data-style="neumorphism"] .card,
+  .ds-scope[data-style-id="neumorphism"] .card,
+  .style-neumorphic .card,
+  [data-style="neumorphic"] .card,
+  .ds-scope[data-style-id="neumorphic"] .card,
+  .style-soft-ui .card,
+  [data-style="soft-ui"] .card,
+  .ds-scope[data-style-id="soft-ui"] .card {
     background-color: var(--neu-bg) !important;
     border: none !important;
     border-radius: var(--neu-radius-md) !important;
@@ -291,7 +579,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] article:hover,
   .lab-styled-preview[data-style="neumorphism"] .card:hover,
   .neumorphism-styled-container article:hover,
-  .neumorphism-styled-container .card:hover {
+  .style-neumorphism article:hover,
+  [data-style="neumorphism"] article:hover,
+  .ds-scope[data-style-id="neumorphism"] article:hover,
+  .style-neumorphic article:hover,
+  [data-style="neumorphic"] article:hover,
+  .ds-scope[data-style-id="neumorphic"] article:hover,
+  .style-soft-ui article:hover,
+  [data-style="soft-ui"] article:hover,
+  .ds-scope[data-style-id="soft-ui"] article:hover,
+  .neumorphism-styled-container .card:hover,
+  .style-neumorphism .card:hover,
+  [data-style="neumorphism"] .card:hover,
+  .ds-scope[data-style-id="neumorphism"] .card:hover,
+  .style-neumorphic .card:hover,
+  [data-style="neumorphic"] .card:hover,
+  .ds-scope[data-style-id="neumorphic"] .card:hover,
+  .style-soft-ui .card:hover,
+  [data-style="soft-ui"] .card:hover,
+  .ds-scope[data-style-id="soft-ui"] .card:hover {
     box-shadow: var(--neu-shadow-raised-lg) !important;
     transform: translateY(-2px) !important;
   }
@@ -300,7 +606,25 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] article strong,
   .lab-styled-preview[data-style="neumorphism"] article b,
   .neumorphism-styled-container article strong,
-  .neumorphism-styled-container article b {
+  .style-neumorphism article strong,
+  [data-style="neumorphism"] article strong,
+  .ds-scope[data-style-id="neumorphism"] article strong,
+  .style-neumorphic article strong,
+  [data-style="neumorphic"] article strong,
+  .ds-scope[data-style-id="neumorphic"] article strong,
+  .style-soft-ui article strong,
+  [data-style="soft-ui"] article strong,
+  .ds-scope[data-style-id="soft-ui"] article strong,
+  .neumorphism-styled-container article b,
+  .style-neumorphism article b,
+  [data-style="neumorphism"] article b,
+  .ds-scope[data-style-id="neumorphism"] article b,
+  .style-neumorphic article b,
+  [data-style="neumorphic"] article b,
+  .ds-scope[data-style-id="neumorphic"] article b,
+  .style-soft-ui article b,
+  [data-style="soft-ui"] article b,
+  .ds-scope[data-style-id="soft-ui"] article b {
     display: block !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 1.6rem !important;
@@ -311,12 +635,30 @@ export const neumorphicSemanticCss = `
 
   /* Featured pricing card — deeper tactile lift with blue badge */
   .lab-styled-preview[data-style="neumorphism"] article:nth-child(2),
-  .neumorphism-styled-container article:nth-child(2) {
+  .neumorphism-styled-container article:nth-child(2),
+  .style-neumorphism article:nth-child(2),
+  [data-style="neumorphism"] article:nth-child(2),
+  .ds-scope[data-style-id="neumorphism"] article:nth-child(2),
+  .style-neumorphic article:nth-child(2),
+  [data-style="neumorphic"] article:nth-child(2),
+  .ds-scope[data-style-id="neumorphic"] article:nth-child(2),
+  .style-soft-ui article:nth-child(2),
+  [data-style="soft-ui"] article:nth-child(2),
+  .ds-scope[data-style-id="soft-ui"] article:nth-child(2) {
     box-shadow: var(--neu-shadow-raised-lg) !important;
   }
 
   .lab-styled-preview[data-style="neumorphism"] article:nth-child(2) strong,
-  .neumorphism-styled-container article:nth-child(2) strong {
+  .neumorphism-styled-container article:nth-child(2) strong,
+  .style-neumorphism article:nth-child(2) strong,
+  [data-style="neumorphism"] article:nth-child(2) strong,
+  .ds-scope[data-style-id="neumorphism"] article:nth-child(2) strong,
+  .style-neumorphic article:nth-child(2) strong,
+  [data-style="neumorphic"] article:nth-child(2) strong,
+  .ds-scope[data-style-id="neumorphic"] article:nth-child(2) strong,
+  .style-soft-ui article:nth-child(2) strong,
+  [data-style="soft-ui"] article:nth-child(2) strong,
+  .ds-scope[data-style-id="soft-ui"] article:nth-child(2) strong {
     color: var(--neu-accent) !important;
   }
 
@@ -324,7 +666,16 @@ export const neumorphicSemanticCss = `
      6. EDITORIAL ARTICLES (Un-Cardified Open Flow, Recessed Pullquote)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"] main > article,
-  .neumorphism-styled-container main > article {
+  .neumorphism-styled-container main > article,
+  .style-neumorphism main > article,
+  [data-style="neumorphism"] main > article,
+  .ds-scope[data-style-id="neumorphism"] main > article,
+  .style-neumorphic main > article,
+  [data-style="neumorphic"] main > article,
+  .ds-scope[data-style-id="neumorphic"] main > article,
+  .style-soft-ui main > article,
+  [data-style="soft-ui"] main > article,
+  .ds-scope[data-style-id="soft-ui"] main > article {
     max-width: 740px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -336,7 +687,16 @@ export const neumorphicSemanticCss = `
 
   /* Debossed / Recessed pullquote */
   .lab-styled-preview[data-style="neumorphism"] blockquote,
-  .neumorphism-styled-container blockquote {
+  .neumorphism-styled-container blockquote,
+  .style-neumorphism blockquote,
+  [data-style="neumorphism"] blockquote,
+  .ds-scope[data-style-id="neumorphism"] blockquote,
+  .style-neumorphic blockquote,
+  [data-style="neumorphic"] blockquote,
+  .ds-scope[data-style-id="neumorphic"] blockquote,
+  .style-soft-ui blockquote,
+  [data-style="soft-ui"] blockquote,
+  .ds-scope[data-style-id="soft-ui"] blockquote {
     background-color: var(--neu-bg) !important;
     border-left: 4px solid var(--neu-accent) !important;
     border-radius: 0 var(--neu-radius-md) var(--neu-radius-md) 0 !important;
@@ -355,7 +715,16 @@ export const neumorphicSemanticCss = `
      7. FORMS (Physically Recessed Inputs, Tactile Focus)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"] form,
-  .neumorphism-styled-container form {
+  .neumorphism-styled-container form,
+  .style-neumorphism form,
+  [data-style="neumorphism"] form,
+  .ds-scope[data-style-id="neumorphism"] form,
+  .style-neumorphic form,
+  [data-style="neumorphic"] form,
+  .ds-scope[data-style-id="neumorphic"] form,
+  .style-soft-ui form,
+  [data-style="soft-ui"] form,
+  .ds-scope[data-style-id="soft-ui"] form {
     background-color: var(--neu-bg) !important;
     border: none !important;
     border-radius: var(--neu-radius-lg) !important;
@@ -365,7 +734,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] label,
-  .neumorphism-styled-container label {
+  .neumorphism-styled-container label,
+  .style-neumorphism label,
+  [data-style="neumorphism"] label,
+  .ds-scope[data-style-id="neumorphism"] label,
+  .style-neumorphic label,
+  [data-style="neumorphic"] label,
+  .ds-scope[data-style-id="neumorphic"] label,
+  .style-soft-ui label,
+  [data-style="soft-ui"] label,
+  .ds-scope[data-style-id="soft-ui"] label {
     display: block !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 0.875rem !important;
@@ -383,13 +761,85 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] select,
   .lab-styled-preview[data-style="neumorphism"] textarea,
   .neumorphism-styled-container input[type="text"],
+  .style-neumorphism input[type="text"],
+  [data-style="neumorphism"] input[type="text"],
+  .ds-scope[data-style-id="neumorphism"] input[type="text"],
+  .style-neumorphic input[type="text"],
+  [data-style="neumorphic"] input[type="text"],
+  .ds-scope[data-style-id="neumorphic"] input[type="text"],
+  .style-soft-ui input[type="text"],
+  [data-style="soft-ui"] input[type="text"],
+  .ds-scope[data-style-id="soft-ui"] input[type="text"],
   .neumorphism-styled-container input[type="email"],
+  .style-neumorphism input[type="email"],
+  [data-style="neumorphism"] input[type="email"],
+  .ds-scope[data-style-id="neumorphism"] input[type="email"],
+  .style-neumorphic input[type="email"],
+  [data-style="neumorphic"] input[type="email"],
+  .ds-scope[data-style-id="neumorphic"] input[type="email"],
+  .style-soft-ui input[type="email"],
+  [data-style="soft-ui"] input[type="email"],
+  .ds-scope[data-style-id="soft-ui"] input[type="email"],
   .neumorphism-styled-container input[type="password"],
+  .style-neumorphism input[type="password"],
+  [data-style="neumorphism"] input[type="password"],
+  .ds-scope[data-style-id="neumorphism"] input[type="password"],
+  .style-neumorphic input[type="password"],
+  [data-style="neumorphic"] input[type="password"],
+  .ds-scope[data-style-id="neumorphic"] input[type="password"],
+  .style-soft-ui input[type="password"],
+  [data-style="soft-ui"] input[type="password"],
+  .ds-scope[data-style-id="soft-ui"] input[type="password"],
   .neumorphism-styled-container input[type="number"],
+  .style-neumorphism input[type="number"],
+  [data-style="neumorphism"] input[type="number"],
+  .ds-scope[data-style-id="neumorphism"] input[type="number"],
+  .style-neumorphic input[type="number"],
+  [data-style="neumorphic"] input[type="number"],
+  .ds-scope[data-style-id="neumorphic"] input[type="number"],
+  .style-soft-ui input[type="number"],
+  [data-style="soft-ui"] input[type="number"],
+  .ds-scope[data-style-id="soft-ui"] input[type="number"],
   .neumorphism-styled-container input[type="search"],
+  .style-neumorphism input[type="search"],
+  [data-style="neumorphism"] input[type="search"],
+  .ds-scope[data-style-id="neumorphism"] input[type="search"],
+  .style-neumorphic input[type="search"],
+  [data-style="neumorphic"] input[type="search"],
+  .ds-scope[data-style-id="neumorphic"] input[type="search"],
+  .style-soft-ui input[type="search"],
+  [data-style="soft-ui"] input[type="search"],
+  .ds-scope[data-style-id="soft-ui"] input[type="search"],
   .neumorphism-styled-container input[type="tel"],
+  .style-neumorphism input[type="tel"],
+  [data-style="neumorphism"] input[type="tel"],
+  .ds-scope[data-style-id="neumorphism"] input[type="tel"],
+  .style-neumorphic input[type="tel"],
+  [data-style="neumorphic"] input[type="tel"],
+  .ds-scope[data-style-id="neumorphic"] input[type="tel"],
+  .style-soft-ui input[type="tel"],
+  [data-style="soft-ui"] input[type="tel"],
+  .ds-scope[data-style-id="soft-ui"] input[type="tel"],
   .neumorphism-styled-container select,
-  .neumorphism-styled-container textarea {
+  .style-neumorphism select,
+  [data-style="neumorphism"] select,
+  .ds-scope[data-style-id="neumorphism"] select,
+  .style-neumorphic select,
+  [data-style="neumorphic"] select,
+  .ds-scope[data-style-id="neumorphic"] select,
+  .style-soft-ui select,
+  [data-style="soft-ui"] select,
+  .ds-scope[data-style-id="soft-ui"] select,
+  .neumorphism-styled-container textarea,
+  .style-neumorphism textarea,
+  [data-style="neumorphism"] textarea,
+  .ds-scope[data-style-id="neumorphism"] textarea,
+  .style-neumorphic textarea,
+  [data-style="neumorphic"] textarea,
+  .ds-scope[data-style-id="neumorphic"] textarea,
+  .style-soft-ui textarea,
+  [data-style="soft-ui"] textarea,
+  .ds-scope[data-style-id="soft-ui"] textarea {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -409,8 +859,35 @@ export const neumorphicSemanticCss = `
   .lab-styled-preview[data-style="neumorphism"] select:focus,
   .lab-styled-preview[data-style="neumorphism"] textarea:focus,
   .neumorphism-styled-container input:focus,
+  .style-neumorphism input:focus,
+  [data-style="neumorphism"] input:focus,
+  .ds-scope[data-style-id="neumorphism"] input:focus,
+  .style-neumorphic input:focus,
+  [data-style="neumorphic"] input:focus,
+  .ds-scope[data-style-id="neumorphic"] input:focus,
+  .style-soft-ui input:focus,
+  [data-style="soft-ui"] input:focus,
+  .ds-scope[data-style-id="soft-ui"] input:focus,
   .neumorphism-styled-container select:focus,
-  .neumorphism-styled-container textarea:focus {
+  .style-neumorphism select:focus,
+  [data-style="neumorphism"] select:focus,
+  .ds-scope[data-style-id="neumorphism"] select:focus,
+  .style-neumorphic select:focus,
+  [data-style="neumorphic"] select:focus,
+  .ds-scope[data-style-id="neumorphic"] select:focus,
+  .style-soft-ui select:focus,
+  [data-style="soft-ui"] select:focus,
+  .ds-scope[data-style-id="soft-ui"] select:focus,
+  .neumorphism-styled-container textarea:focus,
+  .style-neumorphism textarea:focus,
+  [data-style="neumorphism"] textarea:focus,
+  .ds-scope[data-style-id="neumorphism"] textarea:focus,
+  .style-neumorphic textarea:focus,
+  [data-style="neumorphic"] textarea:focus,
+  .ds-scope[data-style-id="neumorphic"] textarea:focus,
+  .style-soft-ui textarea:focus,
+  [data-style="soft-ui"] textarea:focus,
+  .ds-scope[data-style-id="soft-ui"] textarea:focus {
     box-shadow: var(--neu-shadow-inset-md), 0 0 0 3px rgba(59, 130, 246, 0.35) !important;
     outline: none !important;
   }
@@ -419,7 +896,16 @@ export const neumorphicSemanticCss = `
      8. DASHBOARD & DATA TABLES (Molded Frame, Recessed Trough)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"] table,
-  .neumorphism-styled-container table {
+  .neumorphism-styled-container table,
+  .style-neumorphism table,
+  [data-style="neumorphism"] table,
+  .ds-scope[data-style-id="neumorphism"] table,
+  .style-neumorphic table,
+  [data-style="neumorphic"] table,
+  .ds-scope[data-style-id="neumorphic"] table,
+  .style-soft-ui table,
+  [data-style="soft-ui"] table,
+  .ds-scope[data-style-id="soft-ui"] table {
     width: 100% !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
@@ -432,7 +918,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] th,
-  .neumorphism-styled-container th {
+  .neumorphism-styled-container th,
+  .style-neumorphism th,
+  [data-style="neumorphism"] th,
+  .ds-scope[data-style-id="neumorphism"] th,
+  .style-neumorphic th,
+  [data-style="neumorphic"] th,
+  .ds-scope[data-style-id="neumorphic"] th,
+  .style-soft-ui th,
+  [data-style="soft-ui"] th,
+  .ds-scope[data-style-id="soft-ui"] th {
     background-color: var(--neu-surface-subtle) !important;
     color: var(--neu-text) !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -445,7 +940,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] td,
-  .neumorphism-styled-container td {
+  .neumorphism-styled-container td,
+  .style-neumorphism td,
+  [data-style="neumorphism"] td,
+  .ds-scope[data-style-id="neumorphism"] td,
+  .style-neumorphic td,
+  [data-style="neumorphic"] td,
+  .ds-scope[data-style-id="neumorphic"] td,
+  .style-soft-ui td,
+  [data-style="soft-ui"] td,
+  .ds-scope[data-style-id="soft-ui"] td {
     padding: 0.95rem 1.25rem !important;
     border-bottom: 1px solid rgba(163, 177, 198, 0.25) !important;
     color: var(--neu-text-secondary) !important;
@@ -454,18 +958,45 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] tbody tr:last-child td,
-  .neumorphism-styled-container tbody tr:last-child td {
+  .neumorphism-styled-container tbody tr:last-child td,
+  .style-neumorphism tbody tr:last-child td,
+  [data-style="neumorphism"] tbody tr:last-child td,
+  .ds-scope[data-style-id="neumorphism"] tbody tr:last-child td,
+  .style-neumorphic tbody tr:last-child td,
+  [data-style="neumorphic"] tbody tr:last-child td,
+  .ds-scope[data-style-id="neumorphic"] tbody tr:last-child td,
+  .style-soft-ui tbody tr:last-child td,
+  [data-style="soft-ui"] tbody tr:last-child td,
+  .ds-scope[data-style-id="soft-ui"] tbody tr:last-child td {
     border-bottom: none !important;
   }
 
   .lab-styled-preview[data-style="neumorphism"] tbody tr:hover td,
-  .neumorphism-styled-container tbody tr:hover td {
+  .neumorphism-styled-container tbody tr:hover td,
+  .style-neumorphism tbody tr:hover td,
+  [data-style="neumorphism"] tbody tr:hover td,
+  .ds-scope[data-style-id="neumorphism"] tbody tr:hover td,
+  .style-neumorphic tbody tr:hover td,
+  [data-style="neumorphic"] tbody tr:hover td,
+  .ds-scope[data-style-id="neumorphic"] tbody tr:hover td,
+  .style-soft-ui tbody tr:hover td,
+  [data-style="soft-ui"] tbody tr:hover td,
+  .ds-scope[data-style-id="soft-ui"] tbody tr:hover td {
     background-color: rgba(255, 255, 255, 0.4) !important;
   }
 
   /* Monospace chips in debossed pills */
   .lab-styled-preview[data-style="neumorphism"] code,
-  .neumorphism-styled-container code {
+  .neumorphism-styled-container code,
+  .style-neumorphism code,
+  [data-style="neumorphism"] code,
+  .ds-scope[data-style-id="neumorphism"] code,
+  .style-neumorphic code,
+  [data-style="neumorphic"] code,
+  .ds-scope[data-style-id="neumorphic"] code,
+  .style-soft-ui code,
+  [data-style="soft-ui"] code,
+  .ds-scope[data-style-id="soft-ui"] code {
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 0.8125rem !important;
     background-color: var(--neu-bg) !important;
@@ -479,14 +1010,32 @@ export const neumorphicSemanticCss = `
      9. LISTS & SPECIFICATIONS (Debossed Bullet Wells)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"] article ul,
-  .neumorphism-styled-container article ul {
+  .neumorphism-styled-container article ul,
+  .style-neumorphism article ul,
+  [data-style="neumorphism"] article ul,
+  .ds-scope[data-style-id="neumorphism"] article ul,
+  .style-neumorphic article ul,
+  [data-style="neumorphic"] article ul,
+  .ds-scope[data-style-id="neumorphic"] article ul,
+  .style-soft-ui article ul,
+  [data-style="soft-ui"] article ul,
+  .ds-scope[data-style-id="soft-ui"] article ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 1.25rem 0 !important;
   }
 
   .lab-styled-preview[data-style="neumorphism"] article ul li,
-  .neumorphism-styled-container article ul li {
+  .neumorphism-styled-container article ul li,
+  .style-neumorphism article ul li,
+  [data-style="neumorphism"] article ul li,
+  .ds-scope[data-style-id="neumorphism"] article ul li,
+  .style-neumorphic article ul li,
+  [data-style="neumorphic"] article ul li,
+  .ds-scope[data-style-id="neumorphic"] article ul li,
+  .style-soft-ui article ul li,
+  [data-style="soft-ui"] article ul li,
+  .ds-scope[data-style-id="soft-ui"] article ul li {
     display: flex !important;
     align-items: center !important;
     gap: 0.65rem !important;
@@ -496,7 +1045,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] article ul li::before,
-  .neumorphism-styled-container article ul li::before {
+  .neumorphism-styled-container article ul li::before,
+  .style-neumorphism article ul li::before,
+  [data-style="neumorphism"] article ul li::before,
+  .ds-scope[data-style-id="neumorphism"] article ul li::before,
+  .style-neumorphic article ul li::before,
+  [data-style="neumorphic"] article ul li::before,
+  .ds-scope[data-style-id="neumorphic"] article ul li::before,
+  .style-soft-ui article ul li::before,
+  [data-style="soft-ui"] article ul li::before,
+  .ds-scope[data-style-id="soft-ui"] article ul li::before {
     content: '✓' !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -514,7 +1072,16 @@ export const neumorphicSemanticCss = `
 
   /* Images / Media in cards */
   .lab-styled-preview[data-style="neumorphism"] img,
-  .neumorphism-styled-container img {
+  .neumorphism-styled-container img,
+  .style-neumorphism img,
+  [data-style="neumorphism"] img,
+  .ds-scope[data-style-id="neumorphism"] img,
+  .style-neumorphic img,
+  [data-style="neumorphic"] img,
+  .ds-scope[data-style-id="neumorphic"] img,
+  .style-soft-ui img,
+  [data-style="soft-ui"] img,
+  .ds-scope[data-style-id="soft-ui"] img {
     max-width: 100% !important;
     height: auto !important;
     border-radius: 16px !important;
@@ -526,7 +1093,16 @@ export const neumorphicSemanticCss = `
      10. FOOTER & CLOSING
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="neumorphism"] footer,
-  .neumorphism-styled-container footer {
+  .neumorphism-styled-container footer,
+  .style-neumorphism footer,
+  [data-style="neumorphism"] footer,
+  .ds-scope[data-style-id="neumorphism"] footer,
+  .style-neumorphic footer,
+  [data-style="neumorphic"] footer,
+  .ds-scope[data-style-id="neumorphic"] footer,
+  .style-soft-ui footer,
+  [data-style="soft-ui"] footer,
+  .ds-scope[data-style-id="soft-ui"] footer {
     margin-top: 3.5rem !important;
     padding-top: 2rem !important;
     border-top: 1px solid rgba(163, 177, 198, 0.35) !important;
@@ -540,7 +1116,16 @@ export const neumorphicSemanticCss = `
   }
 
   .lab-styled-preview[data-style="neumorphism"] footer p,
-  .neumorphism-styled-container footer p {
+  .neumorphism-styled-container footer p,
+  .style-neumorphism footer p,
+  [data-style="neumorphism"] footer p,
+  .ds-scope[data-style-id="neumorphism"] footer p,
+  .style-neumorphic footer p,
+  [data-style="neumorphic"] footer p,
+  .ds-scope[data-style-id="neumorphic"] footer p,
+  .style-soft-ui footer p,
+  [data-style="soft-ui"] footer p,
+  .ds-scope[data-style-id="soft-ui"] footer p {
     margin: 0 !important;
     color: var(--neu-text-muted) !important;
     font-size: 0.875rem !important;
@@ -551,31 +1136,76 @@ export const neumorphicSemanticCss = `
      -------------------------------------------------------------------------- */
   @media (max-width: 768px) {
     .lab-styled-preview[data-style="neumorphism"],
-    .neumorphism-styled-container {
+    .neumorphism-styled-container,
+    .style-neumorphism,
+    [data-style="neumorphism"],
+    .ds-scope[data-style-id="neumorphism"],
+    .style-neumorphic,
+    [data-style="neumorphic"],
+    .ds-scope[data-style-id="neumorphic"],
+    .style-soft-ui,
+    [data-style="soft-ui"],
+    .ds-scope[data-style-id="soft-ui"] {
       padding: 1.5rem 1rem !important;
       border-radius: 14px !important;
     }
 
     .lab-styled-preview[data-style="neumorphism"] h1,
-    .neumorphism-styled-container h1 {
+    .neumorphism-styled-container h1,
+    .style-neumorphism h1,
+    [data-style="neumorphism"] h1,
+    .ds-scope[data-style-id="neumorphism"] h1,
+    .style-neumorphic h1,
+    [data-style="neumorphic"] h1,
+    .ds-scope[data-style-id="neumorphic"] h1,
+    .style-soft-ui h1,
+    [data-style="soft-ui"] h1,
+    .ds-scope[data-style-id="soft-ui"] h1 {
       font-size: 2rem !important;
       line-height: 1.2 !important;
     }
 
     .lab-styled-preview[data-style="neumorphism"] h2,
-    .neumorphism-styled-container h2 {
+    .neumorphism-styled-container h2,
+    .style-neumorphism h2,
+    [data-style="neumorphism"] h2,
+    .ds-scope[data-style-id="neumorphism"] h2,
+    .style-neumorphic h2,
+    [data-style="neumorphic"] h2,
+    .ds-scope[data-style-id="neumorphic"] h2,
+    .style-soft-ui h2,
+    [data-style="soft-ui"] h2,
+    .ds-scope[data-style-id="soft-ui"] h2 {
       font-size: 1.55rem !important;
     }
 
     .lab-styled-preview[data-style="neumorphism"] nav,
-    .neumorphism-styled-container nav {
+    .neumorphism-styled-container nav,
+    .style-neumorphism nav,
+    [data-style="neumorphism"] nav,
+    .ds-scope[data-style-id="neumorphism"] nav,
+    .style-neumorphic nav,
+    [data-style="neumorphic"] nav,
+    .ds-scope[data-style-id="neumorphic"] nav,
+    .style-soft-ui nav,
+    [data-style="soft-ui"] nav,
+    .ds-scope[data-style-id="soft-ui"] nav {
       border-radius: 16px !important;
       padding: 0.5rem 0.75rem !important;
       gap: 0.35rem !important;
     }
 
     .lab-styled-preview[data-style="neumorphism"] nav a,
-    .neumorphism-styled-container nav a {
+    .neumorphism-styled-container nav a,
+    .style-neumorphism nav a,
+    [data-style="neumorphism"] nav a,
+    .ds-scope[data-style-id="neumorphism"] nav a,
+    .style-neumorphic nav a,
+    [data-style="neumorphic"] nav a,
+    .ds-scope[data-style-id="neumorphic"] nav a,
+    .style-soft-ui nav a,
+    [data-style="soft-ui"] nav a,
+    .ds-scope[data-style-id="soft-ui"] nav a {
       font-size: 0.8125rem !important;
       padding: 0.35rem 0.65rem !important;
     }
@@ -583,7 +1213,25 @@ export const neumorphicSemanticCss = `
     .lab-styled-preview[data-style="neumorphism"] article,
     .lab-styled-preview[data-style="neumorphism"] .card,
     .neumorphism-styled-container article,
-    .neumorphism-styled-container .card {
+    .style-neumorphism article,
+    [data-style="neumorphism"] article,
+    .ds-scope[data-style-id="neumorphism"] article,
+    .style-neumorphic article,
+    [data-style="neumorphic"] article,
+    .ds-scope[data-style-id="neumorphic"] article,
+    .style-soft-ui article,
+    [data-style="soft-ui"] article,
+    .ds-scope[data-style-id="soft-ui"] article,
+    .neumorphism-styled-container .card,
+    .style-neumorphism .card,
+    [data-style="neumorphism"] .card,
+    .ds-scope[data-style-id="neumorphism"] .card,
+    .style-neumorphic .card,
+    [data-style="neumorphic"] .card,
+    .ds-scope[data-style-id="neumorphic"] .card,
+    .style-soft-ui .card,
+    [data-style="soft-ui"] .card,
+    .ds-scope[data-style-id="soft-ui"] .card {
       padding: 1.25rem !important;
       border-radius: 14px !important;
     }
@@ -591,12 +1239,39 @@ export const neumorphicSemanticCss = `
     .lab-styled-preview[data-style="neumorphism"] button,
     .lab-styled-preview[data-style="neumorphism"] input[type="submit"],
     .neumorphism-styled-container button,
-    .neumorphism-styled-container input[type="submit"] {
+    .style-neumorphism button,
+    [data-style="neumorphism"] button,
+    .ds-scope[data-style-id="neumorphism"] button,
+    .style-neumorphic button,
+    [data-style="neumorphic"] button,
+    .ds-scope[data-style-id="neumorphic"] button,
+    .style-soft-ui button,
+    [data-style="soft-ui"] button,
+    .ds-scope[data-style-id="soft-ui"] button,
+    .neumorphism-styled-container input[type="submit"],
+    .style-neumorphism input[type="submit"],
+    [data-style="neumorphism"] input[type="submit"],
+    .ds-scope[data-style-id="neumorphism"] input[type="submit"],
+    .style-neumorphic input[type="submit"],
+    [data-style="neumorphic"] input[type="submit"],
+    .ds-scope[data-style-id="neumorphic"] input[type="submit"],
+    .style-soft-ui input[type="submit"],
+    [data-style="soft-ui"] input[type="submit"],
+    .ds-scope[data-style-id="soft-ui"] input[type="submit"] {
       width: 100% !important;
     }
 
     .lab-styled-preview[data-style="neumorphism"] table,
-    .neumorphism-styled-container table {
+    .neumorphism-styled-container table,
+    .style-neumorphism table,
+    [data-style="neumorphism"] table,
+    .ds-scope[data-style-id="neumorphism"] table,
+    .style-neumorphic table,
+    [data-style="neumorphic"] table,
+    .ds-scope[data-style-id="neumorphic"] table,
+    .style-soft-ui table,
+    [data-style="soft-ui"] table,
+    .ds-scope[data-style-id="soft-ui"] table {
       display: block !important;
       overflow-x: auto !important;
       -webkit-overflow-scrolling: touch !important;
@@ -606,7 +1281,16 @@ export const neumorphicSemanticCss = `
   /* Respect prefers-reduced-motion */
   @media (prefers-reduced-motion: reduce) {
     .lab-styled-preview[data-style="neumorphism"] *,
-    .neumorphism-styled-container * {
+    .neumorphism-styled-container *,
+    .style-neumorphism *,
+    [data-style="neumorphism"] *,
+    .ds-scope[data-style-id="neumorphism"] *,
+    .style-neumorphic *,
+    [data-style="neumorphic"] *,
+    .ds-scope[data-style-id="neumorphic"] *,
+    .style-soft-ui *,
+    [data-style="soft-ui"] *,
+    .ds-scope[data-style-id="soft-ui"] * {
       transition: none !important;
       transform: none !important;
     }

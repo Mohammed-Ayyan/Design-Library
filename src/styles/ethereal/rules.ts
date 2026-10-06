@@ -8,7 +8,10 @@ export const etherealSemanticCss = `
 
   /* Atmospheric Foundation: Illuminated Air with Subtle Radial Light Fields */
   .lab-styled-preview[data-style="ethereal"],
-  .ethereal-styled-container {
+  .ethereal-styled-container,
+  .style-ethereal,
+  [data-style="ethereal"],
+  .ds-scope[data-style-id="ethereal"] {
     background-color: #fbfaf8 !important;
     background-image: 
       radial-gradient(at 0% 0%, rgba(224, 236, 248, 0.5) 0px, transparent 55%),
@@ -29,13 +32,19 @@ export const etherealSemanticCss = `
 
   /* Universal Box Sizing */
   .lab-styled-preview[data-style="ethereal"] *,
-  .ethereal-styled-container * {
+  .ethereal-styled-container *,
+  .style-ethereal *,
+  [data-style="ethereal"] *,
+  .ds-scope[data-style-id="ethereal"] * {
     box-sizing: border-box !important;
   }
 
   /* 1. Navigation: Weightless & Luminous */
   .lab-styled-preview[data-style="ethereal"] nav,
-  .ethereal-styled-container nav {
+  .ethereal-styled-container nav,
+  .style-ethereal nav,
+  [data-style="ethereal"] nav,
+  .ds-scope[data-style-id="ethereal"] nav {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
@@ -55,7 +64,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] nav a,
-  .ethereal-styled-container nav a {
+  .ethereal-styled-container nav a,
+  .style-ethereal nav a,
+  [data-style="ethereal"] nav a,
+  .ds-scope[data-style-id="ethereal"] nav a {
     font-family: 'Outfit', sans-serif !important;
     font-size: 0.875rem !important;
     font-weight: 400 !important;
@@ -69,7 +81,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] nav a:hover,
-  .ethereal-styled-container nav a:hover {
+  .ethereal-styled-container nav a:hover,
+  .style-ethereal nav a:hover,
+  [data-style="ethereal"] nav a:hover,
+  .ds-scope[data-style-id="ethereal"] nav a:hover {
     color: #1e2029 !important;
     background: rgba(255, 255, 255, 0.8) !important;
     box-shadow: 0 2px 8px rgba(148, 163, 184, 0.1) !important;
@@ -77,7 +92,10 @@ export const etherealSemanticCss = `
 
   /* First Link: Brand Titleplate in Serene Display Serif */
   .lab-styled-preview[data-style="ethereal"] nav a:first-child,
-  .ethereal-styled-container nav a:first-child {
+  .ethereal-styled-container nav a:first-child,
+  .style-ethereal nav a:first-child,
+  [data-style="ethereal"] nav a:first-child,
+  .ds-scope[data-style-id="ethereal"] nav a:first-child {
     font-family: 'Cormorant Garamond', serif !important;
     font-size: 1.35rem !important;
     font-weight: 500 !important;
@@ -88,7 +106,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] nav a:first-child:hover,
-  .ethereal-styled-container nav a:first-child:hover {
+  .ethereal-styled-container nav a:first-child:hover,
+  .style-ethereal nav a:first-child:hover,
+  [data-style="ethereal"] nav a:first-child:hover,
+  .ds-scope[data-style-id="ethereal"] nav a:first-child:hover {
     background: transparent !important;
     box-shadow: none !important;
     color: #4f46e5 !important;
@@ -96,7 +117,10 @@ export const etherealSemanticCss = `
 
   /* 2. Typographic Hierarchy: Elegant, Weightless & Luminous */
   .lab-styled-preview[data-style="ethereal"] h1,
-  .ethereal-styled-container h1 {
+  .ethereal-styled-container h1,
+  .style-ethereal h1,
+  [data-style="ethereal"] h1,
+  .ds-scope[data-style-id="ethereal"] h1 {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
     font-size: clamp(2.4rem, 5.2vw, 4rem) !important;
     font-weight: 300 !important;
@@ -109,7 +133,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] h2,
-  .ethereal-styled-container h2 {
+  .ethereal-styled-container h2,
+  .style-ethereal h2,
+  [data-style="ethereal"] h2,
+  .ds-scope[data-style-id="ethereal"] h2 {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
     font-size: clamp(1.85rem, 3.8vw, 2.65rem) !important;
     font-weight: 400 !important;
@@ -121,7 +148,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] h3,
-  .ethereal-styled-container h3 {
+  .ethereal-styled-container h3,
+  .style-ethereal h3,
+  [data-style="ethereal"] h3,
+  .ds-scope[data-style-id="ethereal"] h3 {
     font-family: 'Outfit', sans-serif !important;
     font-size: 1.2rem !important;
     font-weight: 500 !important;
@@ -136,8 +166,17 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] h5,
   .lab-styled-preview[data-style="ethereal"] h6,
   .ethereal-styled-container h4,
+  .style-ethereal h4,
+  [data-style="ethereal"] h4,
+  .ds-scope[data-style-id="ethereal"] h4,
   .ethereal-styled-container h5,
-  .ethereal-styled-container h6 {
+  .style-ethereal h5,
+  [data-style="ethereal"] h5,
+  .ds-scope[data-style-id="ethereal"] h5,
+  .ethereal-styled-container h6,
+  .style-ethereal h6,
+  [data-style="ethereal"] h6,
+  .ds-scope[data-style-id="ethereal"] h6 {
     font-family: 'Outfit', sans-serif !important;
     font-weight: 500 !important;
     letter-spacing: 0.05em !important;
@@ -148,20 +187,32 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] h4,
-  .ethereal-styled-container h4 {
+  .ethereal-styled-container h4,
+  .style-ethereal h4,
+  [data-style="ethereal"] h4,
+  .ds-scope[data-style-id="ethereal"] h4 {
     font-size: 0.9375rem !important;
   }
 
   .lab-styled-preview[data-style="ethereal"] h5,
   .lab-styled-preview[data-style="ethereal"] h6,
   .ethereal-styled-container h5,
-  .ethereal-styled-container h6 {
+  .style-ethereal h5,
+  [data-style="ethereal"] h5,
+  .ds-scope[data-style-id="ethereal"] h5,
+  .ethereal-styled-container h6,
+  .style-ethereal h6,
+  [data-style="ethereal"] h6,
+  .ds-scope[data-style-id="ethereal"] h6 {
     font-size: 0.8125rem !important;
   }
 
   /* Body Paragraphs: High legibility, calm reading rhythm */
   .lab-styled-preview[data-style="ethereal"] p,
-  .ethereal-styled-container p {
+  .ethereal-styled-container p,
+  .style-ethereal p,
+  [data-style="ethereal"] p,
+  .ds-scope[data-style-id="ethereal"] p {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-size: 1rem !important;
     line-height: 1.8 !important;
@@ -175,7 +226,13 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] section > p:first-child,
   .lab-styled-preview[data-style="ethereal"] header > p:first-child,
   .ethereal-styled-container section > p:first-child,
-  .ethereal-styled-container header > p:first-child {
+  .style-ethereal section > p:first-child,
+  [data-style="ethereal"] section > p:first-child,
+  .ds-scope[data-style-id="ethereal"] section > p:first-child,
+  .ethereal-styled-container header > p:first-child,
+  .style-ethereal header > p:first-child,
+  [data-style="ethereal"] header > p:first-child,
+  .ds-scope[data-style-id="ethereal"] header > p:first-child {
     font-family: 'Outfit', sans-serif !important;
     font-size: 0.75rem !important;
     font-weight: 500 !important;
@@ -191,7 +248,13 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] section > p:first-child::before,
   .lab-styled-preview[data-style="ethereal"] header > p:first-child::before,
   .ethereal-styled-container section > p:first-child::before,
-  .ethereal-styled-container header > p:first-child::before {
+  .style-ethereal section > p:first-child::before,
+  [data-style="ethereal"] section > p:first-child::before,
+  .ds-scope[data-style-id="ethereal"] section > p:first-child::before,
+  .ethereal-styled-container header > p:first-child::before,
+  .style-ethereal header > p:first-child::before,
+  [data-style="ethereal"] header > p:first-child::before,
+  .ds-scope[data-style-id="ethereal"] header > p:first-child::before {
     content: "" !important;
     display: inline-block !important;
     width: 6px !important;
@@ -203,7 +266,10 @@ export const etherealSemanticCss = `
 
   /* 3. Hero Presentation: Luminous, Serene & Spacious */
   .lab-styled-preview[data-style="ethereal"] section:first-of-type,
-  .ethereal-styled-container section:first-of-type {
+  .ethereal-styled-container section:first-of-type,
+  .style-ethereal section:first-of-type,
+  [data-style="ethereal"] section:first-of-type,
+  .ds-scope[data-style-id="ethereal"] section:first-of-type {
     padding: 3rem 0 4.5rem !important;
     position: relative !important;
     background: transparent !important;
@@ -212,7 +278,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] section:first-of-type p:last-of-type,
-  .ethereal-styled-container section:first-of-type p:last-of-type {
+  .ethereal-styled-container section:first-of-type p:last-of-type,
+  .style-ethereal section:first-of-type p:last-of-type,
+  [data-style="ethereal"] section:first-of-type p:last-of-type,
+  .ds-scope[data-style-id="ethereal"] section:first-of-type p:last-of-type {
     font-size: 1.15rem !important;
     line-height: 1.85 !important;
     color: #4b5563 !important;
@@ -224,7 +293,13 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] button,
   .lab-styled-preview[data-style="ethereal"] input[type="submit"],
   .ethereal-styled-container button,
-  .ethereal-styled-container input[type="submit"] {
+  .style-ethereal button,
+  [data-style="ethereal"] button,
+  .ds-scope[data-style-id="ethereal"] button,
+  .ethereal-styled-container input[type="submit"],
+  .style-ethereal input[type="submit"],
+  [data-style="ethereal"] input[type="submit"],
+  .ds-scope[data-style-id="ethereal"] input[type="submit"] {
     font-family: 'Outfit', sans-serif !important;
     font-size: 0.875rem !important;
     font-weight: 500 !important;
@@ -249,7 +324,13 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] button:hover,
   .lab-styled-preview[data-style="ethereal"] input[type="submit"]:hover,
   .ethereal-styled-container button:hover,
-  .ethereal-styled-container input[type="submit"]:hover {
+  .style-ethereal button:hover,
+  [data-style="ethereal"] button:hover,
+  .ds-scope[data-style-id="ethereal"] button:hover,
+  .ethereal-styled-container input[type="submit"]:hover,
+  .style-ethereal input[type="submit"]:hover,
+  [data-style="ethereal"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="ethereal"] input[type="submit"]:hover {
     transform: translateY(-2px) !important;
     box-shadow: 
       0 8px 24px rgba(30, 32, 41, 0.22),
@@ -261,14 +342,23 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] button:active,
   .lab-styled-preview[data-style="ethereal"] input[type="submit"]:active,
   .ethereal-styled-container button:active,
-  .ethereal-styled-container input[type="submit"]:active {
+  .style-ethereal button:active,
+  [data-style="ethereal"] button:active,
+  .ds-scope[data-style-id="ethereal"] button:active,
+  .ethereal-styled-container input[type="submit"]:active,
+  .style-ethereal input[type="submit"]:active,
+  [data-style="ethereal"] input[type="submit"]:active,
+  .ds-scope[data-style-id="ethereal"] input[type="submit"]:active {
     transform: translateY(0) !important;
     box-shadow: 0 2px 8px rgba(30, 32, 41, 0.12) !important;
   }
 
   /* Secondary Buttons in Multi-Button Contexts */
   .lab-styled-preview[data-style="ethereal"] button + button,
-  .ethereal-styled-container button + button {
+  .ethereal-styled-container button + button,
+  .style-ethereal button + button,
+  [data-style="ethereal"] button + button,
+  .ds-scope[data-style-id="ethereal"] button + button {
     background: rgba(255, 255, 255, 0.8) !important;
     color: #242833 !important;
     border: 1px solid rgba(218, 226, 237, 0.65) !important;
@@ -276,7 +366,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] button + button:hover,
-  .ethereal-styled-container button + button:hover {
+  .ethereal-styled-container button + button:hover,
+  .style-ethereal button + button:hover,
+  [data-style="ethereal"] button + button:hover,
+  .ds-scope[data-style-id="ethereal"] button + button:hover {
     background: #ffffff !important;
     border-color: rgba(148, 163, 184, 0.8) !important;
     color: #111827 !important;
@@ -286,7 +379,10 @@ export const etherealSemanticCss = `
   /* 5. Surface & Cards: Pearlescent, Softly Elevated (Anti-Cardification) */
   /* Standalone main articles remain OPEN without artificial card boxing */
   .lab-styled-preview[data-style="ethereal"] main > article,
-  .ethereal-styled-container main > article {
+  .ethereal-styled-container main > article,
+  .style-ethereal main > article,
+  [data-style="ethereal"] main > article,
+  .ds-scope[data-style-id="ethereal"] main > article {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -301,8 +397,17 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] div article,
   .lab-styled-preview[data-style="ethereal"] .card,
   .ethereal-styled-container section article,
+  .style-ethereal section article,
+  [data-style="ethereal"] section article,
+  .ds-scope[data-style-id="ethereal"] section article,
   .ethereal-styled-container div article,
-  .ethereal-styled-container .card {
+  .style-ethereal div article,
+  [data-style="ethereal"] div article,
+  .ds-scope[data-style-id="ethereal"] div article,
+  .ethereal-styled-container .card,
+  .style-ethereal .card,
+  [data-style="ethereal"] .card,
+  .ds-scope[data-style-id="ethereal"] .card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.85) 0%, rgba(250, 252, 255, 0.75) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.95) !important;
     outline: 1px solid rgba(218, 226, 237, 0.4) !important;
@@ -321,8 +426,17 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] div article:hover,
   .lab-styled-preview[data-style="ethereal"] .card:hover,
   .ethereal-styled-container section article:hover,
+  .style-ethereal section article:hover,
+  [data-style="ethereal"] section article:hover,
+  .ds-scope[data-style-id="ethereal"] section article:hover,
   .ethereal-styled-container div article:hover,
-  .ethereal-styled-container .card:hover {
+  .style-ethereal div article:hover,
+  [data-style="ethereal"] div article:hover,
+  .ds-scope[data-style-id="ethereal"] div article:hover,
+  .ethereal-styled-container .card:hover,
+  .style-ethereal .card:hover,
+  [data-style="ethereal"] .card:hover,
+  .ds-scope[data-style-id="ethereal"] .card:hover {
     transform: translateY(-3px) !important;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(252, 253, 255, 0.88) 100%) !important;
     outline-color: rgba(199, 210, 254, 0.6) !important;
@@ -333,7 +447,10 @@ export const etherealSemanticCss = `
 
   /* Multi-article Grid Flow */
   .lab-styled-preview[data-style="ethereal"] section:has(article + article),
-  .ethereal-styled-container section:has(article + article) {
+  .ethereal-styled-container section:has(article + article),
+  .style-ethereal section:has(article + article),
+  [data-style="ethereal"] section:has(article + article),
+  .ds-scope[data-style-id="ethereal"] section:has(article + article) {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 1.75rem !important;
@@ -344,13 +461,22 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] section:has(article + article) > h2,
   .lab-styled-preview[data-style="ethereal"] section:has(article + article) > p:first-child,
   .ethereal-styled-container section:has(article + article) > h2,
-  .ethereal-styled-container section:has(article + article) > p:first-child {
+  .style-ethereal section:has(article + article) > h2,
+  [data-style="ethereal"] section:has(article + article) > h2,
+  .ds-scope[data-style-id="ethereal"] section:has(article + article) > h2,
+  .ethereal-styled-container section:has(article + article) > p:first-child,
+  .style-ethereal section:has(article + article) > p:first-child,
+  [data-style="ethereal"] section:has(article + article) > p:first-child,
+  .ds-scope[data-style-id="ethereal"] section:has(article + article) > p:first-child {
     grid-column: 1 / -1 !important;
   }
 
   /* 6. Dashboard & Metrics: Calm Data Surfaces */
   .lab-styled-preview[data-style="ethereal"] section:has(table),
-  .ethereal-styled-container section:has(table) {
+  .ethereal-styled-container section:has(table),
+  .style-ethereal section:has(table),
+  [data-style="ethereal"] section:has(table),
+  .ds-scope[data-style-id="ethereal"] section:has(table) {
     background: rgba(255, 255, 255, 0.75) !important;
     backdrop-filter: blur(12px) !important;
     border: 1px solid rgba(255, 255, 255, 0.95) !important;
@@ -363,7 +489,10 @@ export const etherealSemanticCss = `
 
   /* 7. Tables: Delicate Rules & Readable Contrast */
   .lab-styled-preview[data-style="ethereal"] table,
-  .ethereal-styled-container table {
+  .ethereal-styled-container table,
+  .style-ethereal table,
+  [data-style="ethereal"] table,
+  .ds-scope[data-style-id="ethereal"] table {
     width: 100% !important;
     border-collapse: collapse !important;
     margin: 1.5rem 0 !important;
@@ -371,7 +500,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] th,
-  .ethereal-styled-container th {
+  .ethereal-styled-container th,
+  .style-ethereal th,
+  [data-style="ethereal"] th,
+  .ds-scope[data-style-id="ethereal"] th {
     font-family: 'Outfit', sans-serif !important;
     font-weight: 500 !important;
     font-size: 0.75rem !important;
@@ -385,7 +517,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] td,
-  .ethereal-styled-container td {
+  .ethereal-styled-container td,
+  .style-ethereal td,
+  [data-style="ethereal"] td,
+  .ds-scope[data-style-id="ethereal"] td {
     padding: 1.1rem 1.25rem !important;
     border-bottom: 1px solid rgba(226, 232, 240, 0.5) !important;
     color: #374151 !important;
@@ -394,13 +529,19 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] tr:hover td,
-  .ethereal-styled-container tr:hover td {
+  .ethereal-styled-container tr:hover td,
+  .style-ethereal tr:hover td,
+  [data-style="ethereal"] tr:hover td,
+  .ds-scope[data-style-id="ethereal"] tr:hover td {
     background: rgba(255, 255, 255, 0.65) !important;
   }
 
   /* 8. Forms: Calm, Pale Pearl Fields & Luminous Focus */
   .lab-styled-preview[data-style="ethereal"] form,
-  .ethereal-styled-container form {
+  .ethereal-styled-container form,
+  .style-ethereal form,
+  [data-style="ethereal"] form,
+  .ds-scope[data-style-id="ethereal"] form {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.82) 0%, rgba(252, 253, 255, 0.75) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.95) !important;
     outline: 1px solid rgba(218, 226, 237, 0.4) !important;
@@ -413,7 +554,10 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] label,
-  .ethereal-styled-container label {
+  .ethereal-styled-container label,
+  .style-ethereal label,
+  [data-style="ethereal"] label,
+  .ds-scope[data-style-id="ethereal"] label {
     font-family: 'Outfit', sans-serif !important;
     font-size: 0.8125rem !important;
     font-weight: 500 !important;
@@ -427,8 +571,17 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] select,
   .lab-styled-preview[data-style="ethereal"] textarea,
   .ethereal-styled-container input,
+  .style-ethereal input,
+  [data-style="ethereal"] input,
+  .ds-scope[data-style-id="ethereal"] input,
   .ethereal-styled-container select,
-  .ethereal-styled-container textarea {
+  .style-ethereal select,
+  [data-style="ethereal"] select,
+  .ds-scope[data-style-id="ethereal"] select,
+  .ethereal-styled-container textarea,
+  .style-ethereal textarea,
+  [data-style="ethereal"] textarea,
+  .ds-scope[data-style-id="ethereal"] textarea {
     width: 100% !important;
     padding: 0.8rem 1.15rem !important;
     font-family: 'Inter', sans-serif !important;
@@ -447,8 +600,17 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] select:focus,
   .lab-styled-preview[data-style="ethereal"] textarea:focus,
   .ethereal-styled-container input:focus,
+  .style-ethereal input:focus,
+  [data-style="ethereal"] input:focus,
+  .ds-scope[data-style-id="ethereal"] input:focus,
   .ethereal-styled-container select:focus,
-  .ethereal-styled-container textarea:focus {
+  .style-ethereal select:focus,
+  [data-style="ethereal"] select:focus,
+  .ds-scope[data-style-id="ethereal"] select:focus,
+  .ethereal-styled-container textarea:focus,
+  .style-ethereal textarea:focus,
+  [data-style="ethereal"] textarea:focus,
+  .ds-scope[data-style-id="ethereal"] textarea:focus {
     outline: none !important;
     border-color: #818cf8 !important;
     background: #ffffff !important;
@@ -459,7 +621,10 @@ export const etherealSemanticCss = `
 
   /* 9. Quotes & Blockquotes: Weightless Editorial Serenity */
   .lab-styled-preview[data-style="ethereal"] blockquote,
-  .ethereal-styled-container blockquote {
+  .ethereal-styled-container blockquote,
+  .style-ethereal blockquote,
+  [data-style="ethereal"] blockquote,
+  .ds-scope[data-style-id="ethereal"] blockquote {
     font-family: 'Cormorant Garamond', serif !important;
     font-size: 1.45rem !important;
     font-style: italic !important;
@@ -476,7 +641,13 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] article:has(strong:contains("$")),
   .lab-styled-preview[data-style="ethereal"] article:has(h3 + p),
   .ethereal-styled-container article:has(strong:contains("$")),
-  .ethereal-styled-container article:has(h3 + p) {
+  .style-ethereal article:has(strong:contains("$")),
+  [data-style="ethereal"] article:has(strong:contains("$")),
+  .ds-scope[data-style-id="ethereal"] article:has(strong:contains("$")),
+  .ethereal-styled-container article:has(h3 + p),
+  .style-ethereal article:has(h3 + p),
+  [data-style="ethereal"] article:has(h3 + p),
+  .ds-scope[data-style-id="ethereal"] article:has(h3 + p) {
     position: relative !important;
   }
 
@@ -484,7 +655,13 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] span[class*="badge"],
   .lab-styled-preview[data-style="ethereal"] small,
   .ethereal-styled-container span[class*="badge"],
-  .ethereal-styled-container small {
+  .style-ethereal span[class*="badge"],
+  [data-style="ethereal"] span[class*="badge"],
+  .ds-scope[data-style-id="ethereal"] span[class*="badge"],
+  .ethereal-styled-container small,
+  .style-ethereal small,
+  [data-style="ethereal"] small,
+  .ds-scope[data-style-id="ethereal"] small {
     font-family: 'Outfit', sans-serif !important;
     font-size: 0.75rem !important;
     font-weight: 500 !important;
@@ -501,21 +678,33 @@ export const etherealSemanticCss = `
   .lab-styled-preview[data-style="ethereal"] ul,
   .lab-styled-preview[data-style="ethereal"] ol,
   .ethereal-styled-container ul,
-  .ethereal-styled-container ol {
+  .style-ethereal ul,
+  [data-style="ethereal"] ul,
+  .ds-scope[data-style-id="ethereal"] ul,
+  .ethereal-styled-container ol,
+  .style-ethereal ol,
+  [data-style="ethereal"] ol,
+  .ds-scope[data-style-id="ethereal"] ol {
     padding-left: 1.5rem !important;
     margin: 1.25rem 0 !important;
     color: #374151 !important;
   }
 
   .lab-styled-preview[data-style="ethereal"] li,
-  .ethereal-styled-container li {
+  .ethereal-styled-container li,
+  .style-ethereal li,
+  [data-style="ethereal"] li,
+  .ds-scope[data-style-id="ethereal"] li {
     margin-bottom: 0.6rem !important;
     line-height: 1.7 !important;
   }
 
   /* 13. Horizontal Dividers: Mist-like Fades */
   .lab-styled-preview[data-style="ethereal"] hr,
-  .ethereal-styled-container hr {
+  .ethereal-styled-container hr,
+  .style-ethereal hr,
+  [data-style="ethereal"] hr,
+  .ds-scope[data-style-id="ethereal"] hr {
     border: none !important;
     height: 1px !important;
     background: linear-gradient(to right, transparent, rgba(203, 213, 225, 0.6), transparent) !important;
@@ -524,7 +713,10 @@ export const etherealSemanticCss = `
 
   /* 14. Footer: Atmosphere Gently Fading */
   .lab-styled-preview[data-style="ethereal"] footer,
-  .ethereal-styled-container footer {
+  .ethereal-styled-container footer,
+  .style-ethereal footer,
+  [data-style="ethereal"] footer,
+  .ds-scope[data-style-id="ethereal"] footer {
     margin-top: 5rem !important;
     padding-top: 2.5rem !important;
     border-top: 1px solid rgba(226, 232, 240, 0.6) !important;
@@ -538,14 +730,20 @@ export const etherealSemanticCss = `
   }
 
   .lab-styled-preview[data-style="ethereal"] footer a,
-  .ethereal-styled-container footer a {
+  .ethereal-styled-container footer a,
+  .style-ethereal footer a,
+  [data-style="ethereal"] footer a,
+  .ds-scope[data-style-id="ethereal"] footer a {
     color: #4b5563 !important;
     text-decoration: none !important;
     transition: color 180ms ease !important;
   }
 
   .lab-styled-preview[data-style="ethereal"] footer a:hover,
-  .ethereal-styled-container footer a:hover {
+  .ethereal-styled-container footer a:hover,
+  .style-ethereal footer a:hover,
+  [data-style="ethereal"] footer a:hover,
+  .ds-scope[data-style-id="ethereal"] footer a:hover {
     color: #1e2029 !important;
   }
 
@@ -555,12 +753,18 @@ export const etherealSemanticCss = `
      ========================================================================== */
   @media (max-width: 768px) {
     .lab-styled-preview[data-style="ethereal"],
-    .ethereal-styled-container {
+    .ethereal-styled-container,
+    .style-ethereal,
+    [data-style="ethereal"],
+    .ds-scope[data-style-id="ethereal"] {
       padding: 2rem 1.25rem !important;
     }
 
     .lab-styled-preview[data-style="ethereal"] nav,
-    .ethereal-styled-container nav {
+    .ethereal-styled-container nav,
+    .style-ethereal nav,
+    [data-style="ethereal"] nav,
+    .ds-scope[data-style-id="ethereal"] nav {
       padding: 0.85rem 1.25rem !important;
       gap: 1rem !important;
       border-radius: 18px !important;
@@ -568,14 +772,20 @@ export const etherealSemanticCss = `
     }
 
     .lab-styled-preview[data-style="ethereal"] h1,
-    .ethereal-styled-container h1 {
+    .ethereal-styled-container h1,
+    .style-ethereal h1,
+    [data-style="ethereal"] h1,
+    .ds-scope[data-style-id="ethereal"] h1 {
       font-size: 2.25rem !important;
       line-height: 1.2 !important;
       margin-bottom: 1rem !important;
     }
 
     .lab-styled-preview[data-style="ethereal"] h2,
-    .ethereal-styled-container h2 {
+    .ethereal-styled-container h2,
+    .style-ethereal h2,
+    [data-style="ethereal"] h2,
+    .ds-scope[data-style-id="ethereal"] h2 {
       font-size: 1.65rem !important;
     }
 
@@ -583,20 +793,35 @@ export const etherealSemanticCss = `
     .lab-styled-preview[data-style="ethereal"] div article,
     .lab-styled-preview[data-style="ethereal"] .card,
     .ethereal-styled-container section article,
+    .style-ethereal section article,
+    [data-style="ethereal"] section article,
+    .ds-scope[data-style-id="ethereal"] section article,
     .ethereal-styled-container div article,
-    .ethereal-styled-container .card {
+    .style-ethereal div article,
+    [data-style="ethereal"] div article,
+    .ds-scope[data-style-id="ethereal"] div article,
+    .ethereal-styled-container .card,
+    .style-ethereal .card,
+    [data-style="ethereal"] .card,
+    .ds-scope[data-style-id="ethereal"] .card {
       padding: 1.5rem !important;
       border-radius: 12px !important;
     }
 
     .lab-styled-preview[data-style="ethereal"] form,
-    .ethereal-styled-container form {
+    .ethereal-styled-container form,
+    .style-ethereal form,
+    [data-style="ethereal"] form,
+    .ds-scope[data-style-id="ethereal"] form {
       padding: 1.75rem 1.25rem !important;
       border-radius: 14px !important;
     }
 
     .lab-styled-preview[data-style="ethereal"] section:has(article + article),
-    .ethereal-styled-container section:has(article + article) {
+    .ethereal-styled-container section:has(article + article),
+    .style-ethereal section:has(article + article),
+    [data-style="ethereal"] section:has(article + article),
+    .ds-scope[data-style-id="ethereal"] section:has(article + article) {
       grid-template-columns: 1fr !important;
       gap: 1.25rem !important;
     }
@@ -604,7 +829,10 @@ export const etherealSemanticCss = `
 
   @media (max-width: 480px) {
     .lab-styled-preview[data-style="ethereal"] nav,
-    .ethereal-styled-container nav {
+    .ethereal-styled-container nav,
+    .style-ethereal nav,
+    [data-style="ethereal"] nav,
+    .ds-scope[data-style-id="ethereal"] nav {
       flex-direction: column !important;
       align-items: flex-start !important;
       gap: 0.5rem !important;
@@ -613,7 +841,13 @@ export const etherealSemanticCss = `
     .lab-styled-preview[data-style="ethereal"] button,
     .lab-styled-preview[data-style="ethereal"] input[type="submit"],
     .ethereal-styled-container button,
-    .ethereal-styled-container input[type="submit"] {
+    .style-ethereal button,
+    [data-style="ethereal"] button,
+    .ds-scope[data-style-id="ethereal"] button,
+    .ethereal-styled-container input[type="submit"],
+    .style-ethereal input[type="submit"],
+    [data-style="ethereal"] input[type="submit"],
+    .ds-scope[data-style-id="ethereal"] input[type="submit"] {
       width: 100% !important;
     }
   }

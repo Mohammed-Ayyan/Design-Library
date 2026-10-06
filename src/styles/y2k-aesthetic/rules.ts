@@ -27,7 +27,13 @@ export const y2kAestheticSemanticCss = `
 
   /* 0. Canvas Foundation: Pearlescent Ice & Cyber Sheen */
   .lab-styled-preview[data-style="y2k-aesthetic"],
-  .y2k-aesthetic-styled-container {
+  .y2k-aesthetic-styled-container,
+  .style-y2k-aesthetic,
+  [data-style="y2k-aesthetic"],
+  .ds-scope[data-style-id="y2k-aesthetic"],
+  .style-y2k,
+  [data-style="y2k"],
+  .ds-scope[data-style-id="y2k"] {
     background-color: #f1f5f9 !important;
     background: radial-gradient(ellipse 80% 50% at 50% -10%, #ffffff 0%, #e2ecf7 60%, #d5e3f2 100%) !important;
     color: #0f172a !important;
@@ -42,7 +48,13 @@ export const y2kAestheticSemanticCss = `
 
   /* 1. Navigation: Futuristic Hardware / Cyber Browser Deck */
   .lab-styled-preview[data-style="y2k-aesthetic"] nav,
-  .y2k-aesthetic-styled-container nav {
+  .y2k-aesthetic-styled-container nav,
+  .style-y2k-aesthetic nav,
+  [data-style="y2k-aesthetic"] nav,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav,
+  .style-y2k nav,
+  [data-style="y2k"] nav,
+  .ds-scope[data-style-id="y2k"] nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -61,7 +73,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a,
-  .y2k-aesthetic-styled-container nav a {
+  .y2k-aesthetic-styled-container nav a,
+  .style-y2k-aesthetic nav a,
+  [data-style="y2k-aesthetic"] nav a,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav a,
+  .style-y2k nav a,
+  [data-style="y2k"] nav a,
+  .ds-scope[data-style-id="y2k"] nav a {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8125rem;
     font-weight: 700;
@@ -81,7 +99,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a:hover,
-  .y2k-aesthetic-styled-container nav a:hover {
+  .y2k-aesthetic-styled-container nav a:hover,
+  .style-y2k-aesthetic nav a:hover,
+  [data-style="y2k-aesthetic"] nav a:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav a:hover,
+  .style-y2k nav a:hover,
+  [data-style="y2k"] nav a:hover,
+  .ds-scope[data-style-id="y2k"] nav a:hover {
     background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
     color: #ffffff;
     border-color: #0284c7;
@@ -92,7 +116,13 @@ export const y2kAestheticSemanticCss = `
 
   /* First Link: Cyber Brand Titleplate */
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a:first-child,
-  .y2k-aesthetic-styled-container nav a:first-child {
+  .y2k-aesthetic-styled-container nav a:first-child,
+  .style-y2k-aesthetic nav a:first-child,
+  [data-style="y2k-aesthetic"] nav a:first-child,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav a:first-child,
+  .style-y2k nav a:first-child,
+  [data-style="y2k"] nav a:first-child,
+  .ds-scope[data-style-id="y2k"] nav a:first-child {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.15rem;
     font-weight: 800;
@@ -108,7 +138,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a:first-child::after,
-  .y2k-aesthetic-styled-container nav a:first-child::after {
+  .y2k-aesthetic-styled-container nav a:first-child::after,
+  .style-y2k-aesthetic nav a:first-child::after,
+  [data-style="y2k-aesthetic"] nav a:first-child::after,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav a:first-child::after,
+  .style-y2k nav a:first-child::after,
+  [data-style="y2k"] nav a:first-child::after,
+  .ds-scope[data-style-id="y2k"] nav a:first-child::after {
     content: " // 2001";
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6875rem;
@@ -122,7 +158,13 @@ export const y2kAestheticSemanticCss = `
 
   /* 2. Typographic Hierarchy: Futuristic Sans & Compact Cyber Telemetry */
   .lab-styled-preview[data-style="y2k-aesthetic"] h1,
-  .y2k-aesthetic-styled-container h1 {
+  .y2k-aesthetic-styled-container h1,
+  .style-y2k-aesthetic h1,
+  [data-style="y2k-aesthetic"] h1,
+  .ds-scope[data-style-id="y2k-aesthetic"] h1,
+  .style-y2k h1,
+  [data-style="y2k"] h1,
+  .ds-scope[data-style-id="y2k"] h1 {
     font-family: 'Space Grotesk', -apple-system, sans-serif !important;
     font-size: clamp(2.25rem, 5.2vw, 3.85rem) !important;
     font-weight: 800 !important;
@@ -138,7 +180,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] h2,
-  .y2k-aesthetic-styled-container h2 {
+  .y2k-aesthetic-styled-container h2,
+  .style-y2k-aesthetic h2,
+  [data-style="y2k-aesthetic"] h2,
+  .ds-scope[data-style-id="y2k-aesthetic"] h2,
+  .style-y2k h2,
+  [data-style="y2k"] h2,
+  .ds-scope[data-style-id="y2k"] h2 {
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: clamp(1.45rem, 3.2vw, 2.15rem) !important;
     font-weight: 800 !important;
@@ -153,7 +201,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] h2::before,
-  .y2k-aesthetic-styled-container h2::before {
+  .y2k-aesthetic-styled-container h2::before,
+  .style-y2k-aesthetic h2::before,
+  [data-style="y2k-aesthetic"] h2::before,
+  .ds-scope[data-style-id="y2k-aesthetic"] h2::before,
+  .style-y2k h2::before,
+  [data-style="y2k"] h2::before,
+  .ds-scope[data-style-id="y2k"] h2::before {
     content: "//";
     color: #0284c7;
     font-family: 'JetBrains Mono', monospace;
@@ -162,7 +216,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] h3,
-  .y2k-aesthetic-styled-container h3 {
+  .y2k-aesthetic-styled-container h3,
+  .style-y2k-aesthetic h3,
+  [data-style="y2k-aesthetic"] h3,
+  .ds-scope[data-style-id="y2k-aesthetic"] h3,
+  .style-y2k h3,
+  [data-style="y2k"] h3,
+  .ds-scope[data-style-id="y2k"] h3 {
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 1.2rem !important;
     font-weight: 700 !important;
@@ -176,7 +236,19 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] header > p:first-child,
   .lab-styled-preview[data-style="y2k-aesthetic"] section > p:first-child,
   .y2k-aesthetic-styled-container header > p:first-child,
-  .y2k-aesthetic-styled-container section > p:first-child {
+  .style-y2k-aesthetic header > p:first-child,
+  [data-style="y2k-aesthetic"] header > p:first-child,
+  .ds-scope[data-style-id="y2k-aesthetic"] header > p:first-child,
+  .style-y2k header > p:first-child,
+  [data-style="y2k"] header > p:first-child,
+  .ds-scope[data-style-id="y2k"] header > p:first-child,
+  .y2k-aesthetic-styled-container section > p:first-child,
+  .style-y2k-aesthetic section > p:first-child,
+  [data-style="y2k-aesthetic"] section > p:first-child,
+  .ds-scope[data-style-id="y2k-aesthetic"] section > p:first-child,
+  .style-y2k section > p:first-child,
+  [data-style="y2k"] section > p:first-child,
+  .ds-scope[data-style-id="y2k"] section > p:first-child {
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 0.6875rem !important;
     font-weight: 700 !important;
@@ -198,7 +270,19 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] header > p:first-child::before,
   .lab-styled-preview[data-style="y2k-aesthetic"] section > p:first-child::before,
   .y2k-aesthetic-styled-container header > p:first-child::before,
-  .y2k-aesthetic-styled-container section > p:first-child::before {
+  .style-y2k-aesthetic header > p:first-child::before,
+  [data-style="y2k-aesthetic"] header > p:first-child::before,
+  .ds-scope[data-style-id="y2k-aesthetic"] header > p:first-child::before,
+  .style-y2k header > p:first-child::before,
+  [data-style="y2k"] header > p:first-child::before,
+  .ds-scope[data-style-id="y2k"] header > p:first-child::before,
+  .y2k-aesthetic-styled-container section > p:first-child::before,
+  .style-y2k-aesthetic section > p:first-child::before,
+  [data-style="y2k-aesthetic"] section > p:first-child::before,
+  .ds-scope[data-style-id="y2k-aesthetic"] section > p:first-child::before,
+  .style-y2k section > p:first-child::before,
+  [data-style="y2k"] section > p:first-child::before,
+  .ds-scope[data-style-id="y2k"] section > p:first-child::before {
     content: "●";
     color: #06b6d4;
     font-size: 0.65rem;
@@ -206,7 +290,13 @@ export const y2kAestheticSemanticCss = `
 
   /* Body Paragraphs: Clear, high-comfort reading measure */
   .lab-styled-preview[data-style="y2k-aesthetic"] p,
-  .y2k-aesthetic-styled-container p {
+  .y2k-aesthetic-styled-container p,
+  .style-y2k-aesthetic p,
+  [data-style="y2k-aesthetic"] p,
+  .ds-scope[data-style-id="y2k-aesthetic"] p,
+  .style-y2k p,
+  [data-style="y2k"] p,
+  .ds-scope[data-style-id="y2k"] p {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
     font-size: 1.0125rem !important;
     line-height: 1.72 !important;
@@ -220,7 +310,19 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] button,
   .lab-styled-preview[data-style="y2k-aesthetic"] input[type="submit"],
   .y2k-aesthetic-styled-container button,
-  .y2k-aesthetic-styled-container input[type="submit"] {
+  .style-y2k-aesthetic button,
+  [data-style="y2k-aesthetic"] button,
+  .ds-scope[data-style-id="y2k-aesthetic"] button,
+  .style-y2k button,
+  [data-style="y2k"] button,
+  .ds-scope[data-style-id="y2k"] button,
+  .y2k-aesthetic-styled-container input[type="submit"],
+  .style-y2k-aesthetic input[type="submit"],
+  [data-style="y2k-aesthetic"] input[type="submit"],
+  .ds-scope[data-style-id="y2k-aesthetic"] input[type="submit"],
+  .style-y2k input[type="submit"],
+  [data-style="y2k"] input[type="submit"],
+  .ds-scope[data-style-id="y2k"] input[type="submit"] {
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 0.875rem !important;
     font-weight: 700 !important;
@@ -246,7 +348,19 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] button:hover,
   .lab-styled-preview[data-style="y2k-aesthetic"] input[type="submit"]:hover,
   .y2k-aesthetic-styled-container button:hover,
-  .y2k-aesthetic-styled-container input[type="submit"]:hover {
+  .style-y2k-aesthetic button:hover,
+  [data-style="y2k-aesthetic"] button:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] button:hover,
+  .style-y2k button:hover,
+  [data-style="y2k"] button:hover,
+  .ds-scope[data-style-id="y2k"] button:hover,
+  .y2k-aesthetic-styled-container input[type="submit"]:hover,
+  .style-y2k-aesthetic input[type="submit"]:hover,
+  [data-style="y2k-aesthetic"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] input[type="submit"]:hover,
+  .style-y2k input[type="submit"]:hover,
+  [data-style="y2k"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="y2k"] input[type="submit"]:hover {
     background: linear-gradient(180deg, #60a5fa 0%, #2563eb 48%, #1d4ed8 52%, #2563eb 100%) !important;
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), inset 0 -2px 4px rgba(0, 0, 0, 0.25), 0 6px 16px rgba(37, 99, 235, 0.45) !important;
     transform: translateY(-1px) !important;
@@ -255,14 +369,32 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] button:active,
   .lab-styled-preview[data-style="y2k-aesthetic"] input[type="submit"]:active,
   .y2k-aesthetic-styled-container button:active,
-  .y2k-aesthetic-styled-container input[type="submit"]:active {
+  .style-y2k-aesthetic button:active,
+  [data-style="y2k-aesthetic"] button:active,
+  .ds-scope[data-style-id="y2k-aesthetic"] button:active,
+  .style-y2k button:active,
+  [data-style="y2k"] button:active,
+  .ds-scope[data-style-id="y2k"] button:active,
+  .y2k-aesthetic-styled-container input[type="submit"]:active,
+  .style-y2k-aesthetic input[type="submit"]:active,
+  [data-style="y2k-aesthetic"] input[type="submit"]:active,
+  .ds-scope[data-style-id="y2k-aesthetic"] input[type="submit"]:active,
+  .style-y2k input[type="submit"]:active,
+  [data-style="y2k"] input[type="submit"]:active,
+  .ds-scope[data-style-id="y2k"] input[type="submit"]:active {
     transform: translateY(1px) !important;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4) !important;
   }
 
   /* Secondary Button: Polished Chrome / Silver Sheen */
   .lab-styled-preview[data-style="y2k-aesthetic"] button + button,
-  .y2k-aesthetic-styled-container button + button {
+  .y2k-aesthetic-styled-container button + button,
+  .style-y2k-aesthetic button + button,
+  [data-style="y2k-aesthetic"] button + button,
+  .ds-scope[data-style-id="y2k-aesthetic"] button + button,
+  .style-y2k button + button,
+  [data-style="y2k"] button + button,
+  .ds-scope[data-style-id="y2k"] button + button {
     background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 48%, #cbd5e1 52%, #e2e8f0 100%) !important;
     color: #0f172a !important;
     border: 1px solid #94a3b8 !important;
@@ -273,7 +405,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] button + button:hover,
-  .y2k-aesthetic-styled-container button + button:hover {
+  .y2k-aesthetic-styled-container button + button:hover,
+  .style-y2k-aesthetic button + button:hover,
+  [data-style="y2k-aesthetic"] button + button:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] button + button:hover,
+  .style-y2k button + button:hover,
+  [data-style="y2k"] button + button:hover,
+  .ds-scope[data-style-id="y2k"] button + button:hover {
     background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 48%, #94a3b8 52%, #cbd5e1 100%) !important;
     color: #000000 !important;
     box-shadow: inset 0 1px 1px #ffffff, 0 4px 12px rgba(100, 116, 139, 0.3) !important;
@@ -281,7 +419,13 @@ export const y2kAestheticSemanticCss = `
 
   /* 4. Translucent Plastic Panels & Articles (Anti-Cardification) */
   .lab-styled-preview[data-style="y2k-aesthetic"] article,
-  .y2k-aesthetic-styled-container article {
+  .y2k-aesthetic-styled-container article,
+  .style-y2k-aesthetic article,
+  [data-style="y2k-aesthetic"] article,
+  .ds-scope[data-style-id="y2k-aesthetic"] article,
+  .style-y2k article,
+  [data-style="y2k"] article,
+  .ds-scope[data-style-id="y2k"] article {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 246, 253, 0.85) 100%) !important;
     border: 1px solid #cbdceb !important;
     border-top: 1px solid #ffffff !important;
@@ -295,7 +439,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] article:hover,
-  .y2k-aesthetic-styled-container article:hover {
+  .y2k-aesthetic-styled-container article:hover,
+  .style-y2k-aesthetic article:hover,
+  [data-style="y2k-aesthetic"] article:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] article:hover,
+  .style-y2k article:hover,
+  [data-style="y2k"] article:hover,
+  .ds-scope[data-style-id="y2k"] article:hover {
     border-color: #7dd3fc !important;
     box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12), inset 0 1px 0 #ffffff !important;
     transform: translateY(-2px) !important;
@@ -305,7 +455,19 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] main > article,
   .lab-styled-preview[data-style="y2k-aesthetic"] .dispatch,
   .y2k-aesthetic-styled-container main > article,
-  .y2k-aesthetic-styled-container .dispatch {
+  .style-y2k-aesthetic main > article,
+  [data-style="y2k-aesthetic"] main > article,
+  .ds-scope[data-style-id="y2k-aesthetic"] main > article,
+  .style-y2k main > article,
+  [data-style="y2k"] main > article,
+  .ds-scope[data-style-id="y2k"] main > article,
+  .y2k-aesthetic-styled-container .dispatch,
+  .style-y2k-aesthetic .dispatch,
+  [data-style="y2k-aesthetic"] .dispatch,
+  .ds-scope[data-style-id="y2k-aesthetic"] .dispatch,
+  .style-y2k .dispatch,
+  [data-style="y2k"] .dispatch,
+  .ds-scope[data-style-id="y2k"] .dispatch {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -316,14 +478,32 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] main > article:hover,
   .lab-styled-preview[data-style="y2k-aesthetic"] .dispatch:hover,
   .y2k-aesthetic-styled-container main > article:hover,
-  .y2k-aesthetic-styled-container .dispatch:hover {
+  .style-y2k-aesthetic main > article:hover,
+  [data-style="y2k-aesthetic"] main > article:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] main > article:hover,
+  .style-y2k main > article:hover,
+  [data-style="y2k"] main > article:hover,
+  .ds-scope[data-style-id="y2k"] main > article:hover,
+  .y2k-aesthetic-styled-container .dispatch:hover,
+  .style-y2k-aesthetic .dispatch:hover,
+  [data-style="y2k-aesthetic"] .dispatch:hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] .dispatch:hover,
+  .style-y2k .dispatch:hover,
+  [data-style="y2k"] .dispatch:hover,
+  .ds-scope[data-style-id="y2k"] .dispatch:hover {
     transform: none !important;
     box-shadow: none !important;
   }
 
   /* 5. Pullquotes: Iridescent Ice & Aqua Framing */
   .lab-styled-preview[data-style="y2k-aesthetic"] blockquote,
-  .y2k-aesthetic-styled-container blockquote {
+  .y2k-aesthetic-styled-container blockquote,
+  .style-y2k-aesthetic blockquote,
+  [data-style="y2k-aesthetic"] blockquote,
+  .ds-scope[data-style-id="y2k-aesthetic"] blockquote,
+  .style-y2k blockquote,
+  [data-style="y2k"] blockquote,
+  .ds-scope[data-style-id="y2k"] blockquote {
     background: linear-gradient(135deg, rgba(224, 242, 254, 0.5) 0%, rgba(243, 232, 255, 0.4) 100%) !important;
     border: 1px solid #7dd3fc !important;
     border-left: 5px solid #0284c7 !important;
@@ -341,7 +521,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] blockquote::before,
-  .y2k-aesthetic-styled-container blockquote::before {
+  .y2k-aesthetic-styled-container blockquote::before,
+  .style-y2k-aesthetic blockquote::before,
+  [data-style="y2k-aesthetic"] blockquote::before,
+  .ds-scope[data-style-id="y2k-aesthetic"] blockquote::before,
+  .style-y2k blockquote::before,
+  [data-style="y2k"] blockquote::before,
+  .ds-scope[data-style-id="y2k"] blockquote::before {
     content: "“";
     font-size: 3.5rem;
     line-height: 1;
@@ -355,7 +541,13 @@ export const y2kAestheticSemanticCss = `
 
   /* 6. Subscription / Software Package Pricing Tiers */
   .lab-styled-preview[data-style="y2k-aesthetic"] div:has(> article button),
-  .y2k-aesthetic-styled-container div:has(> article button) {
+  .y2k-aesthetic-styled-container div:has(> article button),
+  .style-y2k-aesthetic div:has(> article button),
+  [data-style="y2k-aesthetic"] div:has(> article button),
+  .ds-scope[data-style-id="y2k-aesthetic"] div:has(> article button),
+  .style-y2k div:has(> article button),
+  [data-style="y2k"] div:has(> article button),
+  .ds-scope[data-style-id="y2k"] div:has(> article button) {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 1.75rem !important;
@@ -364,7 +556,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] article:has(button),
-  .y2k-aesthetic-styled-container article:has(button) {
+  .y2k-aesthetic-styled-container article:has(button),
+  .style-y2k-aesthetic article:has(button),
+  [data-style="y2k-aesthetic"] article:has(button),
+  .ds-scope[data-style-id="y2k-aesthetic"] article:has(button),
+  .style-y2k article:has(button),
+  [data-style="y2k"] article:has(button),
+  .ds-scope[data-style-id="y2k"] article:has(button) {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
@@ -377,7 +575,13 @@ export const y2kAestheticSemanticCss = `
 
   /* Featured Package Tier: Iridescent Cyan Border & Metallic Specular Glare */
   .lab-styled-preview[data-style="y2k-aesthetic"] article:has(button):nth-child(2),
-  .y2k-aesthetic-styled-container article:has(button):nth-child(2) {
+  .y2k-aesthetic-styled-container article:has(button):nth-child(2),
+  .style-y2k-aesthetic article:has(button):nth-child(2),
+  [data-style="y2k-aesthetic"] article:has(button):nth-child(2),
+  .ds-scope[data-style-id="y2k-aesthetic"] article:has(button):nth-child(2),
+  .style-y2k article:has(button):nth-child(2),
+  [data-style="y2k"] article:has(button):nth-child(2),
+  .ds-scope[data-style-id="y2k"] article:has(button):nth-child(2) {
     border: 2px solid #0284c7 !important;
     background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%) !important;
     box-shadow: 0 10px 28px rgba(2, 132, 199, 0.2), inset 0 1px 0 #ffffff !important;
@@ -386,7 +590,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] article:has(button):nth-child(2)::before,
-  .y2k-aesthetic-styled-container article:has(button):nth-child(2)::before {
+  .y2k-aesthetic-styled-container article:has(button):nth-child(2)::before,
+  .style-y2k-aesthetic article:has(button):nth-child(2)::before,
+  [data-style="y2k-aesthetic"] article:has(button):nth-child(2)::before,
+  .ds-scope[data-style-id="y2k-aesthetic"] article:has(button):nth-child(2)::before,
+  .style-y2k article:has(button):nth-child(2)::before,
+  [data-style="y2k"] article:has(button):nth-child(2)::before,
+  .ds-scope[data-style-id="y2k"] article:has(button):nth-child(2)::before {
     content: "CYBER EDITION // POPULAR";
     position: absolute;
     top: -12px;
@@ -408,7 +618,19 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] article:has(button) p:has(+ button),
   .lab-styled-preview[data-style="y2k-aesthetic"] article:has(button) strong,
   .y2k-aesthetic-styled-container article:has(button) p:has(+ button),
-  .y2k-aesthetic-styled-container article:has(button) strong {
+  .style-y2k-aesthetic article:has(button) p:has(+ button),
+  [data-style="y2k-aesthetic"] article:has(button) p:has(+ button),
+  .ds-scope[data-style-id="y2k-aesthetic"] article:has(button) p:has(+ button),
+  .style-y2k article:has(button) p:has(+ button),
+  [data-style="y2k"] article:has(button) p:has(+ button),
+  .ds-scope[data-style-id="y2k"] article:has(button) p:has(+ button),
+  .y2k-aesthetic-styled-container article:has(button) strong,
+  .style-y2k-aesthetic article:has(button) strong,
+  [data-style="y2k-aesthetic"] article:has(button) strong,
+  .ds-scope[data-style-id="y2k-aesthetic"] article:has(button) strong,
+  .style-y2k article:has(button) strong,
+  [data-style="y2k"] article:has(button) strong,
+  .ds-scope[data-style-id="y2k"] article:has(button) strong {
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 2.25rem !important;
     font-weight: 800 !important;
@@ -418,13 +640,25 @@ export const y2kAestheticSemanticCss = `
 
   /* 7. Dashboard & Telemetry: Consumer Technology Gadget UI */
   .lab-styled-preview[data-style="y2k-aesthetic"] section:has(> table),
-  .y2k-aesthetic-styled-container section:has(> table) {
+  .y2k-aesthetic-styled-container section:has(> table),
+  .style-y2k-aesthetic section:has(> table),
+  [data-style="y2k-aesthetic"] section:has(> table),
+  .ds-scope[data-style-id="y2k-aesthetic"] section:has(> table),
+  .style-y2k section:has(> table),
+  [data-style="y2k"] section:has(> table),
+  .ds-scope[data-style-id="y2k"] section:has(> table) {
     margin: 2.5rem 0 !important;
   }
 
   /* 8. Tables: Polished Metallic Ledgers */
   .lab-styled-preview[data-style="y2k-aesthetic"] table,
-  .y2k-aesthetic-styled-container table {
+  .y2k-aesthetic-styled-container table,
+  .style-y2k-aesthetic table,
+  [data-style="y2k-aesthetic"] table,
+  .ds-scope[data-style-id="y2k-aesthetic"] table,
+  .style-y2k table,
+  [data-style="y2k"] table,
+  .ds-scope[data-style-id="y2k"] table {
     width: 100% !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
@@ -437,7 +671,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] th,
-  .y2k-aesthetic-styled-container th {
+  .y2k-aesthetic-styled-container th,
+  .style-y2k-aesthetic th,
+  [data-style="y2k-aesthetic"] th,
+  .ds-scope[data-style-id="y2k-aesthetic"] th,
+  .style-y2k th,
+  [data-style="y2k"] th,
+  .ds-scope[data-style-id="y2k"] th {
     background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%) !important;
     color: #1e293b !important;
     font-family: 'Space Grotesk', sans-serif !important;
@@ -451,7 +691,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] td,
-  .y2k-aesthetic-styled-container td {
+  .y2k-aesthetic-styled-container td,
+  .style-y2k-aesthetic td,
+  [data-style="y2k-aesthetic"] td,
+  .ds-scope[data-style-id="y2k-aesthetic"] td,
+  .style-y2k td,
+  [data-style="y2k"] td,
+  .ds-scope[data-style-id="y2k"] td {
     padding: 0.85rem 1.25rem !important;
     border-bottom: 1px solid #f1f5f9 !important;
     color: #334155 !important;
@@ -460,18 +706,36 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] tr:last-child td,
-  .y2k-aesthetic-styled-container tr:last-child td {
+  .y2k-aesthetic-styled-container tr:last-child td,
+  .style-y2k-aesthetic tr:last-child td,
+  [data-style="y2k-aesthetic"] tr:last-child td,
+  .ds-scope[data-style-id="y2k-aesthetic"] tr:last-child td,
+  .style-y2k tr:last-child td,
+  [data-style="y2k"] tr:last-child td,
+  .ds-scope[data-style-id="y2k"] tr:last-child td {
     border-bottom: none !important;
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] tr:hover td,
-  .y2k-aesthetic-styled-container tr:hover td {
+  .y2k-aesthetic-styled-container tr:hover td,
+  .style-y2k-aesthetic tr:hover td,
+  [data-style="y2k-aesthetic"] tr:hover td,
+  .ds-scope[data-style-id="y2k-aesthetic"] tr:hover td,
+  .style-y2k tr:hover td,
+  [data-style="y2k"] tr:hover td,
+  .ds-scope[data-style-id="y2k"] tr:hover td {
     background-color: #f0f7ff !important;
   }
 
   /* 9. Forms: Glossy Inputs & Clear Focus Rings */
   .lab-styled-preview[data-style="y2k-aesthetic"] form,
-  .y2k-aesthetic-styled-container form {
+  .y2k-aesthetic-styled-container form,
+  .style-y2k-aesthetic form,
+  [data-style="y2k-aesthetic"] form,
+  .ds-scope[data-style-id="y2k-aesthetic"] form,
+  .style-y2k form,
+  [data-style="y2k"] form,
+  .ds-scope[data-style-id="y2k"] form {
     display: flex !important;
     flex-direction: column !important;
     gap: 1.25rem !important;
@@ -485,7 +749,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] label,
-  .y2k-aesthetic-styled-container label {
+  .y2k-aesthetic-styled-container label,
+  .style-y2k-aesthetic label,
+  [data-style="y2k-aesthetic"] label,
+  .ds-scope[data-style-id="y2k-aesthetic"] label,
+  .style-y2k label,
+  [data-style="y2k"] label,
+  .ds-scope[data-style-id="y2k"] label {
     display: block !important;
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 0.75rem !important;
@@ -500,8 +770,26 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] select,
   .lab-styled-preview[data-style="y2k-aesthetic"] textarea,
   .y2k-aesthetic-styled-container input,
+  .style-y2k-aesthetic input,
+  [data-style="y2k-aesthetic"] input,
+  .ds-scope[data-style-id="y2k-aesthetic"] input,
+  .style-y2k input,
+  [data-style="y2k"] input,
+  .ds-scope[data-style-id="y2k"] input,
   .y2k-aesthetic-styled-container select,
-  .y2k-aesthetic-styled-container textarea {
+  .style-y2k-aesthetic select,
+  [data-style="y2k-aesthetic"] select,
+  .ds-scope[data-style-id="y2k-aesthetic"] select,
+  .style-y2k select,
+  [data-style="y2k"] select,
+  .ds-scope[data-style-id="y2k"] select,
+  .y2k-aesthetic-styled-container textarea,
+  .style-y2k-aesthetic textarea,
+  [data-style="y2k-aesthetic"] textarea,
+  .ds-scope[data-style-id="y2k-aesthetic"] textarea,
+  .style-y2k textarea,
+  [data-style="y2k"] textarea,
+  .ds-scope[data-style-id="y2k"] textarea {
     background: #ffffff !important;
     border: 1px solid #b8cee2 !important;
     border-radius: 12px !important;
@@ -519,8 +807,26 @@ export const y2kAestheticSemanticCss = `
   .lab-styled-preview[data-style="y2k-aesthetic"] select:focus,
   .lab-styled-preview[data-style="y2k-aesthetic"] textarea:focus,
   .y2k-aesthetic-styled-container input:focus,
+  .style-y2k-aesthetic input:focus,
+  [data-style="y2k-aesthetic"] input:focus,
+  .ds-scope[data-style-id="y2k-aesthetic"] input:focus,
+  .style-y2k input:focus,
+  [data-style="y2k"] input:focus,
+  .ds-scope[data-style-id="y2k"] input:focus,
   .y2k-aesthetic-styled-container select:focus,
-  .y2k-aesthetic-styled-container textarea:focus {
+  .style-y2k-aesthetic select:focus,
+  [data-style="y2k-aesthetic"] select:focus,
+  .ds-scope[data-style-id="y2k-aesthetic"] select:focus,
+  .style-y2k select:focus,
+  [data-style="y2k"] select:focus,
+  .ds-scope[data-style-id="y2k"] select:focus,
+  .y2k-aesthetic-styled-container textarea:focus,
+  .style-y2k-aesthetic textarea:focus,
+  [data-style="y2k-aesthetic"] textarea:focus,
+  .ds-scope[data-style-id="y2k-aesthetic"] textarea:focus,
+  .style-y2k textarea:focus,
+  [data-style="y2k"] textarea:focus,
+  .ds-scope[data-style-id="y2k"] textarea:focus {
     border-color: #0284c7 !important;
     outline: none !important;
     box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25), inset 0 1px 2px rgba(0, 0, 0, 0.04) !important;
@@ -528,14 +834,26 @@ export const y2kAestheticSemanticCss = `
 
   /* 10. E-Commerce & Restaurant Menu Lists */
   .lab-styled-preview[data-style="y2k-aesthetic"] ul,
-  .y2k-aesthetic-styled-container ul {
+  .y2k-aesthetic-styled-container ul,
+  .style-y2k-aesthetic ul,
+  [data-style="y2k-aesthetic"] ul,
+  .ds-scope[data-style-id="y2k-aesthetic"] ul,
+  .style-y2k ul,
+  [data-style="y2k"] ul,
+  .ds-scope[data-style-id="y2k"] ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 1rem 0 !important;
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] li,
-  .y2k-aesthetic-styled-container li {
+  .y2k-aesthetic-styled-container li,
+  .style-y2k-aesthetic li,
+  [data-style="y2k-aesthetic"] li,
+  .ds-scope[data-style-id="y2k-aesthetic"] li,
+  .style-y2k li,
+  [data-style="y2k"] li,
+  .ds-scope[data-style-id="y2k"] li {
     padding: 0.5rem 0 !important;
     border-bottom: 1px solid #eef3f9 !important;
     color: #334155 !important;
@@ -546,7 +864,13 @@ export const y2kAestheticSemanticCss = `
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] li::before,
-  .y2k-aesthetic-styled-container li::before {
+  .y2k-aesthetic-styled-container li::before,
+  .style-y2k-aesthetic li::before,
+  [data-style="y2k-aesthetic"] li::before,
+  .ds-scope[data-style-id="y2k-aesthetic"] li::before,
+  .style-y2k li::before,
+  [data-style="y2k"] li::before,
+  .ds-scope[data-style-id="y2k"] li::before {
     content: "◆";
     color: #0284c7;
     font-size: 0.7rem;
@@ -554,7 +878,13 @@ export const y2kAestheticSemanticCss = `
 
   /* 11. Footer: Compact Cyber Colophon */
   .lab-styled-preview[data-style="y2k-aesthetic"] footer,
-  .y2k-aesthetic-styled-container footer {
+  .y2k-aesthetic-styled-container footer,
+  .style-y2k-aesthetic footer,
+  [data-style="y2k-aesthetic"] footer,
+  .ds-scope[data-style-id="y2k-aesthetic"] footer,
+  .style-y2k footer,
+  [data-style="y2k"] footer,
+  .ds-scope[data-style-id="y2k"] footer {
     border-top: 1px solid #cbdceb;
     padding-top: 2rem;
     margin-top: 3.5rem;
@@ -571,18 +901,36 @@ export const y2kAestheticSemanticCss = `
   /* Responsive Adjustments & Fluid Word Wrap */
   @media (max-width: 768px) {
     .lab-styled-preview[data-style="y2k-aesthetic"] nav,
-    .y2k-aesthetic-styled-container nav {
+    .y2k-aesthetic-styled-container nav,
+    .style-y2k-aesthetic nav,
+    [data-style="y2k-aesthetic"] nav,
+    .ds-scope[data-style-id="y2k-aesthetic"] nav,
+    .style-y2k nav,
+    [data-style="y2k"] nav,
+    .ds-scope[data-style-id="y2k"] nav {
       border-radius: 16px !important;
       padding: 0.75rem 1rem !important;
     }
 
     .lab-styled-preview[data-style="y2k-aesthetic"] h1,
-    .y2k-aesthetic-styled-container h1 {
+    .y2k-aesthetic-styled-container h1,
+    .style-y2k-aesthetic h1,
+    [data-style="y2k-aesthetic"] h1,
+    .ds-scope[data-style-id="y2k-aesthetic"] h1,
+    .style-y2k h1,
+    [data-style="y2k"] h1,
+    .ds-scope[data-style-id="y2k"] h1 {
       font-size: 2.15rem !important;
     }
 
     .lab-styled-preview[data-style="y2k-aesthetic"] div:has(> article button),
-    .y2k-aesthetic-styled-container div:has(> article button) {
+    .y2k-aesthetic-styled-container div:has(> article button),
+    .style-y2k-aesthetic div:has(> article button),
+    [data-style="y2k-aesthetic"] div:has(> article button),
+    .ds-scope[data-style-id="y2k-aesthetic"] div:has(> article button),
+    .style-y2k div:has(> article button),
+    [data-style="y2k"] div:has(> article button),
+    .ds-scope[data-style-id="y2k"] div:has(> article button) {
       grid-template-columns: 1fr !important;
     }
   }

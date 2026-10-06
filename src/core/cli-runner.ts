@@ -202,11 +202,13 @@ function formatExportCssOutput(styleId?: string): string {
   }
 
   const def = defaultStyles.find((s) => s.id === styleId);
-  if (!def) {
+  const specificCss = AdaptiveCSSGenerator.getStyleCSS(styleId);
+  if (!def && !specificCss) {
     return `/* Style "${styleId}" not found in library */`;
   }
 
-  return `/* Compiled Design Language: ${def.name} (${styleId}) */\n/* Scoped container: [data-style="${styleId}"] and .style-${styleId} */\n\n` + allCss;
+  const styleName = def?.name || styleId;
+  return `/* Compiled Design Language: ${styleName} (${styleId}) */\n/* Scoped container: [data-style="${styleId}"] and .style-${styleId} */\n\n` + (specificCss || allCss);
 }
 
 function formatInitOutput(): string {

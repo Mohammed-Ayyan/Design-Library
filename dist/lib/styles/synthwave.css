@@ -1,0 +1,903 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ==========================================================================
+     SYNTHWAVE DESIGN LANGUAGE — 1980S NEON RETRO-FUTURISM
+     ========================================================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  /* --------------------------------------------------------------------------
+     1. FOUNDATION & SCOPED VARIABLES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"],
+  .synthwave-styled-container,
+  .style-synthwave,
+  .ds-scope[data-style-id="synthwave"],
+  [data-style="synthwave"] {
+    /* Synthwave Deep Atmospheric Substrate */
+    --sw-bg: #0f051d;                    /* Deep midnight purple void */
+    --sw-surface: #190a34;               /* Twilight synth console panel */
+    --sw-surface-subtle: #250e49;        /* Deep indigo deck sub-layer */
+    --sw-surface-card: linear-gradient(180deg, rgba(29, 12, 60, 0.95) 0%, rgba(18, 7, 38, 0.98) 100%);
+    
+    /* Synthwave Luminous Typography */
+    --sw-text: #fdf4ff;                  /* Luminous starlight white with subtle rose warmth */
+    --sw-text-secondary: #d8b4fe;        /* Lavender neon glow text */
+    --sw-text-muted: #9370db;            /* Ambient medium purple */
+    
+    /* Synthwave Neon Signal Accents */
+    --sw-pink: #ff2a85;                  /* Electric neon pink */
+    --sw-pink-hover: #ff529f;            /* Luminous pink flare */
+    --sw-pink-glow: rgba(255, 42, 133, 0.55);
+    --sw-cyan: #01cdfe;                  /* Outrun laser cyan */
+    --sw-cyan-hover: #38e1ff;
+    --sw-cyan-glow: rgba(1, 205, 254, 0.45);
+    --sw-magenta: #d9008f;               /* Deep arcade magenta */
+    --sw-amber: #ff8c00;                 /* Sunset amber */
+    --sw-violet: #7c3aed;                /* Vibrant electric violet */
+    --sw-green: #05ffa1;                 /* Neon vector green */
+    --sw-border: #3d1466;                /* Deep violet neon conduit */
+    --sw-border-glow: rgba(255, 42, 133, 0.35);
+
+    /* Fonts */
+    --sw-font-display: 'Orbitron', 'Space Grotesk', -apple-system, sans-serif;
+    --sw-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --sw-font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+    /* Base Canvas Styling */
+    background-color: var(--sw-bg) !important;
+    color: var(--sw-text) !important;
+    font-family: var(--sw-font-body) !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.65 !important;
+    box-sizing: border-box !important;
+    position: relative;
+    min-height: 100%;
+    padding: 3rem 2.25rem;
+
+    /* Dual atmospheric background: top sunset neon glow & perspective horizon grid */
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -12%, rgba(255, 42, 133, 0.28) 0%, rgba(124, 58, 237, 0.16) 45%, transparent 75%),
+      linear-gradient(to right, rgba(255, 42, 133, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(1, 205, 254, 0.08) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 44px 44px, 44px 44px !important;
+
+    /* Distinct top neon horizon glow line */
+    border: 1px solid var(--sw-border) !important;
+    border-top: 2px solid var(--sw-pink) !important;
+    box-shadow: 0 -2px 18px rgba(255, 42, 133, 0.55), 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     2. GLOBAL RESETS & SCOPED ELEMENT STYLING
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] *,
+  .synthwave-styled-container *,
+  .style-synthwave *,
+  .ds-scope[data-style-id="synthwave"] *,
+  [data-style="synthwave"] * {
+    box-sizing: border-box;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. TYPOGRAPHY & HEADING HIERARCHY
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] h1,
+  .lab-styled-preview[data-style="synthwave"] h2,
+  .lab-styled-preview[data-style="synthwave"] h3,
+  .lab-styled-preview[data-style="synthwave"] h4,
+  .lab-styled-preview[data-style="synthwave"] h5,
+  .lab-styled-preview[data-style="synthwave"] h6,
+  .synthwave-styled-container h1,
+  .synthwave-styled-container h2,
+  .synthwave-styled-container h3,
+  .synthwave-styled-container h4,
+  .synthwave-styled-container h5,
+  .synthwave-styled-container h6,
+  .style-synthwave h1,
+  .style-synthwave h2,
+  .style-synthwave h3,
+  .style-synthwave h4,
+  .style-synthwave h5,
+  .style-synthwave h6,
+  .ds-scope[data-style-id="synthwave"] h1,
+  .ds-scope[data-style-id="synthwave"] h2,
+  .ds-scope[data-style-id="synthwave"] h3,
+  .ds-scope[data-style-id="synthwave"] h4,
+  .ds-scope[data-style-id="synthwave"] h5,
+  .ds-scope[data-style-id="synthwave"] h6,
+  [data-style="synthwave"] h1,
+  [data-style="synthwave"] h2,
+  [data-style="synthwave"] h3,
+  [data-style="synthwave"] h4,
+  [data-style="synthwave"] h5,
+  [data-style="synthwave"] h6 {
+    font-family: var(--sw-font-display) !important;
+    text-transform: uppercase !important;
+    margin-top: 0;
+    line-height: 1.2 !important;
+    color: var(--sw-text) !important;
+  }
+
+  /* Main Title H1: Sunset Neon Gradient & Outrun Glare */
+  .lab-styled-preview[data-style="synthwave"] h1,
+  .synthwave-styled-container h1,
+  .style-synthwave h1,
+  .ds-scope[data-style-id="synthwave"] h1,
+  [data-style="synthwave"] h1 {
+    font-size: 2.75rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 1.25rem !important;
+    background: linear-gradient(180deg, #ffffff 15%, #ff71ce 60%, #ff2a85 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 16px rgba(255, 42, 133, 0.45)) !important;
+  }
+
+  /* Section Title H2: Electric Neon Glow with Horizon Accent */
+  .lab-styled-preview[data-style="synthwave"] h2,
+  .synthwave-styled-container h2,
+  .style-synthwave h2,
+  .ds-scope[data-style-id="synthwave"] h2,
+  [data-style="synthwave"] h2 {
+    font-size: 1.85rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.06em !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 42, 133, 0.4), 0 0 20px rgba(1, 205, 254, 0.2) !important;
+    position: relative;
+    padding-bottom: 0.6rem !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] h2::after,
+  .synthwave-styled-container h2::after,
+  .style-synthwave h2::after,
+  .ds-scope[data-style-id="synthwave"] h2::after,
+  [data-style="synthwave"] h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--sw-pink) 0%, var(--sw-cyan) 100%);
+    box-shadow: 0 0 8px rgba(255, 42, 133, 0.6);
+  }
+
+  /* Card & Subsection Titles H3 */
+  .lab-styled-preview[data-style="synthwave"] h3,
+  .synthwave-styled-container h3,
+  .style-synthwave h3,
+  .ds-scope[data-style-id="synthwave"] h3,
+  [data-style="synthwave"] h3 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.75rem !important;
+    color: #fdf4ff !important;
+    text-shadow: 0 0 8px rgba(255, 42, 133, 0.25) !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] h4,
+  .synthwave-styled-container h4,
+  .style-synthwave h4,
+  .ds-scope[data-style-id="synthwave"] h4,
+  [data-style="synthwave"] h4 {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    color: var(--sw-cyan) !important;
+  }
+
+  /* Paragraphs & Text Content */
+  .lab-styled-preview[data-style="synthwave"] p,
+  .synthwave-styled-container p,
+  .style-synthwave p,
+  .ds-scope[data-style-id="synthwave"] p,
+  [data-style="synthwave"] p {
+    font-family: var(--sw-font-body) !important;
+    color: var(--sw-text-secondary) !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.65 !important;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] strong,
+  .synthwave-styled-container strong,
+  .style-synthwave strong,
+  .ds-scope[data-style-id="synthwave"] strong,
+  [data-style="synthwave"] strong {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+  }
+
+  /* Technical Monospace & Code */
+  .lab-styled-preview[data-style="synthwave"] code,
+  .lab-styled-preview[data-style="synthwave"] pre,
+  .synthwave-styled-container code,
+  .synthwave-styled-container pre,
+  .style-synthwave code,
+  .style-synthwave pre,
+  .ds-scope[data-style-id="synthwave"] code,
+  .ds-scope[data-style-id="synthwave"] pre,
+  [data-style="synthwave"] code,
+  [data-style="synthwave"] pre {
+    font-family: var(--sw-font-mono) !important;
+    background: #090312 !important;
+    color: var(--sw-cyan) !important;
+    border: 1px solid var(--sw-border) !important;
+    border-radius: 3px !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] code,
+  .synthwave-styled-container code,
+  .style-synthwave code,
+  .ds-scope[data-style-id="synthwave"] code,
+  [data-style="synthwave"] code {
+    padding: 0.2rem 0.45rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] pre,
+  .synthwave-styled-container pre,
+  .style-synthwave pre,
+  .ds-scope[data-style-id="synthwave"] pre,
+  [data-style="synthwave"] pre {
+    padding: 1.25rem !important;
+    overflow-x: auto;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     4. NAVIGATION & HEADER SYSTEM
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] nav,
+  .lab-styled-preview[data-style="synthwave"] header:not(.hero),
+  .synthwave-styled-container nav,
+  .synthwave-styled-container header:not(.hero),
+  .style-synthwave nav,
+  .style-synthwave header:not(.hero),
+  .ds-scope[data-style-id="synthwave"] nav,
+  .ds-scope[data-style-id="synthwave"] header:not(.hero),
+  [data-style="synthwave"] nav,
+  [data-style="synthwave"] header:not(.hero) {
+    background: rgba(25, 10, 52, 0.88) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 42, 133, 0.35) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(1, 205, 254, 0.2) !important;
+    padding: 1rem 1.75rem !important;
+    border-radius: 4px !important;
+    margin-bottom: 2.25rem !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] nav ul,
+  .synthwave-styled-container nav ul,
+  .style-synthwave nav ul,
+  .ds-scope[data-style-id="synthwave"] nav ul,
+  [data-style="synthwave"] nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.75rem !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] nav a,
+  .synthwave-styled-container nav a,
+  .style-synthwave nav a,
+  .ds-scope[data-style-id="synthwave"] nav a,
+  [data-style="synthwave"] nav a {
+    font-family: var(--sw-font-display) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--sw-text-secondary) !important;
+    text-decoration: none !important;
+    transition: all 180ms ease !important;
+    position: relative;
+    padding: 0.3rem 0;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] nav a:hover,
+  .synthwave-styled-container nav a:hover,
+  .style-synthwave nav a:hover,
+  .ds-scope[data-style-id="synthwave"] nav a:hover,
+  [data-style="synthwave"] nav a:hover {
+    color: var(--sw-cyan) !important;
+    text-shadow: 0 0 10px var(--sw-cyan), 0 0 20px rgba(1, 205, 254, 0.6) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     5. HERO / CINEMATIC INTRO
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] header.hero,
+  .lab-styled-preview[data-style="synthwave"] .hero,
+  .synthwave-styled-container header.hero,
+  .synthwave-styled-container .hero,
+  .style-synthwave header.hero,
+  .style-synthwave .hero,
+  .ds-scope[data-style-id="synthwave"] header.hero,
+  .ds-scope[data-style-id="synthwave"] .hero,
+  [data-style="synthwave"] header.hero,
+  [data-style="synthwave"] .hero {
+    position: relative;
+    padding: 3.5rem 2rem !important;
+    margin-bottom: 3rem !important;
+    border-radius: 6px !important;
+    background: radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255, 42, 133, 0.22) 0%, rgba(25, 10, 52, 0.85) 60%, rgba(15, 5, 29, 0.95) 100%) !important;
+    border: 1px solid rgba(255, 42, 133, 0.3) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(255, 42, 133, 0.12) !important;
+    overflow: hidden;
+  }
+
+  /* --------------------------------------------------------------------------
+     6. CARDS, SECTIONS & CONTAINER MODULES
+     -------------------------------------------------------------------------- */
+  /* Un-cardify ordinary text paragraphs, list items in text, headings, and nav */
+  .lab-styled-preview[data-style="synthwave"] article > p,
+  .lab-styled-preview[data-style="synthwave"] section > p,
+  .lab-styled-preview[data-style="synthwave"] main > p,
+  .synthwave-styled-container article > p,
+  .synthwave-styled-container section > p,
+  .synthwave-styled-container main > p,
+  .style-synthwave article > p,
+  .style-synthwave section > p,
+  .style-synthwave main > p,
+  .ds-scope[data-style-id="synthwave"] article > p,
+  .ds-scope[data-style-id="synthwave"] section > p,
+  .ds-scope[data-style-id="synthwave"] main > p,
+  [data-style="synthwave"] article > p,
+  [data-style="synthwave"] section > p,
+  [data-style="synthwave"] main > p {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* Actual Cards and Component Panels */
+  .lab-styled-preview[data-style="synthwave"] .card,
+  .lab-styled-preview[data-style="synthwave"] article:not(.prose),
+  .lab-styled-preview[data-style="synthwave"] .feature-card,
+  .lab-styled-preview[data-style="synthwave"] .pricing-card,
+  .lab-styled-preview[data-style="synthwave"] .tier,
+  .synthwave-styled-container .card,
+  .synthwave-styled-container article:not(.prose),
+  .synthwave-styled-container .feature-card,
+  .synthwave-styled-container .pricing-card,
+  .synthwave-styled-container .tier,
+  .style-synthwave .card,
+  .style-synthwave article:not(.prose),
+  .style-synthwave .feature-card,
+  .style-synthwave .pricing-card,
+  .style-synthwave .tier,
+  .ds-scope[data-style-id="synthwave"] .card,
+  .ds-scope[data-style-id="synthwave"] article:not(.prose),
+  .ds-scope[data-style-id="synthwave"] .feature-card,
+  .ds-scope[data-style-id="synthwave"] .pricing-card,
+  .ds-scope[data-style-id="synthwave"] .tier,
+  [data-style="synthwave"] .card,
+  [data-style="synthwave"] article:not(.prose),
+  [data-style="synthwave"] .feature-card,
+  [data-style="synthwave"] .pricing-card,
+  [data-style="synthwave"] .tier {
+    background: var(--sw-surface-card) !important;
+    border: 1px solid rgba(255, 42, 133, 0.25) !important;
+    border-radius: 4px !important;
+    padding: 2.25rem 2rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] .card:hover,
+  .lab-styled-preview[data-style="synthwave"] article:not(.prose):hover,
+  .lab-styled-preview[data-style="synthwave"] .feature-card:hover,
+  .lab-styled-preview[data-style="synthwave"] .pricing-card:hover,
+  .lab-styled-preview[data-style="synthwave"] .tier:hover,
+  .synthwave-styled-container .card:hover,
+  .synthwave-styled-container article:not(.prose):hover,
+  .synthwave-styled-container .feature-card:hover,
+  .synthwave-styled-container .pricing-card:hover,
+  .synthwave-styled-container .tier:hover,
+  .style-synthwave .card:hover,
+  .style-synthwave article:not(.prose):hover,
+  .style-synthwave .feature-card:hover,
+  .style-synthwave .pricing-card:hover,
+  .style-synthwave .tier:hover,
+  .ds-scope[data-style-id="synthwave"] .card:hover,
+  .ds-scope[data-style-id="synthwave"] article:not(.prose):hover,
+  .ds-scope[data-style-id="synthwave"] .feature-card:hover,
+  .ds-scope[data-style-id="synthwave"] .pricing-card:hover,
+  .ds-scope[data-style-id="synthwave"] .tier:hover,
+  [data-style="synthwave"] .card:hover,
+  [data-style="synthwave"] article:not(.prose):hover,
+  [data-style="synthwave"] .feature-card:hover,
+  [data-style="synthwave"] .pricing-card:hover,
+  [data-style="synthwave"] .tier:hover {
+    border-color: var(--sw-pink) !important;
+    box-shadow: 0 12px 38px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 42, 133, 0.3), 0 0 12px rgba(1, 205, 254, 0.18) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Grid & Flex Container Layouts */
+  .lab-styled-preview[data-style="synthwave"] .grid,
+  .lab-styled-preview[data-style="synthwave"] .stat-grid,
+  .lab-styled-preview[data-style="synthwave"] .pricing-grid,
+  .lab-styled-preview[data-style="synthwave"] .product-grid,
+  .lab-styled-preview[data-style="synthwave"] section > div:not(.hero),
+  .synthwave-styled-container .grid,
+  .synthwave-styled-container .stat-grid,
+  .synthwave-styled-container .pricing-grid,
+  .synthwave-styled-container .product-grid,
+  .synthwave-styled-container section > div:not(.hero),
+  .style-synthwave .grid,
+  .style-synthwave .stat-grid,
+  .style-synthwave .pricing-grid,
+  .style-synthwave .product-grid,
+  .style-synthwave section > div:not(.hero),
+  .ds-scope[data-style-id="synthwave"] .grid,
+  .ds-scope[data-style-id="synthwave"] .stat-grid,
+  .ds-scope[data-style-id="synthwave"] .pricing-grid,
+  .ds-scope[data-style-id="synthwave"] .product-grid,
+  .ds-scope[data-style-id="synthwave"] section > div:not(.hero),
+  [data-style="synthwave"] .grid,
+  [data-style="synthwave"] .stat-grid,
+  [data-style="synthwave"] .pricing-grid,
+  [data-style="synthwave"] .product-grid,
+  [data-style="synthwave"] section > div:not(.hero) {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.75rem !important;
+  }
+
+  /* Card Button Full-Width & Spacing */
+  .lab-styled-preview[data-style="synthwave"] .card button,
+  .synthwave-styled-container .card button,
+  .style-synthwave .card button,
+  .ds-scope[data-style-id="synthwave"] .card button,
+  [data-style="synthwave"] .card button {
+    margin-top: 1rem !important;
+    width: 100% !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     7. BUTTONS & INTERACTIVE CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] button,
+  .lab-styled-preview[data-style="synthwave"] .btn,
+  .lab-styled-preview[data-style="synthwave"] a.btn,
+  .lab-styled-preview[data-style="synthwave"] input[type="submit"],
+  .lab-styled-preview[data-style="synthwave"] input[type="button"],
+  .synthwave-styled-container button,
+  .synthwave-styled-container .btn,
+  .synthwave-styled-container a.btn,
+  .synthwave-styled-container input[type="submit"],
+  .synthwave-styled-container input[type="button"],
+  .style-synthwave button,
+  .style-synthwave .btn,
+  .style-synthwave a.btn,
+  .style-synthwave input[type="submit"],
+  .style-synthwave input[type="button"],
+  .ds-scope[data-style-id="synthwave"] button,
+  .ds-scope[data-style-id="synthwave"] .btn,
+  .ds-scope[data-style-id="synthwave"] a.btn,
+  .ds-scope[data-style-id="synthwave"] input[type="submit"],
+  .ds-scope[data-style-id="synthwave"] input[type="button"],
+  [data-style="synthwave"] button,
+  [data-style="synthwave"] .btn,
+  [data-style="synthwave"] a.btn,
+  [data-style="synthwave"] input[type="submit"],
+  [data-style="synthwave"] input[type="button"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.75rem 2rem !important;
+    font-family: var(--sw-font-display) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--sw-pink) !important;
+    background: linear-gradient(135deg, #ff2a85 0%, #c0007a 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(255, 42, 133, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: all 180ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] button:hover,
+  .lab-styled-preview[data-style="synthwave"] .btn:hover,
+  .lab-styled-preview[data-style="synthwave"] a.btn:hover,
+  .lab-styled-preview[data-style="synthwave"] input[type="submit"]:hover,
+  .synthwave-styled-container button:hover,
+  .synthwave-styled-container .btn:hover,
+  .synthwave-styled-container a.btn:hover,
+  .synthwave-styled-container input[type="submit"]:hover,
+  .style-synthwave button:hover,
+  .style-synthwave .btn:hover,
+  .style-synthwave a.btn:hover,
+  .style-synthwave input[type="submit"]:hover,
+  .ds-scope[data-style-id="synthwave"] button:hover,
+  .ds-scope[data-style-id="synthwave"] .btn:hover,
+  .ds-scope[data-style-id="synthwave"] a.btn:hover,
+  .ds-scope[data-style-id="synthwave"] input[type="submit"]:hover,
+  [data-style="synthwave"] button:hover,
+  [data-style="synthwave"] .btn:hover,
+  [data-style="synthwave"] a.btn:hover,
+  [data-style="synthwave"] input[type="submit"]:hover {
+    background: linear-gradient(135deg, #ff529f 0%, #ff007f 100%) !important;
+    border-color: var(--sw-cyan) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 25px rgba(255, 42, 133, 0.7), 0 0 15px rgba(1, 205, 254, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] button:active,
+  .synthwave-styled-container button:active,
+  .style-synthwave button:active,
+  .ds-scope[data-style-id="synthwave"] button:active,
+  [data-style="synthwave"] button:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 0 10px rgba(255, 42, 133, 0.4) !important;
+  }
+
+  /* Keyboard Focus Accessibility */
+  .lab-styled-preview[data-style="synthwave"] button:focus-visible,
+  .lab-styled-preview[data-style="synthwave"] a:focus-visible,
+  .lab-styled-preview[data-style="synthwave"] input:focus-visible,
+  .synthwave-styled-container button:focus-visible,
+  .synthwave-styled-container a:focus-visible,
+  .synthwave-styled-container input:focus-visible,
+  .style-synthwave button:focus-visible,
+  .style-synthwave a:focus-visible,
+  .style-synthwave input:focus-visible,
+  .ds-scope[data-style-id="synthwave"] button:focus-visible,
+  .ds-scope[data-style-id="synthwave"] a:focus-visible,
+  .ds-scope[data-style-id="synthwave"] input:focus-visible,
+  [data-style="synthwave"] button:focus-visible,
+  [data-style="synthwave"] a:focus-visible,
+  [data-style="synthwave"] input:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--sw-bg), 0 0 0 4px var(--sw-cyan), 0 0 20px var(--sw-cyan) !important;
+  }
+
+  /* Disabled State */
+  .lab-styled-preview[data-style="synthwave"] button:disabled,
+  .lab-styled-preview[data-style="synthwave"] input:disabled,
+  .synthwave-styled-container button:disabled,
+  .synthwave-styled-container input:disabled,
+  .style-synthwave button:disabled,
+  .style-synthwave input:disabled,
+  .ds-scope[data-style-id="synthwave"] button:disabled,
+  .ds-scope[data-style-id="synthwave"] input:disabled,
+  [data-style="synthwave"] button:disabled,
+  [data-style="synthwave"] input:disabled {
+    opacity: 0.45 !important;
+    cursor: not-allowed !important;
+    filter: grayscale(0.6) !important;
+    box-shadow: none !important;
+  }
+
+  /* Secondary / Outrun Laser Button */
+  .lab-styled-preview[data-style="synthwave"] .btn-secondary,
+  .synthwave-styled-container .btn-secondary,
+  .style-synthwave .btn-secondary,
+  .ds-scope[data-style-id="synthwave"] .btn-secondary,
+  [data-style="synthwave"] .btn-secondary {
+    background: rgba(1, 205, 254, 0.08) !important;
+    border: 1px solid var(--sw-cyan) !important;
+    color: var(--sw-cyan) !important;
+    box-shadow: 0 0 12px rgba(1, 205, 254, 0.25) !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] .btn-secondary:hover,
+  .synthwave-styled-container .btn-secondary:hover,
+  .style-synthwave .btn-secondary:hover,
+  .ds-scope[data-style-id="synthwave"] .btn-secondary:hover,
+  [data-style="synthwave"] .btn-secondary:hover {
+    background: var(--sw-cyan) !important;
+    color: #0f051d !important;
+    box-shadow: 0 0 25px rgba(1, 205, 254, 0.65) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     8. FORMS, INPUTS & CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] input[type="text"],
+  .lab-styled-preview[data-style="synthwave"] input[type="email"],
+  .lab-styled-preview[data-style="synthwave"] input[type="password"],
+  .lab-styled-preview[data-style="synthwave"] input[type="tel"],
+  .lab-styled-preview[data-style="synthwave"] input[type="search"],
+  .lab-styled-preview[data-style="synthwave"] textarea,
+  .lab-styled-preview[data-style="synthwave"] select,
+  .synthwave-styled-container input[type="text"],
+  .synthwave-styled-container input[type="email"],
+  .synthwave-styled-container input[type="password"],
+  .synthwave-styled-container input[type="tel"],
+  .synthwave-styled-container input[type="search"],
+  .synthwave-styled-container textarea,
+  .synthwave-styled-container select,
+  .style-synthwave input[type="text"],
+  .style-synthwave input[type="email"],
+  .style-synthwave input[type="password"],
+  .style-synthwave input[type="tel"],
+  .style-synthwave input[type="search"],
+  .style-synthwave textarea,
+  .style-synthwave select,
+  .ds-scope[data-style-id="synthwave"] input[type="text"],
+  .ds-scope[data-style-id="synthwave"] input[type="email"],
+  .ds-scope[data-style-id="synthwave"] input[type="password"],
+  .ds-scope[data-style-id="synthwave"] input[type="tel"],
+  .ds-scope[data-style-id="synthwave"] input[type="search"],
+  .ds-scope[data-style-id="synthwave"] textarea,
+  .ds-scope[data-style-id="synthwave"] select,
+  [data-style="synthwave"] input[type="text"],
+  [data-style="synthwave"] input[type="email"],
+  [data-style="synthwave"] input[type="password"],
+  [data-style="synthwave"] input[type="tel"],
+  [data-style="synthwave"] input[type="search"],
+  [data-style="synthwave"] textarea,
+  [data-style="synthwave"] select {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    font-family: var(--sw-font-body) !important;
+    font-size: 0.875rem !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--sw-border) !important;
+    background: #0d041c !important;
+    color: var(--sw-text) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+    transition: all 180ms ease !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] input::placeholder,
+  .lab-styled-preview[data-style="synthwave"] textarea::placeholder,
+  .synthwave-styled-container input::placeholder,
+  .synthwave-styled-container textarea::placeholder,
+  .style-synthwave input::placeholder,
+  .style-synthwave textarea::placeholder,
+  .ds-scope[data-style-id="synthwave"] input::placeholder,
+  .ds-scope[data-style-id="synthwave"] textarea::placeholder,
+  [data-style="synthwave"] input::placeholder,
+  [data-style="synthwave"] textarea::placeholder {
+    color: var(--sw-violet) !important;
+    opacity: 0.8;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] input:focus,
+  .lab-styled-preview[data-style="synthwave"] textarea:focus,
+  .lab-styled-preview[data-style="synthwave"] select:focus,
+  .synthwave-styled-container input:focus,
+  .synthwave-styled-container textarea:focus,
+  .synthwave-styled-container select:focus,
+  .style-synthwave input:focus,
+  .style-synthwave textarea:focus,
+  .style-synthwave select:focus,
+  .ds-scope[data-style-id="synthwave"] input:focus,
+  .ds-scope[data-style-id="synthwave"] textarea:focus,
+  .ds-scope[data-style-id="synthwave"] select:focus,
+  [data-style="synthwave"] input:focus,
+  [data-style="synthwave"] textarea:focus,
+  [data-style="synthwave"] select:focus {
+    border-color: var(--sw-cyan) !important;
+    box-shadow: 0 0 0 2px rgba(1, 205, 254, 0.25), 0 0 15px rgba(1, 205, 254, 0.3) !important;
+    outline: none !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] label,
+  .synthwave-styled-container label,
+  .style-synthwave label,
+  .ds-scope[data-style-id="synthwave"] label,
+  [data-style="synthwave"] label {
+    display: block !important;
+    font-family: var(--sw-font-display) !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--sw-text-secondary) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     9. TABLES & DATA MATRICES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="synthwave"] table,
+  .synthwave-styled-container table,
+  .style-synthwave table,
+  .ds-scope[data-style-id="synthwave"] table,
+  [data-style="synthwave"] table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border: 1px solid var(--sw-border) !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    margin-bottom: 1.75rem !important;
+    background: rgba(20, 8, 42, 0.85) !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] th,
+  .synthwave-styled-container th,
+  .style-synthwave th,
+  .ds-scope[data-style-id="synthwave"] th,
+  [data-style="synthwave"] th {
+    background: rgba(37, 11, 77, 0.75) !important;
+    color: #ff71ce !important;
+    font-family: var(--sw-font-display) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    padding: 0.85rem 1.15rem !important;
+    text-align: left !important;
+    border-bottom: 2px solid var(--sw-pink) !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] td,
+  .synthwave-styled-container td,
+  .style-synthwave td,
+  .ds-scope[data-style-id="synthwave"] td,
+  [data-style="synthwave"] td {
+    padding: 0.85rem 1.15rem !important;
+    border-bottom: 1px solid rgba(255, 42, 133, 0.15) !important;
+    color: var(--sw-text-secondary) !important;
+    font-size: 0.875rem !important;
+  }
+
+  .lab-styled-preview[data-style="synthwave"] tr:hover td,
+  .synthwave-styled-container tr:hover td,
+  .style-synthwave tr:hover td,
+  .ds-scope[data-style-id="synthwave"] tr:hover td,
+  [data-style="synthwave"] tr:hover td {
+    background: rgba(255, 42, 133, 0.08) !important;
+    color: #ffffff !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     10. SPECIFIC ARCHETYPE ADAPTATIONS
+     -------------------------------------------------------------------------- */
+  /* Badges & Tags */
+  .lab-styled-preview[data-style="synthwave"] .badge,
+  .lab-styled-preview[data-style="synthwave"] .tag,
+  .synthwave-styled-container .badge,
+  .synthwave-styled-container .tag,
+  .style-synthwave .badge,
+  .style-synthwave .tag,
+  .ds-scope[data-style-id="synthwave"] .badge,
+  .ds-scope[data-style-id="synthwave"] .tag,
+  [data-style="synthwave"] .badge,
+  [data-style="synthwave"] .tag {
+    display: inline-block !important;
+    padding: 0.25rem 0.75rem !important;
+    font-family: var(--sw-font-display) !important;
+    font-size: 0.6875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    border-radius: 2px !important;
+    border: 1px solid var(--sw-pink) !important;
+    background: rgba(255, 42, 133, 0.12) !important;
+    color: #ff71ce !important;
+  }
+
+  /* Featured / VIP Pricing Tier */
+  .lab-styled-preview[data-style="synthwave"] .pricing-card.featured,
+  .lab-styled-preview[data-style="synthwave"] .tier.featured,
+  .synthwave-styled-container .pricing-card.featured,
+  .synthwave-styled-container .tier.featured,
+  .style-synthwave .pricing-card.featured,
+  .style-synthwave .tier.featured,
+  .ds-scope[data-style-id="synthwave"] .pricing-card.featured,
+  .ds-scope[data-style-id="synthwave"] .tier.featured,
+  [data-style="synthwave"] .pricing-card.featured,
+  [data-style="synthwave"] .tier.featured {
+    border: 2px solid var(--sw-pink) !important;
+    box-shadow: 0 0 35px rgba(255, 42, 133, 0.4), inset 0 0 20px rgba(255, 42, 133, 0.15) !important;
+    transform: scale(1.02);
+  }
+
+  /* Editorial Blockquote */
+  .lab-styled-preview[data-style="synthwave"] blockquote,
+  .synthwave-styled-container blockquote,
+  .style-synthwave blockquote,
+  .ds-scope[data-style-id="synthwave"] blockquote,
+  [data-style="synthwave"] blockquote {
+    border-left: 3px solid var(--sw-pink) !important;
+    background: rgba(25, 10, 52, 0.6) !important;
+    padding: 1.25rem 1.75rem !important;
+    margin: 1.75rem 0 !important;
+    color: #fdf4ff !important;
+    font-style: italic !important;
+    border-radius: 0 4px 4px 0 !important;
+    box-shadow: 0 0 15px rgba(255, 42, 133, 0.12) !important;
+  }
+
+  /* Dashboard LED / Status Readouts */
+  .lab-styled-preview[data-style="synthwave"] .led,
+  .lab-styled-preview[data-style="synthwave"] .status-dot,
+  .synthwave-styled-container .led,
+  .synthwave-styled-container .status-dot,
+  .style-synthwave .led,
+  .style-synthwave .status-dot,
+  .ds-scope[data-style-id="synthwave"] .led,
+  .ds-scope[data-style-id="synthwave"] .status-dot,
+  [data-style="synthwave"] .led,
+  [data-style="synthwave"] .status-dot {
+    display: inline-block !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: var(--sw-green) !important;
+    box-shadow: 0 0 10px var(--sw-green) !important;
+  }
+
+  /* E-Commerce Product Price Tags */
+  .lab-styled-preview[data-style="synthwave"] .price,
+  .synthwave-styled-container .price,
+  .style-synthwave .price,
+  .ds-scope[data-style-id="synthwave"] .price,
+  [data-style="synthwave"] .price {
+    font-family: var(--sw-font-display) !important;
+    font-weight: 800 !important;
+    color: var(--sw-green) !important;
+    text-shadow: 0 0 10px rgba(5, 255, 161, 0.45) !important;
+    font-size: 1.35rem !important;
+  }
+
+  /* Restaurant Late-Night Diner Menu Item */
+  .lab-styled-preview[data-style="synthwave"] .menu-item,
+  .synthwave-styled-container .menu-item,
+  .style-synthwave .menu-item,
+  .ds-scope[data-style-id="synthwave"] .menu-item,
+  [data-style="synthwave"] .menu-item {
+    border-bottom: 1px dashed rgba(255, 42, 133, 0.3) !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Footer Styling */
+  .lab-styled-preview[data-style="synthwave"] footer,
+  .synthwave-styled-container footer,
+  .style-synthwave footer,
+  .ds-scope[data-style-id="synthwave"] footer,
+  [data-style="synthwave"] footer {
+    border-top: 1px solid var(--sw-border) !important;
+    padding-top: 2rem !important;
+    margin-top: 3.5rem !important;
+    font-family: var(--sw-font-body) !important;
+    font-size: 0.8125rem !important;
+    color: var(--sw-text-muted) !important;
+    text-align: center;
+  }
+
+  /* --------------------------------------------------------------------------
+     11. PREFERS-REDUCED-MOTION
+     -------------------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .lab-styled-preview[data-style="synthwave"] *,
+    .synthwave-styled-container *,
+    .style-synthwave *,
+    .ds-scope[data-style-id="synthwave"] *,
+    [data-style="synthwave"] * {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+[class*="style-"] { overflow-x: hidden; }
+[class*="style-"] * { box-sizing: border-box; }

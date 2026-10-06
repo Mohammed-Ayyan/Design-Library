@@ -14,7 +14,13 @@ export const glassmorphismSemanticCss = `
      1. ATMOSPHERIC CANVAS FOUNDATION
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"],
-  .glassmorphism-styled-container {
+  .glassmorphism-styled-container,
+  .style-glassmorphism,
+  [data-style="glassmorphism"],
+  .ds-scope[data-style-id="glassmorphism"],
+  .style-glass,
+  [data-style="glass"],
+  .ds-scope[data-style-id="glass"] {
     position: relative;
     background-color: #060814 !important;
     background-image: 
@@ -34,7 +40,13 @@ export const glassmorphismSemanticCss = `
      2. FLOATING NAVIGATION DOCK (GLASS-1)
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] nav,
-  .glassmorphism-styled-container nav {
+  .glassmorphism-styled-container nav,
+  .style-glassmorphism nav,
+  [data-style="glassmorphism"] nav,
+  .ds-scope[data-style-id="glassmorphism"] nav,
+  .style-glass nav,
+  [data-style="glass"] nav,
+  .ds-scope[data-style-id="glass"] nav {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
@@ -52,7 +64,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] nav a,
-  .glassmorphism-styled-container nav a {
+  .glassmorphism-styled-container nav a,
+  .style-glassmorphism nav a,
+  [data-style="glassmorphism"] nav a,
+  .ds-scope[data-style-id="glassmorphism"] nav a,
+  .style-glass nav a,
+  [data-style="glass"] nav a,
+  .ds-scope[data-style-id="glass"] nav a {
     font-family: 'Inter', sans-serif;
     font-size: 0.8125rem;
     font-weight: 500;
@@ -65,7 +83,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] nav a:hover,
-  .glassmorphism-styled-container nav a:hover {
+  .glassmorphism-styled-container nav a:hover,
+  .style-glassmorphism nav a:hover,
+  [data-style="glassmorphism"] nav a:hover,
+  .ds-scope[data-style-id="glassmorphism"] nav a:hover,
+  .style-glass nav a:hover,
+  [data-style="glass"] nav a:hover,
+  .ds-scope[data-style-id="glass"] nav a:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.07);
   }
@@ -77,7 +101,19 @@ export const glassmorphismSemanticCss = `
   .lab-styled-preview[data-style="glassmorphism"] header > p:first-child,
   .lab-styled-preview[data-style="glassmorphism"] section > p:first-child,
   .glassmorphism-styled-container header > p:first-child,
-  .glassmorphism-styled-container section > p:first-child {
+  .style-glassmorphism header > p:first-child,
+  [data-style="glassmorphism"] header > p:first-child,
+  .ds-scope[data-style-id="glassmorphism"] header > p:first-child,
+  .style-glass header > p:first-child,
+  [data-style="glass"] header > p:first-child,
+  .ds-scope[data-style-id="glass"] header > p:first-child,
+  .glassmorphism-styled-container section > p:first-child,
+  .style-glassmorphism section > p:first-child,
+  [data-style="glassmorphism"] section > p:first-child,
+  .ds-scope[data-style-id="glassmorphism"] section > p:first-child,
+  .style-glass section > p:first-child,
+  [data-style="glass"] section > p:first-child,
+  .ds-scope[data-style-id="glass"] section > p:first-child {
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -89,7 +125,13 @@ export const glassmorphismSemanticCss = `
 
   /* Display Headings float cleanly above spatial void */
   .lab-styled-preview[data-style="glassmorphism"] h1,
-  .glassmorphism-styled-container h1 {
+  .glassmorphism-styled-container h1,
+  .style-glassmorphism h1,
+  [data-style="glassmorphism"] h1,
+  .ds-scope[data-style-id="glassmorphism"] h1,
+  .style-glass h1,
+  [data-style="glass"] h1,
+  .ds-scope[data-style-id="glass"] h1 {
     font-family: 'Inter', sans-serif;
     font-size: clamp(2.25rem, 4.5vw, 3.25rem);
     font-weight: 600;
@@ -102,7 +144,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] h2,
-  .glassmorphism-styled-container h2 {
+  .glassmorphism-styled-container h2,
+  .style-glassmorphism h2,
+  [data-style="glassmorphism"] h2,
+  .ds-scope[data-style-id="glassmorphism"] h2,
+  .style-glass h2,
+  [data-style="glass"] h2,
+  .ds-scope[data-style-id="glass"] h2 {
     font-family: 'Inter', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 600;
@@ -115,7 +163,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] h3,
-  .glassmorphism-styled-container h3 {
+  .glassmorphism-styled-container h3,
+  .style-glassmorphism h3,
+  [data-style="glassmorphism"] h3,
+  .ds-scope[data-style-id="glassmorphism"] h3,
+  .style-glass h3,
+  [data-style="glass"] h3,
+  .ds-scope[data-style-id="glass"] h3 {
     font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
@@ -127,7 +181,13 @@ export const glassmorphismSemanticCss = `
 
   /* Body Copy: Unobstructed & Transparent */
   .lab-styled-preview[data-style="glassmorphism"] p,
-  .glassmorphism-styled-container p {
+  .glassmorphism-styled-container p,
+  .style-glassmorphism p,
+  [data-style="glassmorphism"] p,
+  .ds-scope[data-style-id="glassmorphism"] p,
+  .style-glass p,
+  [data-style="glass"] p,
+  .ds-scope[data-style-id="glass"] p {
     color: #cbd5e1;
     font-size: 0.9375rem;
     line-height: 1.65;
@@ -135,7 +195,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] header > p:last-child,
-  .glassmorphism-styled-container header > p:last-child {
+  .glassmorphism-styled-container header > p:last-child,
+  .style-glassmorphism header > p:last-child,
+  [data-style="glassmorphism"] header > p:last-child,
+  .ds-scope[data-style-id="glassmorphism"] header > p:last-child,
+  .style-glass header > p:last-child,
+  [data-style="glass"] header > p:last-child,
+  .ds-scope[data-style-id="glass"] header > p:last-child {
     font-size: 1.0625rem;
     line-height: 1.6;
     color: #94a3b8;
@@ -148,7 +214,13 @@ export const glassmorphismSemanticCss = `
      ========================================================================== */
   /* Default Article: Open floating spatial item with delicate hairline divider (e.g. portfolio project rows) */
   .lab-styled-preview[data-style="glassmorphism"] article,
-  .glassmorphism-styled-container article {
+  .glassmorphism-styled-container article,
+  .style-glassmorphism article,
+  [data-style="glassmorphism"] article,
+  .ds-scope[data-style-id="glassmorphism"] article,
+  .style-glass article,
+  [data-style="glass"] article,
+  .ds-scope[data-style-id="glass"] article {
     position: relative;
     padding: 1.5rem 0;
     margin-bottom: 0;
@@ -163,19 +235,37 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] article:hover,
-  .glassmorphism-styled-container article:hover {
+  .glassmorphism-styled-container article:hover,
+  .style-glassmorphism article:hover,
+  [data-style="glassmorphism"] article:hover,
+  .ds-scope[data-style-id="glassmorphism"] article:hover,
+  .style-glass article:hover,
+  [data-style="glass"] article:hover,
+  .ds-scope[data-style-id="glass"] article:hover {
     border-bottom-color: rgba(255, 255, 255, 0.18);
   }
 
   .lab-styled-preview[data-style="glassmorphism"] article h3,
-  .glassmorphism-styled-container article h3 {
+  .glassmorphism-styled-container article h3,
+  .style-glassmorphism article h3,
+  [data-style="glassmorphism"] article h3,
+  .ds-scope[data-style-id="glassmorphism"] article h3,
+  .style-glass article h3,
+  [data-style="glass"] article h3,
+  .ds-scope[data-style-id="glass"] article h3 {
     margin-top: 0;
     margin-bottom: 0.35rem;
     color: #ffffff;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] article p,
-  .glassmorphism-styled-container article p {
+  .glassmorphism-styled-container article p,
+  .style-glassmorphism article p,
+  [data-style="glassmorphism"] article p,
+  .ds-scope[data-style-id="glassmorphism"] article p,
+  .style-glass article p,
+  [data-style="glass"] article p,
+  .ds-scope[data-style-id="glass"] article p {
     color: #94a3b8;
     margin-bottom: 0;
   }
@@ -184,7 +274,19 @@ export const glassmorphismSemanticCss = `
   .lab-styled-preview[data-style="glassmorphism"] article:has(button),
   .lab-styled-preview[data-style="glassmorphism"] article:has(strong),
   .glassmorphism-styled-container article:has(button),
-  .glassmorphism-styled-container article:has(strong) {
+  .style-glassmorphism article:has(button),
+  [data-style="glassmorphism"] article:has(button),
+  .ds-scope[data-style-id="glassmorphism"] article:has(button),
+  .style-glass article:has(button),
+  [data-style="glass"] article:has(button),
+  .ds-scope[data-style-id="glass"] article:has(button),
+  .glassmorphism-styled-container article:has(strong),
+  .style-glassmorphism article:has(strong),
+  [data-style="glassmorphism"] article:has(strong),
+  .ds-scope[data-style-id="glassmorphism"] article:has(strong),
+  .style-glass article:has(strong),
+  [data-style="glass"] article:has(strong),
+  .ds-scope[data-style-id="glass"] article:has(strong) {
     padding: 1.75rem 2rem;
     margin-bottom: 1.5rem;
     border-radius: 18px;
@@ -201,7 +303,19 @@ export const glassmorphismSemanticCss = `
   .lab-styled-preview[data-style="glassmorphism"] article:has(button):hover,
   .lab-styled-preview[data-style="glassmorphism"] article:has(strong):hover,
   .glassmorphism-styled-container article:has(button):hover,
-  .glassmorphism-styled-container article:has(strong):hover {
+  .style-glassmorphism article:has(button):hover,
+  [data-style="glassmorphism"] article:has(button):hover,
+  .ds-scope[data-style-id="glassmorphism"] article:has(button):hover,
+  .style-glass article:has(button):hover,
+  [data-style="glass"] article:has(button):hover,
+  .ds-scope[data-style-id="glass"] article:has(button):hover,
+  .glassmorphism-styled-container article:has(strong):hover,
+  .style-glassmorphism article:has(strong):hover,
+  [data-style="glassmorphism"] article:has(strong):hover,
+  .ds-scope[data-style-id="glassmorphism"] article:has(strong):hover,
+  .style-glass article:has(strong):hover,
+  [data-style="glass"] article:has(strong):hover,
+  .ds-scope[data-style-id="glass"] article:has(strong):hover {
     transform: translateY(-2px);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 
@@ -211,7 +325,13 @@ export const glassmorphismSemanticCss = `
 
   /* Elevated Focal Tier (GLASS-3) */
   .lab-styled-preview[data-style="glassmorphism"] article:has(button):nth-child(2),
-  .glassmorphism-styled-container article:has(button):nth-child(2) {
+  .glassmorphism-styled-container article:has(button):nth-child(2),
+  .style-glassmorphism article:has(button):nth-child(2),
+  [data-style="glassmorphism"] article:has(button):nth-child(2),
+  .ds-scope[data-style-id="glassmorphism"] article:has(button):nth-child(2),
+  .style-glass article:has(button):nth-child(2),
+  [data-style="glass"] article:has(button):nth-child(2),
+  .ds-scope[data-style-id="glass"] article:has(button):nth-child(2) {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.025) 100%);
     border-color: rgba(147, 197, 253, 0.28);
     box-shadow: 
@@ -225,8 +345,20 @@ export const glassmorphismSemanticCss = `
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] button,
   .glassmorphism-styled-container button,
+  .style-glassmorphism button,
+  [data-style="glassmorphism"] button,
+  .ds-scope[data-style-id="glassmorphism"] button,
+  .style-glass button,
+  [data-style="glass"] button,
+  .ds-scope[data-style-id="glass"] button,
   .lab-styled-preview[data-style="glassmorphism"] input[type="submit"],
-  .glassmorphism-styled-container input[type="submit"] {
+  .glassmorphism-styled-container input[type="submit"],
+  .style-glassmorphism input[type="submit"],
+  [data-style="glassmorphism"] input[type="submit"],
+  .ds-scope[data-style-id="glassmorphism"] input[type="submit"],
+  .style-glass input[type="submit"],
+  [data-style="glass"] input[type="submit"],
+  .ds-scope[data-style-id="glass"] input[type="submit"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -254,8 +386,20 @@ export const glassmorphismSemanticCss = `
 
   .lab-styled-preview[data-style="glassmorphism"] button:hover,
   .glassmorphism-styled-container button:hover,
+  .style-glassmorphism button:hover,
+  [data-style="glassmorphism"] button:hover,
+  .ds-scope[data-style-id="glassmorphism"] button:hover,
+  .style-glass button:hover,
+  [data-style="glass"] button:hover,
+  .ds-scope[data-style-id="glass"] button:hover,
   .lab-styled-preview[data-style="glassmorphism"] input[type="submit"]:hover,
-  .glassmorphism-styled-container input[type="submit"]:hover {
+  .glassmorphism-styled-container input[type="submit"]:hover,
+  .style-glassmorphism input[type="submit"]:hover,
+  [data-style="glassmorphism"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="glassmorphism"] input[type="submit"]:hover,
+  .style-glass input[type="submit"]:hover,
+  [data-style="glass"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="glass"] input[type="submit"]:hover {
     background: linear-gradient(135deg, rgba(79, 70, 229, 1) 0%, rgba(59, 130, 246, 0.95) 55%, rgba(14, 165, 233, 0.9) 100%);
     transform: translateY(-1px);
     box-shadow: 
@@ -266,8 +410,20 @@ export const glassmorphismSemanticCss = `
 
   .lab-styled-preview[data-style="glassmorphism"] button:active,
   .glassmorphism-styled-container button:active,
+  .style-glassmorphism button:active,
+  [data-style="glassmorphism"] button:active,
+  .ds-scope[data-style-id="glassmorphism"] button:active,
+  .style-glass button:active,
+  [data-style="glass"] button:active,
+  .ds-scope[data-style-id="glass"] button:active,
   .lab-styled-preview[data-style="glassmorphism"] input[type="submit"]:active,
-  .glassmorphism-styled-container input[type="submit"]:active {
+  .glassmorphism-styled-container input[type="submit"]:active,
+  .style-glassmorphism input[type="submit"]:active,
+  [data-style="glassmorphism"] input[type="submit"]:active,
+  .ds-scope[data-style-id="glassmorphism"] input[type="submit"]:active,
+  .style-glass input[type="submit"]:active,
+  [data-style="glass"] input[type="submit"]:active,
+  .ds-scope[data-style-id="glass"] input[type="submit"]:active {
     transform: translateY(1px);
     box-shadow: 
       0 2px 8px rgba(37, 99, 235, 0.25),
@@ -278,7 +434,13 @@ export const glassmorphismSemanticCss = `
      6. OPTICAL BLOCKQUOTES (FLOATING LAYER, NOT A CARD)
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] blockquote,
-  .glassmorphism-styled-container blockquote {
+  .glassmorphism-styled-container blockquote,
+  .style-glassmorphism blockquote,
+  [data-style="glassmorphism"] blockquote,
+  .ds-scope[data-style-id="glassmorphism"] blockquote,
+  .style-glass blockquote,
+  [data-style="glass"] blockquote,
+  .ds-scope[data-style-id="glass"] blockquote {
     position: relative;
     padding: 1.25rem 1.75rem;
     margin: 2.5rem 0;
@@ -294,7 +456,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] blockquote p,
-  .glassmorphism-styled-container blockquote p {
+  .glassmorphism-styled-container blockquote p,
+  .style-glassmorphism blockquote p,
+  [data-style="glassmorphism"] blockquote p,
+  .ds-scope[data-style-id="glassmorphism"] blockquote p,
+  .style-glass blockquote p,
+  [data-style="glass"] blockquote p,
+  .ds-scope[data-style-id="glass"] blockquote p {
     font-size: 1.0625rem;
     line-height: 1.7;
     margin-bottom: 0;
@@ -305,7 +473,13 @@ export const glassmorphismSemanticCss = `
      7. DATA TABLES: READABILITY OVER GLASS EFFECTS
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] table,
-  .glassmorphism-styled-container table {
+  .glassmorphism-styled-container table,
+  .style-glassmorphism table,
+  [data-style="glassmorphism"] table,
+  .ds-scope[data-style-id="glassmorphism"] table,
+  .style-glass table,
+  [data-style="glass"] table,
+  .ds-scope[data-style-id="glass"] table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
@@ -319,7 +493,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] th,
-  .glassmorphism-styled-container th {
+  .glassmorphism-styled-container th,
+  .style-glassmorphism th,
+  [data-style="glassmorphism"] th,
+  .ds-scope[data-style-id="glassmorphism"] th,
+  .style-glass th,
+  [data-style="glass"] th,
+  .ds-scope[data-style-id="glass"] th {
     padding: 0.875rem 1.25rem;
     font-size: 0.75rem;
     font-weight: 500;
@@ -332,7 +512,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] td,
-  .glassmorphism-styled-container td {
+  .glassmorphism-styled-container td,
+  .style-glassmorphism td,
+  [data-style="glassmorphism"] td,
+  .ds-scope[data-style-id="glassmorphism"] td,
+  .style-glass td,
+  [data-style="glass"] td,
+  .ds-scope[data-style-id="glass"] td {
     padding: 0.875rem 1.25rem;
     font-size: 0.875rem;
     color: #cbd5e1;
@@ -341,17 +527,35 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] tr:last-child td,
-  .glassmorphism-styled-container tr:last-child td {
+  .glassmorphism-styled-container tr:last-child td,
+  .style-glassmorphism tr:last-child td,
+  [data-style="glassmorphism"] tr:last-child td,
+  .ds-scope[data-style-id="glassmorphism"] tr:last-child td,
+  .style-glass tr:last-child td,
+  [data-style="glass"] tr:last-child td,
+  .ds-scope[data-style-id="glass"] tr:last-child td {
     border-bottom: none;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] tr:hover td,
-  .glassmorphism-styled-container tr:hover td {
+  .glassmorphism-styled-container tr:hover td,
+  .style-glassmorphism tr:hover td,
+  [data-style="glassmorphism"] tr:hover td,
+  .ds-scope[data-style-id="glassmorphism"] tr:hover td,
+  .style-glass tr:hover td,
+  [data-style="glass"] tr:hover td,
+  .ds-scope[data-style-id="glass"] tr:hover td {
     background: rgba(255, 255, 255, 0.03);
   }
 
   .lab-styled-preview[data-style="glassmorphism"] strong,
-  .glassmorphism-styled-container strong {
+  .glassmorphism-styled-container strong,
+  .style-glassmorphism strong,
+  [data-style="glassmorphism"] strong,
+  .ds-scope[data-style-id="glassmorphism"] strong,
+  .style-glass strong,
+  [data-style="glass"] strong,
+  .ds-scope[data-style-id="glass"] strong {
     color: #ffffff;
     font-weight: 600;
   }
@@ -360,12 +564,24 @@ export const glassmorphismSemanticCss = `
      8. FORM INPUT CONTROLS: OPTICAL CAVITIES
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] form,
-  .glassmorphism-styled-container form {
+  .glassmorphism-styled-container form,
+  .style-glassmorphism form,
+  [data-style="glassmorphism"] form,
+  .ds-scope[data-style-id="glassmorphism"] form,
+  .style-glass form,
+  [data-style="glass"] form,
+  .ds-scope[data-style-id="glass"] form {
     margin-top: 1.5rem;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] label,
-  .glassmorphism-styled-container label {
+  .glassmorphism-styled-container label,
+  .style-glassmorphism label,
+  [data-style="glassmorphism"] label,
+  .ds-scope[data-style-id="glassmorphism"] label,
+  .style-glass label,
+  [data-style="glass"] label,
+  .ds-scope[data-style-id="glass"] label {
     display: block;
     font-size: 0.75rem;
     font-weight: 600;
@@ -381,9 +597,33 @@ export const glassmorphismSemanticCss = `
   .lab-styled-preview[data-style="glassmorphism"] select,
   .lab-styled-preview[data-style="glassmorphism"] textarea,
   .glassmorphism-styled-container input[type="text"],
+  .style-glassmorphism input[type="text"],
+  [data-style="glassmorphism"] input[type="text"],
+  .ds-scope[data-style-id="glassmorphism"] input[type="text"],
+  .style-glass input[type="text"],
+  [data-style="glass"] input[type="text"],
+  .ds-scope[data-style-id="glass"] input[type="text"],
   .glassmorphism-styled-container input[type="email"],
+  .style-glassmorphism input[type="email"],
+  [data-style="glassmorphism"] input[type="email"],
+  .ds-scope[data-style-id="glassmorphism"] input[type="email"],
+  .style-glass input[type="email"],
+  [data-style="glass"] input[type="email"],
+  .ds-scope[data-style-id="glass"] input[type="email"],
   .glassmorphism-styled-container select,
-  .glassmorphism-styled-container textarea {
+  .style-glassmorphism select,
+  [data-style="glassmorphism"] select,
+  .ds-scope[data-style-id="glassmorphism"] select,
+  .style-glass select,
+  [data-style="glass"] select,
+  .ds-scope[data-style-id="glass"] select,
+  .glassmorphism-styled-container textarea,
+  .style-glassmorphism textarea,
+  [data-style="glassmorphism"] textarea,
+  .ds-scope[data-style-id="glassmorphism"] textarea,
+  .style-glass textarea,
+  [data-style="glass"] textarea,
+  .ds-scope[data-style-id="glass"] textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     font-family: 'Inter', sans-serif;
@@ -404,8 +644,26 @@ export const glassmorphismSemanticCss = `
   .lab-styled-preview[data-style="glassmorphism"] select:focus,
   .lab-styled-preview[data-style="glassmorphism"] textarea:focus,
   .glassmorphism-styled-container input:focus,
+  .style-glassmorphism input:focus,
+  [data-style="glassmorphism"] input:focus,
+  .ds-scope[data-style-id="glassmorphism"] input:focus,
+  .style-glass input:focus,
+  [data-style="glass"] input:focus,
+  .ds-scope[data-style-id="glass"] input:focus,
   .glassmorphism-styled-container select:focus,
-  .glassmorphism-styled-container textarea:focus {
+  .style-glassmorphism select:focus,
+  [data-style="glassmorphism"] select:focus,
+  .ds-scope[data-style-id="glassmorphism"] select:focus,
+  .style-glass select:focus,
+  [data-style="glass"] select:focus,
+  .ds-scope[data-style-id="glass"] select:focus,
+  .glassmorphism-styled-container textarea:focus,
+  .style-glassmorphism textarea:focus,
+  [data-style="glassmorphism"] textarea:focus,
+  .ds-scope[data-style-id="glassmorphism"] textarea:focus,
+  .style-glass textarea:focus,
+  [data-style="glass"] textarea:focus,
+  .ds-scope[data-style-id="glass"] textarea:focus {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(147, 197, 253, 0.6);
     box-shadow: 
@@ -414,7 +672,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] select option,
-  .glassmorphism-styled-container select option {
+  .glassmorphism-styled-container select option,
+  .style-glassmorphism select option,
+  [data-style="glassmorphism"] select option,
+  .ds-scope[data-style-id="glassmorphism"] select option,
+  .style-glass select option,
+  [data-style="glass"] select option,
+  .ds-scope[data-style-id="glass"] select option {
     background-color: #0b1020;
     color: #ffffff;
   }
@@ -423,14 +687,26 @@ export const glassmorphismSemanticCss = `
      9. LISTS & SPECIFICATIONS
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] ul,
-  .glassmorphism-styled-container ul {
+  .glassmorphism-styled-container ul,
+  .style-glassmorphism ul,
+  [data-style="glassmorphism"] ul,
+  .ds-scope[data-style-id="glassmorphism"] ul,
+  .style-glass ul,
+  [data-style="glass"] ul,
+  .ds-scope[data-style-id="glass"] ul {
     list-style: none;
     padding-left: 0;
     margin: 1.5rem 0;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] li,
-  .glassmorphism-styled-container li {
+  .glassmorphism-styled-container li,
+  .style-glassmorphism li,
+  [data-style="glassmorphism"] li,
+  .ds-scope[data-style-id="glassmorphism"] li,
+  .style-glass li,
+  [data-style="glass"] li,
+  .ds-scope[data-style-id="glass"] li {
     position: relative;
     padding: 0.625rem 0 0.625rem 1.5rem;
     font-size: 0.9375rem;
@@ -439,7 +715,13 @@ export const glassmorphismSemanticCss = `
   }
 
   .lab-styled-preview[data-style="glassmorphism"] li::before,
-  .glassmorphism-styled-container li::before {
+  .glassmorphism-styled-container li::before,
+  .style-glassmorphism li::before,
+  [data-style="glassmorphism"] li::before,
+  .ds-scope[data-style-id="glassmorphism"] li::before,
+  .style-glass li::before,
+  [data-style="glass"] li::before,
+  .ds-scope[data-style-id="glass"] li::before {
     content: "";
     position: absolute;
     left: 0.25rem;
@@ -456,7 +738,13 @@ export const glassmorphismSemanticCss = `
      10. FOOTER
      ========================================================================== */
   .lab-styled-preview[data-style="glassmorphism"] footer,
-  .glassmorphism-styled-container footer {
+  .glassmorphism-styled-container footer,
+  .style-glassmorphism footer,
+  [data-style="glassmorphism"] footer,
+  .ds-scope[data-style-id="glassmorphism"] footer,
+  .style-glass footer,
+  [data-style="glass"] footer,
+  .ds-scope[data-style-id="glass"] footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

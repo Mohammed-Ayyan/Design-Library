@@ -24,7 +24,13 @@ export const editorialDesignSemanticCss = `
 
   /* 0. Canvas Foundation: Warm Newsprint Paper */
   .lab-styled-preview[data-style="editorial-design"],
-  .editorial-design-styled-container {
+  .editorial-design-styled-container,
+  .style-editorial-design,
+  [data-style="editorial-design"],
+  .ds-scope[data-style-id="editorial-design"],
+  .style-editorial,
+  [data-style="editorial"],
+  .ds-scope[data-style-id="editorial"] {
     background-color: #fbfaf7 !important;
     color: #141413 !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -37,7 +43,13 @@ export const editorialDesignSemanticCss = `
 
   /* 1. Broadsheet Masthead Navigation: Dual Structural Rules */
   .lab-styled-preview[data-style="editorial-design"] nav,
-  .editorial-design-styled-container nav {
+  .editorial-design-styled-container nav,
+  .style-editorial-design nav,
+  [data-style="editorial-design"] nav,
+  .ds-scope[data-style-id="editorial-design"] nav,
+  .style-editorial nav,
+  [data-style="editorial"] nav,
+  .ds-scope[data-style-id="editorial"] nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -52,7 +64,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] nav a,
-  .editorial-design-styled-container nav a {
+  .editorial-design-styled-container nav a,
+  .style-editorial-design nav a,
+  [data-style="editorial-design"] nav a,
+  .ds-scope[data-style-id="editorial-design"] nav a,
+  .style-editorial nav a,
+  [data-style="editorial"] nav a,
+  .ds-scope[data-style-id="editorial"] nav a {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
@@ -66,14 +84,26 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] nav a:hover,
-  .editorial-design-styled-container nav a:hover {
+  .editorial-design-styled-container nav a:hover,
+  .style-editorial-design nav a:hover,
+  [data-style="editorial-design"] nav a:hover,
+  .ds-scope[data-style-id="editorial-design"] nav a:hover,
+  .style-editorial nav a:hover,
+  [data-style="editorial"] nav a:hover,
+  .ds-scope[data-style-id="editorial"] nav a:hover {
     color: #991b1b;
     text-decoration: none;
   }
 
   /* Publication Masthead / First Link: Broadsheet Title */
   .lab-styled-preview[data-style="editorial-design"] nav a:first-child,
-  .editorial-design-styled-container nav a:first-child {
+  .editorial-design-styled-container nav a:first-child,
+  .style-editorial-design nav a:first-child,
+  [data-style="editorial-design"] nav a:first-child,
+  .ds-scope[data-style-id="editorial-design"] nav a:first-child,
+  .style-editorial nav a:first-child,
+  [data-style="editorial"] nav a:first-child,
+  .ds-scope[data-style-id="editorial"] nav a:first-child {
     font-family: 'Newsreader', 'Playfair Display', 'Cormorant Garamond', 'Georgia', serif;
     font-size: 1.35rem;
     font-weight: 800;
@@ -84,7 +114,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] nav a:first-child::before,
-  .editorial-design-styled-container nav a:first-child::before {
+  .editorial-design-styled-container nav a:first-child::before,
+  .style-editorial-design nav a:first-child::before,
+  [data-style="editorial-design"] nav a:first-child::before,
+  .ds-scope[data-style-id="editorial-design"] nav a:first-child::before,
+  .style-editorial nav a:first-child::before,
+  [data-style="editorial"] nav a:first-child::before,
+  .ds-scope[data-style-id="editorial"] nav a:first-child::before {
     content: 'THE ';
     font-family: 'Inter', sans-serif;
     font-size: 0.625rem;
@@ -98,7 +134,19 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] header > p:first-child,
   .lab-styled-preview[data-style="editorial-design"] section > p:first-child:not(:last-child),
   .editorial-design-styled-container header > p:first-child,
-  .editorial-design-styled-container section > p:first-child:not(:last-child) {
+  .style-editorial-design header > p:first-child,
+  [data-style="editorial-design"] header > p:first-child,
+  .ds-scope[data-style-id="editorial-design"] header > p:first-child,
+  .style-editorial header > p:first-child,
+  [data-style="editorial"] header > p:first-child,
+  .ds-scope[data-style-id="editorial"] header > p:first-child,
+  .editorial-design-styled-container section > p:first-child:not(:last-child),
+  .style-editorial-design section > p:first-child:not(:last-child),
+  [data-style="editorial-design"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="editorial-design"] section > p:first-child:not(:last-child),
+  .style-editorial section > p:first-child:not(:last-child),
+  [data-style="editorial"] section > p:first-child:not(:last-child),
+  .ds-scope[data-style-id="editorial"] section > p:first-child:not(:last-child) {
     font-family: 'Inter', sans-serif;
     font-size: 0.6875rem;
     font-weight: 800;
@@ -114,7 +162,19 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] header > p:first-child::before,
   .lab-styled-preview[data-style="editorial-design"] section > p:first-child:not(:last-child)::before,
   .editorial-design-styled-container header > p:first-child::before,
-  .editorial-design-styled-container section > p:first-child:not(:last-child)::before {
+  .style-editorial-design header > p:first-child::before,
+  [data-style="editorial-design"] header > p:first-child::before,
+  .ds-scope[data-style-id="editorial-design"] header > p:first-child::before,
+  .style-editorial header > p:first-child::before,
+  [data-style="editorial"] header > p:first-child::before,
+  .ds-scope[data-style-id="editorial"] header > p:first-child::before,
+  .editorial-design-styled-container section > p:first-child:not(:last-child)::before,
+  .style-editorial-design section > p:first-child:not(:last-child)::before,
+  [data-style="editorial-design"] section > p:first-child:not(:last-child)::before,
+  .ds-scope[data-style-id="editorial-design"] section > p:first-child:not(:last-child)::before,
+  .style-editorial section > p:first-child:not(:last-child)::before,
+  [data-style="editorial"] section > p:first-child:not(:last-child)::before,
+  .ds-scope[data-style-id="editorial"] section > p:first-child:not(:last-child)::before {
     content: '●';
     font-size: 0.5rem;
     color: #991b1b;
@@ -122,7 +182,13 @@ export const editorialDesignSemanticCss = `
 
   /* 3. Authoritative Editorial Headlines */
   .lab-styled-preview[data-style="editorial-design"] h1,
-  .editorial-design-styled-container h1 {
+  .editorial-design-styled-container h1,
+  .style-editorial-design h1,
+  [data-style="editorial-design"] h1,
+  .ds-scope[data-style-id="editorial-design"] h1,
+  .style-editorial h1,
+  [data-style="editorial"] h1,
+  .ds-scope[data-style-id="editorial"] h1 {
     font-family: 'Newsreader', 'Playfair Display', 'Cormorant Garamond', 'Georgia', serif;
     font-size: clamp(2.35rem, 5.6vw, 4.25rem);
     font-weight: 700;
@@ -140,7 +206,19 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] h1 em,
   .lab-styled-preview[data-style="editorial-design"] h1 i,
   .editorial-design-styled-container h1 em,
-  .editorial-design-styled-container h1 i {
+  .style-editorial-design h1 em,
+  [data-style="editorial-design"] h1 em,
+  .ds-scope[data-style-id="editorial-design"] h1 em,
+  .style-editorial h1 em,
+  [data-style="editorial"] h1 em,
+  .ds-scope[data-style-id="editorial"] h1 em,
+  .editorial-design-styled-container h1 i,
+  .style-editorial-design h1 i,
+  [data-style="editorial-design"] h1 i,
+  .ds-scope[data-style-id="editorial-design"] h1 i,
+  .style-editorial h1 i,
+  [data-style="editorial"] h1 i,
+  .ds-scope[data-style-id="editorial"] h1 i {
     font-family: 'Newsreader', 'Playfair Display', serif;
     font-style: italic;
     font-weight: 400;
@@ -148,7 +226,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] h2,
-  .editorial-design-styled-container h2 {
+  .editorial-design-styled-container h2,
+  .style-editorial-design h2,
+  [data-style="editorial-design"] h2,
+  .ds-scope[data-style-id="editorial-design"] h2,
+  .style-editorial h2,
+  [data-style="editorial"] h2,
+  .ds-scope[data-style-id="editorial"] h2 {
     font-family: 'Newsreader', 'Playfair Display', 'Georgia', serif;
     font-size: clamp(1.65rem, 3.4vw, 2.35rem);
     font-weight: 700;
@@ -166,7 +250,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] h2::after,
-  .editorial-design-styled-container h2::after {
+  .editorial-design-styled-container h2::after,
+  .style-editorial-design h2::after,
+  [data-style="editorial-design"] h2::after,
+  .ds-scope[data-style-id="editorial-design"] h2::after,
+  .style-editorial h2::after,
+  [data-style="editorial"] h2::after,
+  .ds-scope[data-style-id="editorial"] h2::after {
     content: 'REPORTAGE';
     font-family: 'Inter', sans-serif;
     font-size: 0.625rem;
@@ -177,7 +267,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] h3,
-  .editorial-design-styled-container h3 {
+  .editorial-design-styled-container h3,
+  .style-editorial-design h3,
+  [data-style="editorial-design"] h3,
+  .ds-scope[data-style-id="editorial-design"] h3,
+  .style-editorial h3,
+  [data-style="editorial"] h3,
+  .ds-scope[data-style-id="editorial"] h3 {
     font-family: 'Newsreader', 'Playfair Display', 'Georgia', serif;
     font-size: 1.35rem;
     font-weight: 700;
@@ -189,7 +285,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] h4,
-  .editorial-design-styled-container h4 {
+  .editorial-design-styled-container h4,
+  .style-editorial-design h4,
+  [data-style="editorial-design"] h4,
+  .ds-scope[data-style-id="editorial-design"] h4,
+  .style-editorial h4,
+  [data-style="editorial"] h4,
+  .ds-scope[data-style-id="editorial"] h4 {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
@@ -202,7 +304,13 @@ export const editorialDesignSemanticCss = `
 
   /* 4. Body Copy & Lede Paragraphs */
   .lab-styled-preview[data-style="editorial-design"] p,
-  .editorial-design-styled-container p {
+  .editorial-design-styled-container p,
+  .style-editorial-design p,
+  [data-style="editorial-design"] p,
+  .ds-scope[data-style-id="editorial-design"] p,
+  .style-editorial p,
+  [data-style="editorial"] p,
+  .ds-scope[data-style-id="editorial"] p {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 1.03125rem;
     font-weight: 400;
@@ -217,7 +325,19 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] header h1 + p,
   .lab-styled-preview[data-style="editorial-design"] section h1 + p,
   .editorial-design-styled-container header h1 + p,
-  .editorial-design-styled-container section h1 + p {
+  .style-editorial-design header h1 + p,
+  [data-style="editorial-design"] header h1 + p,
+  .ds-scope[data-style-id="editorial-design"] header h1 + p,
+  .style-editorial header h1 + p,
+  [data-style="editorial"] header h1 + p,
+  .ds-scope[data-style-id="editorial"] header h1 + p,
+  .editorial-design-styled-container section h1 + p,
+  .style-editorial-design section h1 + p,
+  [data-style="editorial-design"] section h1 + p,
+  .ds-scope[data-style-id="editorial-design"] section h1 + p,
+  .style-editorial section h1 + p,
+  [data-style="editorial"] section h1 + p,
+  .ds-scope[data-style-id="editorial"] section h1 + p {
     font-size: 1.15rem;
     font-weight: 400;
     line-height: 1.68;
@@ -229,7 +349,19 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] button,
   .lab-styled-preview[data-style="editorial-design"] input[type="submit"],
   .editorial-design-styled-container button,
-  .editorial-design-styled-container input[type="submit"] {
+  .style-editorial-design button,
+  [data-style="editorial-design"] button,
+  .ds-scope[data-style-id="editorial-design"] button,
+  .style-editorial button,
+  [data-style="editorial"] button,
+  .ds-scope[data-style-id="editorial"] button,
+  .editorial-design-styled-container input[type="submit"],
+  .style-editorial-design input[type="submit"],
+  [data-style="editorial-design"] input[type="submit"],
+  .ds-scope[data-style-id="editorial-design"] input[type="submit"],
+  .style-editorial input[type="submit"],
+  [data-style="editorial"] input[type="submit"],
+  .ds-scope[data-style-id="editorial"] input[type="submit"] {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
@@ -254,7 +386,19 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] button:hover,
   .lab-styled-preview[data-style="editorial-design"] input[type="submit"]:hover,
   .editorial-design-styled-container button:hover,
-  .editorial-design-styled-container input[type="submit"]:hover {
+  .style-editorial-design button:hover,
+  [data-style="editorial-design"] button:hover,
+  .ds-scope[data-style-id="editorial-design"] button:hover,
+  .style-editorial button:hover,
+  [data-style="editorial"] button:hover,
+  .ds-scope[data-style-id="editorial"] button:hover,
+  .editorial-design-styled-container input[type="submit"]:hover,
+  .style-editorial-design input[type="submit"]:hover,
+  [data-style="editorial-design"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="editorial-design"] input[type="submit"]:hover,
+  .style-editorial input[type="submit"]:hover,
+  [data-style="editorial"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="editorial"] input[type="submit"]:hover {
     background-color: #991b1b;
     border-color: #991b1b;
     color: #ffffff;
@@ -263,13 +407,31 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] button:active,
   .lab-styled-preview[data-style="editorial-design"] input[type="submit"]:active,
   .editorial-design-styled-container button:active,
-  .editorial-design-styled-container input[type="submit"]:active {
+  .style-editorial-design button:active,
+  [data-style="editorial-design"] button:active,
+  .ds-scope[data-style-id="editorial-design"] button:active,
+  .style-editorial button:active,
+  [data-style="editorial"] button:active,
+  .ds-scope[data-style-id="editorial"] button:active,
+  .editorial-design-styled-container input[type="submit"]:active,
+  .style-editorial-design input[type="submit"]:active,
+  [data-style="editorial-design"] input[type="submit"]:active,
+  .ds-scope[data-style-id="editorial-design"] input[type="submit"]:active,
+  .style-editorial input[type="submit"]:active,
+  [data-style="editorial"] input[type="submit"]:active,
+  .ds-scope[data-style-id="editorial"] input[type="submit"]:active {
     background-color: #7f1d1d;
   }
 
   /* Secondary Button: Clean Outlined Hairline */
   .lab-styled-preview[data-style="editorial-design"] button + button,
-  .editorial-design-styled-container button + button {
+  .editorial-design-styled-container button + button,
+  .style-editorial-design button + button,
+  [data-style="editorial-design"] button + button,
+  .ds-scope[data-style-id="editorial-design"] button + button,
+  .style-editorial button + button,
+  [data-style="editorial"] button + button,
+  .ds-scope[data-style-id="editorial"] button + button {
     background-color: transparent;
     color: #141413;
     border: 1px solid #141413;
@@ -278,7 +440,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] button + button:hover,
-  .editorial-design-styled-container button + button:hover {
+  .editorial-design-styled-container button + button:hover,
+  .style-editorial-design button + button:hover,
+  [data-style="editorial-design"] button + button:hover,
+  .ds-scope[data-style-id="editorial-design"] button + button:hover,
+  .style-editorial button + button:hover,
+  [data-style="editorial"] button + button:hover,
+  .ds-scope[data-style-id="editorial"] button + button:hover {
     background-color: #f2ece2;
     border-color: #991b1b;
     color: #991b1b;
@@ -286,7 +454,13 @@ export const editorialDesignSemanticCss = `
 
   /* 6. Surfaces & Anti-Cardification: Pure Broadsheet Story Rows */
   .lab-styled-preview[data-style="editorial-design"] article,
-  .editorial-design-styled-container article {
+  .editorial-design-styled-container article,
+  .style-editorial-design article,
+  [data-style="editorial-design"] article,
+  .ds-scope[data-style-id="editorial-design"] article,
+  .style-editorial article,
+  [data-style="editorial"] article,
+  .ds-scope[data-style-id="editorial"] article {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -298,14 +472,26 @@ export const editorialDesignSemanticCss = `
 
   /* Context A: Direct Standalone Editorial Article (Sample 3) */
   .lab-styled-preview[data-style="editorial-design"] > article,
-  .editorial-design-styled-container > article {
+  .editorial-design-styled-container > article,
+  .style-editorial-design > article,
+  [data-style="editorial-design"] > article,
+  .ds-scope[data-style-id="editorial-design"] > article,
+  .style-editorial > article,
+  [data-style="editorial"] > article,
+  .ds-scope[data-style-id="editorial"] > article {
     max-width: 700px;
     margin: 0 auto;
     padding: 1.5rem 0 4.5rem !important;
   }
 
   .lab-styled-preview[data-style="editorial-design"] > article > p:first-of-type::first-letter,
-  .editorial-design-styled-container > article > p:first-of-type::first-letter {
+  .editorial-design-styled-container > article > p:first-of-type::first-letter,
+  .style-editorial-design > article > p:first-of-type::first-letter,
+  [data-style="editorial-design"] > article > p:first-of-type::first-letter,
+  .ds-scope[data-style-id="editorial-design"] > article > p:first-of-type::first-letter,
+  .style-editorial > article > p:first-of-type::first-letter,
+  [data-style="editorial"] > article > p:first-of-type::first-letter,
+  .ds-scope[data-style-id="editorial"] > article > p:first-of-type::first-letter {
     font-family: 'Newsreader', 'Playfair Display', serif;
     font-size: 3.6rem;
     font-weight: 700;
@@ -318,7 +504,13 @@ export const editorialDesignSemanticCss = `
 
   /* Context B: Portfolio Selected Work (Sample 1) — Broadsheet Dispatches */
   .lab-styled-preview[data-style="editorial-design"] section > article,
-  .editorial-design-styled-container section > article {
+  .editorial-design-styled-container section > article,
+  .style-editorial-design section > article,
+  [data-style="editorial-design"] section > article,
+  .ds-scope[data-style-id="editorial-design"] section > article,
+  .style-editorial section > article,
+  [data-style="editorial"] section > article,
+  .ds-scope[data-style-id="editorial"] section > article {
     border-bottom: 1px solid #e5e0d8 !important;
     padding: 2rem 0 2.25rem !important;
     margin-bottom: 0;
@@ -326,12 +518,24 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article:hover,
-  .editorial-design-styled-container section > article:hover {
+  .editorial-design-styled-container section > article:hover,
+  .style-editorial-design section > article:hover,
+  [data-style="editorial-design"] section > article:hover,
+  .ds-scope[data-style-id="editorial-design"] section > article:hover,
+  .style-editorial section > article:hover,
+  [data-style="editorial"] section > article:hover,
+  .ds-scope[data-style-id="editorial"] section > article:hover {
     padding-left: 0.75rem !important;
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article:nth-child(3n+1)::before,
-  .editorial-design-styled-container section > article:nth-child(3n+1)::before {
+  .editorial-design-styled-container section > article:nth-child(3n+1)::before,
+  .style-editorial-design section > article:nth-child(3n+1)::before,
+  [data-style="editorial-design"] section > article:nth-child(3n+1)::before,
+  .ds-scope[data-style-id="editorial-design"] section > article:nth-child(3n+1)::before,
+  .style-editorial section > article:nth-child(3n+1)::before,
+  [data-style="editorial"] section > article:nth-child(3n+1)::before,
+  .ds-scope[data-style-id="editorial"] section > article:nth-child(3n+1)::before {
     content: 'DISPATCH — 01';
     font-family: 'Inter', sans-serif;
     font-size: 0.625rem;
@@ -343,7 +547,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article:nth-child(3n+2)::before,
-  .editorial-design-styled-container section > article:nth-child(3n+2)::before {
+  .editorial-design-styled-container section > article:nth-child(3n+2)::before,
+  .style-editorial-design section > article:nth-child(3n+2)::before,
+  [data-style="editorial-design"] section > article:nth-child(3n+2)::before,
+  .ds-scope[data-style-id="editorial-design"] section > article:nth-child(3n+2)::before,
+  .style-editorial section > article:nth-child(3n+2)::before,
+  [data-style="editorial"] section > article:nth-child(3n+2)::before,
+  .ds-scope[data-style-id="editorial"] section > article:nth-child(3n+2)::before {
     content: 'DISPATCH — 02';
     font-family: 'Inter', sans-serif;
     font-size: 0.625rem;
@@ -355,7 +565,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article:nth-child(3n+3)::before,
-  .editorial-design-styled-container section > article:nth-child(3n+3)::before {
+  .editorial-design-styled-container section > article:nth-child(3n+3)::before,
+  .style-editorial-design section > article:nth-child(3n+3)::before,
+  [data-style="editorial-design"] section > article:nth-child(3n+3)::before,
+  .ds-scope[data-style-id="editorial-design"] section > article:nth-child(3n+3)::before,
+  .style-editorial section > article:nth-child(3n+3)::before,
+  [data-style="editorial"] section > article:nth-child(3n+3)::before,
+  .ds-scope[data-style-id="editorial"] section > article:nth-child(3n+3)::before {
     content: 'DISPATCH — 03';
     font-family: 'Inter', sans-serif;
     font-size: 0.625rem;
@@ -368,7 +584,13 @@ export const editorialDesignSemanticCss = `
 
   /* Context C: SaaS Pricing (Sample 2) & Dashboard Data (Sample 4) */
   .lab-styled-preview[data-style="editorial-design"] section > div > article,
-  .editorial-design-styled-container section > div > article {
+  .editorial-design-styled-container section > div > article,
+  .style-editorial-design section > div > article,
+  [data-style="editorial-design"] section > div > article,
+  .ds-scope[data-style-id="editorial-design"] section > div > article,
+  .style-editorial section > div > article,
+  [data-style="editorial"] section > div > article,
+  .ds-scope[data-style-id="editorial"] section > div > article {
     background: #ffffff !important;
     border: 1px solid #e5e0d8 !important;
     border-radius: 2px !important;
@@ -381,7 +603,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > div > article strong,
-  .editorial-design-styled-container section > div > article strong {
+  .editorial-design-styled-container section > div > article strong,
+  .style-editorial-design section > div > article strong,
+  [data-style="editorial-design"] section > div > article strong,
+  .ds-scope[data-style-id="editorial-design"] section > div > article strong,
+  .style-editorial section > div > article strong,
+  [data-style="editorial"] section > div > article strong,
+  .ds-scope[data-style-id="editorial"] section > div > article strong {
     font-family: 'Newsreader', 'Playfair Display', serif;
     font-size: clamp(2.2rem, 4vw, 3rem);
     font-weight: 700;
@@ -394,7 +622,13 @@ export const editorialDesignSemanticCss = `
 
   /* Featured Plan: Broadsheet Crimson Top Border */
   .lab-styled-preview[data-style="editorial-design"] section > div > article:nth-child(2):has(button),
-  .editorial-design-styled-container section > div > article:nth-child(2):has(button) {
+  .editorial-design-styled-container section > div > article:nth-child(2):has(button),
+  .style-editorial-design section > div > article:nth-child(2):has(button),
+  [data-style="editorial-design"] section > div > article:nth-child(2):has(button),
+  .ds-scope[data-style-id="editorial-design"] section > div > article:nth-child(2):has(button),
+  .style-editorial section > div > article:nth-child(2):has(button),
+  [data-style="editorial"] section > div > article:nth-child(2):has(button),
+  .ds-scope[data-style-id="editorial"] section > div > article:nth-child(2):has(button) {
     background: #ffffff !important;
     border: 1px solid #141413 !important;
     border-top: 4px solid #991b1b !important;
@@ -402,7 +636,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > div > article:nth-child(2):has(button)::before,
-  .editorial-design-styled-container section > div > article:nth-child(2):has(button)::before {
+  .editorial-design-styled-container section > div > article:nth-child(2):has(button)::before,
+  .style-editorial-design section > div > article:nth-child(2):has(button)::before,
+  [data-style="editorial-design"] section > div > article:nth-child(2):has(button)::before,
+  .ds-scope[data-style-id="editorial-design"] section > div > article:nth-child(2):has(button)::before,
+  .style-editorial section > div > article:nth-child(2):has(button)::before,
+  [data-style="editorial"] section > div > article:nth-child(2):has(button)::before,
+  .ds-scope[data-style-id="editorial"] section > div > article:nth-child(2):has(button)::before {
     content: 'MOST POPULAR EDITION';
     font-family: 'Inter', sans-serif;
     font-size: 0.625rem;
@@ -416,7 +656,13 @@ export const editorialDesignSemanticCss = `
 
   /* Context D: Restaurant Menu as Culinary Review (Sample 6) */
   .lab-styled-preview[data-style="editorial-design"] section > article:has(ul),
-  .editorial-design-styled-container section > article:has(ul) {
+  .editorial-design-styled-container section > article:has(ul),
+  .style-editorial-design section > article:has(ul),
+  [data-style="editorial-design"] section > article:has(ul),
+  .ds-scope[data-style-id="editorial-design"] section > article:has(ul),
+  .style-editorial section > article:has(ul),
+  [data-style="editorial"] section > article:has(ul),
+  .ds-scope[data-style-id="editorial"] section > article:has(ul) {
     background: transparent !important;
     border: none !important;
     border-bottom: 1px solid #e5e0d8 !important;
@@ -429,14 +675,32 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] ul,
   .lab-styled-preview[data-style="editorial-design"] ol,
   .editorial-design-styled-container ul,
-  .editorial-design-styled-container ol {
+  .style-editorial-design ul,
+  [data-style="editorial-design"] ul,
+  .ds-scope[data-style-id="editorial-design"] ul,
+  .style-editorial ul,
+  [data-style="editorial"] ul,
+  .ds-scope[data-style-id="editorial"] ul,
+  .editorial-design-styled-container ol,
+  .style-editorial-design ol,
+  [data-style="editorial-design"] ol,
+  .ds-scope[data-style-id="editorial-design"] ol,
+  .style-editorial ol,
+  [data-style="editorial"] ol,
+  .ds-scope[data-style-id="editorial"] ol {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 1.5rem 0 !important;
   }
 
   .lab-styled-preview[data-style="editorial-design"] li,
-  .editorial-design-styled-container li {
+  .editorial-design-styled-container li,
+  .style-editorial-design li,
+  [data-style="editorial-design"] li,
+  .ds-scope[data-style-id="editorial-design"] li,
+  .style-editorial li,
+  [data-style="editorial"] li,
+  .ds-scope[data-style-id="editorial"] li {
     position: relative;
     padding-left: 1.75rem;
     margin-bottom: 0.9rem;
@@ -446,7 +710,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] li::before,
-  .editorial-design-styled-container li::before {
+  .editorial-design-styled-container li::before,
+  .style-editorial-design li::before,
+  [data-style="editorial-design"] li::before,
+  .ds-scope[data-style-id="editorial-design"] li::before,
+  .style-editorial li::before,
+  [data-style="editorial"] li::before,
+  .ds-scope[data-style-id="editorial"] li::before {
     content: '§';
     position: absolute;
     left: 0;
@@ -458,7 +728,13 @@ export const editorialDesignSemanticCss = `
 
   /* Restaurant Menu Items (Sample 6) */
   .lab-styled-preview[data-style="editorial-design"] section > article ul li,
-  .editorial-design-styled-container section > article ul li {
+  .editorial-design-styled-container section > article ul li,
+  .style-editorial-design section > article ul li,
+  [data-style="editorial-design"] section > article ul li,
+  .ds-scope[data-style-id="editorial-design"] section > article ul li,
+  .style-editorial section > article ul li,
+  [data-style="editorial"] section > article ul li,
+  .ds-scope[data-style-id="editorial"] section > article ul li {
     padding-left: 0;
     margin-bottom: 1.75rem;
     padding-bottom: 1.25rem;
@@ -466,12 +742,24 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article ul li::before,
-  .editorial-design-styled-container section > article ul li::before {
+  .editorial-design-styled-container section > article ul li::before,
+  .style-editorial-design section > article ul li::before,
+  [data-style="editorial-design"] section > article ul li::before,
+  .ds-scope[data-style-id="editorial-design"] section > article ul li::before,
+  .style-editorial section > article ul li::before,
+  [data-style="editorial"] section > article ul li::before,
+  .ds-scope[data-style-id="editorial"] section > article ul li::before {
     display: none;
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article ul li strong,
-  .editorial-design-styled-container section > article ul li strong {
+  .editorial-design-styled-container section > article ul li strong,
+  .style-editorial-design section > article ul li strong,
+  [data-style="editorial-design"] section > article ul li strong,
+  .ds-scope[data-style-id="editorial-design"] section > article ul li strong,
+  .style-editorial section > article ul li strong,
+  [data-style="editorial"] section > article ul li strong,
+  .ds-scope[data-style-id="editorial"] section > article ul li strong {
     font-family: 'Newsreader', 'Playfair Display', serif;
     font-size: 1.2rem;
     font-weight: 700;
@@ -479,7 +767,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] section > article ul li p,
-  .editorial-design-styled-container section > article ul li p {
+  .editorial-design-styled-container section > article ul li p,
+  .style-editorial-design section > article ul li p,
+  [data-style="editorial-design"] section > article ul li p,
+  .ds-scope[data-style-id="editorial-design"] section > article ul li p,
+  .style-editorial section > article ul li p,
+  [data-style="editorial"] section > article ul li p,
+  .ds-scope[data-style-id="editorial"] section > article ul li p {
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     color: #52525b;
@@ -490,7 +784,13 @@ export const editorialDesignSemanticCss = `
 
   /* 8. Editorial Blockquote: Magazine Pullquote */
   .lab-styled-preview[data-style="editorial-design"] blockquote,
-  .editorial-design-styled-container blockquote {
+  .editorial-design-styled-container blockquote,
+  .style-editorial-design blockquote,
+  [data-style="editorial-design"] blockquote,
+  .ds-scope[data-style-id="editorial-design"] blockquote,
+  .style-editorial blockquote,
+  [data-style="editorial"] blockquote,
+  .ds-scope[data-style-id="editorial"] blockquote {
     font-family: 'Newsreader', 'Playfair Display', 'Georgia', serif;
     font-style: italic;
     font-size: 1.45rem;
@@ -505,7 +805,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] blockquote::before,
-  .editorial-design-styled-container blockquote::before {
+  .editorial-design-styled-container blockquote::before,
+  .style-editorial-design blockquote::before,
+  [data-style="editorial-design"] blockquote::before,
+  .ds-scope[data-style-id="editorial-design"] blockquote::before,
+  .style-editorial blockquote::before,
+  [data-style="editorial"] blockquote::before,
+  .ds-scope[data-style-id="editorial"] blockquote::before {
     content: '“';
     font-family: 'Newsreader', serif;
     font-size: 4.5rem;
@@ -520,12 +826,24 @@ export const editorialDesignSemanticCss = `
 
   /* 9. Minimalist Form Controls: Journalistic Correspondence Form */
   .lab-styled-preview[data-style="editorial-design"] form,
-  .editorial-design-styled-container form {
+  .editorial-design-styled-container form,
+  .style-editorial-design form,
+  [data-style="editorial-design"] form,
+  .ds-scope[data-style-id="editorial-design"] form,
+  .style-editorial form,
+  [data-style="editorial"] form,
+  .ds-scope[data-style-id="editorial"] form {
     max-width: 540px;
   }
 
   .lab-styled-preview[data-style="editorial-design"] label,
-  .editorial-design-styled-container label {
+  .editorial-design-styled-container label,
+  .style-editorial-design label,
+  [data-style="editorial-design"] label,
+  .ds-scope[data-style-id="editorial-design"] label,
+  .style-editorial label,
+  [data-style="editorial"] label,
+  .ds-scope[data-style-id="editorial"] label {
     font-family: 'Inter', sans-serif;
     font-size: 0.6875rem;
     font-weight: 800;
@@ -540,8 +858,26 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] select,
   .lab-styled-preview[data-style="editorial-design"] textarea,
   .editorial-design-styled-container input,
+  .style-editorial-design input,
+  [data-style="editorial-design"] input,
+  .ds-scope[data-style-id="editorial-design"] input,
+  .style-editorial input,
+  [data-style="editorial"] input,
+  .ds-scope[data-style-id="editorial"] input,
   .editorial-design-styled-container select,
-  .editorial-design-styled-container textarea {
+  .style-editorial-design select,
+  [data-style="editorial-design"] select,
+  .ds-scope[data-style-id="editorial-design"] select,
+  .style-editorial select,
+  [data-style="editorial"] select,
+  .ds-scope[data-style-id="editorial"] select,
+  .editorial-design-styled-container textarea,
+  .style-editorial-design textarea,
+  [data-style="editorial-design"] textarea,
+  .ds-scope[data-style-id="editorial-design"] textarea,
+  .style-editorial textarea,
+  [data-style="editorial"] textarea,
+  .ds-scope[data-style-id="editorial"] textarea {
     background-color: #ffffff !important;
     border: 1px solid #d4cebe !important;
     border-radius: 2px !important;
@@ -558,15 +894,39 @@ export const editorialDesignSemanticCss = `
   .lab-styled-preview[data-style="editorial-design"] select:focus,
   .lab-styled-preview[data-style="editorial-design"] textarea:focus,
   .editorial-design-styled-container input:focus,
+  .style-editorial-design input:focus,
+  [data-style="editorial-design"] input:focus,
+  .ds-scope[data-style-id="editorial-design"] input:focus,
+  .style-editorial input:focus,
+  [data-style="editorial"] input:focus,
+  .ds-scope[data-style-id="editorial"] input:focus,
   .editorial-design-styled-container select:focus,
-  .editorial-design-styled-container textarea:focus {
+  .style-editorial-design select:focus,
+  [data-style="editorial-design"] select:focus,
+  .ds-scope[data-style-id="editorial-design"] select:focus,
+  .style-editorial select:focus,
+  [data-style="editorial"] select:focus,
+  .ds-scope[data-style-id="editorial"] select:focus,
+  .editorial-design-styled-container textarea:focus,
+  .style-editorial-design textarea:focus,
+  [data-style="editorial-design"] textarea:focus,
+  .ds-scope[data-style-id="editorial-design"] textarea:focus,
+  .style-editorial textarea:focus,
+  [data-style="editorial"] textarea:focus,
+  .ds-scope[data-style-id="editorial"] textarea:focus {
     border-color: #991b1b !important;
     outline: none !important;
   }
 
   /* 10. Data Tables: Financial & Journalistic Ledger */
   .lab-styled-preview[data-style="editorial-design"] table,
-  .editorial-design-styled-container table {
+  .editorial-design-styled-container table,
+  .style-editorial-design table,
+  [data-style="editorial-design"] table,
+  .ds-scope[data-style-id="editorial-design"] table,
+  .style-editorial table,
+  [data-style="editorial"] table,
+  .ds-scope[data-style-id="editorial"] table {
     width: 100% !important;
     border-collapse: collapse !important;
     margin: 2.5rem 0 !important;
@@ -576,7 +936,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] th,
-  .editorial-design-styled-container th {
+  .editorial-design-styled-container th,
+  .style-editorial-design th,
+  [data-style="editorial-design"] th,
+  .ds-scope[data-style-id="editorial-design"] th,
+  .style-editorial th,
+  [data-style="editorial"] th,
+  .ds-scope[data-style-id="editorial"] th {
     font-family: 'Inter', sans-serif !important;
     font-size: 0.6875rem !important;
     font-weight: 800 !important;
@@ -590,7 +956,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] td,
-  .editorial-design-styled-container td {
+  .editorial-design-styled-container td,
+  .style-editorial-design td,
+  [data-style="editorial-design"] td,
+  .ds-scope[data-style-id="editorial-design"] td,
+  .style-editorial td,
+  [data-style="editorial"] td,
+  .ds-scope[data-style-id="editorial"] td {
     padding: 1.15rem 1rem !important;
     font-size: 0.9375rem !important;
     color: #141413 !important;
@@ -599,13 +971,25 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] tr:hover td,
-  .editorial-design-styled-container tr:hover td {
+  .editorial-design-styled-container tr:hover td,
+  .style-editorial-design tr:hover td,
+  [data-style="editorial-design"] tr:hover td,
+  .ds-scope[data-style-id="editorial-design"] tr:hover td,
+  .style-editorial tr:hover td,
+  [data-style="editorial"] tr:hover td,
+  .ds-scope[data-style-id="editorial"] tr:hover td {
     background-color: #f4f0e6 !important;
   }
 
   /* 11. Broadsheet Colophon Footer */
   .lab-styled-preview[data-style="editorial-design"] footer,
-  .editorial-design-styled-container footer {
+  .editorial-design-styled-container footer,
+  .style-editorial-design footer,
+  [data-style="editorial-design"] footer,
+  .ds-scope[data-style-id="editorial-design"] footer,
+  .style-editorial footer,
+  [data-style="editorial"] footer,
+  .ds-scope[data-style-id="editorial"] footer {
     border-top: 2px solid #141413;
     padding: 4rem 0 2rem;
     margin-top: 5rem;
@@ -617,7 +1001,13 @@ export const editorialDesignSemanticCss = `
   }
 
   .lab-styled-preview[data-style="editorial-design"] footer p,
-  .editorial-design-styled-container footer p {
+  .editorial-design-styled-container footer p,
+  .style-editorial-design footer p,
+  [data-style="editorial-design"] footer p,
+  .ds-scope[data-style-id="editorial-design"] footer p,
+  .style-editorial footer p,
+  [data-style="editorial"] footer p,
+  .ds-scope[data-style-id="editorial"] footer p {
     font-family: 'Inter', sans-serif;
     font-size: 0.71875rem;
     letter-spacing: 0.18em;
@@ -628,7 +1018,13 @@ export const editorialDesignSemanticCss = `
 
   /* 12. Imagery: Broadsheet Halftone Look */
   .lab-styled-preview[data-style="editorial-design"] img,
-  .editorial-design-styled-container img {
+  .editorial-design-styled-container img,
+  .style-editorial-design img,
+  [data-style="editorial-design"] img,
+  .ds-scope[data-style-id="editorial-design"] img,
+  .style-editorial img,
+  [data-style="editorial"] img,
+  .ds-scope[data-style-id="editorial"] img {
     border-radius: 0px !important;
     border: 1px solid #141413 !important;
     filter: contrast(105%) !important;
@@ -637,27 +1033,57 @@ export const editorialDesignSemanticCss = `
   /* 13. Mobile Responsiveness */
   @media (max-width: 640px) {
     .lab-styled-preview[data-style="editorial-design"] nav,
-    .editorial-design-styled-container nav {
+    .editorial-design-styled-container nav,
+    .style-editorial-design nav,
+    [data-style="editorial-design"] nav,
+    .ds-scope[data-style-id="editorial-design"] nav,
+    .style-editorial nav,
+    [data-style="editorial"] nav,
+    .ds-scope[data-style-id="editorial"] nav {
       gap: 1rem !important;
       margin-bottom: 2.5rem !important;
     }
     .lab-styled-preview[data-style="editorial-design"] h1,
-    .editorial-design-styled-container h1 {
+    .editorial-design-styled-container h1,
+    .style-editorial-design h1,
+    [data-style="editorial-design"] h1,
+    .ds-scope[data-style-id="editorial-design"] h1,
+    .style-editorial h1,
+    [data-style="editorial"] h1,
+    .ds-scope[data-style-id="editorial"] h1 {
       font-size: clamp(1.85rem, 7vw, 2.65rem) !important;
       margin-bottom: 1.25rem !important;
     }
     .lab-styled-preview[data-style="editorial-design"] h2,
-    .editorial-design-styled-container h2 {
+    .editorial-design-styled-container h2,
+    .style-editorial-design h2,
+    [data-style="editorial-design"] h2,
+    .ds-scope[data-style-id="editorial-design"] h2,
+    .style-editorial h2,
+    [data-style="editorial"] h2,
+    .ds-scope[data-style-id="editorial"] h2 {
       font-size: 1.5rem !important;
       margin-top: 2.5rem !important;
     }
     .lab-styled-preview[data-style="editorial-design"] button,
-    .editorial-design-styled-container button {
+    .editorial-design-styled-container button,
+    .style-editorial-design button,
+    [data-style="editorial-design"] button,
+    .ds-scope[data-style-id="editorial-design"] button,
+    .style-editorial button,
+    [data-style="editorial"] button,
+    .ds-scope[data-style-id="editorial"] button {
       width: 100% !important;
       justify-content: center !important;
     }
     .lab-styled-preview[data-style="editorial-design"] button + button,
-    .editorial-design-styled-container button + button {
+    .editorial-design-styled-container button + button,
+    .style-editorial-design button + button,
+    [data-style="editorial-design"] button + button,
+    .ds-scope[data-style-id="editorial-design"] button + button,
+    .style-editorial button + button,
+    [data-style="editorial"] button + button,
+    .ds-scope[data-style-id="editorial"] button + button {
       margin-left: 0 !important;
       margin-top: 0.75rem !important;
     }

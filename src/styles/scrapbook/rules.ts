@@ -28,7 +28,10 @@ export const scrapbookSemanticCss = `
      1. FOUNDATION & SCOPED VARIABLES
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"],
-  .scrapbook-styled-container {
+  .scrapbook-styled-container,
+  .style-scrapbook,
+  [data-style="scrapbook"],
+  .ds-scope[data-style-id="scrapbook"] {
     --sb-bg: #f7f3e8;              /* Warm album paper */
     --sb-paper-card: #fffef9;       /* Photo / clipping paper card */
     --sb-paper-card-alt: #fbf6ec;   /* Aged paper card */
@@ -74,7 +77,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] *,
-  .scrapbook-styled-container * {
+  .scrapbook-styled-container *,
+  .style-scrapbook *,
+  [data-style="scrapbook"] *,
+  .ds-scope[data-style-id="scrapbook"] * {
     box-sizing: border-box;
   }
 
@@ -88,11 +94,29 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] h5,
   .lab-styled-preview[data-style="scrapbook"] h6,
   .scrapbook-styled-container h1,
+  .style-scrapbook h1,
+  [data-style="scrapbook"] h1,
+  .ds-scope[data-style-id="scrapbook"] h1,
   .scrapbook-styled-container h2,
+  .style-scrapbook h2,
+  [data-style="scrapbook"] h2,
+  .ds-scope[data-style-id="scrapbook"] h2,
   .scrapbook-styled-container h3,
+  .style-scrapbook h3,
+  [data-style="scrapbook"] h3,
+  .ds-scope[data-style-id="scrapbook"] h3,
   .scrapbook-styled-container h4,
+  .style-scrapbook h4,
+  [data-style="scrapbook"] h4,
+  .ds-scope[data-style-id="scrapbook"] h4,
   .scrapbook-styled-container h5,
-  .scrapbook-styled-container h6 {
+  .style-scrapbook h5,
+  [data-style="scrapbook"] h5,
+  .ds-scope[data-style-id="scrapbook"] h5,
+  .scrapbook-styled-container h6,
+  .style-scrapbook h6,
+  [data-style="scrapbook"] h6,
+  .ds-scope[data-style-id="scrapbook"] h6 {
     font-family: 'Playfair Display', Georgia, serif !important;
     color: var(--sb-ink) !important;
     letter-spacing: -0.015em !important;
@@ -102,7 +126,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] h1,
-  .scrapbook-styled-container h1 {
+  .scrapbook-styled-container h1,
+  .style-scrapbook h1,
+  [data-style="scrapbook"] h1,
+  .ds-scope[data-style-id="scrapbook"] h1 {
     font-size: 2.6rem !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em !important;
@@ -110,21 +137,30 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] h2,
-  .scrapbook-styled-container h2 {
+  .scrapbook-styled-container h2,
+  .style-scrapbook h2,
+  [data-style="scrapbook"] h2,
+  .ds-scope[data-style-id="scrapbook"] h2 {
     font-size: 1.85rem !important;
     font-weight: 700 !important;
     margin-bottom: 0.85rem !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] h3,
-  .scrapbook-styled-container h3 {
+  .scrapbook-styled-container h3,
+  .style-scrapbook h3,
+  [data-style="scrapbook"] h3,
+  .ds-scope[data-style-id="scrapbook"] h3 {
     font-size: 1.3rem !important;
     font-weight: 700 !important;
     margin-bottom: 0.5rem !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] p,
-  .scrapbook-styled-container p {
+  .scrapbook-styled-container p,
+  .style-scrapbook p,
+  [data-style="scrapbook"] p,
+  .ds-scope[data-style-id="scrapbook"] p {
     color: var(--sb-ink-secondary) !important;
     font-family: 'Lora', Georgia, serif !important;
     font-size: 0.975rem !important;
@@ -136,7 +172,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] strong,
   .lab-styled-preview[data-style="scrapbook"] b,
   .scrapbook-styled-container strong,
-  .scrapbook-styled-container b {
+  .style-scrapbook strong,
+  [data-style="scrapbook"] strong,
+  .ds-scope[data-style-id="scrapbook"] strong,
+  .scrapbook-styled-container b,
+  .style-scrapbook b,
+  [data-style="scrapbook"] b,
+  .ds-scope[data-style-id="scrapbook"] b {
     color: var(--sb-ink) !important;
     font-weight: 700 !important;
   }
@@ -145,7 +187,10 @@ export const scrapbookSemanticCss = `
      3. NAVIGATION (Album Index Tabs & Clipped Tickets)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] nav,
-  .scrapbook-styled-container nav {
+  .scrapbook-styled-container nav,
+  .style-scrapbook nav,
+  [data-style="scrapbook"] nav,
+  .ds-scope[data-style-id="scrapbook"] nav {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
@@ -157,7 +202,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] nav a,
-  .scrapbook-styled-container nav a {
+  .scrapbook-styled-container nav a,
+  .style-scrapbook nav a,
+  [data-style="scrapbook"] nav a,
+  .ds-scope[data-style-id="scrapbook"] nav a {
     background-color: var(--sb-paper-card) !important;
     border: 1px solid var(--sb-border) !important;
     border-bottom: 2px solid #b8ab92 !important;
@@ -177,24 +225,39 @@ export const scrapbookSemanticCss = `
 
   /* Alternating organic tilt for tabs */
   .lab-styled-preview[data-style="scrapbook"] nav a:nth-child(1),
-  .scrapbook-styled-container nav a:nth-child(1) {
+  .scrapbook-styled-container nav a:nth-child(1),
+  .style-scrapbook nav a:nth-child(1),
+  [data-style="scrapbook"] nav a:nth-child(1),
+  .ds-scope[data-style-id="scrapbook"] nav a:nth-child(1) {
     transform: rotate(-1.2deg) !important;
   }
   .lab-styled-preview[data-style="scrapbook"] nav a:nth-child(2),
-  .scrapbook-styled-container nav a:nth-child(2) {
+  .scrapbook-styled-container nav a:nth-child(2),
+  .style-scrapbook nav a:nth-child(2),
+  [data-style="scrapbook"] nav a:nth-child(2),
+  .ds-scope[data-style-id="scrapbook"] nav a:nth-child(2) {
     transform: rotate(1deg) !important;
   }
   .lab-styled-preview[data-style="scrapbook"] nav a:nth-child(3),
-  .scrapbook-styled-container nav a:nth-child(3) {
+  .scrapbook-styled-container nav a:nth-child(3),
+  .style-scrapbook nav a:nth-child(3),
+  [data-style="scrapbook"] nav a:nth-child(3),
+  .ds-scope[data-style-id="scrapbook"] nav a:nth-child(3) {
     transform: rotate(-0.7deg) !important;
   }
   .lab-styled-preview[data-style="scrapbook"] nav a:nth-child(4),
-  .scrapbook-styled-container nav a:nth-child(4) {
+  .scrapbook-styled-container nav a:nth-child(4),
+  .style-scrapbook nav a:nth-child(4),
+  [data-style="scrapbook"] nav a:nth-child(4),
+  .ds-scope[data-style-id="scrapbook"] nav a:nth-child(4) {
     transform: rotate(1.2deg) !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] nav a:hover,
-  .scrapbook-styled-container nav a:hover {
+  .scrapbook-styled-container nav a:hover,
+  .style-scrapbook nav a:hover,
+  [data-style="scrapbook"] nav a:hover,
+  .ds-scope[data-style-id="scrapbook"] nav a:hover {
     background-color: #fef08a !important;
     color: var(--sb-ink) !important;
     transform: translateY(-2px) rotate(0deg) !important;
@@ -204,7 +267,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] nav a:first-child,
   .lab-styled-preview[data-style="scrapbook"] nav a[aria-current],
   .scrapbook-styled-container nav a:first-child,
-  .scrapbook-styled-container nav a[aria-current] {
+  .style-scrapbook nav a:first-child,
+  [data-style="scrapbook"] nav a:first-child,
+  .ds-scope[data-style-id="scrapbook"] nav a:first-child,
+  .scrapbook-styled-container nav a[aria-current],
+  .style-scrapbook nav a[aria-current],
+  [data-style="scrapbook"] nav a[aria-current],
+  .ds-scope[data-style-id="scrapbook"] nav a[aria-current] {
     background-color: #fef08a !important;
     color: var(--sb-ink) !important;
     border-color: #eab308 !important;
@@ -217,7 +286,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] section:first-of-type > p:first-of-type,
   .lab-styled-preview[data-style="scrapbook"] header > p:first-of-type,
   .scrapbook-styled-container section:first-of-type > p:first-of-type,
-  .scrapbook-styled-container header > p:first-of-type {
+  .style-scrapbook section:first-of-type > p:first-of-type,
+  [data-style="scrapbook"] section:first-of-type > p:first-of-type,
+  .ds-scope[data-style-id="scrapbook"] section:first-of-type > p:first-of-type,
+  .scrapbook-styled-container header > p:first-of-type,
+  .style-scrapbook header > p:first-of-type,
+  [data-style="scrapbook"] header > p:first-of-type,
+  .ds-scope[data-style-id="scrapbook"] header > p:first-of-type {
     display: inline-block !important;
     font-family: 'Caveat', cursive !important;
     font-size: 1.25rem !important;
@@ -234,7 +309,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] section:first-of-type > p:nth-of-type(2),
-  .scrapbook-styled-container section:first-of-type > p:nth-of-type(2) {
+  .scrapbook-styled-container section:first-of-type > p:nth-of-type(2),
+  .style-scrapbook section:first-of-type > p:nth-of-type(2),
+  [data-style="scrapbook"] section:first-of-type > p:nth-of-type(2),
+  .ds-scope[data-style-id="scrapbook"] section:first-of-type > p:nth-of-type(2) {
     font-size: 1.1rem !important;
     line-height: 1.68 !important;
     color: var(--sb-ink-secondary) !important;
@@ -248,7 +326,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] button,
   .lab-styled-preview[data-style="scrapbook"] input[type="submit"],
   .scrapbook-styled-container button,
-  .scrapbook-styled-container input[type="submit"] {
+  .style-scrapbook button,
+  [data-style="scrapbook"] button,
+  .ds-scope[data-style-id="scrapbook"] button,
+  .scrapbook-styled-container input[type="submit"],
+  .style-scrapbook input[type="submit"],
+  [data-style="scrapbook"] input[type="submit"],
+  .ds-scope[data-style-id="scrapbook"] input[type="submit"] {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -274,7 +358,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] button:hover,
   .lab-styled-preview[data-style="scrapbook"] input[type="submit"]:hover,
   .scrapbook-styled-container button:hover,
-  .scrapbook-styled-container input[type="submit"]:hover {
+  .style-scrapbook button:hover,
+  [data-style="scrapbook"] button:hover,
+  .ds-scope[data-style-id="scrapbook"] button:hover,
+  .scrapbook-styled-container input[type="submit"]:hover,
+  .style-scrapbook input[type="submit"]:hover,
+  [data-style="scrapbook"] input[type="submit"]:hover,
+  .ds-scope[data-style-id="scrapbook"] input[type="submit"]:hover {
     background-color: var(--sb-stamp-crimson) !important;
     border-color: var(--sb-stamp-crimson) !important;
     transform: translateY(-2px) rotate(0deg) scale(1.02) !important;
@@ -284,7 +374,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] button:active,
   .lab-styled-preview[data-style="scrapbook"] input[type="submit"]:active,
   .scrapbook-styled-container button:active,
-  .scrapbook-styled-container input[type="submit"]:active {
+  .style-scrapbook button:active,
+  [data-style="scrapbook"] button:active,
+  .ds-scope[data-style-id="scrapbook"] button:active,
+  .scrapbook-styled-container input[type="submit"]:active,
+  .style-scrapbook input[type="submit"]:active,
+  [data-style="scrapbook"] input[type="submit"]:active,
+  .ds-scope[data-style-id="scrapbook"] input[type="submit"]:active {
     transform: translateY(1px) scale(0.98) !important;
     box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25) !important;
   }
@@ -292,14 +388,23 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] button:focus-visible,
   .lab-styled-preview[data-style="scrapbook"] input[type="submit"]:focus-visible,
   .scrapbook-styled-container button:focus-visible,
-  .scrapbook-styled-container input[type="submit"]:focus-visible {
+  .style-scrapbook button:focus-visible,
+  [data-style="scrapbook"] button:focus-visible,
+  .ds-scope[data-style-id="scrapbook"] button:focus-visible,
+  .scrapbook-styled-container input[type="submit"]:focus-visible,
+  .style-scrapbook input[type="submit"]:focus-visible,
+  [data-style="scrapbook"] input[type="submit"]:focus-visible,
+  .ds-scope[data-style-id="scrapbook"] input[type="submit"]:focus-visible {
     outline: 2px dashed var(--sb-stamp-crimson) !important;
     outline-offset: 4px !important;
   }
 
   /* Secondary swatch/option buttons */
   .lab-styled-preview[data-style="scrapbook"] article > div:has(button) button,
-  .scrapbook-styled-container article > div:has(button) button {
+  .scrapbook-styled-container article > div:has(button) button,
+  .style-scrapbook article > div:has(button) button,
+  [data-style="scrapbook"] article > div:has(button) button,
+  .ds-scope[data-style-id="scrapbook"] article > div:has(button) button {
     background-color: var(--sb-paper-card) !important;
     color: var(--sb-ink) !important;
     border: 1px dashed var(--sb-ink-muted) !important;
@@ -312,7 +417,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] article > div:has(button) button:hover,
-  .scrapbook-styled-container article > div:has(button) button:hover {
+  .scrapbook-styled-container article > div:has(button) button:hover,
+  .style-scrapbook article > div:has(button) button:hover,
+  [data-style="scrapbook"] article > div:has(button) button:hover,
+  .ds-scope[data-style-id="scrapbook"] article > div:has(button) button:hover {
     background-color: #fef08a !important;
     border-color: #ca8a04 !important;
     color: var(--sb-ink) !important;
@@ -320,7 +428,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] article > div:has(button) button:first-of-type,
-  .scrapbook-styled-container article > div:has(button) button:first-of-type {
+  .scrapbook-styled-container article > div:has(button) button:first-of-type,
+  .style-scrapbook article > div:has(button) button:first-of-type,
+  [data-style="scrapbook"] article > div:has(button) button:first-of-type,
+  .ds-scope[data-style-id="scrapbook"] article > div:has(button) button:first-of-type {
     background-color: #fef08a !important;
     color: #854d0e !important;
     border: 1px solid #ca8a04 !important;
@@ -334,7 +445,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] article,
   .lab-styled-preview[data-style="scrapbook"] .card,
   .scrapbook-styled-container article,
-  .scrapbook-styled-container .card {
+  .style-scrapbook article,
+  [data-style="scrapbook"] article,
+  .ds-scope[data-style-id="scrapbook"] article,
+  .scrapbook-styled-container .card,
+  .style-scrapbook .card,
+  [data-style="scrapbook"] .card,
+  .ds-scope[data-style-id="scrapbook"] .card {
     background-color: var(--sb-paper-card) !important;
     border: 1px solid var(--sb-border) !important;
     border-radius: 2px !important;
@@ -349,7 +466,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] article::before,
   .lab-styled-preview[data-style="scrapbook"] .card::before,
   .scrapbook-styled-container article::before,
-  .scrapbook-styled-container .card::before {
+  .style-scrapbook article::before,
+  [data-style="scrapbook"] article::before,
+  .ds-scope[data-style-id="scrapbook"] article::before,
+  .scrapbook-styled-container .card::before,
+  .style-scrapbook .card::before,
+  [data-style="scrapbook"] .card::before,
+  .ds-scope[data-style-id="scrapbook"] .card::before {
     content: '' !important;
     position: absolute !important;
     top: -9px !important;
@@ -367,22 +490,37 @@ export const scrapbookSemanticCss = `
 
   /* Organic card rotations */
   .lab-styled-preview[data-style="scrapbook"] section article:nth-of-type(3n + 1),
-  .scrapbook-styled-container section article:nth-of-type(3n + 1) {
+  .scrapbook-styled-container section article:nth-of-type(3n + 1),
+  .style-scrapbook section article:nth-of-type(3n + 1),
+  [data-style="scrapbook"] section article:nth-of-type(3n + 1),
+  .ds-scope[data-style-id="scrapbook"] section article:nth-of-type(3n + 1) {
     transform: rotate(-1deg) !important;
   }
   .lab-styled-preview[data-style="scrapbook"] section article:nth-of-type(3n + 2),
-  .scrapbook-styled-container section article:nth-of-type(3n + 2) {
+  .scrapbook-styled-container section article:nth-of-type(3n + 2),
+  .style-scrapbook section article:nth-of-type(3n + 2),
+  [data-style="scrapbook"] section article:nth-of-type(3n + 2),
+  .ds-scope[data-style-id="scrapbook"] section article:nth-of-type(3n + 2) {
     transform: rotate(1.2deg) !important;
   }
   .lab-styled-preview[data-style="scrapbook"] section article:nth-of-type(3n + 3),
-  .scrapbook-styled-container section article:nth-of-type(3n + 3) {
+  .scrapbook-styled-container section article:nth-of-type(3n + 3),
+  .style-scrapbook section article:nth-of-type(3n + 3),
+  [data-style="scrapbook"] section article:nth-of-type(3n + 3),
+  .ds-scope[data-style-id="scrapbook"] section article:nth-of-type(3n + 3) {
     transform: rotate(-0.6deg) !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] article:hover,
   .lab-styled-preview[data-style="scrapbook"] .card:hover,
   .scrapbook-styled-container article:hover,
-  .scrapbook-styled-container .card:hover {
+  .style-scrapbook article:hover,
+  [data-style="scrapbook"] article:hover,
+  .ds-scope[data-style-id="scrapbook"] article:hover,
+  .scrapbook-styled-container .card:hover,
+  .style-scrapbook .card:hover,
+  [data-style="scrapbook"] .card:hover,
+  .ds-scope[data-style-id="scrapbook"] .card:hover {
     transform: translateY(-4px) rotate(0deg) !important;
     box-shadow: var(--sb-shadow-elevated) !important;
     z-index: 5 !important;
@@ -392,7 +530,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] section:has(> article:nth-of-type(2)),
   .lab-styled-preview[data-style="scrapbook"] section:has(> div > article:nth-of-type(2)) > div,
   .scrapbook-styled-container section:has(> article:nth-of-type(2)),
-  .scrapbook-styled-container section:has(> div > article:nth-of-type(2)) > div {
+  .style-scrapbook section:has(> article:nth-of-type(2)),
+  [data-style="scrapbook"] section:has(> article:nth-of-type(2)),
+  .ds-scope[data-style-id="scrapbook"] section:has(> article:nth-of-type(2)),
+  .scrapbook-styled-container section:has(> div > article:nth-of-type(2)) > div,
+  .style-scrapbook section:has(> div > article:nth-of-type(2)) > div,
+  [data-style="scrapbook"] section:has(> div > article:nth-of-type(2)) > div,
+  .ds-scope[data-style-id="scrapbook"] section:has(> div > article:nth-of-type(2)) > div {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
     gap: 1.5rem !important;
@@ -404,13 +548,19 @@ export const scrapbookSemanticCss = `
      7. SAAS PRICING (Varied Ephemera & Stamped Price Tags)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] section:has(article:has(strong:has-text('$'))),
-  .scrapbook-styled-container section:has(article:has(strong:has-text('$'))) {
+  .scrapbook-styled-container section:has(article:has(strong:has-text('$'))),
+  .style-scrapbook section:has(article:has(strong:has-text('$'))),
+  [data-style="scrapbook"] section:has(article:has(strong:has-text('$'))),
+  .ds-scope[data-style-id="scrapbook"] section:has(article:has(strong:has-text('$'))) {
     margin-bottom: 3rem !important;
   }
 
   /* Middle Pro tier as yellow post-it highlighted ticket */
   .lab-styled-preview[data-style="scrapbook"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
-  .scrapbook-styled-container section:has(article:nth-of-type(3)) article:nth-of-type(2) {
+  .scrapbook-styled-container section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .style-scrapbook section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  [data-style="scrapbook"] section:has(article:nth-of-type(3)) article:nth-of-type(2),
+  .ds-scope[data-style-id="scrapbook"] section:has(article:nth-of-type(3)) article:nth-of-type(2) {
     background-color: var(--sb-paper-card-alt) !important;
     border: 2px solid #ca8a04 !important;
     box-shadow: 4px 8px 20px rgba(180, 130, 20, 0.16) !important;
@@ -418,13 +568,19 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] section:has(article:nth-of-type(3)) article:nth-of-type(2)::before,
-  .scrapbook-styled-container section:has(article:nth-of-type(3)) article:nth-of-type(2)::before {
+  .scrapbook-styled-container section:has(article:nth-of-type(3)) article:nth-of-type(2)::before,
+  .style-scrapbook section:has(article:nth-of-type(3)) article:nth-of-type(2)::before,
+  [data-style="scrapbook"] section:has(article:nth-of-type(3)) article:nth-of-type(2)::before,
+  .ds-scope[data-style-id="scrapbook"] section:has(article:nth-of-type(3)) article:nth-of-type(2)::before {
     background-color: #fde047 !important;
     border-color: #eab308 !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] article strong,
-  .scrapbook-styled-container article strong {
+  .scrapbook-styled-container article strong,
+  .style-scrapbook article strong,
+  [data-style="scrapbook"] article strong,
+  .ds-scope[data-style-id="scrapbook"] article strong {
     display: block !important;
     font-family: 'Courier Prime', monospace !important;
     font-size: 1.85rem !important;
@@ -438,7 +594,10 @@ export const scrapbookSemanticCss = `
      8. EDITORIAL ARTICLES (Field Journal Page & Sticky Memo Quotes)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] > article:only-child,
-  .scrapbook-styled-container > article:only-child {
+  .scrapbook-styled-container > article:only-child,
+  .style-scrapbook > article:only-child,
+  [data-style="scrapbook"] > article:only-child,
+  .ds-scope[data-style-id="scrapbook"] > article:only-child {
     max-width: 720px !important;
     margin: 0 auto !important;
     background: transparent !important;
@@ -449,12 +608,18 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] > article:only-child::before,
-  .scrapbook-styled-container > article:only-child::before {
+  .scrapbook-styled-container > article:only-child::before,
+  .style-scrapbook > article:only-child::before,
+  [data-style="scrapbook"] > article:only-child::before,
+  .ds-scope[data-style-id="scrapbook"] > article:only-child::before {
     display: none !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] > article:only-child p,
-  .scrapbook-styled-container > article:only-child p {
+  .scrapbook-styled-container > article:only-child p,
+  .style-scrapbook > article:only-child p,
+  [data-style="scrapbook"] > article:only-child p,
+  .ds-scope[data-style-id="scrapbook"] > article:only-child p {
     font-family: 'Lora', Georgia, serif !important;
     font-size: 1.1rem !important;
     line-height: 1.8 !important;
@@ -463,7 +628,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] blockquote,
-  .scrapbook-styled-container blockquote {
+  .scrapbook-styled-container blockquote,
+  .style-scrapbook blockquote,
+  [data-style="scrapbook"] blockquote,
+  .ds-scope[data-style-id="scrapbook"] blockquote {
     background-color: var(--sb-paper-sticky) !important;
     border: 1px solid #facc15 !important;
     border-radius: 2px !important;
@@ -481,7 +649,10 @@ export const scrapbookSemanticCss = `
 
   /* Scotch tape piece on blockquote */
   .lab-styled-preview[data-style="scrapbook"] blockquote::before,
-  .scrapbook-styled-container blockquote::before {
+  .scrapbook-styled-container blockquote::before,
+  .style-scrapbook blockquote::before,
+  [data-style="scrapbook"] blockquote::before,
+  .ds-scope[data-style-id="scrapbook"] blockquote::before {
     content: '' !important;
     position: absolute !important;
     top: -9px !important;
@@ -498,7 +669,10 @@ export const scrapbookSemanticCss = `
      9. DASHBOARD TELEMETRY (3x5 Index Cards & Research Inked Ledger)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] section:has(table) > div > article,
-  .scrapbook-styled-container section:has(table) > div > article {
+  .scrapbook-styled-container section:has(table) > div > article,
+  .style-scrapbook section:has(table) > div > article,
+  [data-style="scrapbook"] section:has(table) > div > article,
+  .ds-scope[data-style-id="scrapbook"] section:has(table) > div > article {
     background-color: var(--sb-paper-card) !important;
     border: 1px solid var(--sb-border) !important;
     border-top: 4px solid var(--sb-stamp-crimson) !important;
@@ -508,7 +682,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] section:has(table) > div > article h3,
-  .scrapbook-styled-container section:has(table) > div > article h3 {
+  .scrapbook-styled-container section:has(table) > div > article h3,
+  .style-scrapbook section:has(table) > div > article h3,
+  [data-style="scrapbook"] section:has(table) > div > article h3,
+  .ds-scope[data-style-id="scrapbook"] section:has(table) > div > article h3 {
     font-family: 'Courier Prime', monospace !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
@@ -519,7 +696,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] section:has(table) > div > article strong,
-  .scrapbook-styled-container section:has(table) > div > article strong {
+  .scrapbook-styled-container section:has(table) > div > article strong,
+  .style-scrapbook section:has(table) > div > article strong,
+  [data-style="scrapbook"] section:has(table) > div > article strong,
+  .ds-scope[data-style-id="scrapbook"] section:has(table) > div > article strong {
     font-family: 'Courier Prime', monospace !important;
     font-size: 2.1rem !important;
     font-weight: 700 !important;
@@ -534,7 +714,10 @@ export const scrapbookSemanticCss = `
      10. TABLES (Inked Observation Ledger)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] table,
-  .scrapbook-styled-container table {
+  .scrapbook-styled-container table,
+  .style-scrapbook table,
+  [data-style="scrapbook"] table,
+  .ds-scope[data-style-id="scrapbook"] table {
     width: 100% !important;
     border-collapse: collapse !important;
     background-color: var(--sb-paper-card) !important;
@@ -546,13 +729,19 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] thead,
-  .scrapbook-styled-container thead {
+  .scrapbook-styled-container thead,
+  .style-scrapbook thead,
+  [data-style="scrapbook"] thead,
+  .ds-scope[data-style-id="scrapbook"] thead {
     background-color: #f5eedd !important;
     border-bottom: 2px solid #b8ab92 !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] th,
-  .scrapbook-styled-container th {
+  .scrapbook-styled-container th,
+  .style-scrapbook th,
+  [data-style="scrapbook"] th,
+  .ds-scope[data-style-id="scrapbook"] th {
     color: var(--sb-ink-secondary) !important;
     font-family: 'Courier Prime', monospace !important;
     font-size: 0.75rem !important;
@@ -565,7 +754,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] td,
-  .scrapbook-styled-container td {
+  .scrapbook-styled-container td,
+  .style-scrapbook td,
+  [data-style="scrapbook"] td,
+  .ds-scope[data-style-id="scrapbook"] td {
     padding: 0.85rem 1rem !important;
     color: var(--sb-ink) !important;
     font-family: 'Courier Prime', monospace !important;
@@ -575,12 +767,18 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] tbody tr:last-child td,
-  .scrapbook-styled-container tbody tr:last-child td {
+  .scrapbook-styled-container tbody tr:last-child td,
+  .style-scrapbook tbody tr:last-child td,
+  [data-style="scrapbook"] tbody tr:last-child td,
+  .ds-scope[data-style-id="scrapbook"] tbody tr:last-child td {
     border-bottom: none !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] tbody tr:hover,
-  .scrapbook-styled-container tbody tr:hover {
+  .scrapbook-styled-container tbody tr:hover,
+  .style-scrapbook tbody tr:hover,
+  [data-style="scrapbook"] tbody tr:hover,
+  .ds-scope[data-style-id="scrapbook"] tbody tr:hover {
     background-color: #fcf8ee !important;
   }
 
@@ -588,7 +786,10 @@ export const scrapbookSemanticCss = `
      11. FORMS & INPUTS (Stationery Dispatch Memo & Ruled Lines)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] form,
-  .scrapbook-styled-container form {
+  .scrapbook-styled-container form,
+  .style-scrapbook form,
+  [data-style="scrapbook"] form,
+  .ds-scope[data-style-id="scrapbook"] form {
     background-color: var(--sb-paper-card) !important;
     border: 2px solid var(--sb-border-dashed) !important;
     border-radius: 2px !important;
@@ -600,7 +801,10 @@ export const scrapbookSemanticCss = `
 
   /* Stamp cue on top corner of form */
   .lab-styled-preview[data-style="scrapbook"] form::after,
-  .scrapbook-styled-container form::after {
+  .scrapbook-styled-container form::after,
+  .style-scrapbook form::after,
+  [data-style="scrapbook"] form::after,
+  .ds-scope[data-style-id="scrapbook"] form::after {
     content: 'OFFICIAL DISPATCH' !important;
     position: absolute !important;
     top: 16px !important;
@@ -618,12 +822,18 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] form > div,
-  .scrapbook-styled-container form > div {
+  .scrapbook-styled-container form > div,
+  .style-scrapbook form > div,
+  [data-style="scrapbook"] form > div,
+  .ds-scope[data-style-id="scrapbook"] form > div {
     margin-bottom: 1.35rem !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] label,
-  .scrapbook-styled-container label {
+  .scrapbook-styled-container label,
+  .style-scrapbook label,
+  [data-style="scrapbook"] label,
+  .ds-scope[data-style-id="scrapbook"] label {
     display: block !important;
     font-family: 'Courier Prime', monospace !important;
     font-size: 0.8125rem !important;
@@ -638,8 +848,17 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] select,
   .lab-styled-preview[data-style="scrapbook"] textarea,
   .scrapbook-styled-container input,
+  .style-scrapbook input,
+  [data-style="scrapbook"] input,
+  .ds-scope[data-style-id="scrapbook"] input,
   .scrapbook-styled-container select,
-  .scrapbook-styled-container textarea {
+  .style-scrapbook select,
+  [data-style="scrapbook"] select,
+  .ds-scope[data-style-id="scrapbook"] select,
+  .scrapbook-styled-container textarea,
+  .style-scrapbook textarea,
+  [data-style="scrapbook"] textarea,
+  .ds-scope[data-style-id="scrapbook"] textarea {
     background-color: #fbf8f0 !important;
     color: var(--sb-ink) !important;
     border: 1px solid #d6cdb7 !important;
@@ -659,8 +878,17 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] select:focus,
   .lab-styled-preview[data-style="scrapbook"] textarea:focus,
   .scrapbook-styled-container input:focus,
+  .style-scrapbook input:focus,
+  [data-style="scrapbook"] input:focus,
+  .ds-scope[data-style-id="scrapbook"] input:focus,
   .scrapbook-styled-container select:focus,
-  .scrapbook-styled-container textarea:focus {
+  .style-scrapbook select:focus,
+  [data-style="scrapbook"] select:focus,
+  .ds-scope[data-style-id="scrapbook"] select:focus,
+  .scrapbook-styled-container textarea:focus,
+  .style-scrapbook textarea:focus,
+  [data-style="scrapbook"] textarea:focus,
+  .ds-scope[data-style-id="scrapbook"] textarea:focus {
     outline: none !important;
     border-color: var(--sb-stamp-crimson) !important;
     box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.15) !important;
@@ -669,7 +897,13 @@ export const scrapbookSemanticCss = `
   .lab-styled-preview[data-style="scrapbook"] input::placeholder,
   .lab-styled-preview[data-style="scrapbook"] textarea::placeholder,
   .scrapbook-styled-container input::placeholder,
-  .scrapbook-styled-container textarea::placeholder {
+  .style-scrapbook input::placeholder,
+  [data-style="scrapbook"] input::placeholder,
+  .ds-scope[data-style-id="scrapbook"] input::placeholder,
+  .scrapbook-styled-container textarea::placeholder,
+  .style-scrapbook textarea::placeholder,
+  [data-style="scrapbook"] textarea::placeholder,
+  .ds-scope[data-style-id="scrapbook"] textarea::placeholder {
     color: var(--sb-ink-muted) !important;
     opacity: 0.8 !important;
   }
@@ -678,14 +912,20 @@ export const scrapbookSemanticCss = `
      12. LISTS & SPECIFICATIONS (Field Checklist)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] ul,
-  .scrapbook-styled-container ul {
+  .scrapbook-styled-container ul,
+  .style-scrapbook ul,
+  [data-style="scrapbook"] ul,
+  .ds-scope[data-style-id="scrapbook"] ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 1rem 0 !important;
   }
 
   .lab-styled-preview[data-style="scrapbook"] li,
-  .scrapbook-styled-container li {
+  .scrapbook-styled-container li,
+  .style-scrapbook li,
+  [data-style="scrapbook"] li,
+  .ds-scope[data-style-id="scrapbook"] li {
     padding: 0.65rem 0 !important;
     border-bottom: 1px dashed var(--sb-border-dashed) !important;
     color: var(--sb-ink-secondary) !important;
@@ -695,7 +935,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] li::before,
-  .scrapbook-styled-container li::before {
+  .scrapbook-styled-container li::before,
+  .style-scrapbook li::before,
+  [data-style="scrapbook"] li::before,
+  .ds-scope[data-style-id="scrapbook"] li::before {
     content: '•' !important;
     position: absolute !important;
     left: 0 !important;
@@ -705,7 +948,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] li:last-child,
-  .scrapbook-styled-container li:last-child {
+  .scrapbook-styled-container li:last-child,
+  .style-scrapbook li:last-child,
+  [data-style="scrapbook"] li:last-child,
+  .ds-scope[data-style-id="scrapbook"] li:last-child {
     border-bottom: none !important;
   }
 
@@ -713,7 +959,10 @@ export const scrapbookSemanticCss = `
      13. FOOTER (Pencil Inscription & Stamp Date)
      -------------------------------------------------------------------------- */
   .lab-styled-preview[data-style="scrapbook"] footer,
-  .scrapbook-styled-container footer {
+  .scrapbook-styled-container footer,
+  .style-scrapbook footer,
+  [data-style="scrapbook"] footer,
+  .ds-scope[data-style-id="scrapbook"] footer {
     border-top: 2px dashed var(--sb-border-dashed) !important;
     margin-top: 3.5rem !important;
     padding-top: 1.5rem !important;
@@ -725,7 +974,10 @@ export const scrapbookSemanticCss = `
   }
 
   .lab-styled-preview[data-style="scrapbook"] footer p,
-  .scrapbook-styled-container footer p {
+  .scrapbook-styled-container footer p,
+  .style-scrapbook footer p,
+  [data-style="scrapbook"] footer p,
+  .ds-scope[data-style-id="scrapbook"] footer p {
     font-family: 'Caveat', cursive !important;
     font-size: 1.25rem !important;
     color: var(--sb-ink-muted) !important;
@@ -737,22 +989,34 @@ export const scrapbookSemanticCss = `
      -------------------------------------------------------------------------- */
   @media (max-width: 768px) {
     .lab-styled-preview[data-style="scrapbook"],
-    .scrapbook-styled-container {
+    .scrapbook-styled-container,
+    .style-scrapbook,
+    [data-style="scrapbook"],
+    .ds-scope[data-style-id="scrapbook"] {
       padding: 1.5rem 1rem !important;
     }
 
     .lab-styled-preview[data-style="scrapbook"] h1,
-    .scrapbook-styled-container h1 {
+    .scrapbook-styled-container h1,
+    .style-scrapbook h1,
+    [data-style="scrapbook"] h1,
+    .ds-scope[data-style-id="scrapbook"] h1 {
       font-size: 1.95rem !important;
     }
 
     .lab-styled-preview[data-style="scrapbook"] h2,
-    .scrapbook-styled-container h2 {
+    .scrapbook-styled-container h2,
+    .style-scrapbook h2,
+    [data-style="scrapbook"] h2,
+    .ds-scope[data-style-id="scrapbook"] h2 {
       font-size: 1.45rem !important;
     }
 
     .lab-styled-preview[data-style="scrapbook"] nav,
-    .scrapbook-styled-container nav {
+    .scrapbook-styled-container nav,
+    .style-scrapbook nav,
+    [data-style="scrapbook"] nav,
+    .ds-scope[data-style-id="scrapbook"] nav {
       gap: 0.35rem !important;
     }
 
@@ -762,23 +1026,44 @@ export const scrapbookSemanticCss = `
     .lab-styled-preview[data-style="scrapbook"] blockquote,
     .lab-styled-preview[data-style="scrapbook"] button,
     .scrapbook-styled-container nav a,
+    .style-scrapbook nav a,
+    [data-style="scrapbook"] nav a,
+    .ds-scope[data-style-id="scrapbook"] nav a,
     .scrapbook-styled-container article,
+    .style-scrapbook article,
+    [data-style="scrapbook"] article,
+    .ds-scope[data-style-id="scrapbook"] article,
     .scrapbook-styled-container blockquote,
-    .scrapbook-styled-container button {
+    .style-scrapbook blockquote,
+    [data-style="scrapbook"] blockquote,
+    .ds-scope[data-style-id="scrapbook"] blockquote,
+    .scrapbook-styled-container button,
+    .style-scrapbook button,
+    [data-style="scrapbook"] button,
+    .ds-scope[data-style-id="scrapbook"] button {
       transform: none !important;
     }
 
     .lab-styled-preview[data-style="scrapbook"] section:has(> article:nth-of-type(2)),
     .lab-styled-preview[data-style="scrapbook"] section:has(> div > article:nth-of-type(2)) > div,
     .scrapbook-styled-container section:has(> article:nth-of-type(2)),
-    .scrapbook-styled-container section:has(> div > article:nth-of-type(2)) > div {
+    .style-scrapbook section:has(> article:nth-of-type(2)),
+    [data-style="scrapbook"] section:has(> article:nth-of-type(2)),
+    .ds-scope[data-style-id="scrapbook"] section:has(> article:nth-of-type(2)),
+    .scrapbook-styled-container section:has(> div > article:nth-of-type(2)) > div,
+    .style-scrapbook section:has(> div > article:nth-of-type(2)) > div,
+    [data-style="scrapbook"] section:has(> div > article:nth-of-type(2)) > div,
+    .ds-scope[data-style-id="scrapbook"] section:has(> div > article:nth-of-type(2)) > div {
       grid-template-columns: 1fr !important;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .lab-styled-preview[data-style="scrapbook"] *,
-    .scrapbook-styled-container * {
+    .scrapbook-styled-container *,
+    .style-scrapbook *,
+    [data-style="scrapbook"] *,
+    .ds-scope[data-style-id="scrapbook"] * {
       transition: none !important;
       animation: none !important;
       transform: none !important;

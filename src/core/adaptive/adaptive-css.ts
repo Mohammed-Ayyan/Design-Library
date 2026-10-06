@@ -1,6 +1,93 @@
 import { StructureAnalyzer } from './structure-analyzer';
 import { RoleResolver } from './role-resolver';
 import { InferredRole } from './types';
+import {
+  brutalistSemanticCss,
+  minimalistSemanticCss,
+  glassmorphismSemanticCss,
+  maximalistSemanticCss,
+  swissDesignSemanticCss,
+  surrealDesignSemanticCss,
+  neoBrutalistSemanticCss,
+  neoClassicalSemanticCss,
+  luxuryTypographySemanticCss,
+  editorialDesignSemanticCss,
+  y2kAestheticSemanticCss,
+  bentoGridSemanticCss,
+  pixelArtSemanticCss,
+  conceptualSketchSemanticCss,
+  etherealSemanticCss,
+  bohemianSemanticCss,
+  cyberpunkSemanticCss,
+  anthropomorphicSemanticCss,
+  neumorphicSemanticCss,
+  darkModeUiSemanticCss,
+  scrapbookSemanticCss,
+  claymorphicSemanticCss,
+  victorianSemanticCss,
+  cybercoreSemanticCss,
+  synthwaveSemanticCss,
+  graffitiSemanticCss,
+  gothicSemanticCss,
+  mixedMediaSemanticCss,
+  artDecoSemanticCss,
+  bauhausSemanticCss,
+  solarpunkSemanticCss,
+  wabiSabiSemanticCss,
+} from '../../styles';
+
+const ALL_SEMANTIC_STYLES: Record<string, string> = {
+  'brutalism': brutalistSemanticCss,
+  'minimalism': minimalistSemanticCss,
+  'glassmorphism': glassmorphismSemanticCss,
+  'maximalism': maximalistSemanticCss,
+  'swiss-design': swissDesignSemanticCss,
+  'surrealism': surrealDesignSemanticCss,
+  'neo-brutalism': neoBrutalistSemanticCss,
+  'neo-classical': neoClassicalSemanticCss,
+  'luxury-typography': luxuryTypographySemanticCss,
+  'editorial-design': editorialDesignSemanticCss,
+  'y2k-aesthetic': y2kAestheticSemanticCss,
+  'bento-grid': bentoGridSemanticCss,
+  'pixel-art': pixelArtSemanticCss,
+  'conceptual-sketch': conceptualSketchSemanticCss,
+  'ethereal': etherealSemanticCss,
+  'bohemian': bohemianSemanticCss,
+  'cyberpunk': cyberpunkSemanticCss,
+  'anthropomorphic': anthropomorphicSemanticCss,
+  'neumorphism': neumorphicSemanticCss,
+  'dark-mode-ui': darkModeUiSemanticCss,
+  'scrapbook': scrapbookSemanticCss,
+  'claymorphism': claymorphicSemanticCss,
+  'victorian': victorianSemanticCss,
+  'cybercore': cybercoreSemanticCss,
+  'synthwave': synthwaveSemanticCss,
+  'graffiti': graffitiSemanticCss,
+  'gothic': gothicSemanticCss,
+  'mixedMedia': mixedMediaSemanticCss,
+  'mixed-media': mixedMediaSemanticCss,
+  'art-deco': artDecoSemanticCss,
+  'bauhaus': bauhausSemanticCss,
+  'solarpunk': solarpunkSemanticCss,
+  'wabi-sabi': wabiSabiSemanticCss,
+};
+
+const STYLE_ALIASES: Record<string, string> = {
+  'y2k': 'y2k-aesthetic',
+  'neobrutalism': 'neo-brutalism',
+  'neo-brutalist': 'neo-brutalism',
+  'swiss': 'swiss-design',
+  'dark-mode': 'dark-mode-ui',
+  'darkmode': 'dark-mode-ui',
+  'minimal': 'minimalism',
+  'minimalist': 'minimalism',
+  'brutalist': 'brutalism',
+  'artdeco': 'art-deco',
+  'wabisabi': 'wabi-sabi',
+  'clay': 'claymorphism',
+  'bento': 'bento-grid',
+  'boho': 'bohemian',
+};
 
 /**
  * Generates universal adaptive CSS rules allowing raw, unstyled HTML to receive
@@ -10,7 +97,7 @@ import { InferredRole } from './types';
  * the source HTML layout intent without DOM re-parenting or forced sidebars.
  */
 export class AdaptiveCSSGenerator {
-  public static getAdaptiveStyles(): string {
+  public static getCoreAdaptiveStyles(): string {
     return `
 /* ==========================================================================
    ADAPTIVE DESIGN ENGINE — ART-DIRECTED DESIGN LANGUAGES
@@ -3489,6 +3576,27 @@ export class AdaptiveCSSGenerator {
 }
 `;
   }
+
+  public static getAllSemanticStyles(): string {
+    return Object.entries(ALL_SEMANTIC_STYLES)
+      .map(([id, css]) => `/* === DESIGN LANGUAGE: ${id.toUpperCase()} === */\n` + css.replace(/@import\s+url\([^)]+\);?/g, '').trim())
+      .join('\n\n');
+  }
+
+  public static getAdaptiveStyles(): string {
+    return `${this.getCoreAdaptiveStyles()}\n\n/* ==========================================================================\n   ALL 32 ART-DIRECTED SEMANTIC STYLESHEETS\n   ========================================================================== */\n\n${this.getAllSemanticStyles()}`;
+  }
+
+  public static getStyleCSS(styleId: string): string {
+    const canonicalId = STYLE_ALIASES[styleId.toLowerCase()] || styleId.toLowerCase();
+    const specificCss = ALL_SEMANTIC_STYLES[canonicalId];
+    if (!specificCss) {
+      return '';
+    }
+    const fontImport = `@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');\n\n*, *::before, *::after { box-sizing: border-box; }\n\n`;
+    const universalSafety = `\n[class*="style-"] { overflow-x: hidden; }\n[class*="style-"] * { box-sizing: border-box; }\n`;
+    return fontImport + specificCss.trim() + universalSafety;
+  }
 }
 
 /**
@@ -3516,6 +3624,9 @@ export function injectAdaptiveStyles(
 export function enhanceHTML(
   root: HTMLElement = (typeof document !== 'undefined' ? document.body : (null as any))
 ): void {
+  if (typeof document !== 'undefined') {
+    injectAdaptiveStyles(document);
+  }
   if (!root || typeof root.querySelectorAll !== 'function') return;
 
   const styleContainers = root.matches?.('[class*="style-"]')

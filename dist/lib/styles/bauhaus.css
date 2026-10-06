@@ -1,0 +1,802 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ==========================================================================
+     BAUHAUS DESIGN LANGUAGE — FUNCTIONAL GEOMETRY & STRUCTURAL COLOR
+     ========================================================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  /* --------------------------------------------------------------------------
+     1. FOUNDATION & SCOPED VARIABLES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"],
+  .bauhaus-styled-container,
+  .style-bauhaus,
+  .ds-scope[data-style-id="bauhaus"] {
+    /* Primary Bauhaus Palette */
+    --bh-canvas: #f7f5f0;                /* Unbleached warm cream canvas */
+    --bh-surface: #ffffff;               /* Pure white functional plane */
+    --bh-surface-subtle: #ede9e0;        /* Light architectural stone tint */
+    --bh-black: #121212;                 /* Stark carbon black */
+    --bh-charcoal: #2a2a2a;              /* Architectural charcoal */
+    --bh-muted: #666666;                 /* Structural slate gray */
+
+    /* Primary Colors as Structural Logic */
+    --bh-red: #d9261e;                   /* Primary Bauhaus Vermilion Red */
+    --bh-red-hover: #b81d16;
+    --bh-blue: #1b4f9b;                  /* Primary Bauhaus Cobalt Blue */
+    --bh-blue-hover: #133c77;
+    --bh-yellow: #f2b705;                /* Primary Bauhaus Chrome Yellow */
+    --bh-yellow-hover: #d9a304;
+
+    /* Architectural Rules */
+    --bh-border: #121212;
+    --bh-border-width: 2px;
+    --bh-border-thick: 4px;
+
+    /* Typographic Hierarchy */
+    --bh-font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bh-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bh-font-mono: 'Space Grotesk', 'JetBrains Mono', monospace;
+
+    /* Base Canvas Styling */
+    background-color: var(--bh-canvas) !important;
+    color: var(--bh-charcoal) !important;
+    font-family: var(--bh-font-body) !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    box-sizing: border-box !important;
+    position: relative;
+    min-height: 100%;
+    padding: 3rem 2rem;
+
+    /* Subtle architectural grid coordinates */
+    background-image:
+      linear-gradient(to right, rgba(18, 18, 18, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(18, 18, 18, 0.03) 1px, transparent 1px) !important;
+    background-size: 40px 40px, 40px 40px !important;
+
+    /* Bold architectural primary color header band */
+    border-top: 6px solid var(--bh-red) !important;
+    border-left: 2px solid var(--bh-border) !important;
+    border-right: 2px solid var(--bh-border) !important;
+    border-bottom: 2px solid var(--bh-border) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     2. GLOBAL RESETS & SCOPED ELEMENT STYLING
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] *,
+  .bauhaus-styled-container *,
+  .style-bauhaus *,
+  .ds-scope[data-style-id="bauhaus"] * {
+    box-sizing: border-box;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. TYPOGRAPHY & HEADING HIERARCHY
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] h1,
+  .lab-styled-preview[data-style="bauhaus"] h2,
+  .lab-styled-preview[data-style="bauhaus"] h3,
+  .lab-styled-preview[data-style="bauhaus"] h4,
+  .bauhaus-styled-container h1,
+  .bauhaus-styled-container h2,
+  .bauhaus-styled-container h3,
+  .bauhaus-styled-container h4,
+  .style-bauhaus h1,
+  .style-bauhaus h2,
+  .style-bauhaus h3,
+  .style-bauhaus h4,
+  .ds-scope[data-style-id="bauhaus"] h1,
+  .ds-scope[data-style-id="bauhaus"] h2,
+  .ds-scope[data-style-id="bauhaus"] h3,
+  .ds-scope[data-style-id="bauhaus"] h4 {
+    font-family: var(--bh-font-display) !important;
+    color: var(--bh-black) !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
+    margin-top: 0;
+    line-height: 1.15 !important;
+  }
+
+  /* Monumental H1 with Structural Color Block */
+  .lab-styled-preview[data-style="bauhaus"] h1,
+  .bauhaus-styled-container h1,
+  .style-bauhaus h1,
+  .ds-scope[data-style-id="bauhaus"] h1 {
+    font-size: 2.85rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.5rem !important;
+    position: relative;
+    padding-left: 1.25rem !important;
+    border-left: 6px solid var(--bh-red) !important;
+  }
+
+  /* Section Title H2 with Structural Underline */
+  .lab-styled-preview[data-style="bauhaus"] h2,
+  .bauhaus-styled-container h2,
+  .style-bauhaus h2,
+  .ds-scope[data-style-id="bauhaus"] h2 {
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.25rem !important;
+    border-bottom: 3px solid var(--bh-black) !important;
+    padding-bottom: 0.5rem !important;
+    display: inline-block;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] h3,
+  .bauhaus-styled-container h3,
+  .style-bauhaus h3,
+  .ds-scope[data-style-id="bauhaus"] h3 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] h4,
+  .bauhaus-styled-container h4,
+  .style-bauhaus h4,
+  .ds-scope[data-style-id="bauhaus"] h4 {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] p,
+  .bauhaus-styled-container p,
+  .style-bauhaus p,
+  .ds-scope[data-style-id="bauhaus"] p {
+    font-family: var(--bh-font-body) !important;
+    color: var(--bh-charcoal) !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] strong,
+  .bauhaus-styled-container strong,
+  .style-bauhaus strong,
+  .ds-scope[data-style-id="bauhaus"] strong {
+    color: var(--bh-black) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Functional Structural Tag / Eyebrow */
+  .lab-styled-preview[data-style="bauhaus"] .tag,
+  .lab-styled-preview[data-style="bauhaus"] header > p:first-child,
+  .lab-styled-preview[data-style="bauhaus"] .eyebrow,
+  .bauhaus-styled-container .tag,
+  .bauhaus-styled-container header > p:first-child,
+  .bauhaus-styled-container .eyebrow,
+  .style-bauhaus .tag,
+  .style-bauhaus header > p:first-child,
+  .style-bauhaus .eyebrow,
+  .ds-scope[data-style-id="bauhaus"] .tag,
+  .ds-scope[data-style-id="bauhaus"] header > p:first-child,
+  .ds-scope[data-style-id="bauhaus"] .eyebrow {
+    font-family: var(--bh-font-mono) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    color: var(--bh-black) !important;
+    background: var(--bh-yellow) !important;
+    display: inline-block !important;
+    padding: 0.25rem 0.65rem !important;
+    margin-bottom: 0.85rem !important;
+    border: 1px solid var(--bh-border) !important;
+  }
+
+  /* Unordered Lists with Primary Geometric Markers */
+  .lab-styled-preview[data-style="bauhaus"] ul,
+  .bauhaus-styled-container ul,
+  .style-bauhaus ul,
+  .ds-scope[data-style-id="bauhaus"] ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 1.25rem 0 !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] ul li,
+  .bauhaus-styled-container ul li,
+  .style-bauhaus ul li,
+  .ds-scope[data-style-id="bauhaus"] ul li {
+    position: relative !important;
+    padding-left: 1.5rem !important;
+    margin-bottom: 0.65rem !important;
+    color: var(--bh-charcoal) !important;
+  }
+
+  /* Circular Geometric Bullet */
+  .lab-styled-preview[data-style="bauhaus"] ul li::before,
+  .bauhaus-styled-container ul li::before,
+  .style-bauhaus ul li::before,
+  .ds-scope[data-style-id="bauhaus"] ul li::before {
+    content: '●' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0.05rem !important;
+    font-size: 0.75rem !important;
+    color: var(--bh-red) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     4. NAVIGATION & FUNCTIONAL BARS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] nav,
+  .bauhaus-styled-container nav,
+  .style-bauhaus nav,
+  .ds-scope[data-style-id="bauhaus"] nav {
+    display: flex !important;
+    align-items: center !important;
+    border-bottom: 2px solid var(--bh-border) !important;
+    background: var(--bh-surface) !important;
+    padding: 0.85rem 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] nav ul,
+  .bauhaus-styled-container nav ul,
+  .style-bauhaus nav ul,
+  .ds-scope[data-style-id="bauhaus"] nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] nav a,
+  .bauhaus-styled-container nav a,
+  .style-bauhaus nav a,
+  .ds-scope[data-style-id="bauhaus"] nav a {
+    font-family: var(--bh-font-display) !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: var(--bh-black) !important;
+    text-decoration: none !important;
+    padding: 0.35rem 0.65rem !important;
+    border: 1px solid transparent !important;
+    transition: all 120ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] nav a:hover,
+  .bauhaus-styled-container nav a:hover,
+  .style-bauhaus nav a:hover,
+  .ds-scope[data-style-id="bauhaus"] nav a:hover {
+    background: var(--bh-yellow) !important;
+    border-color: var(--bh-border) !important;
+    color: var(--bh-black) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     5. HERO & ASYMMETRIC COMPOSITION
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] header.hero,
+  .lab-styled-preview[data-style="bauhaus"] .hero,
+  .bauhaus-styled-container header.hero,
+  .bauhaus-styled-container .hero,
+  .style-bauhaus header.hero,
+  .style-bauhaus .hero,
+  .ds-scope[data-style-id="bauhaus"] header.hero,
+  .ds-scope[data-style-id="bauhaus"] .hero {
+    background: var(--bh-surface) !important;
+    border: 2px solid var(--bh-border) !important;
+    border-top: 5px solid var(--bh-red) !important;
+    padding: 3rem 2.5rem !important;
+    margin-bottom: 3rem !important;
+    position: relative !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     6. BUTTONS & DIRECT FUNCTIONAL CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] button,
+  .lab-styled-preview[data-style="bauhaus"] .btn,
+  .lab-styled-preview[data-style="bauhaus"] a.btn,
+  .bauhaus-styled-container button,
+  .bauhaus-styled-container .btn,
+  .bauhaus-styled-container a.btn,
+  .style-bauhaus button,
+  .style-bauhaus .btn,
+  .style-bauhaus a.btn,
+  .ds-scope[data-style-id="bauhaus"] button,
+  .ds-scope[data-style-id="bauhaus"] .btn,
+  .ds-scope[data-style-id="bauhaus"] a.btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.8rem 1.85rem !important;
+    font-family: var(--bh-font-display) !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    border-radius: 0px !important;
+    border: 2px solid var(--bh-border) !important;
+    background: var(--bh-red) !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    transition: all 140ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] button:hover,
+  .bauhaus-styled-container button:hover,
+  .style-bauhaus button:hover,
+  .ds-scope[data-style-id="bauhaus"] button:hover {
+    background: var(--bh-black) !important;
+    color: #ffffff !important;
+    border-color: var(--bh-black) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] button:active,
+  .bauhaus-styled-container button:active,
+  .style-bauhaus button:active,
+  .ds-scope[data-style-id="bauhaus"] button:active {
+    background: var(--bh-blue) !important;
+    color: #ffffff !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] button:focus-visible,
+  .bauhaus-styled-container button:focus-visible,
+  .style-bauhaus button:focus-visible,
+  .ds-scope[data-style-id="bauhaus"] button:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--bh-canvas), 0 0 0 4px var(--bh-blue) !important;
+  }
+
+  /* Secondary Functional Button */
+  .lab-styled-preview[data-style="bauhaus"] button.secondary,
+  .bauhaus-styled-container button.secondary,
+  .style-bauhaus button.secondary,
+  .ds-scope[data-style-id="bauhaus"] button.secondary {
+    background: var(--bh-surface) !important;
+    color: var(--bh-black) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] button.secondary:hover,
+  .bauhaus-styled-container button.secondary:hover,
+  .style-bauhaus button.secondary:hover,
+  .ds-scope[data-style-id="bauhaus"] button.secondary:hover {
+    background: var(--bh-black) !important;
+    color: #ffffff !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     7. CARDS & ARCHITECTURAL CONTAINERS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] .card,
+  .lab-styled-preview[data-style="bauhaus"] article,
+  .bauhaus-styled-container .card,
+  .bauhaus-styled-container article,
+  .style-bauhaus .card,
+  .style-bauhaus article,
+  .ds-scope[data-style-id="bauhaus"] .card,
+  .ds-scope[data-style-id="bauhaus"] article {
+    background: var(--bh-surface) !important;
+    border: 2px solid var(--bh-border) !important;
+    border-radius: 0px !important;
+    padding: 2.25rem 2rem !important;
+    margin-bottom: 1.75rem !important;
+    box-shadow: none !important;
+    position: relative !important;
+    transition: all 140ms ease !important;
+  }
+
+  /* Alternating Primary Color Top Bands on Cards */
+  .lab-styled-preview[data-style="bauhaus"] .card,
+  .bauhaus-styled-container .card,
+  .style-bauhaus .card,
+  .ds-scope[data-style-id="bauhaus"] .card {
+    border-top: 4px solid var(--bh-red) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .card:nth-of-type(3n+2),
+  .bauhaus-styled-container .card:nth-of-type(3n+2),
+  .style-bauhaus .card:nth-of-type(3n+2),
+  .ds-scope[data-style-id="bauhaus"] .card:nth-of-type(3n+2) {
+    border-top: 4px solid var(--bh-blue) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .card:nth-of-type(3n),
+  .bauhaus-styled-container .card:nth-of-type(3n),
+  .style-bauhaus .card:nth-of-type(3n),
+  .ds-scope[data-style-id="bauhaus"] .card:nth-of-type(3n) {
+    border-top: 4px solid var(--bh-yellow) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .card:hover,
+  .bauhaus-styled-container .card:hover,
+  .style-bauhaus .card:hover,
+  .ds-scope[data-style-id="bauhaus"] .card:hover {
+    border-color: var(--bh-red) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     8. INPUTS & FORM CONTROLS
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] input[type="text"],
+  .lab-styled-preview[data-style="bauhaus"] input[type="email"],
+  .lab-styled-preview[data-style="bauhaus"] input[type="search"],
+  .lab-styled-preview[data-style="bauhaus"] input[type="password"],
+  .lab-styled-preview[data-style="bauhaus"] textarea,
+  .lab-styled-preview[data-style="bauhaus"] select,
+  .bauhaus-styled-container input[type="text"],
+  .bauhaus-styled-container input[type="email"],
+  .bauhaus-styled-container input[type="search"],
+  .bauhaus-styled-container input[type="password"],
+  .bauhaus-styled-container textarea,
+  .bauhaus-styled-container select,
+  .style-bauhaus input[type="text"],
+  .style-bauhaus input[type="email"],
+  .style-bauhaus input[type="search"],
+  .style-bauhaus input[type="password"],
+  .style-bauhaus textarea,
+  .style-bauhaus select,
+  .ds-scope[data-style-id="bauhaus"] input[type="text"],
+  .ds-scope[data-style-id="bauhaus"] input[type="email"],
+  .ds-scope[data-style-id="bauhaus"] input[type="search"],
+  .ds-scope[data-style-id="bauhaus"] input[type="password"],
+  .ds-scope[data-style-id="bauhaus"] textarea,
+  .ds-scope[data-style-id="bauhaus"] select {
+    width: 100% !important;
+    padding: 0.8rem 1rem !important;
+    font-family: var(--bh-font-body) !important;
+    font-size: 0.9375rem !important;
+    background: var(--bh-surface) !important;
+    border: 2px solid var(--bh-border) !important;
+    border-radius: 0px !important;
+    color: var(--bh-black) !important;
+    box-shadow: none !important;
+    transition: all 120ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] input:focus,
+  .lab-styled-preview[data-style="bauhaus"] textarea:focus,
+  .lab-styled-preview[data-style="bauhaus"] select:focus,
+  .bauhaus-styled-container input:focus,
+  .bauhaus-styled-container textarea:focus,
+  .bauhaus-styled-container select:focus,
+  .style-bauhaus input:focus,
+  .style-bauhaus textarea:focus,
+  .style-bauhaus select:focus,
+  .ds-scope[data-style-id="bauhaus"] input:focus,
+  .ds-scope[data-style-id="bauhaus"] textarea:focus,
+  .ds-scope[data-style-id="bauhaus"] select:focus {
+    outline: none !important;
+    border-color: var(--bh-blue) !important;
+    box-shadow: 0 0 0 2px rgba(27, 79, 155, 0.3) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] label,
+  .bauhaus-styled-container label,
+  .style-bauhaus label,
+  .ds-scope[data-style-id="bauhaus"] label {
+    display: block !important;
+    font-family: var(--bh-font-display) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--bh-black) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     9. STRUCTURAL DIVIDERS & EDITORIAL RULES
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] hr,
+  .bauhaus-styled-container hr,
+  .style-bauhaus hr,
+  .ds-scope[data-style-id="bauhaus"] hr {
+    border: none !important;
+    height: 3px !important;
+    background: var(--bh-black) !important;
+    margin: 2.75rem 0 !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] hr::after,
+  .bauhaus-styled-container hr::after,
+  .style-bauhaus hr::after,
+  .ds-scope[data-style-id="bauhaus"] hr::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -4px !important;
+    left: 20px !important;
+    width: 24px !important;
+    height: 11px !important;
+    background: var(--bh-red) !important;
+  }
+
+  /* Blockquote with Primary Blue Rule */
+  .lab-styled-preview[data-style="bauhaus"] blockquote,
+  .bauhaus-styled-container blockquote,
+  .style-bauhaus blockquote,
+  .ds-scope[data-style-id="bauhaus"] blockquote {
+    border-left: 5px solid var(--bh-blue) !important;
+    background: var(--bh-surface-subtle) !important;
+    padding: 1.5rem 1.85rem !important;
+    margin: 2rem 0 !important;
+    color: var(--bh-black) !important;
+    font-family: var(--bh-font-display) !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    border-radius: 0px !important;
+  }
+
+  /* Drop Capital / Monumental Lead Initial */
+  .lab-styled-preview[data-style="bauhaus"] article.prose > p:first-of-type::first-letter,
+  .lab-styled-preview[data-style="bauhaus"] .prose > p:first-of-type::first-letter,
+  .bauhaus-styled-container article.prose > p:first-of-type::first-letter,
+  .bauhaus-styled-container .prose > p:first-of-type::first-letter,
+  .style-bauhaus article.prose > p:first-of-type::first-letter,
+  .style-bauhaus .prose > p:first-of-type::first-letter,
+  .ds-scope[data-style-id="bauhaus"] article.prose > p:first-of-type::first-letter,
+  .ds-scope[data-style-id="bauhaus"] .prose > p:first-of-type::first-letter {
+    float: left !important;
+    font-family: var(--bh-font-display) !important;
+    font-size: 3.25rem !important;
+    line-height: 0.85 !important;
+    padding: 0.2rem 0.5rem 0.2rem 0 !important;
+    margin-right: 0.5rem !important;
+    color: var(--bh-red) !important;
+    font-weight: 800 !important;
+  }
+
+  /* HTML5 Details & Summary */
+  .lab-styled-preview[data-style="bauhaus"] details,
+  .bauhaus-styled-container details,
+  .style-bauhaus details,
+  .ds-scope[data-style-id="bauhaus"] details {
+    border: 2px solid var(--bh-border) !important;
+    padding: 1rem 1.25rem !important;
+    margin: 1.25rem 0 !important;
+    background: var(--bh-surface) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] summary,
+  .bauhaus-styled-container summary,
+  .style-bauhaus summary,
+  .ds-scope[data-style-id="bauhaus"] summary {
+    font-family: var(--bh-font-display) !important;
+    font-weight: 700 !important;
+    color: var(--bh-black) !important;
+    cursor: pointer !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     10. TABLES & DATA TELEMETRY
+     -------------------------------------------------------------------------- */
+  .lab-styled-preview[data-style="bauhaus"] table,
+  .bauhaus-styled-container table,
+  .style-bauhaus table,
+  .ds-scope[data-style-id="bauhaus"] table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 2rem 0 !important;
+    background: var(--bh-surface) !important;
+    border: 2px solid var(--bh-border) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] th,
+  .bauhaus-styled-container th,
+  .style-bauhaus th,
+  .ds-scope[data-style-id="bauhaus"] th {
+    background: var(--bh-black) !important;
+    color: #ffffff !important;
+    font-family: var(--bh-font-display) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    padding: 0.85rem 1.25rem !important;
+    text-align: left !important;
+    border-bottom: 3px solid var(--bh-red) !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] td,
+  .bauhaus-styled-container td,
+  .style-bauhaus td,
+  .ds-scope[data-style-id="bauhaus"] td {
+    padding: 0.85rem 1.25rem !important;
+    border-bottom: 1px solid var(--bh-border) !important;
+    color: var(--bh-charcoal) !important;
+    font-size: 0.9375rem !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] tr:hover td,
+  .bauhaus-styled-container tr:hover td,
+  .style-bauhaus tr:hover td,
+  .ds-scope[data-style-id="bauhaus"] tr:hover td {
+    background: var(--bh-surface-subtle) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     11. SPECIFIC ARCHETYPE ADAPTATIONS
+     -------------------------------------------------------------------------- */
+  /* Geometric Structural Badges */
+  .lab-styled-preview[data-style="bauhaus"] .badge,
+  .bauhaus-styled-container .badge,
+  .style-bauhaus .badge,
+  .ds-scope[data-style-id="bauhaus"] .badge {
+    display: inline-block !important;
+    padding: 0.25rem 0.75rem !important;
+    font-family: var(--bh-font-display) !important;
+    font-size: 0.6875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border-radius: 0px !important;
+    border: 1px solid var(--bh-border) !important;
+    background: var(--bh-yellow) !important;
+    color: var(--bh-black) !important;
+  }
+
+  /* Featured / Structural Red Pricing Tier */
+  .lab-styled-preview[data-style="bauhaus"] .pricing-card.featured,
+  .lab-styled-preview[data-style="bauhaus"] .tier.featured,
+  .bauhaus-styled-container .pricing-card.featured,
+  .bauhaus-styled-container .tier.featured,
+  .style-bauhaus .pricing-card.featured,
+  .style-bauhaus .tier.featured,
+  .ds-scope[data-style-id="bauhaus"] .pricing-card.featured,
+  .ds-scope[data-style-id="bauhaus"] .tier.featured {
+    border: 3px solid var(--bh-red) !important;
+    border-top: 8px solid var(--bh-red) !important;
+    background: #ffffff !important;
+  }
+
+  /* Dashboard Stat Cards & Telemetry */
+  .lab-styled-preview[data-style="bauhaus"] .stat-card,
+  .bauhaus-styled-container .stat-card,
+  .style-bauhaus .stat-card,
+  .ds-scope[data-style-id="bauhaus"] .stat-card {
+    background: var(--bh-surface) !important;
+    border: 2px solid var(--bh-border) !important;
+    border-left: 6px solid var(--bh-blue) !important;
+    padding: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .stat-value,
+  .bauhaus-styled-container .stat-value,
+  .style-bauhaus .stat-value,
+  .ds-scope[data-style-id="bauhaus"] .stat-value {
+    font-family: var(--bh-font-display) !important;
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    color: var(--bh-black) !important;
+    line-height: 1 !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .stat-meta,
+  .bauhaus-styled-container .stat-meta,
+  .style-bauhaus .stat-meta,
+  .ds-scope[data-style-id="bauhaus"] .stat-meta {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--bh-muted) !important;
+    font-weight: 600 !important;
+  }
+
+  /* Geometric Status Indicators: Circle / Square / Triangle */
+  .lab-styled-preview[data-style="bauhaus"] .status-dot,
+  .lab-styled-preview[data-style="bauhaus"] .led,
+  .bauhaus-styled-container .status-dot,
+  .bauhaus-styled-container .led,
+  .style-bauhaus .status-dot,
+  .style-bauhaus .led,
+  .ds-scope[data-style-id="bauhaus"] .status-dot,
+  .ds-scope[data-style-id="bauhaus"] .led {
+    display: inline-block !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important; /* Pure circle */
+    background: var(--bh-red) !important;
+    border: 1px solid var(--bh-black) !important;
+  }
+
+  /* E-Commerce Product Card */
+  .lab-styled-preview[data-style="bauhaus"] .product-card,
+  .bauhaus-styled-container .product-card,
+  .style-bauhaus .product-card,
+  .ds-scope[data-style-id="bauhaus"] .product-card {
+    background: var(--bh-surface) !important;
+    border: 2px solid var(--bh-border) !important;
+    border-top: 5px solid var(--bh-blue) !important;
+    padding: 2rem !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .product-card:hover,
+  .bauhaus-styled-container .product-card:hover,
+  .style-bauhaus .product-card:hover,
+  .ds-scope[data-style-id="bauhaus"] .product-card:hover {
+    border-color: var(--bh-blue) !important;
+  }
+
+  /* Functional Price Display */
+  .lab-styled-preview[data-style="bauhaus"] .price,
+  .bauhaus-styled-container .price,
+  .style-bauhaus .price,
+  .ds-scope[data-style-id="bauhaus"] .price {
+    font-family: var(--bh-font-display) !important;
+    font-weight: 800 !important;
+    color: var(--bh-black) !important;
+    font-size: 1.5rem !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* Restaurant Menu Layout */
+  .lab-styled-preview[data-style="bauhaus"] .menu-layout,
+  .bauhaus-styled-container .menu-layout,
+  .style-bauhaus .menu-layout,
+  .ds-scope[data-style-id="bauhaus"] .menu-layout {
+    max-width: 820px !important;
+    margin: 0 auto !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .menu-section,
+  .bauhaus-styled-container .menu-section,
+  .style-bauhaus .menu-section,
+  .ds-scope[data-style-id="bauhaus"] .menu-section {
+    margin: 2.5rem 0 !important;
+  }
+
+  .lab-styled-preview[data-style="bauhaus"] .menu-item,
+  .bauhaus-styled-container .menu-item,
+  .style-bauhaus .menu-item,
+  .ds-scope[data-style-id="bauhaus"] .menu-item {
+    border-bottom: 2px solid var(--bh-surface-subtle) !important;
+    padding-bottom: 0.85rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Footer Styling */
+  .lab-styled-preview[data-style="bauhaus"] footer,
+  .bauhaus-styled-container footer,
+  .style-bauhaus footer,
+  .ds-scope[data-style-id="bauhaus"] footer {
+    border-top: 4px solid var(--bh-black) !important;
+    padding-top: 2rem !important;
+    margin-top: 4rem !important;
+    font-family: var(--bh-font-display) !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    font-size: 0.8125rem !important;
+    font-weight: 700 !important;
+    color: var(--bh-black) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     12. PREFERS-REDUCED-MOTION
+     -------------------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .lab-styled-preview[data-style="bauhaus"] *,
+    .bauhaus-styled-container *,
+    .style-bauhaus *,
+    .ds-scope[data-style-id="bauhaus"] * {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+[class*="style-"] { overflow-x: hidden; }
+[class*="style-"] * { box-sizing: border-box; }

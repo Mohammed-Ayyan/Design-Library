@@ -32,6 +32,29 @@ code {
    ADAPTIVE DESIGN ENGINE — ART-DIRECTED DESIGN LANGUAGES
    ========================================================================== */
 
+/* Universal Semantic Layout Resets for All Scoped Design Styles */
+[class*="style-"] nav ul,
+[class*="style-"] nav ol,
+.ds-scope nav ul,
+.ds-scope nav ol {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.75rem !important;
+}
+
+[class*="style-"] nav li,
+.ds-scope nav li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
 /* --------------------------------------------------------------------------
    1. BRUTALISM (.style-brutalism)
    Visual Grammar: Raw, structural, high-contrast, tactile newsprint/concrete canvas,
@@ -50,15 +73,17 @@ code {
 }
 
 /* Page Canvas Bounds */
+div.style-brutalism,
+section.style-brutalism,
+main.style-brutalism,
 .style-brutalism main,
 .style-brutalism [data-role="page"] {
   display: block !important;
   max-width: 1180px !important;
-  margin: 0 auto !important;
-  padding: 2rem 1.5rem 5rem !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 2.5rem 1.5rem 5rem !important;
+  box-sizing: border-box !important;
 }
 
 /* Typography Hierarchy */
@@ -172,24 +197,84 @@ code {
   text-decoration: none;
 }
 
-/* Navigation: Utilitarian Horizontal Ledger */
+/* Header Architecture (Banner Card) */
+.style-brutalism header,
+.style-brutalism [data-role="header"] {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  padding: 1.5rem 2rem !important;
+  margin-bottom: 2.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.style-brutalism header h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+.style-brutalism header p {
+  margin: 0.25rem 0 0 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Navigation: In-Header or Standalone */
 .style-brutalism nav,
-.style-brutalism header:not(:has(nav))[data-composition="nav-utilitarian-ticker"],
 .style-brutalism [data-role="navigation"] {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
   flex-wrap: wrap !important;
-  gap: 1.5rem !important;
-  padding: 1.25rem 0 !important;
+  gap: 1rem !important;
+}
+
+.style-brutalism > nav,
+.style-brutalism main > nav {
+  padding: 1rem 0 !important;
   border-bottom: 3px solid #000000 !important;
-  background: #f4f3ed !important;
-  margin-bottom: 3.5rem !important;
+  background: transparent !important;
+  margin-bottom: 2.5rem !important;
   width: 100% !important;
+}
+
+.style-brutalism header nav {
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  width: auto !important;
+}
+
+.style-brutalism nav ul,
+.style-brutalism nav ol {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.75rem !important;
+}
+
+.style-brutalism nav li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .style-brutalism nav a,
 .style-brutalism [data-role="navigation"] a {
+  font-family: 'JetBrains Mono', monospace !important;
   font-size: 0.875rem !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
@@ -197,15 +282,18 @@ code {
   color: #000000 !important;
   text-decoration: none !important;
   padding: 0.45rem 0.9rem !important;
-  border: 2px solid transparent !important;
+  border: 2px solid #000000 !important;
+  background-color: #ffffff !important;
+  box-shadow: 2px 2px 0px #000000 !important;
   transition: all 100ms ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .style-brutalism nav a:hover,
 .style-brutalism [data-role="navigation"] a:hover {
-  background: #ffe600 !important;
-  border-color: #000000 !important;
-  box-shadow: 3px 3px 0px #000000 !important;
+  background-color: #ffe600 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
   transform: translate(-1px, -1px) !important;
 }
 
@@ -214,11 +302,9 @@ code {
 .style-brutalism [data-layout="asymmetric-poster"],
 .style-brutalism:has(> h1),
 .style-brutalism section:has(> h1),
-.style-brutalism section:first-of-type,
 .style-brutalism [data-role="hero"] {
   padding: 3rem 0 4rem;
   margin-bottom: 4rem;
-  border: none !important;
   border-bottom: 3px solid #000000 !important;
   width: 100%;
   display: flex;
@@ -321,10 +407,24 @@ code {
 }
 
 /* Section Structure & Section Headings */
-.style-brutalism section {
-  margin-bottom: 4.5rem;
-  width: 100%;
-  border: none !important;
+.style-brutalism section:not([class*="style-"]),
+.style-brutalism [data-role="feature-section"],
+.style-brutalism [data-layout*="section"],
+.style-brutalism main > section {
+  background-color: #ffffff;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  padding: 2rem 2.25rem !important;
+  margin-bottom: 2.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.style-brutalism section:not([class*="style-"]):hover,
+.style-brutalism main > section:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000000 !important;
 }
 
 .style-brutalism [data-layout="asymmetric-catalog"] > h2,
@@ -572,15 +672,18 @@ code {
 /* Footer: Raw Structural Baseline */
 .style-brutalism footer,
 .style-brutalism [data-role="footer"] {
-  border-top: 4px solid #000000;
-  padding: 3rem 0 2rem;
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  width: 100%;
+  background-color: #ffffff;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 1.25rem 2rem !important;
+  margin-top: 2rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .style-brutalism footer p,
@@ -3527,6 +3630,76 @@ code {
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-brutalism,
+  section.style-brutalism,
+  main.style-brutalism,
+  article.style-brutalism,
+  .lab-styled-preview[data-style="brutalism"],
+  .brutalism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Banner Card) */
+  .lab-styled-preview[data-style="brutalism"] header,
+  .brutalism-styled-container header,
+  .style-brutalism header,
+  [data-style="brutalism"] header,
+  .ds-scope[data-style-id="brutalism"] header,
+  .style-brutalist header,
+  [data-style="brutalist"] header,
+  .ds-scope[data-style-id="brutalist"] header {
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] header h1,
+  .brutalism-styled-container header h1,
+  .style-brutalism header h1,
+  [data-style="brutalism"] header h1,
+  .ds-scope[data-style-id="brutalism"] header h1,
+  .style-brutalist header h1,
+  [data-style="brutalist"] header h1,
+  .ds-scope[data-style-id="brutalist"] header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] header p,
+  .brutalism-styled-container header p,
+  .style-brutalism header p,
+  [data-style="brutalism"] header p,
+  .ds-scope[data-style-id="brutalism"] header p,
+  .style-brutalist header p,
+  [data-style="brutalist"] header p,
+  .ds-scope[data-style-id="brutalist"] header p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: #222222;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="brutalism"] nav,
   .brutalism-styled-container nav,
@@ -3539,10 +3712,71 @@ code {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
+  }
+
+  /* Standalone nav outside header gets bottom border ledger */
+  .style-brutalism > nav,
+  .style-brutalism main > nav,
+  .lab-styled-preview[data-style="brutalism"] > nav {
     padding: 0.85rem 0 1.25rem;
     border-bottom: 3px solid #000000;
     margin-bottom: 2.5rem;
+    width: 100%;
+  }
+
+  /* Header nav has no extra border */
+  .style-brutalism header nav,
+  .lab-styled-preview[data-style="brutalism"] header nav,
+  .brutalism-styled-container header nav,
+  [data-style="brutalism"] header nav,
+  .ds-scope[data-style-id="brutalism"] header nav,
+  .style-brutalist header nav,
+  [data-style="brutalist"] header nav,
+  .ds-scope[data-style-id="brutalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] nav ul,
+  .lab-styled-preview[data-style="brutalism"] nav ol,
+  .brutalism-styled-container nav ul,
+  .brutalism-styled-container nav ol,
+  .style-brutalism nav ul,
+  .style-brutalism nav ol,
+  [data-style="brutalism"] nav ul,
+  [data-style="brutalism"] nav ol,
+  .ds-scope[data-style-id="brutalism"] nav ul,
+  .ds-scope[data-style-id="brutalism"] nav ol,
+  .style-brutalist nav ul,
+  .style-brutalist nav ol,
+  [data-style="brutalist"] nav ul,
+  [data-style="brutalist"] nav ol,
+  .ds-scope[data-style-id="brutalist"] nav ul,
+  .ds-scope[data-style-id="brutalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] nav li,
+  .brutalism-styled-container nav li,
+  .style-brutalism nav li,
+  [data-style="brutalism"] nav li,
+  .ds-scope[data-style-id="brutalism"] nav li,
+  .style-brutalist nav li,
+  [data-style="brutalist"] nav li,
+  .ds-scope[data-style-id="brutalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="brutalism"] nav a,
@@ -3560,8 +3794,10 @@ code {
     letter-spacing: 0.06em;
     color: #000000;
     text-decoration: none;
-    padding: 0.4rem 0.75rem;
-    border: 2px solid transparent;
+    padding: 0.45rem 0.9rem;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 0px #000000;
     transition: transform 80ms ease, box-shadow 80ms ease, background-color 80ms ease;
     display: inline-flex;
     align-items: center;
@@ -3577,7 +3813,7 @@ code {
   .ds-scope[data-style-id="brutalist"] nav a:hover {
     border-color: #000000;
     background-color: #ffe600;
-    box-shadow: 2px 2px 0px #000000;
+    box-shadow: 4px 4px 0px #000000;
     transform: translate(-1px, -1px);
     text-decoration: none;
   }
@@ -3591,7 +3827,7 @@ code {
   [data-style="brutalist"] nav a:active,
   .ds-scope[data-style-id="brutalist"] nav a:active {
     transform: translate(1px, 1px);
-    box-shadow: none;
+    box-shadow: 1px 1px 0px #000000;
   }
 
   /* 2. Eyebrow Kickers & Metadata */
@@ -3847,7 +4083,78 @@ code {
     transform: none;
   }
 
-  /* 5. Editorial Content & Articles */
+  /* 5. Main Flow & Child Sections / Content Cards */
+  .lab-styled-preview[data-style="brutalism"] main,
+  .brutalism-styled-container main,
+  .style-brutalism main,
+  [data-style="brutalism"] main,
+  .ds-scope[data-style-id="brutalism"] main,
+  .style-brutalist main,
+  [data-style="brutalist"] main,
+  .ds-scope[data-style-id="brutalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]),
+  .brutalism-styled-container section:not([class*="style-"]),
+  .style-brutalism section:not([class*="style-"]),
+  [data-style="brutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]),
+  .style-brutalist section:not([class*="style-"]),
+  [data-style="brutalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]),
+  .style-brutalism main > section,
+  [data-style="brutalism"] main > section {
+    background-color: #ffffff;
+    border: 3px solid #000000 !important;
+    border-radius: 0px;
+    padding: 2rem 2.25rem;
+    box-shadow: 5px 5px 0px #000000;
+    margin-bottom: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]):hover,
+  .brutalism-styled-container section:not([class*="style-"]):hover,
+  .style-brutalism section:not([class*="style-"]):hover,
+  [data-style="brutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]):hover,
+  .style-brutalist section:not([class*="style-"]):hover,
+  [data-style="brutalist"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]):hover,
+  .style-brutalism main > section:hover,
+  [data-style="brutalism"] main > section:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000000;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]) > h2,
+  .brutalism-styled-container section:not([class*="style-"]) > h2,
+  .style-brutalism section:not([class*="style-"]) > h2,
+  [data-style="brutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]) > h2,
+  .style-brutalist section:not([class*="style-"]) > h2,
+  [data-style="brutalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2.5px solid #000000;
+    text-transform: uppercase;
+  }
+
+  /* 5b. Editorial Content & Articles */
   .lab-styled-preview[data-style="brutalism"] article,
   .brutalism-styled-container article,
   .style-brutalism article,
@@ -3875,6 +4182,24 @@ code {
   .ds-scope[data-style-id="brutalist"] article:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px #000000;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] code,
+  .brutalism-styled-container code,
+  .style-brutalism code,
+  [data-style="brutalism"] code,
+  .ds-scope[data-style-id="brutalism"] code,
+  .style-brutalist code,
+  [data-style="brutalist"] code,
+  .ds-scope[data-style-id="brutalist"] code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background-color: #ffe600;
+    color: #000000;
+    border: 1.5px solid #000000;
+    padding: 0.15rem 0.4rem;
+    box-shadow: 1.5px 1.5px 0px #000000;
+    font-weight: 700;
   }
 
   .lab-styled-preview[data-style="brutalism"] blockquote,
@@ -4145,35 +4470,35 @@ code {
     opacity: 1;
   }
 
-  /* 8. Lists */
-  .lab-styled-preview[data-style="brutalism"] ul,
-  .lab-styled-preview[data-style="brutalism"] ol,
-  .brutalism-styled-container ul,
-  .style-brutalism ul,
-  [data-style="brutalism"] ul,
-  .ds-scope[data-style-id="brutalism"] ul,
-  .style-brutalist ul,
-  [data-style="brutalist"] ul,
-  .ds-scope[data-style-id="brutalist"] ul,
-  .brutalism-styled-container ol,
-  .style-brutalism ol,
-  [data-style="brutalism"] ol,
-  .ds-scope[data-style-id="brutalism"] ol,
-  .style-brutalist ol,
-  [data-style="brutalist"] ol,
-  .ds-scope[data-style-id="brutalist"] ol {
+  /* 8. Lists (Content lists only, avoiding navigation lists) */
+  .lab-styled-preview[data-style="brutalism"] ul:not(nav ul),
+  .lab-styled-preview[data-style="brutalism"] ol:not(nav ol),
+  .brutalism-styled-container ul:not(nav ul),
+  .style-brutalism ul:not(nav ul),
+  [data-style="brutalism"] ul:not(nav ul),
+  .ds-scope[data-style-id="brutalism"] ul:not(nav ul),
+  .style-brutalist ul:not(nav ul),
+  [data-style="brutalist"] ul:not(nav ul),
+  .ds-scope[data-style-id="brutalist"] ul:not(nav ul),
+  .brutalism-styled-container ol:not(nav ol),
+  .style-brutalism ol:not(nav ol),
+  [data-style="brutalism"] ol:not(nav ol),
+  .ds-scope[data-style-id="brutalism"] ol:not(nav ol),
+  .style-brutalist ol:not(nav ol),
+  [data-style="brutalist"] ol:not(nav ol),
+  .ds-scope[data-style-id="brutalist"] ol:not(nav ol) {
     padding-left: 1.5rem;
     margin: 1rem 0 1.5rem;
   }
 
-  .lab-styled-preview[data-style="brutalism"] li,
-  .brutalism-styled-container li,
-  .style-brutalism li,
-  [data-style="brutalism"] li,
-  .ds-scope[data-style-id="brutalism"] li,
-  .style-brutalist li,
-  [data-style="brutalist"] li,
-  .ds-scope[data-style-id="brutalist"] li {
+  .lab-styled-preview[data-style="brutalism"] li:not(nav li),
+  .brutalism-styled-container li:not(nav li),
+  .style-brutalism li:not(nav li),
+  [data-style="brutalism"] li:not(nav li),
+  .ds-scope[data-style-id="brutalism"] li:not(nav li),
+  .style-brutalist li:not(nav li),
+  [data-style="brutalist"] li:not(nav li),
+  .ds-scope[data-style-id="brutalist"] li:not(nav li) {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
@@ -4181,14 +4506,14 @@ code {
     margin-bottom: 0.5rem;
   }
 
-  .lab-styled-preview[data-style="brutalism"] ul > li,
-  .brutalism-styled-container ul > li,
-  .style-brutalism ul > li,
-  [data-style="brutalism"] ul > li,
-  .ds-scope[data-style-id="brutalism"] ul > li,
-  .style-brutalist ul > li,
-  [data-style="brutalist"] ul > li,
-  .ds-scope[data-style-id="brutalist"] ul > li {
+  .lab-styled-preview[data-style="brutalism"] ul:not(nav ul) > li,
+  .brutalism-styled-container ul:not(nav ul) > li,
+  .style-brutalism ul:not(nav ul) > li,
+  [data-style="brutalism"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="brutalism"] ul:not(nav ul) > li,
+  .style-brutalist ul:not(nav ul) > li,
+  [data-style="brutalist"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="brutalist"] ul:not(nav ul) > li {
     list-style-type: square;
   }
 
@@ -4271,14 +4596,18 @@ code {
   .style-brutalist footer,
   [data-style="brutalist"] footer,
   .ds-scope[data-style-id="brutalist"] footer {
-    border-top: 3px solid #000000;
-    padding: 2rem 0 1rem;
-    margin-top: 3rem;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    padding: 1.25rem 2rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .lab-styled-preview[data-style="brutalism"] footer p,
@@ -4291,6 +4620,7 @@ code {
   .ds-scope[data-style-id="brutalist"] footer p {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
+    font-weight: 700;
     color: #555555;
     margin: 0;
   }
@@ -4316,6 +4646,73 @@ code {
     box-shadow: none !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-minimalism,
+  section.style-minimalism,
+  main.style-minimalism,
+  article.style-minimalism,
+  .lab-styled-preview[data-style="minimalism"],
+  .minimalism-styled-container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture */
+  .lab-styled-preview[data-style="minimalism"] header,
+  .minimalism-styled-container header,
+  .style-minimalism header,
+  [data-style="minimalism"] header,
+  .ds-scope[data-style-id="minimalism"] header,
+  .style-minimalist header,
+  [data-style="minimalist"] header,
+  .ds-scope[data-style-id="minimalist"] header {
+    background-color: transparent;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1.5rem 0 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] header h1,
+  .minimalism-styled-container header h1,
+  .style-minimalism header h1,
+  [data-style="minimalism"] header h1,
+  .ds-scope[data-style-id="minimalism"] header h1,
+  .style-minimalist header h1,
+  [data-style="minimalist"] header h1,
+  .ds-scope[data-style-id="minimalist"] header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: #111111;
+    margin: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] header p,
+  .minimalism-styled-container header p,
+  .style-minimalism header p,
+  [data-style="minimalism"] header p,
+  .ds-scope[data-style-id="minimalism"] header p,
+  .style-minimalist header p,
+  [data-style="minimalist"] header p,
+  .ds-scope[data-style-id="minimalist"] header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    color: #71717a;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="minimalism"] nav,
   .minimalism-styled-container nav,
@@ -4331,10 +4728,69 @@ code {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+
+  /* Standalone nav outside header */
+  .style-minimalism > nav,
+  .style-minimalism main > nav,
+  .lab-styled-preview[data-style="minimalism"] > nav {
     padding: 1.25rem 0 1.5rem;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 3.5rem;
+    width: 100%;
+  }
+
+  /* Header nav has no extra border */
+  .style-minimalism header nav,
+  .lab-styled-preview[data-style="minimalism"] header nav,
+  .minimalism-styled-container header nav,
+  [data-style="minimalism"] header nav,
+  .ds-scope[data-style-id="minimalism"] header nav,
+  .style-minimalist header nav,
+  [data-style="minimalist"] header nav,
+  .ds-scope[data-style-id="minimalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav ul,
+  .lab-styled-preview[data-style="minimalism"] nav ol,
+  .minimalism-styled-container nav ul,
+  .minimalism-styled-container nav ol,
+  .style-minimalism nav ul,
+  .style-minimalism nav ol,
+  [data-style="minimalism"] nav ul,
+  [data-style="minimalism"] nav ol,
+  .ds-scope[data-style-id="minimalism"] nav ul,
+  .ds-scope[data-style-id="minimalism"] nav ol,
+  .style-minimalist nav ul,
+  .style-minimalist nav ol,
+  [data-style="minimalist"] nav ul,
+  [data-style="minimalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav li,
+  .minimalism-styled-container nav li,
+  .style-minimalism nav li,
+  [data-style="minimalism"] nav li,
+  .ds-scope[data-style-id="minimalism"] nav li,
+  .style-minimalist nav li,
+  [data-style="minimalist"] nav li,
+  .ds-scope[data-style-id="minimalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="minimalism"] nav a,
@@ -4686,6 +5142,60 @@ code {
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="minimalism"] main,
+  .minimalism-styled-container main,
+  .style-minimalism main,
+  [data-style="minimalism"] main,
+  .ds-scope[data-style-id="minimalism"] main,
+  .style-minimalist main,
+  [data-style="minimalist"] main,
+  .ds-scope[data-style-id="minimalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] section:not([class*="style-"]),
+  .minimalism-styled-container section:not([class*="style-"]),
+  .style-minimalism section:not([class*="style-"]),
+  [data-style="minimalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="minimalism"] section:not([class*="style-"]),
+  .style-minimalist section:not([class*="style-"]),
+  [data-style="minimalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="minimalist"] section:not([class*="style-"]),
+  .style-minimalism main > section,
+  [data-style="minimalism"] main > section {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] section:not([class*="style-"]) > h2,
+  .minimalism-styled-container section:not([class*="style-"]) > h2,
+  .style-minimalism section:not([class*="style-"]) > h2,
+  [data-style="minimalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="minimalism"] section:not([class*="style-"]) > h2,
+  .style-minimalist section:not([class*="style-"]) > h2,
+  [data-style="minimalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="minimalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #111111;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   /* 5. Editorial Content & Articles (The Anti-Card Rule) */
@@ -5061,44 +5571,44 @@ code {
     opacity: 1;
   }
 
-  /* 8. Lists */
-  .lab-styled-preview[data-style="minimalism"] ul,
-  .lab-styled-preview[data-style="minimalism"] ol,
-  .minimalism-styled-container ul,
-  .style-minimalism ul,
-  [data-style="minimalism"] ul,
-  .ds-scope[data-style-id="minimalism"] ul,
-  .style-minimalist ul,
-  [data-style="minimalist"] ul,
-  .ds-scope[data-style-id="minimalist"] ul,
-  .style-minimal ul,
-  [data-style="minimal"] ul,
-  .ds-scope[data-style-id="minimal"] ul,
-  .minimalism-styled-container ol,
-  .style-minimalism ol,
-  [data-style="minimalism"] ol,
-  .ds-scope[data-style-id="minimalism"] ol,
-  .style-minimalist ol,
-  [data-style="minimalist"] ol,
-  .ds-scope[data-style-id="minimalist"] ol,
-  .style-minimal ol,
-  [data-style="minimal"] ol,
-  .ds-scope[data-style-id="minimal"] ol {
+  /* 8. Lists (Content lists only, avoiding nav) */
+  .lab-styled-preview[data-style="minimalism"] ul:not(nav ul),
+  .lab-styled-preview[data-style="minimalism"] ol:not(nav ol),
+  .minimalism-styled-container ul:not(nav ul),
+  .style-minimalism ul:not(nav ul),
+  [data-style="minimalism"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimalism"] ul:not(nav ul),
+  .style-minimalist ul:not(nav ul),
+  [data-style="minimalist"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimalist"] ul:not(nav ul),
+  .style-minimal ul:not(nav ul),
+  [data-style="minimal"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimal"] ul:not(nav ul),
+  .minimalism-styled-container ol:not(nav ol),
+  .style-minimalism ol:not(nav ol),
+  [data-style="minimalism"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimalism"] ol:not(nav ol),
+  .style-minimalist ol:not(nav ol),
+  [data-style="minimalist"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimalist"] ol:not(nav ol),
+  .style-minimal ol:not(nav ol),
+  [data-style="minimal"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimal"] ol:not(nav ol) {
     padding-left: 1.25rem;
     margin: 1rem 0 1.75rem;
   }
 
-  .lab-styled-preview[data-style="minimalism"] li,
-  .minimalism-styled-container li,
-  .style-minimalism li,
-  [data-style="minimalism"] li,
-  .ds-scope[data-style-id="minimalism"] li,
-  .style-minimalist li,
-  [data-style="minimalist"] li,
-  .ds-scope[data-style-id="minimalist"] li,
-  .style-minimal li,
-  [data-style="minimal"] li,
-  .ds-scope[data-style-id="minimal"] li {
+  .lab-styled-preview[data-style="minimalism"] li:not(nav li),
+  .minimalism-styled-container li:not(nav li),
+  .style-minimalism li:not(nav li),
+  [data-style="minimalism"] li:not(nav li),
+  .ds-scope[data-style-id="minimalism"] li:not(nav li),
+  .style-minimalist li:not(nav li),
+  [data-style="minimalist"] li:not(nav li),
+  .ds-scope[data-style-id="minimalist"] li:not(nav li),
+  .style-minimal li:not(nav li),
+  [data-style="minimal"] li:not(nav li),
+  .ds-scope[data-style-id="minimal"] li:not(nav li) {
     font-family: 'Inter', sans-serif;
     font-size: 0.9375rem;
     line-height: 1.65;
@@ -5106,17 +5616,17 @@ code {
     margin-bottom: 0.5rem;
   }
 
-  .lab-styled-preview[data-style="minimalism"] ul > li,
-  .minimalism-styled-container ul > li,
-  .style-minimalism ul > li,
-  [data-style="minimalism"] ul > li,
-  .ds-scope[data-style-id="minimalism"] ul > li,
-  .style-minimalist ul > li,
-  [data-style="minimalist"] ul > li,
-  .ds-scope[data-style-id="minimalist"] ul > li,
-  .style-minimal ul > li,
-  [data-style="minimal"] ul > li,
-  .ds-scope[data-style-id="minimal"] ul > li {
+  .lab-styled-preview[data-style="minimalism"] ul:not(nav ul) > li,
+  .minimalism-styled-container ul:not(nav ul) > li,
+  .style-minimalism ul:not(nav ul) > li,
+  [data-style="minimalism"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimalism"] ul:not(nav ul) > li,
+  .style-minimalist ul:not(nav ul) > li,
+  [data-style="minimalist"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimalist"] ul:not(nav ul) > li,
+  .style-minimal ul:not(nav ul) > li,
+  [data-style="minimal"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimal"] ul:not(nav ul) > li {
     list-style-type: disc;
   }
 
@@ -5272,6 +5782,76 @@ code {
     box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.7) !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-glassmorphism,
+  section.style-glassmorphism,
+  main.style-glassmorphism,
+  article.style-glassmorphism,
+  .lab-styled-preview[data-style="glassmorphism"],
+  .glassmorphism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture */
+  .lab-styled-preview[data-style="glassmorphism"] header,
+  .glassmorphism-styled-container header,
+  .style-glassmorphism header,
+  [data-style="glassmorphism"] header,
+  .ds-scope[data-style-id="glassmorphism"] header,
+  .style-glass header,
+  [data-style="glass"] header,
+  .ds-scope[data-style-id="glass"] header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] header h1,
+  .glassmorphism-styled-container header h1,
+  .style-glassmorphism header h1,
+  [data-style="glassmorphism"] header h1,
+  .ds-scope[data-style-id="glassmorphism"] header h1,
+  .style-glass header h1,
+  [data-style="glass"] header h1,
+  .ds-scope[data-style-id="glass"] header h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] header p,
+  .glassmorphism-styled-container header p,
+  .style-glassmorphism header p,
+  [data-style="glassmorphism"] header p,
+  .ds-scope[data-style-id="glassmorphism"] header p,
+  .style-glass header p,
+  [data-style="glass"] header p,
+  .ds-scope[data-style-id="glass"] header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0.25rem 0 0;
+  }
+
   /* ==========================================================================
      2. FLOATING NAVIGATION DOCK (GLASS-1)
      ========================================================================== */
@@ -5297,6 +5877,69 @@ code {
     box-shadow: 
       0 8px 28px rgba(0, 0, 0, 0.35),
       inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .style-glassmorphism header nav,
+  .lab-styled-preview[data-style="glassmorphism"] header nav,
+  .glassmorphism-styled-container header nav,
+  [data-style="glassmorphism"] header nav,
+  .ds-scope[data-style-id="glassmorphism"] header nav,
+  .style-glass header nav,
+  [data-style="glass"] header nav,
+  .ds-scope[data-style-id="glass"] header nav {
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav ul,
+  .lab-styled-preview[data-style="glassmorphism"] nav ol,
+  .glassmorphism-styled-container nav ul,
+  .glassmorphism-styled-container nav ol,
+  .style-glassmorphism nav ul,
+  .style-glassmorphism nav ol,
+  [data-style="glassmorphism"] nav ul,
+  [data-style="glassmorphism"] nav ol,
+  .ds-scope[data-style-id="glassmorphism"] nav ul,
+  .ds-scope[data-style-id="glassmorphism"] nav ol,
+  .style-glass nav ul,
+  .style-glass nav ol,
+  [data-style="glass"] nav ul,
+  [data-style="glass"] nav ol,
+  .ds-scope[data-style-id="glass"] nav ul,
+  .ds-scope[data-style-id="glass"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav li,
+  .glassmorphism-styled-container nav li,
+  .style-glassmorphism nav li,
+  [data-style="glassmorphism"] nav li,
+  .ds-scope[data-style-id="glassmorphism"] nav li,
+  .style-glass nav li,
+  [data-style="glass"] nav li,
+  .ds-scope[data-style-id="glass"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    border: none !important;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav li::before,
+  .glassmorphism-styled-container nav li::before,
+  .style-glassmorphism nav li::before,
+  [data-style="glassmorphism"] nav li::before,
+  .ds-scope[data-style-id="glassmorphism"] nav li::before,
+  .style-glass nav li::before,
+  [data-style="glass"] nav li::before,
+  .ds-scope[data-style-id="glass"] nav li::before {
+    display: none !important;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] nav a,
@@ -5443,6 +6086,81 @@ code {
     color: #94a3b8;
     max-width: 48ch;
     margin-bottom: 2.25rem;
+  }
+
+  /* 3b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="glassmorphism"] main,
+  .glassmorphism-styled-container main,
+  .style-glassmorphism main,
+  [data-style="glassmorphism"] main,
+  .ds-scope[data-style-id="glassmorphism"] main,
+  .style-glass main,
+  [data-style="glass"] main,
+  .ds-scope[data-style-id="glass"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]),
+  .glassmorphism-styled-container section:not([class*="style-"]),
+  .style-glassmorphism section:not([class*="style-"]),
+  [data-style="glassmorphism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]),
+  .style-glass section:not([class*="style-"]),
+  [data-style="glass"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]),
+  .style-glassmorphism main > section,
+  [data-style="glassmorphism"] main > section {
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 12px 36px rgba(0, 0, 0, 0.32),
+      inset 0 1px 1px rgba(255, 255, 255, 0.16);
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]):hover,
+  .glassmorphism-styled-container section:not([class*="style-"]):hover,
+  .style-glassmorphism section:not([class*="style-"]):hover,
+  [data-style="glassmorphism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]):hover,
+  .style-glass section:not([class*="style-"]):hover,
+  [data-style="glass"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]):hover,
+  .style-glassmorphism main > section:hover,
+  [data-style="glassmorphism"] main > section:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 
+      0 16px 42px rgba(0, 0, 0, 0.42),
+      inset 0 1px 1px rgba(255, 255, 255, 0.24);
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]) > h2,
+  .glassmorphism-styled-container section:not([class*="style-"]) > h2,
+  .style-glassmorphism section:not([class*="style-"]) > h2,
+  [data-style="glassmorphism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]) > h2,
+  .style-glass section:not([class*="style-"]) > h2,
+  [data-style="glass"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]) > h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* ==========================================================================
@@ -5920,29 +6638,29 @@ code {
   }
 
   /* ==========================================================================
-     9. LISTS & SPECIFICATIONS
+     9. LISTS & SPECIFICATIONS (Content lists only, avoiding nav)
      ========================================================================== */
-  .lab-styled-preview[data-style="glassmorphism"] ul,
-  .glassmorphism-styled-container ul,
-  .style-glassmorphism ul,
-  [data-style="glassmorphism"] ul,
-  .ds-scope[data-style-id="glassmorphism"] ul,
-  .style-glass ul,
-  [data-style="glass"] ul,
-  .ds-scope[data-style-id="glass"] ul {
+  .lab-styled-preview[data-style="glassmorphism"] ul:not(nav ul),
+  .glassmorphism-styled-container ul:not(nav ul),
+  .style-glassmorphism ul:not(nav ul),
+  [data-style="glassmorphism"] ul:not(nav ul),
+  .ds-scope[data-style-id="glassmorphism"] ul:not(nav ul),
+  .style-glass ul:not(nav ul),
+  [data-style="glass"] ul:not(nav ul),
+  .ds-scope[data-style-id="glass"] ul:not(nav ul) {
     list-style: none;
     padding-left: 0;
     margin: 1.5rem 0;
   }
 
-  .lab-styled-preview[data-style="glassmorphism"] li,
-  .glassmorphism-styled-container li,
-  .style-glassmorphism li,
-  [data-style="glassmorphism"] li,
-  .ds-scope[data-style-id="glassmorphism"] li,
-  .style-glass li,
-  [data-style="glass"] li,
-  .ds-scope[data-style-id="glass"] li {
+  .lab-styled-preview[data-style="glassmorphism"] li:not(nav li),
+  .glassmorphism-styled-container li:not(nav li),
+  .style-glassmorphism li:not(nav li),
+  [data-style="glassmorphism"] li:not(nav li),
+  .ds-scope[data-style-id="glassmorphism"] li:not(nav li),
+  .style-glass li:not(nav li),
+  [data-style="glass"] li:not(nav li),
+  .ds-scope[data-style-id="glass"] li:not(nav li) {
     position: relative;
     padding: 0.625rem 0 0.625rem 1.5rem;
     font-size: 0.9375rem;
@@ -5950,14 +6668,14 @@ code {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .lab-styled-preview[data-style="glassmorphism"] li::before,
-  .glassmorphism-styled-container li::before,
-  .style-glassmorphism li::before,
-  [data-style="glassmorphism"] li::before,
-  .ds-scope[data-style-id="glassmorphism"] li::before,
-  .style-glass li::before,
-  [data-style="glass"] li::before,
-  .ds-scope[data-style-id="glass"] li::before {
+  .lab-styled-preview[data-style="glassmorphism"] li:not(nav li)::before,
+  .glassmorphism-styled-container li:not(nav li)::before,
+  .style-glassmorphism li:not(nav li)::before,
+  [data-style="glassmorphism"] li:not(nav li)::before,
+  .ds-scope[data-style-id="glassmorphism"] li:not(nav li)::before,
+  .style-glass li:not(nav li)::before,
+  [data-style="glass"] li:not(nav li)::before,
+  .ds-scope[data-style-id="glass"] li:not(nav li)::before {
     content: "";
     position: absolute;
     left: 0.25rem;
@@ -7070,6 +7788,75 @@ code {
     position: relative !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-swiss-design,
+  section.style-swiss-design,
+  main.style-swiss-design,
+  article.style-swiss-design,
+  .lab-styled-preview[data-style="swiss-design"],
+  .swiss-design-styled-container {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Engineered Masthead) */
+  .lab-styled-preview[data-style="swiss-design"] header,
+  .swiss-design-styled-container header,
+  .style-swiss-design header,
+  [data-style="swiss-design"] header,
+  .ds-scope[data-style-id="swiss-design"] header,
+  .style-swiss header,
+  [data-style="swiss"] header,
+  .ds-scope[data-style-id="swiss"] header {
+    background-color: #ffffff;
+    border-top: 4px solid #000000;
+    border-bottom: 2px solid #000000;
+    padding: 1.5rem 0 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] header h1,
+  .swiss-design-styled-container header h1,
+  .style-swiss-design header h1,
+  [data-style="swiss-design"] header h1,
+  .ds-scope[data-style-id="swiss-design"] header h1,
+  .style-swiss header h1,
+  [data-style="swiss"] header h1,
+  .ds-scope[data-style-id="swiss"] header h1 {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] header p,
+  .swiss-design-styled-container header p,
+  .style-swiss-design header p,
+  [data-style="swiss-design"] header p,
+  .ds-scope[data-style-id="swiss-design"] header p,
+  .style-swiss header p,
+  [data-style="swiss"] header p,
+  .ds-scope[data-style-id="swiss"] header p {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #52525b;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Engineered Masthead Navigation: Typographic Horizontal Baseline */
   .lab-styled-preview[data-style="swiss-design"] nav,
   .swiss-design-styled-container nav,
@@ -7087,6 +7874,59 @@ code {
     border-bottom: 1px solid #000000;
     margin-bottom: 3.5rem;
     position: relative;
+  }
+
+  .style-swiss-design header nav,
+  .lab-styled-preview[data-style="swiss-design"] header nav,
+  .swiss-design-styled-container header nav,
+  [data-style="swiss-design"] header nav,
+  .ds-scope[data-style-id="swiss-design"] header nav,
+  .style-swiss header nav,
+  [data-style="swiss"] header nav,
+  .ds-scope[data-style-id="swiss"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] nav ul,
+  .lab-styled-preview[data-style="swiss-design"] nav ol,
+  .swiss-design-styled-container nav ul,
+  .swiss-design-styled-container nav ol,
+  .style-swiss-design nav ul,
+  .style-swiss-design nav ol,
+  [data-style="swiss-design"] nav ul,
+  [data-style="swiss-design"] nav ol,
+  .ds-scope[data-style-id="swiss-design"] nav ul,
+  .ds-scope[data-style-id="swiss-design"] nav ol,
+  .style-swiss nav ul,
+  .style-swiss nav ol,
+  [data-style="swiss"] nav ul,
+  [data-style="swiss"] nav ol,
+  .ds-scope[data-style-id="swiss"] nav ul,
+  .ds-scope[data-style-id="swiss"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] nav li,
+  .swiss-design-styled-container nav li,
+  .style-swiss-design nav li,
+  [data-style="swiss-design"] nav li,
+  .ds-scope[data-style-id="swiss-design"] nav li,
+  .style-swiss nav li,
+  [data-style="swiss"] nav li,
+  .ds-scope[data-style-id="swiss"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="swiss-design"] nav a,
@@ -7823,43 +8663,43 @@ code {
     box-shadow: inset 0 0 0 1px #dc2626;
   }
 
-  /* 10. Lists & Hospitality Menu Enhancements */
-  .lab-styled-preview[data-style="swiss-design"] ul,
-  .lab-styled-preview[data-style="swiss-design"] ol,
-  .swiss-design-styled-container ul,
-  .style-swiss-design ul,
-  [data-style="swiss-design"] ul,
-  .ds-scope[data-style-id="swiss-design"] ul,
-  .style-swiss ul,
-  [data-style="swiss"] ul,
-  .ds-scope[data-style-id="swiss"] ul,
-  .swiss-design-styled-container ol,
-  .style-swiss-design ol,
-  [data-style="swiss-design"] ol,
-  .ds-scope[data-style-id="swiss-design"] ol,
-  .style-swiss ol,
-  [data-style="swiss"] ol,
-  .ds-scope[data-style-id="swiss"] ol {
+  /* 10. Lists (Content lists only, avoiding nav) */
+  .lab-styled-preview[data-style="swiss-design"] ul:not(nav ul),
+  .lab-styled-preview[data-style="swiss-design"] ol:not(nav ol),
+  .swiss-design-styled-container ul:not(nav ul),
+  .style-swiss-design ul:not(nav ul),
+  [data-style="swiss-design"] ul:not(nav ul),
+  .ds-scope[data-style-id="swiss-design"] ul:not(nav ul),
+  .style-swiss ul:not(nav ul),
+  [data-style="swiss"] ul:not(nav ul),
+  .ds-scope[data-style-id="swiss"] ul:not(nav ul),
+  .swiss-design-styled-container ol:not(nav ol),
+  .style-swiss-design ol:not(nav ol),
+  [data-style="swiss-design"] ol:not(nav ol),
+  .ds-scope[data-style-id="swiss-design"] ol:not(nav ol),
+  .style-swiss ol:not(nav ol),
+  [data-style="swiss"] ol:not(nav ol),
+  .ds-scope[data-style-id="swiss"] ol:not(nav ol) {
     padding-left: 1.25rem;
     margin: 1rem 0 1.5rem 0;
   }
 
-  .lab-styled-preview[data-style="swiss-design"] ul li,
-  .lab-styled-preview[data-style="swiss-design"] ol li,
-  .swiss-design-styled-container ul li,
-  .style-swiss-design ul li,
-  [data-style="swiss-design"] ul li,
-  .ds-scope[data-style-id="swiss-design"] ul li,
-  .style-swiss ul li,
-  [data-style="swiss"] ul li,
-  .ds-scope[data-style-id="swiss"] ul li,
-  .swiss-design-styled-container ol li,
-  .style-swiss-design ol li,
-  [data-style="swiss-design"] ol li,
-  .ds-scope[data-style-id="swiss-design"] ol li,
-  .style-swiss ol li,
-  [data-style="swiss"] ol li,
-  .ds-scope[data-style-id="swiss"] ol li {
+  .lab-styled-preview[data-style="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .lab-styled-preview[data-style="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .swiss-design-styled-container ul:not(nav ul) li:not(nav li),
+  .style-swiss-design ul:not(nav ul) li:not(nav li),
+  [data-style="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .ds-scope[data-style-id="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .style-swiss ul:not(nav ul) li:not(nav li),
+  [data-style="swiss"] ul:not(nav ul) li:not(nav li),
+  .ds-scope[data-style-id="swiss"] ul:not(nav ul) li:not(nav li),
+  .swiss-design-styled-container ol:not(nav ol) li:not(nav li),
+  .style-swiss-design ol:not(nav ol) li:not(nav li),
+  [data-style="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .ds-scope[data-style-id="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .style-swiss ol:not(nav ol) li:not(nav li),
+  [data-style="swiss"] ol:not(nav ol) li:not(nav li),
+  .ds-scope[data-style-id="swiss"] ol:not(nav ol) li:not(nav li) {
     margin-bottom: 0.5rem;
     line-height: 1.55;
     color: #18181b;
@@ -7964,27 +8804,57 @@ code {
     margin: 0;
   }
 
-  /* 12. General Structural Spacing and Clean Fallbacks */
-  .lab-styled-preview[data-style="swiss-design"] section,
-  .swiss-design-styled-container section,
-  .style-swiss-design section,
-  [data-style="swiss-design"] section,
-  .ds-scope[data-style-id="swiss-design"] section,
-  .style-swiss section,
-  [data-style="swiss"] section,
-  .ds-scope[data-style-id="swiss"] section {
-    margin-bottom: 3.5rem;
+  /* 12. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="swiss-design"] main,
+  .swiss-design-styled-container main,
+  .style-swiss-design main,
+  [data-style="swiss-design"] main,
+  .ds-scope[data-style-id="swiss-design"] main,
+  .style-swiss main,
+  [data-style="swiss"] main,
+  .ds-scope[data-style-id="swiss"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .lab-styled-preview[data-style="swiss-design"] section:last-child,
-  .swiss-design-styled-container section:last-child,
-  .style-swiss-design section:last-child,
-  [data-style="swiss-design"] section:last-child,
-  .ds-scope[data-style-id="swiss-design"] section:last-child,
-  .style-swiss section:last-child,
-  [data-style="swiss"] section:last-child,
-  .ds-scope[data-style-id="swiss"] section:last-child {
-    margin-bottom: 0;
+  .lab-styled-preview[data-style="swiss-design"] section:not([class*="style-"]),
+  .swiss-design-styled-container section:not([class*="style-"]),
+  .style-swiss-design section:not([class*="style-"]),
+  [data-style="swiss-design"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="swiss-design"] section:not([class*="style-"]),
+  .style-swiss section:not([class*="style-"]),
+  [data-style="swiss"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="swiss"] section:not([class*="style-"]),
+  .style-swiss-design main > section,
+  [data-style="swiss-design"] main > section {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] section:not([class*="style-"]) > h2,
+  .swiss-design-styled-container section:not([class*="style-"]) > h2,
+  .style-swiss-design section:not([class*="style-"]) > h2,
+  [data-style="swiss-design"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="swiss-design"] section:not([class*="style-"]) > h2,
+  .style-swiss section:not([class*="style-"]) > h2,
+  [data-style="swiss"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="swiss"] section:not([class*="style-"]) > h2 {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    color: #000000;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #000000;
   }
 
   /* Responsive Adjustments */
@@ -9197,6 +10067,73 @@ code {
     overflow-x: hidden !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-neo-brutalism,
+  section.style-neo-brutalism,
+  main.style-neo-brutalism,
+  article.style-neo-brutalism,
+  div.style-neobrutalism,
+  section.style-neobrutalism,
+  main.style-neobrutalism,
+  div.style-neo-brutalist,
+  section.style-neo-brutalist,
+  main.style-neo-brutalist,
+  .lab-styled-preview[data-style="neo-brutalism"],
+  .neo-brutalism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Playful Graphic Banner Card) */
+  .lab-styled-preview[data-style="neo-brutalism"] header,
+  .neo-brutalism-styled-container header,
+  .style-neo-brutalism header,
+  [data-style="neo-brutalism"] header,
+  .ds-scope[data-style-id="neo-brutalism"] header,
+  .style-neobrutalism header,
+  [data-style="neobrutalism"] header,
+  .ds-scope[data-style-id="neobrutalism"] header,
+  .style-neo-brutalist header,
+  [data-style="neo-brutalist"] header,
+  .ds-scope[data-style-id="neo-brutalist"] header {
+    background-color: #ffffff;
+    border: 3px solid #121212;
+    border-radius: 16px;
+    box-shadow: 5px 5px 0px #121212;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] header h1,
+  .neo-brutalism-styled-container header h1,
+  .style-neo-brutalism header h1,
+  [data-style="neo-brutalism"] header h1,
+  .ds-scope[data-style-id="neo-brutalism"] header h1,
+  .style-neobrutalism header h1,
+  [data-style="neobrutalism"] header h1,
+  .ds-scope[data-style-id="neobrutalism"] header h1,
+  .style-neo-brutalist header h1,
+  [data-style="neo-brutalist"] header h1,
+  .ds-scope[data-style-id="neo-brutalist"] header h1 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #121212;
+    margin: 0;
+  }
+
   /* 1. Graphic Navigation: Bold Wordmark & Tactile Pill Controls */
   .lab-styled-preview[data-style="neo-brutalism"] nav,
   .neo-brutalism-styled-container nav,
@@ -9218,6 +10155,71 @@ code {
     margin-bottom: 3.5rem;
     position: relative;
     z-index: 1;
+  }
+
+  .style-neo-brutalism header nav,
+  .lab-styled-preview[data-style="neo-brutalism"] header nav,
+  .neo-brutalism-styled-container header nav,
+  [data-style="neo-brutalism"] header nav,
+  .ds-scope[data-style-id="neo-brutalism"] header nav,
+  .style-neobrutalism header nav,
+  [data-style="neobrutalism"] header nav,
+  .ds-scope[data-style-id="neobrutalism"] header nav,
+  .style-neo-brutalist header nav,
+  [data-style="neo-brutalist"] header nav,
+  .ds-scope[data-style-id="neo-brutalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] nav ul,
+  .lab-styled-preview[data-style="neo-brutalism"] nav ol,
+  .neo-brutalism-styled-container nav ul,
+  .neo-brutalism-styled-container nav ol,
+  .style-neo-brutalism nav ul,
+  .style-neo-brutalism nav ol,
+  [data-style="neo-brutalism"] nav ul,
+  [data-style="neo-brutalism"] nav ol,
+  .ds-scope[data-style-id="neo-brutalism"] nav ul,
+  .ds-scope[data-style-id="neo-brutalism"] nav ol,
+  .style-neobrutalism nav ul,
+  .style-neobrutalism nav ol,
+  [data-style="neobrutalism"] nav ul,
+  [data-style="neobrutalism"] nav ol,
+  .ds-scope[data-style-id="neobrutalism"] nav ul,
+  .ds-scope[data-style-id="neobrutalism"] nav ol,
+  .style-neo-brutalist nav ul,
+  .style-neo-brutalist nav ol,
+  [data-style="neo-brutalist"] nav ul,
+  [data-style="neo-brutalist"] nav ol,
+  .ds-scope[data-style-id="neo-brutalist"] nav ul,
+  .ds-scope[data-style-id="neo-brutalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] nav li,
+  .neo-brutalism-styled-container nav li,
+  .style-neo-brutalism nav li,
+  [data-style="neo-brutalism"] nav li,
+  .ds-scope[data-style-id="neo-brutalism"] nav li,
+  .style-neobrutalism nav li,
+  [data-style="neobrutalism"] nav li,
+  .ds-scope[data-style-id="neobrutalism"] nav li,
+  .style-neo-brutalist nav li,
+  [data-style="neo-brutalist"] nav li,
+  .ds-scope[data-style-id="neo-brutalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="neo-brutalism"] nav a,
@@ -9613,6 +10615,89 @@ code {
   .ds-scope[data-style-id="neo-brutalist"] button + button:hover {
     background-color: #ffde59;
     color: #121212;
+  }
+
+  /* 5b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="neo-brutalism"] main,
+  .neo-brutalism-styled-container main,
+  .style-neo-brutalism main,
+  [data-style="neo-brutalism"] main,
+  .ds-scope[data-style-id="neo-brutalism"] main,
+  .style-neobrutalism main,
+  [data-style="neobrutalism"] main,
+  .ds-scope[data-style-id="neobrutalism"] main,
+  .style-neo-brutalist main,
+  [data-style="neo-brutalist"] main,
+  .ds-scope[data-style-id="neo-brutalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]),
+  .neo-brutalism-styled-container section:not([class*="style-"]),
+  .style-neo-brutalism section:not([class*="style-"]),
+  [data-style="neo-brutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]),
+  .style-neobrutalism section:not([class*="style-"]),
+  [data-style="neobrutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]),
+  .style-neo-brutalist section:not([class*="style-"]),
+  [data-style="neo-brutalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]),
+  .style-neo-brutalism main > section,
+  [data-style="neo-brutalism"] main > section,
+  .style-neobrutalism main > section,
+  [data-style="neobrutalism"] main > section,
+  .style-neo-brutalist main > section,
+  [data-style="neo-brutalist"] main > section {
+    background-color: #ffffff;
+    border: 3px solid #121212;
+    border-radius: 16px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 5px 5px 0px #121212;
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]):hover,
+  .neo-brutalism-styled-container section:not([class*="style-"]):hover,
+  .style-neo-brutalism section:not([class*="style-"]):hover,
+  [data-style="neo-brutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]):hover,
+  .style-neobrutalism section:not([class*="style-"]):hover,
+  [data-style="neobrutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]):hover,
+  .style-neo-brutalist section:not([class*="style-"]):hover,
+  [data-style="neo-brutalist"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]):hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #121212;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .neo-brutalism-styled-container section:not([class*="style-"]) > h2,
+  .style-neo-brutalism section:not([class*="style-"]) > h2,
+  [data-style="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .style-neobrutalism section:not([class*="style-"]) > h2,
+  [data-style="neobrutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]) > h2,
+  .style-neo-brutalist section:not([class*="style-"]) > h2,
+  [data-style="neo-brutalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #121212;
   }
 
   /* 6. Articles & Content: Open Editorial Rows vs Selective Cards (No Card-Everything) */
@@ -13488,6 +14573,68 @@ code {
     letter-spacing: -0.01em !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-y2k-aesthetic,
+  section.style-y2k-aesthetic,
+  main.style-y2k-aesthetic,
+  article.style-y2k-aesthetic,
+  div.style-y2k,
+  section.style-y2k,
+  main.style-y2k,
+  article.style-y2k,
+  .lab-styled-preview[data-style="y2k-aesthetic"],
+  .y2k-aesthetic-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0b. Header Architecture (Pearlescent Cyber Header Bar) */
+  .lab-styled-preview[data-style="y2k-aesthetic"] header,
+  .y2k-aesthetic-styled-container header,
+  .style-y2k-aesthetic header,
+  [data-style="y2k-aesthetic"] header,
+  .ds-scope[data-style-id="y2k-aesthetic"] header,
+  .style-y2k header,
+  [data-style="y2k"] header,
+  .ds-scope[data-style-id="y2k"] header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 246, 253, 0.9) 100%);
+    border: 1px solid #b8cee2;
+    border-top: 1px solid #ffffff;
+    border-bottom: 2px solid #94b8d7;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08), inset 0 1px 0 #ffffff;
+    padding: 1.25rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] header h1,
+  .y2k-aesthetic-styled-container header h1,
+  .style-y2k-aesthetic header h1,
+  [data-style="y2k-aesthetic"] header h1,
+  .ds-scope[data-style-id="y2k-aesthetic"] header h1,
+  .style-y2k header h1,
+  [data-style="y2k"] header h1,
+  .ds-scope[data-style-id="y2k"] header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
   /* 1. Navigation: Futuristic Hardware / Cyber Browser Deck */
   .lab-styled-preview[data-style="y2k-aesthetic"] nav,
   .y2k-aesthetic-styled-container nav,
@@ -13512,6 +14659,61 @@ code {
     margin-bottom: 2.75rem;
     position: relative;
     z-index: 10;
+  }
+
+  .style-y2k-aesthetic header nav,
+  .lab-styled-preview[data-style="y2k-aesthetic"] header nav,
+  .y2k-aesthetic-styled-container header nav,
+  [data-style="y2k-aesthetic"] header nav,
+  .ds-scope[data-style-id="y2k-aesthetic"] header nav,
+  .style-y2k header nav,
+  [data-style="y2k"] header nav,
+  .ds-scope[data-style-id="y2k"] header nav {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav ul,
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav ol,
+  .y2k-aesthetic-styled-container nav ul,
+  .y2k-aesthetic-styled-container nav ol,
+  .style-y2k-aesthetic nav ul,
+  .style-y2k-aesthetic nav ol,
+  [data-style="y2k-aesthetic"] nav ul,
+  [data-style="y2k-aesthetic"] nav ol,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav ul,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav ol,
+  .style-y2k nav ul,
+  .style-y2k nav ol,
+  [data-style="y2k"] nav ul,
+  [data-style="y2k"] nav ol,
+  .ds-scope[data-style-id="y2k"] nav ul,
+  .ds-scope[data-style-id="y2k"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav li,
+  .y2k-aesthetic-styled-container nav li,
+  .style-y2k-aesthetic nav li,
+  [data-style="y2k-aesthetic"] nav li,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav li,
+  .style-y2k nav li,
+  [data-style="y2k"] nav li,
+  .ds-scope[data-style-id="y2k"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a,
@@ -13935,6 +15137,78 @@ code {
   .ds-scope[data-style-id="y2k"] .dispatch:hover {
     transform: none !important;
     box-shadow: none !important;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="y2k-aesthetic"] main,
+  .y2k-aesthetic-styled-container main,
+  .style-y2k-aesthetic main,
+  [data-style="y2k-aesthetic"] main,
+  .ds-scope[data-style-id="y2k-aesthetic"] main,
+  .style-y2k main,
+  [data-style="y2k"] main,
+  .ds-scope[data-style-id="y2k"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]),
+  .y2k-aesthetic-styled-container section:not([class*="style-"]),
+  .style-y2k-aesthetic section:not([class*="style-"]),
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]),
+  .style-y2k section:not([class*="style-"]),
+  [data-style="y2k"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]),
+  .style-y2k-aesthetic main > section,
+  [data-style="y2k-aesthetic"] main > section,
+  .style-y2k main > section,
+  [data-style="y2k"] main > section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 250, 255, 0.92) 100%) !important;
+    border: 1px solid #cbdbe9 !important;
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 2px solid #94b8d7 !important;
+    border-radius: 20px !important;
+    padding: 2.25rem 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05), inset 0 1px 0 #ffffff !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    transition: transform 180ms ease, box-shadow 180ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .y2k-aesthetic-styled-container section:not([class*="style-"]):hover,
+  .style-y2k-aesthetic section:not([class*="style-"]):hover,
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .style-y2k section:not([class*="style-"]):hover,
+  [data-style="y2k"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]):hover {
+    border-color: #7dd3fc !important;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12), inset 0 1px 0 #ffffff !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .y2k-aesthetic-styled-container section:not([class*="style-"]) > h2,
+  .style-y2k-aesthetic section:not([class*="style-"]) > h2,
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .style-y2k section:not([class*="style-"]) > h2,
+  [data-style="y2k"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]) > h2 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #0284c7 !important;
+    margin: 0 0 1.25rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #e0ecf8 !important;
   }
 
   /* 5. Pullquotes: Iridescent Ice & Aqua Framing */
@@ -21238,6 +22512,240 @@ code {
     box-sizing: border-box;
     position: relative;
     z-index: 2;
+  }
+
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-cyberpunk,
+  section.style-cyberpunk,
+  main.style-cyberpunk,
+  article.style-cyberpunk,
+  div.style-cyber,
+  section.style-cyber,
+  main.style-cyber,
+  article.style-cyber,
+  .lab-styled-preview[data-style="cyberpunk"],
+  .cyberpunk-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (High-Tech Obsidian & Neon Terminal Header) */
+  .lab-styled-preview[data-style="cyberpunk"] header,
+  .cyberpunk-styled-container header,
+  .style-cyberpunk header,
+  [data-style="cyberpunk"] header,
+  .ds-scope[data-style-id="cyberpunk"] header,
+  .style-cyber header,
+  [data-style="cyber"] header,
+  .ds-scope[data-style-id="cyber"] header {
+    background-color: var(--cp-bg-surface);
+    border: 1px solid var(--cp-border-cyan);
+    border-left: 4px solid var(--cp-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.05);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] header h1,
+  .cyberpunk-styled-container header h1,
+  .style-cyberpunk header h1,
+  [data-style="cyberpunk"] header h1,
+  .ds-scope[data-style-id="cyberpunk"] header h1,
+  .style-cyber header h1,
+  [data-style="cyber"] header h1,
+  .ds-scope[data-style-id="cyber"] header h1 {
+    margin: 0;
+  }
+
+  /* 1. Terminal HUD Navigation */
+  .lab-styled-preview[data-style="cyberpunk"] nav,
+  .cyberpunk-styled-container nav,
+  .style-cyberpunk nav,
+  [data-style="cyberpunk"] nav,
+  .ds-scope[data-style-id="cyberpunk"] nav,
+  .style-cyber nav,
+  [data-style="cyber"] nav,
+  .ds-scope[data-style-id="cyber"] nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.85rem 1.5rem;
+    background-color: rgba(10, 14, 23, 0.85);
+    border: 1px solid var(--cp-border-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .style-cyberpunk header nav,
+  .lab-styled-preview[data-style="cyberpunk"] header nav,
+  .cyberpunk-styled-container header nav,
+  [data-style="cyberpunk"] header nav,
+  .ds-scope[data-style-id="cyberpunk"] header nav,
+  .style-cyber header nav,
+  [data-style="cyber"] header nav,
+  .ds-scope[data-style-id="cyber"] header nav {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav ul,
+  .lab-styled-preview[data-style="cyberpunk"] nav ol,
+  .cyberpunk-styled-container nav ul,
+  .cyberpunk-styled-container nav ol,
+  .style-cyberpunk nav ul,
+  .style-cyberpunk nav ol,
+  [data-style="cyberpunk"] nav ul,
+  [data-style="cyberpunk"] nav ol,
+  .ds-scope[data-style-id="cyberpunk"] nav ul,
+  .ds-scope[data-style-id="cyberpunk"] nav ol,
+  .style-cyber nav ul,
+  .style-cyber nav ol,
+  [data-style="cyber"] nav ul,
+  [data-style="cyber"] nav ol,
+  .ds-scope[data-style-id="cyber"] nav ul,
+  .ds-scope[data-style-id="cyber"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav li,
+  .cyberpunk-styled-container nav li,
+  .style-cyberpunk nav li,
+  [data-style="cyberpunk"] nav li,
+  .ds-scope[data-style-id="cyberpunk"] nav li,
+  .style-cyber nav li,
+  [data-style="cyber"] nav li,
+  .ds-scope[data-style-id="cyber"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav a,
+  .cyberpunk-styled-container nav a,
+  .style-cyberpunk nav a,
+  [data-style="cyberpunk"] nav a,
+  .ds-scope[data-style-id="cyberpunk"] nav a,
+  .style-cyber nav a,
+  [data-style="cyber"] nav a,
+  .ds-scope[data-style-id="cyber"] nav a {
+    font-family: var(--cp-font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cp-cyan);
+    text-decoration: none;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid transparent;
+    transition: all 120ms ease;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav a:hover,
+  .cyberpunk-styled-container nav a:hover,
+  .style-cyberpunk nav a:hover,
+  [data-style="cyberpunk"] nav a:hover,
+  .ds-scope[data-style-id="cyberpunk"] nav a:hover,
+  .style-cyber nav a:hover,
+  [data-style="cyber"] nav a:hover,
+  .ds-scope[data-style-id="cyber"] nav a:hover {
+    background-color: var(--cp-cyan-dim);
+    border-color: var(--cp-cyan);
+    box-shadow: 0 0 10px var(--cp-cyan-glow);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  /* Main Flow & Child Sections (Industrial Panels) */
+  .lab-styled-preview[data-style="cyberpunk"] main,
+  .cyberpunk-styled-container main,
+  .style-cyberpunk main,
+  [data-style="cyberpunk"] main,
+  .ds-scope[data-style-id="cyberpunk"] main,
+  .style-cyber main,
+  [data-style="cyber"] main,
+  .ds-scope[data-style-id="cyber"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] section:not([class*="style-"]),
+  .cyberpunk-styled-container section:not([class*="style-"]),
+  .style-cyberpunk section:not([class*="style-"]),
+  [data-style="cyberpunk"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="cyberpunk"] section:not([class*="style-"]),
+  .style-cyber section:not([class*="style-"]),
+  [data-style="cyber"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="cyber"] section:not([class*="style-"]),
+  .style-cyberpunk main > section,
+  [data-style="cyberpunk"] main > section,
+  .style-cyber main > section,
+  [data-style="cyber"] main > section {
+    background-color: var(--cp-bg-panel);
+    border: 1px solid var(--cp-border-cyan);
+    border-top: 2px solid var(--cp-cyan);
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.03);
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] section:not([class*="style-"]):hover,
+  .cyberpunk-styled-container section:not([class*="style-"]):hover,
+  .style-cyberpunk section:not([class*="style-"]):hover,
+  [data-style="cyberpunk"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="cyberpunk"] section:not([class*="style-"]):hover,
+  .style-cyber section:not([class*="style-"]):hover,
+  [data-style="cyber"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="cyber"] section:not([class*="style-"]):hover {
+    border-color: var(--cp-cyan);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] section:not([class*="style-"]) > h2,
+  .cyberpunk-styled-container section:not([class*="style-"]) > h2,
+  .style-cyberpunk section:not([class*="style-"]) > h2,
+  [data-style="cyberpunk"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="cyberpunk"] section:not([class*="style-"]) > h2,
+  .style-cyber section:not([class*="style-"]) > h2,
+  [data-style="cyber"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="cyber"] section:not([class*="style-"]) > h2 {
+    font-family: var(--cp-font-heading);
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--cp-cyan);
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--cp-border-cyan);
+    text-transform: uppercase;
   }
 
   /* ==========================================================================
@@ -36913,6 +38421,47 @@ code {
     box-shadow: none !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-wabi-sabi,
+  section.style-wabi-sabi,
+  main.style-wabi-sabi,
+  article.style-wabi-sabi,
+  .lab-styled-preview[data-style="wabi-sabi"],
+  .wabi-sabi-styled-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Organic Handcrafted Banner) */
+  .lab-styled-preview[data-style="wabi-sabi"] header,
+  .wabi-sabi-styled-container header,
+  .style-wabi-sabi header,
+  .ds-scope[data-style-id="wabi-sabi"] header {
+    background-color: #faf7f2;
+    border: 1px solid #d6cfc4;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] header h1,
+  .wabi-sabi-styled-container header h1,
+  .style-wabi-sabi header h1,
+  .ds-scope[data-style-id="wabi-sabi"] header h1 {
+    margin: 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="wabi-sabi"] nav,
   .wabi-sabi-styled-container nav,
@@ -36925,6 +38474,43 @@ code {
     padding: 1.25rem 0 1.5rem;
     border-bottom: 1px solid #d6cfc4;
     margin-bottom: 3.5rem;
+  }
+
+  .style-wabi-sabi header nav,
+  .lab-styled-preview[data-style="wabi-sabi"] header nav,
+  .wabi-sabi-styled-container header nav,
+  .ds-scope[data-style-id="wabi-sabi"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] nav ul,
+  .lab-styled-preview[data-style="wabi-sabi"] nav ol,
+  .wabi-sabi-styled-container nav ul,
+  .wabi-sabi-styled-container nav ol,
+  .style-wabi-sabi nav ul,
+  .style-wabi-sabi nav ol,
+  .ds-scope[data-style-id="wabi-sabi"] nav ul,
+  .ds-scope[data-style-id="wabi-sabi"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] nav li,
+  .wabi-sabi-styled-container nav li,
+  .style-wabi-sabi nav li,
+  .ds-scope[data-style-id="wabi-sabi"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="wabi-sabi"] nav a,
@@ -37067,6 +38653,49 @@ code {
   .style-wabi-sabi button:active,
   .ds-scope[data-style-id="wabi-sabi"] button:active {
     transform: translateY(0px) !important;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="wabi-sabi"] main,
+  .wabi-sabi-styled-container main,
+  .style-wabi-sabi main,
+  .ds-scope[data-style-id="wabi-sabi"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]),
+  .wabi-sabi-styled-container section:not([class*="style-"]),
+  .style-wabi-sabi section:not([class*="style-"]),
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]),
+  .style-wabi-sabi main > section {
+    background-color: #faf7f2;
+    border: 1px solid #d6cfc4;
+    border-radius: 12px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 16px rgba(41, 37, 36, 0.04);
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]):hover,
+  .wabi-sabi-styled-container section:not([class*="style-"]):hover,
+  .style-wabi-sabi section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(41, 37, 36, 0.07);
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]) > h2,
+  .wabi-sabi-styled-container section:not([class*="style-"]) > h2,
+  .style-wabi-sabi section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]) > h2 {
+    margin-top: 0;
   }
 
   /* 5. Cards & Section Architecture */

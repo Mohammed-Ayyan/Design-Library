@@ -680,4 +680,24 @@ describe('Public API & Reusable Consumer Interface Suite', () => {
     expect(resolved.components.button.borderWidth).toBe('2px');
     expect(resolved.components.card.borderColor).toBe('#121212');
   });
+
+  it('30. should enforce universal horizontal nav layout and eliminate bullet points across all styles in Adaptive CSS', () => {
+    const css = AdaptiveCSSGenerator.getCoreAdaptiveStyles();
+
+    // Must have universal nav reset preventing vertical bulleted lists
+    expect(css).toContain('[class*="style-"] nav ul');
+    expect(css).toContain('list-style: none !important');
+    expect(css).toContain('display: flex !important');
+  });
+
+  it('31. should provide card and banner rules for raw semantic HTML (header, main, child sections) across styles', () => {
+    const css = AdaptiveCSSGenerator.getCoreAdaptiveStyles();
+
+    // Brutalism semantic cards
+    expect(css).toContain('.style-brutalism header');
+    expect(css).toContain('.style-brutalism section:not([class*="style-"])');
+    expect(css).toContain('.style-brutalism main > section');
+    expect(css).toContain('box-shadow: 5px 5px 0px #000');
+  });
 });
+

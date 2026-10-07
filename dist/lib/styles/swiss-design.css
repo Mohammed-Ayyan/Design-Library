@@ -20,6 +20,75 @@
     position: relative !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-swiss-design,
+  section.style-swiss-design,
+  main.style-swiss-design,
+  article.style-swiss-design,
+  .lab-styled-preview[data-style="swiss-design"],
+  .swiss-design-styled-container {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Engineered Masthead) */
+  .lab-styled-preview[data-style="swiss-design"] header,
+  .swiss-design-styled-container header,
+  .style-swiss-design header,
+  [data-style="swiss-design"] header,
+  .ds-scope[data-style-id="swiss-design"] header,
+  .style-swiss header,
+  [data-style="swiss"] header,
+  .ds-scope[data-style-id="swiss"] header {
+    background-color: #ffffff;
+    border-top: 4px solid #000000;
+    border-bottom: 2px solid #000000;
+    padding: 1.5rem 0 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] header h1,
+  .swiss-design-styled-container header h1,
+  .style-swiss-design header h1,
+  [data-style="swiss-design"] header h1,
+  .ds-scope[data-style-id="swiss-design"] header h1,
+  .style-swiss header h1,
+  [data-style="swiss"] header h1,
+  .ds-scope[data-style-id="swiss"] header h1 {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] header p,
+  .swiss-design-styled-container header p,
+  .style-swiss-design header p,
+  [data-style="swiss-design"] header p,
+  .ds-scope[data-style-id="swiss-design"] header p,
+  .style-swiss header p,
+  [data-style="swiss"] header p,
+  .ds-scope[data-style-id="swiss"] header p {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #52525b;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Engineered Masthead Navigation: Typographic Horizontal Baseline */
   .lab-styled-preview[data-style="swiss-design"] nav,
   .swiss-design-styled-container nav,
@@ -37,6 +106,59 @@
     border-bottom: 1px solid #000000;
     margin-bottom: 3.5rem;
     position: relative;
+  }
+
+  .style-swiss-design header nav,
+  .lab-styled-preview[data-style="swiss-design"] header nav,
+  .swiss-design-styled-container header nav,
+  [data-style="swiss-design"] header nav,
+  .ds-scope[data-style-id="swiss-design"] header nav,
+  .style-swiss header nav,
+  [data-style="swiss"] header nav,
+  .ds-scope[data-style-id="swiss"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] nav ul,
+  .lab-styled-preview[data-style="swiss-design"] nav ol,
+  .swiss-design-styled-container nav ul,
+  .swiss-design-styled-container nav ol,
+  .style-swiss-design nav ul,
+  .style-swiss-design nav ol,
+  [data-style="swiss-design"] nav ul,
+  [data-style="swiss-design"] nav ol,
+  .ds-scope[data-style-id="swiss-design"] nav ul,
+  .ds-scope[data-style-id="swiss-design"] nav ol,
+  .style-swiss nav ul,
+  .style-swiss nav ol,
+  [data-style="swiss"] nav ul,
+  [data-style="swiss"] nav ol,
+  .ds-scope[data-style-id="swiss"] nav ul,
+  .ds-scope[data-style-id="swiss"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] nav li,
+  .swiss-design-styled-container nav li,
+  .style-swiss-design nav li,
+  [data-style="swiss-design"] nav li,
+  .ds-scope[data-style-id="swiss-design"] nav li,
+  .style-swiss nav li,
+  [data-style="swiss"] nav li,
+  .ds-scope[data-style-id="swiss"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="swiss-design"] nav a,
@@ -773,43 +895,43 @@
     box-shadow: inset 0 0 0 1px #dc2626;
   }
 
-  /* 10. Lists & Hospitality Menu Enhancements */
-  .lab-styled-preview[data-style="swiss-design"] ul,
-  .lab-styled-preview[data-style="swiss-design"] ol,
-  .swiss-design-styled-container ul,
-  .style-swiss-design ul,
-  [data-style="swiss-design"] ul,
-  .ds-scope[data-style-id="swiss-design"] ul,
-  .style-swiss ul,
-  [data-style="swiss"] ul,
-  .ds-scope[data-style-id="swiss"] ul,
-  .swiss-design-styled-container ol,
-  .style-swiss-design ol,
-  [data-style="swiss-design"] ol,
-  .ds-scope[data-style-id="swiss-design"] ol,
-  .style-swiss ol,
-  [data-style="swiss"] ol,
-  .ds-scope[data-style-id="swiss"] ol {
+  /* 10. Lists (Content lists only, avoiding nav) */
+  .lab-styled-preview[data-style="swiss-design"] ul:not(nav ul),
+  .lab-styled-preview[data-style="swiss-design"] ol:not(nav ol),
+  .swiss-design-styled-container ul:not(nav ul),
+  .style-swiss-design ul:not(nav ul),
+  [data-style="swiss-design"] ul:not(nav ul),
+  .ds-scope[data-style-id="swiss-design"] ul:not(nav ul),
+  .style-swiss ul:not(nav ul),
+  [data-style="swiss"] ul:not(nav ul),
+  .ds-scope[data-style-id="swiss"] ul:not(nav ul),
+  .swiss-design-styled-container ol:not(nav ol),
+  .style-swiss-design ol:not(nav ol),
+  [data-style="swiss-design"] ol:not(nav ol),
+  .ds-scope[data-style-id="swiss-design"] ol:not(nav ol),
+  .style-swiss ol:not(nav ol),
+  [data-style="swiss"] ol:not(nav ol),
+  .ds-scope[data-style-id="swiss"] ol:not(nav ol) {
     padding-left: 1.25rem;
     margin: 1rem 0 1.5rem 0;
   }
 
-  .lab-styled-preview[data-style="swiss-design"] ul li,
-  .lab-styled-preview[data-style="swiss-design"] ol li,
-  .swiss-design-styled-container ul li,
-  .style-swiss-design ul li,
-  [data-style="swiss-design"] ul li,
-  .ds-scope[data-style-id="swiss-design"] ul li,
-  .style-swiss ul li,
-  [data-style="swiss"] ul li,
-  .ds-scope[data-style-id="swiss"] ul li,
-  .swiss-design-styled-container ol li,
-  .style-swiss-design ol li,
-  [data-style="swiss-design"] ol li,
-  .ds-scope[data-style-id="swiss-design"] ol li,
-  .style-swiss ol li,
-  [data-style="swiss"] ol li,
-  .ds-scope[data-style-id="swiss"] ol li {
+  .lab-styled-preview[data-style="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .lab-styled-preview[data-style="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .swiss-design-styled-container ul:not(nav ul) li:not(nav li),
+  .style-swiss-design ul:not(nav ul) li:not(nav li),
+  [data-style="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .ds-scope[data-style-id="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .style-swiss ul:not(nav ul) li:not(nav li),
+  [data-style="swiss"] ul:not(nav ul) li:not(nav li),
+  .ds-scope[data-style-id="swiss"] ul:not(nav ul) li:not(nav li),
+  .swiss-design-styled-container ol:not(nav ol) li:not(nav li),
+  .style-swiss-design ol:not(nav ol) li:not(nav li),
+  [data-style="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .ds-scope[data-style-id="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .style-swiss ol:not(nav ol) li:not(nav li),
+  [data-style="swiss"] ol:not(nav ol) li:not(nav li),
+  .ds-scope[data-style-id="swiss"] ol:not(nav ol) li:not(nav li) {
     margin-bottom: 0.5rem;
     line-height: 1.55;
     color: #18181b;
@@ -914,27 +1036,57 @@
     margin: 0;
   }
 
-  /* 12. General Structural Spacing and Clean Fallbacks */
-  .lab-styled-preview[data-style="swiss-design"] section,
-  .swiss-design-styled-container section,
-  .style-swiss-design section,
-  [data-style="swiss-design"] section,
-  .ds-scope[data-style-id="swiss-design"] section,
-  .style-swiss section,
-  [data-style="swiss"] section,
-  .ds-scope[data-style-id="swiss"] section {
-    margin-bottom: 3.5rem;
+  /* 12. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="swiss-design"] main,
+  .swiss-design-styled-container main,
+  .style-swiss-design main,
+  [data-style="swiss-design"] main,
+  .ds-scope[data-style-id="swiss-design"] main,
+  .style-swiss main,
+  [data-style="swiss"] main,
+  .ds-scope[data-style-id="swiss"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .lab-styled-preview[data-style="swiss-design"] section:last-child,
-  .swiss-design-styled-container section:last-child,
-  .style-swiss-design section:last-child,
-  [data-style="swiss-design"] section:last-child,
-  .ds-scope[data-style-id="swiss-design"] section:last-child,
-  .style-swiss section:last-child,
-  [data-style="swiss"] section:last-child,
-  .ds-scope[data-style-id="swiss"] section:last-child {
-    margin-bottom: 0;
+  .lab-styled-preview[data-style="swiss-design"] section:not([class*="style-"]),
+  .swiss-design-styled-container section:not([class*="style-"]),
+  .style-swiss-design section:not([class*="style-"]),
+  [data-style="swiss-design"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="swiss-design"] section:not([class*="style-"]),
+  .style-swiss section:not([class*="style-"]),
+  [data-style="swiss"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="swiss"] section:not([class*="style-"]),
+  .style-swiss-design main > section,
+  [data-style="swiss-design"] main > section {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] section:not([class*="style-"]) > h2,
+  .swiss-design-styled-container section:not([class*="style-"]) > h2,
+  .style-swiss-design section:not([class*="style-"]) > h2,
+  [data-style="swiss-design"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="swiss-design"] section:not([class*="style-"]) > h2,
+  .style-swiss section:not([class*="style-"]) > h2,
+  [data-style="swiss"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="swiss"] section:not([class*="style-"]) > h2 {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    color: #000000;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #000000;
   }
 
   /* Responsive Adjustments */

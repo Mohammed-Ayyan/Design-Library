@@ -1,6 +1,6 @@
-var Ot = Object.defineProperty;
-var Nt = (c, t, e) => t in c ? Ot(c, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : c[t] = e;
-var W = (c, t, e) => Nt(c, typeof t != "symbol" ? t + "" : t, e);
+var Nt = Object.defineProperty;
+var Ot = (c, t, e) => t in c ? Nt(c, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : c[t] = e;
+var W = (c, t, e) => Ot(c, typeof t != "symbol" ? t + "" : t, e);
 import { jsx as S } from "react/jsx-runtime";
 import { createContext as Gt, useMemo as j, useState as at, useEffect as Lt, useContext as Wt } from "react";
 class qt {
@@ -100,8 +100,8 @@ class _ {
     if (!e) return { ...t };
     const a = { ...t };
     for (const i of Object.keys(e)) {
-      const r = e[i], o = t[i];
-      r != null && typeof r == "object" && !Array.isArray(r) && typeof o == "object" && !Array.isArray(o) ? a[i] = _.deepMerge(o, r) : r !== void 0 && (a[i] = r);
+      const s = e[i], o = t[i];
+      s != null && typeof s == "object" && !Array.isArray(s) && typeof o == "object" && !Array.isArray(o) ? a[i] = _.deepMerge(o, s) : s !== void 0 && (a[i] = s);
     }
     return a;
   }
@@ -124,15 +124,15 @@ class _ {
    */
   resolve(t) {
     const e = t.styleId || (t.parentScope ? t.parentScope.styleId : "base"), a = this.registry.getWithFallback(e), i = a.style;
-    let r = JSON.parse(JSON.stringify(i.tokens)), o = JSON.parse(JSON.stringify(i.components));
+    let s = JSON.parse(JSON.stringify(i.tokens)), o = JSON.parse(JSON.stringify(i.components));
     const l = [];
-    let s = t.parentScope;
-    for (; s; )
-      l.unshift(s), s = s.parentScope;
+    let r = t.parentScope;
+    for (; r; )
+      l.unshift(r), r = r.parentScope;
     for (const m of l)
-      m.tokenOverrides && (r = _.deepMerge(r, m.tokenOverrides)), m.componentOverrides && (o = _.deepMerge(o, m.componentOverrides));
-    t.tokenOverrides && (r = _.deepMerge(r, t.tokenOverrides)), t.componentOverrides && (o = _.deepMerge(o, t.componentOverrides));
-    const n = this.generateCssVariables(r), h = this.buildScopeChain(t);
+      m.tokenOverrides && (s = _.deepMerge(s, m.tokenOverrides)), m.componentOverrides && (o = _.deepMerge(o, m.componentOverrides));
+    t.tokenOverrides && (s = _.deepMerge(s, t.tokenOverrides)), t.componentOverrides && (o = _.deepMerge(o, t.componentOverrides));
+    const n = this.generateCssVariables(s), b = this.buildScopeChain(t);
     return {
       styleId: i.id,
       styleName: i.name,
@@ -141,9 +141,9 @@ class _ {
       scope: {
         level: t.level,
         effectiveStyleId: i.id,
-        scopeChain: h
+        scopeChain: b
       },
-      tokens: r,
+      tokens: s,
       components: o,
       cssVariables: n
     };
@@ -154,31 +154,31 @@ class _ {
   generateCssVariables(t) {
     const e = {};
     for (const [a, i] of Object.entries(t.colors)) {
-      const r = a.replace(/([A-Z])/g, "-$1").toLowerCase();
-      e[`--ds-color-${r}`] = i;
+      const s = a.replace(/([A-Z])/g, "-$1").toLowerCase();
+      e[`--ds-color-${s}`] = i;
     }
     for (const [a, i] of Object.entries(t.typography)) {
-      const r = a.replace(/([A-Z])/g, "-$1").toLowerCase();
-      e[`--ds-font-${r}`] = String(i);
+      const s = a.replace(/([A-Z])/g, "-$1").toLowerCase();
+      e[`--ds-font-${s}`] = String(i);
     }
     for (const [a, i] of Object.entries(t.spacing))
       e[`--ds-space-${a}`] = i;
     for (const [a, i] of Object.entries(t.radii))
       e[`--ds-radius-${a}`] = i;
     for (const [a, i] of Object.entries(t.borders)) {
-      const r = a.replace(/([A-Z])/g, "-$1").toLowerCase();
-      e[`--ds-border-${r}`] = i;
+      const s = a.replace(/([A-Z])/g, "-$1").toLowerCase();
+      e[`--ds-border-${s}`] = i;
     }
     for (const [a, i] of Object.entries(t.shadows))
       e[`--ds-shadow-${a}`] = i;
     for (const [a, i] of Object.entries(t.motion)) {
-      const r = a.replace(/([A-Z])/g, "-$1").toLowerCase();
-      e[`--ds-motion-${r}`] = i;
+      const s = a.replace(/([A-Z])/g, "-$1").toLowerCase();
+      e[`--ds-motion-${s}`] = i;
     }
     for (const [a, i] of Object.entries(t.effects))
       if (i) {
-        const r = a.replace(/([A-Z])/g, "-$1").toLowerCase();
-        e[`--ds-effect-${r}`] = i;
+        const s = a.replace(/([A-Z])/g, "-$1").toLowerCase();
+        e[`--ds-effect-${s}`] = i;
       }
     return e;
   }
@@ -197,7 +197,7 @@ class Z {
    * Generates a raw CSS string from a dictionary of CSS variables for a given selector.
    */
   static toCssString(t, e) {
-    const a = Object.entries(e).map(([i, r]) => `  ${i}: ${r};`).join(`
+    const a = Object.entries(e).map(([i, s]) => `  ${i}: ${s};`).join(`
 `);
     return `${t} {
 ${a}
@@ -492,6 +492,73 @@ const Ut = {
     box-shadow: none !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-minimalism,
+  section.style-minimalism,
+  main.style-minimalism,
+  article.style-minimalism,
+  .lab-styled-preview[data-style="minimalism"],
+  .minimalism-styled-container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture */
+  .lab-styled-preview[data-style="minimalism"] header,
+  .minimalism-styled-container header,
+  .style-minimalism header,
+  [data-style="minimalism"] header,
+  .ds-scope[data-style-id="minimalism"] header,
+  .style-minimalist header,
+  [data-style="minimalist"] header,
+  .ds-scope[data-style-id="minimalist"] header {
+    background-color: transparent;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1.5rem 0 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] header h1,
+  .minimalism-styled-container header h1,
+  .style-minimalism header h1,
+  [data-style="minimalism"] header h1,
+  .ds-scope[data-style-id="minimalism"] header h1,
+  .style-minimalist header h1,
+  [data-style="minimalist"] header h1,
+  .ds-scope[data-style-id="minimalist"] header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: #111111;
+    margin: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] header p,
+  .minimalism-styled-container header p,
+  .style-minimalism header p,
+  [data-style="minimalism"] header p,
+  .ds-scope[data-style-id="minimalism"] header p,
+  .style-minimalist header p,
+  [data-style="minimalist"] header p,
+  .ds-scope[data-style-id="minimalist"] header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    color: #71717a;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="minimalism"] nav,
   .minimalism-styled-container nav,
@@ -507,10 +574,69 @@ const Ut = {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+
+  /* Standalone nav outside header */
+  .style-minimalism > nav,
+  .style-minimalism main > nav,
+  .lab-styled-preview[data-style="minimalism"] > nav {
     padding: 1.25rem 0 1.5rem;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 3.5rem;
+    width: 100%;
+  }
+
+  /* Header nav has no extra border */
+  .style-minimalism header nav,
+  .lab-styled-preview[data-style="minimalism"] header nav,
+  .minimalism-styled-container header nav,
+  [data-style="minimalism"] header nav,
+  .ds-scope[data-style-id="minimalism"] header nav,
+  .style-minimalist header nav,
+  [data-style="minimalist"] header nav,
+  .ds-scope[data-style-id="minimalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav ul,
+  .lab-styled-preview[data-style="minimalism"] nav ol,
+  .minimalism-styled-container nav ul,
+  .minimalism-styled-container nav ol,
+  .style-minimalism nav ul,
+  .style-minimalism nav ol,
+  [data-style="minimalism"] nav ul,
+  [data-style="minimalism"] nav ol,
+  .ds-scope[data-style-id="minimalism"] nav ul,
+  .ds-scope[data-style-id="minimalism"] nav ol,
+  .style-minimalist nav ul,
+  .style-minimalist nav ol,
+  [data-style="minimalist"] nav ul,
+  [data-style="minimalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav li,
+  .minimalism-styled-container nav li,
+  .style-minimalism nav li,
+  [data-style="minimalism"] nav li,
+  .ds-scope[data-style-id="minimalism"] nav li,
+  .style-minimalist nav li,
+  [data-style="minimalist"] nav li,
+  .ds-scope[data-style-id="minimalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="minimalism"] nav a,
@@ -862,6 +988,60 @@ const Ut = {
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="minimalism"] main,
+  .minimalism-styled-container main,
+  .style-minimalism main,
+  [data-style="minimalism"] main,
+  .ds-scope[data-style-id="minimalism"] main,
+  .style-minimalist main,
+  [data-style="minimalist"] main,
+  .ds-scope[data-style-id="minimalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] section:not([class*="style-"]),
+  .minimalism-styled-container section:not([class*="style-"]),
+  .style-minimalism section:not([class*="style-"]),
+  [data-style="minimalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="minimalism"] section:not([class*="style-"]),
+  .style-minimalist section:not([class*="style-"]),
+  [data-style="minimalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="minimalist"] section:not([class*="style-"]),
+  .style-minimalism main > section,
+  [data-style="minimalism"] main > section {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] section:not([class*="style-"]) > h2,
+  .minimalism-styled-container section:not([class*="style-"]) > h2,
+  .style-minimalism section:not([class*="style-"]) > h2,
+  [data-style="minimalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="minimalism"] section:not([class*="style-"]) > h2,
+  .style-minimalist section:not([class*="style-"]) > h2,
+  [data-style="minimalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="minimalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #111111;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   /* 5. Editorial Content & Articles (The Anti-Card Rule) */
@@ -1237,44 +1417,44 @@ const Ut = {
     opacity: 1;
   }
 
-  /* 8. Lists */
-  .lab-styled-preview[data-style="minimalism"] ul,
-  .lab-styled-preview[data-style="minimalism"] ol,
-  .minimalism-styled-container ul,
-  .style-minimalism ul,
-  [data-style="minimalism"] ul,
-  .ds-scope[data-style-id="minimalism"] ul,
-  .style-minimalist ul,
-  [data-style="minimalist"] ul,
-  .ds-scope[data-style-id="minimalist"] ul,
-  .style-minimal ul,
-  [data-style="minimal"] ul,
-  .ds-scope[data-style-id="minimal"] ul,
-  .minimalism-styled-container ol,
-  .style-minimalism ol,
-  [data-style="minimalism"] ol,
-  .ds-scope[data-style-id="minimalism"] ol,
-  .style-minimalist ol,
-  [data-style="minimalist"] ol,
-  .ds-scope[data-style-id="minimalist"] ol,
-  .style-minimal ol,
-  [data-style="minimal"] ol,
-  .ds-scope[data-style-id="minimal"] ol {
+  /* 8. Lists (Content lists only, avoiding nav) */
+  .lab-styled-preview[data-style="minimalism"] ul:not(nav ul),
+  .lab-styled-preview[data-style="minimalism"] ol:not(nav ol),
+  .minimalism-styled-container ul:not(nav ul),
+  .style-minimalism ul:not(nav ul),
+  [data-style="minimalism"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimalism"] ul:not(nav ul),
+  .style-minimalist ul:not(nav ul),
+  [data-style="minimalist"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimalist"] ul:not(nav ul),
+  .style-minimal ul:not(nav ul),
+  [data-style="minimal"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimal"] ul:not(nav ul),
+  .minimalism-styled-container ol:not(nav ol),
+  .style-minimalism ol:not(nav ol),
+  [data-style="minimalism"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimalism"] ol:not(nav ol),
+  .style-minimalist ol:not(nav ol),
+  [data-style="minimalist"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimalist"] ol:not(nav ol),
+  .style-minimal ol:not(nav ol),
+  [data-style="minimal"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimal"] ol:not(nav ol) {
     padding-left: 1.25rem;
     margin: 1rem 0 1.75rem;
   }
 
-  .lab-styled-preview[data-style="minimalism"] li,
-  .minimalism-styled-container li,
-  .style-minimalism li,
-  [data-style="minimalism"] li,
-  .ds-scope[data-style-id="minimalism"] li,
-  .style-minimalist li,
-  [data-style="minimalist"] li,
-  .ds-scope[data-style-id="minimalist"] li,
-  .style-minimal li,
-  [data-style="minimal"] li,
-  .ds-scope[data-style-id="minimal"] li {
+  .lab-styled-preview[data-style="minimalism"] li:not(nav li),
+  .minimalism-styled-container li:not(nav li),
+  .style-minimalism li:not(nav li),
+  [data-style="minimalism"] li:not(nav li),
+  .ds-scope[data-style-id="minimalism"] li:not(nav li),
+  .style-minimalist li:not(nav li),
+  [data-style="minimalist"] li:not(nav li),
+  .ds-scope[data-style-id="minimalist"] li:not(nav li),
+  .style-minimal li:not(nav li),
+  [data-style="minimal"] li:not(nav li),
+  .ds-scope[data-style-id="minimal"] li:not(nav li) {
     font-family: 'Inter', sans-serif;
     font-size: 0.9375rem;
     line-height: 1.65;
@@ -1282,17 +1462,17 @@ const Ut = {
     margin-bottom: 0.5rem;
   }
 
-  .lab-styled-preview[data-style="minimalism"] ul > li,
-  .minimalism-styled-container ul > li,
-  .style-minimalism ul > li,
-  [data-style="minimalism"] ul > li,
-  .ds-scope[data-style-id="minimalism"] ul > li,
-  .style-minimalist ul > li,
-  [data-style="minimalist"] ul > li,
-  .ds-scope[data-style-id="minimalist"] ul > li,
-  .style-minimal ul > li,
-  [data-style="minimal"] ul > li,
-  .ds-scope[data-style-id="minimal"] ul > li {
+  .lab-styled-preview[data-style="minimalism"] ul:not(nav ul) > li,
+  .minimalism-styled-container ul:not(nav ul) > li,
+  .style-minimalism ul:not(nav ul) > li,
+  [data-style="minimalism"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimalism"] ul:not(nav ul) > li,
+  .style-minimalist ul:not(nav ul) > li,
+  [data-style="minimalist"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimalist"] ul:not(nav ul) > li,
+  .style-minimal ul:not(nav ul) > li,
+  [data-style="minimal"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimal"] ul:not(nav ul) > li {
     list-style-type: disc;
   }
 
@@ -1619,6 +1799,76 @@ const Ut = {
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-brutalism,
+  section.style-brutalism,
+  main.style-brutalism,
+  article.style-brutalism,
+  .lab-styled-preview[data-style="brutalism"],
+  .brutalism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Banner Card) */
+  .lab-styled-preview[data-style="brutalism"] header,
+  .brutalism-styled-container header,
+  .style-brutalism header,
+  [data-style="brutalism"] header,
+  .ds-scope[data-style-id="brutalism"] header,
+  .style-brutalist header,
+  [data-style="brutalist"] header,
+  .ds-scope[data-style-id="brutalist"] header {
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] header h1,
+  .brutalism-styled-container header h1,
+  .style-brutalism header h1,
+  [data-style="brutalism"] header h1,
+  .ds-scope[data-style-id="brutalism"] header h1,
+  .style-brutalist header h1,
+  [data-style="brutalist"] header h1,
+  .ds-scope[data-style-id="brutalist"] header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] header p,
+  .brutalism-styled-container header p,
+  .style-brutalism header p,
+  [data-style="brutalism"] header p,
+  .ds-scope[data-style-id="brutalism"] header p,
+  .style-brutalist header p,
+  [data-style="brutalist"] header p,
+  .ds-scope[data-style-id="brutalist"] header p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: #222222;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="brutalism"] nav,
   .brutalism-styled-container nav,
@@ -1631,10 +1881,71 @@ const Ut = {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
+  }
+
+  /* Standalone nav outside header gets bottom border ledger */
+  .style-brutalism > nav,
+  .style-brutalism main > nav,
+  .lab-styled-preview[data-style="brutalism"] > nav {
     padding: 0.85rem 0 1.25rem;
     border-bottom: 3px solid #000000;
     margin-bottom: 2.5rem;
+    width: 100%;
+  }
+
+  /* Header nav has no extra border */
+  .style-brutalism header nav,
+  .lab-styled-preview[data-style="brutalism"] header nav,
+  .brutalism-styled-container header nav,
+  [data-style="brutalism"] header nav,
+  .ds-scope[data-style-id="brutalism"] header nav,
+  .style-brutalist header nav,
+  [data-style="brutalist"] header nav,
+  .ds-scope[data-style-id="brutalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] nav ul,
+  .lab-styled-preview[data-style="brutalism"] nav ol,
+  .brutalism-styled-container nav ul,
+  .brutalism-styled-container nav ol,
+  .style-brutalism nav ul,
+  .style-brutalism nav ol,
+  [data-style="brutalism"] nav ul,
+  [data-style="brutalism"] nav ol,
+  .ds-scope[data-style-id="brutalism"] nav ul,
+  .ds-scope[data-style-id="brutalism"] nav ol,
+  .style-brutalist nav ul,
+  .style-brutalist nav ol,
+  [data-style="brutalist"] nav ul,
+  [data-style="brutalist"] nav ol,
+  .ds-scope[data-style-id="brutalist"] nav ul,
+  .ds-scope[data-style-id="brutalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] nav li,
+  .brutalism-styled-container nav li,
+  .style-brutalism nav li,
+  [data-style="brutalism"] nav li,
+  .ds-scope[data-style-id="brutalism"] nav li,
+  .style-brutalist nav li,
+  [data-style="brutalist"] nav li,
+  .ds-scope[data-style-id="brutalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="brutalism"] nav a,
@@ -1652,8 +1963,10 @@ const Ut = {
     letter-spacing: 0.06em;
     color: #000000;
     text-decoration: none;
-    padding: 0.4rem 0.75rem;
-    border: 2px solid transparent;
+    padding: 0.45rem 0.9rem;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 0px #000000;
     transition: transform 80ms ease, box-shadow 80ms ease, background-color 80ms ease;
     display: inline-flex;
     align-items: center;
@@ -1669,7 +1982,7 @@ const Ut = {
   .ds-scope[data-style-id="brutalist"] nav a:hover {
     border-color: #000000;
     background-color: #ffe600;
-    box-shadow: 2px 2px 0px #000000;
+    box-shadow: 4px 4px 0px #000000;
     transform: translate(-1px, -1px);
     text-decoration: none;
   }
@@ -1683,7 +1996,7 @@ const Ut = {
   [data-style="brutalist"] nav a:active,
   .ds-scope[data-style-id="brutalist"] nav a:active {
     transform: translate(1px, 1px);
-    box-shadow: none;
+    box-shadow: 1px 1px 0px #000000;
   }
 
   /* 2. Eyebrow Kickers & Metadata */
@@ -1939,7 +2252,78 @@ const Ut = {
     transform: none;
   }
 
-  /* 5. Editorial Content & Articles */
+  /* 5. Main Flow & Child Sections / Content Cards */
+  .lab-styled-preview[data-style="brutalism"] main,
+  .brutalism-styled-container main,
+  .style-brutalism main,
+  [data-style="brutalism"] main,
+  .ds-scope[data-style-id="brutalism"] main,
+  .style-brutalist main,
+  [data-style="brutalist"] main,
+  .ds-scope[data-style-id="brutalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]),
+  .brutalism-styled-container section:not([class*="style-"]),
+  .style-brutalism section:not([class*="style-"]),
+  [data-style="brutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]),
+  .style-brutalist section:not([class*="style-"]),
+  [data-style="brutalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]),
+  .style-brutalism main > section,
+  [data-style="brutalism"] main > section {
+    background-color: #ffffff;
+    border: 3px solid #000000 !important;
+    border-radius: 0px;
+    padding: 2rem 2.25rem;
+    box-shadow: 5px 5px 0px #000000;
+    margin-bottom: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]):hover,
+  .brutalism-styled-container section:not([class*="style-"]):hover,
+  .style-brutalism section:not([class*="style-"]):hover,
+  [data-style="brutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]):hover,
+  .style-brutalist section:not([class*="style-"]):hover,
+  [data-style="brutalist"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]):hover,
+  .style-brutalism main > section:hover,
+  [data-style="brutalism"] main > section:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000000;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]) > h2,
+  .brutalism-styled-container section:not([class*="style-"]) > h2,
+  .style-brutalism section:not([class*="style-"]) > h2,
+  [data-style="brutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]) > h2,
+  .style-brutalist section:not([class*="style-"]) > h2,
+  [data-style="brutalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2.5px solid #000000;
+    text-transform: uppercase;
+  }
+
+  /* 5b. Editorial Content & Articles */
   .lab-styled-preview[data-style="brutalism"] article,
   .brutalism-styled-container article,
   .style-brutalism article,
@@ -1967,6 +2351,24 @@ const Ut = {
   .ds-scope[data-style-id="brutalist"] article:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px #000000;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] code,
+  .brutalism-styled-container code,
+  .style-brutalism code,
+  [data-style="brutalism"] code,
+  .ds-scope[data-style-id="brutalism"] code,
+  .style-brutalist code,
+  [data-style="brutalist"] code,
+  .ds-scope[data-style-id="brutalist"] code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background-color: #ffe600;
+    color: #000000;
+    border: 1.5px solid #000000;
+    padding: 0.15rem 0.4rem;
+    box-shadow: 1.5px 1.5px 0px #000000;
+    font-weight: 700;
   }
 
   .lab-styled-preview[data-style="brutalism"] blockquote,
@@ -2237,35 +2639,35 @@ const Ut = {
     opacity: 1;
   }
 
-  /* 8. Lists */
-  .lab-styled-preview[data-style="brutalism"] ul,
-  .lab-styled-preview[data-style="brutalism"] ol,
-  .brutalism-styled-container ul,
-  .style-brutalism ul,
-  [data-style="brutalism"] ul,
-  .ds-scope[data-style-id="brutalism"] ul,
-  .style-brutalist ul,
-  [data-style="brutalist"] ul,
-  .ds-scope[data-style-id="brutalist"] ul,
-  .brutalism-styled-container ol,
-  .style-brutalism ol,
-  [data-style="brutalism"] ol,
-  .ds-scope[data-style-id="brutalism"] ol,
-  .style-brutalist ol,
-  [data-style="brutalist"] ol,
-  .ds-scope[data-style-id="brutalist"] ol {
+  /* 8. Lists (Content lists only, avoiding navigation lists) */
+  .lab-styled-preview[data-style="brutalism"] ul:not(nav ul),
+  .lab-styled-preview[data-style="brutalism"] ol:not(nav ol),
+  .brutalism-styled-container ul:not(nav ul),
+  .style-brutalism ul:not(nav ul),
+  [data-style="brutalism"] ul:not(nav ul),
+  .ds-scope[data-style-id="brutalism"] ul:not(nav ul),
+  .style-brutalist ul:not(nav ul),
+  [data-style="brutalist"] ul:not(nav ul),
+  .ds-scope[data-style-id="brutalist"] ul:not(nav ul),
+  .brutalism-styled-container ol:not(nav ol),
+  .style-brutalism ol:not(nav ol),
+  [data-style="brutalism"] ol:not(nav ol),
+  .ds-scope[data-style-id="brutalism"] ol:not(nav ol),
+  .style-brutalist ol:not(nav ol),
+  [data-style="brutalist"] ol:not(nav ol),
+  .ds-scope[data-style-id="brutalist"] ol:not(nav ol) {
     padding-left: 1.5rem;
     margin: 1rem 0 1.5rem;
   }
 
-  .lab-styled-preview[data-style="brutalism"] li,
-  .brutalism-styled-container li,
-  .style-brutalism li,
-  [data-style="brutalism"] li,
-  .ds-scope[data-style-id="brutalism"] li,
-  .style-brutalist li,
-  [data-style="brutalist"] li,
-  .ds-scope[data-style-id="brutalist"] li {
+  .lab-styled-preview[data-style="brutalism"] li:not(nav li),
+  .brutalism-styled-container li:not(nav li),
+  .style-brutalism li:not(nav li),
+  [data-style="brutalism"] li:not(nav li),
+  .ds-scope[data-style-id="brutalism"] li:not(nav li),
+  .style-brutalist li:not(nav li),
+  [data-style="brutalist"] li:not(nav li),
+  .ds-scope[data-style-id="brutalist"] li:not(nav li) {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
@@ -2273,14 +2675,14 @@ const Ut = {
     margin-bottom: 0.5rem;
   }
 
-  .lab-styled-preview[data-style="brutalism"] ul > li,
-  .brutalism-styled-container ul > li,
-  .style-brutalism ul > li,
-  [data-style="brutalism"] ul > li,
-  .ds-scope[data-style-id="brutalism"] ul > li,
-  .style-brutalist ul > li,
-  [data-style="brutalist"] ul > li,
-  .ds-scope[data-style-id="brutalist"] ul > li {
+  .lab-styled-preview[data-style="brutalism"] ul:not(nav ul) > li,
+  .brutalism-styled-container ul:not(nav ul) > li,
+  .style-brutalism ul:not(nav ul) > li,
+  [data-style="brutalism"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="brutalism"] ul:not(nav ul) > li,
+  .style-brutalist ul:not(nav ul) > li,
+  [data-style="brutalist"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="brutalist"] ul:not(nav ul) > li {
     list-style-type: square;
   }
 
@@ -2363,14 +2765,18 @@ const Ut = {
   .style-brutalist footer,
   [data-style="brutalist"] footer,
   .ds-scope[data-style-id="brutalist"] footer {
-    border-top: 3px solid #000000;
-    padding: 2rem 0 1rem;
-    margin-top: 3rem;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    padding: 1.25rem 2rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .lab-styled-preview[data-style="brutalism"] footer p,
@@ -2383,6 +2789,7 @@ const Ut = {
   .ds-scope[data-style-id="brutalist"] footer p {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
+    font-weight: 700;
     color: #555555;
     margin: 0;
   }
@@ -2599,6 +3006,76 @@ const Ut = {
     box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.7) !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-glassmorphism,
+  section.style-glassmorphism,
+  main.style-glassmorphism,
+  article.style-glassmorphism,
+  .lab-styled-preview[data-style="glassmorphism"],
+  .glassmorphism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture */
+  .lab-styled-preview[data-style="glassmorphism"] header,
+  .glassmorphism-styled-container header,
+  .style-glassmorphism header,
+  [data-style="glassmorphism"] header,
+  .ds-scope[data-style-id="glassmorphism"] header,
+  .style-glass header,
+  [data-style="glass"] header,
+  .ds-scope[data-style-id="glass"] header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] header h1,
+  .glassmorphism-styled-container header h1,
+  .style-glassmorphism header h1,
+  [data-style="glassmorphism"] header h1,
+  .ds-scope[data-style-id="glassmorphism"] header h1,
+  .style-glass header h1,
+  [data-style="glass"] header h1,
+  .ds-scope[data-style-id="glass"] header h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] header p,
+  .glassmorphism-styled-container header p,
+  .style-glassmorphism header p,
+  [data-style="glassmorphism"] header p,
+  .ds-scope[data-style-id="glassmorphism"] header p,
+  .style-glass header p,
+  [data-style="glass"] header p,
+  .ds-scope[data-style-id="glass"] header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0.25rem 0 0;
+  }
+
   /* ==========================================================================
      2. FLOATING NAVIGATION DOCK (GLASS-1)
      ========================================================================== */
@@ -2624,6 +3101,69 @@ const Ut = {
     box-shadow: 
       0 8px 28px rgba(0, 0, 0, 0.35),
       inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .style-glassmorphism header nav,
+  .lab-styled-preview[data-style="glassmorphism"] header nav,
+  .glassmorphism-styled-container header nav,
+  [data-style="glassmorphism"] header nav,
+  .ds-scope[data-style-id="glassmorphism"] header nav,
+  .style-glass header nav,
+  [data-style="glass"] header nav,
+  .ds-scope[data-style-id="glass"] header nav {
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav ul,
+  .lab-styled-preview[data-style="glassmorphism"] nav ol,
+  .glassmorphism-styled-container nav ul,
+  .glassmorphism-styled-container nav ol,
+  .style-glassmorphism nav ul,
+  .style-glassmorphism nav ol,
+  [data-style="glassmorphism"] nav ul,
+  [data-style="glassmorphism"] nav ol,
+  .ds-scope[data-style-id="glassmorphism"] nav ul,
+  .ds-scope[data-style-id="glassmorphism"] nav ol,
+  .style-glass nav ul,
+  .style-glass nav ol,
+  [data-style="glass"] nav ul,
+  [data-style="glass"] nav ol,
+  .ds-scope[data-style-id="glass"] nav ul,
+  .ds-scope[data-style-id="glass"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav li,
+  .glassmorphism-styled-container nav li,
+  .style-glassmorphism nav li,
+  [data-style="glassmorphism"] nav li,
+  .ds-scope[data-style-id="glassmorphism"] nav li,
+  .style-glass nav li,
+  [data-style="glass"] nav li,
+  .ds-scope[data-style-id="glass"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    border: none !important;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav li::before,
+  .glassmorphism-styled-container nav li::before,
+  .style-glassmorphism nav li::before,
+  [data-style="glassmorphism"] nav li::before,
+  .ds-scope[data-style-id="glassmorphism"] nav li::before,
+  .style-glass nav li::before,
+  [data-style="glass"] nav li::before,
+  .ds-scope[data-style-id="glass"] nav li::before {
+    display: none !important;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] nav a,
@@ -2770,6 +3310,81 @@ const Ut = {
     color: #94a3b8;
     max-width: 48ch;
     margin-bottom: 2.25rem;
+  }
+
+  /* 3b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="glassmorphism"] main,
+  .glassmorphism-styled-container main,
+  .style-glassmorphism main,
+  [data-style="glassmorphism"] main,
+  .ds-scope[data-style-id="glassmorphism"] main,
+  .style-glass main,
+  [data-style="glass"] main,
+  .ds-scope[data-style-id="glass"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]),
+  .glassmorphism-styled-container section:not([class*="style-"]),
+  .style-glassmorphism section:not([class*="style-"]),
+  [data-style="glassmorphism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]),
+  .style-glass section:not([class*="style-"]),
+  [data-style="glass"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]),
+  .style-glassmorphism main > section,
+  [data-style="glassmorphism"] main > section {
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 12px 36px rgba(0, 0, 0, 0.32),
+      inset 0 1px 1px rgba(255, 255, 255, 0.16);
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]):hover,
+  .glassmorphism-styled-container section:not([class*="style-"]):hover,
+  .style-glassmorphism section:not([class*="style-"]):hover,
+  [data-style="glassmorphism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]):hover,
+  .style-glass section:not([class*="style-"]):hover,
+  [data-style="glass"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]):hover,
+  .style-glassmorphism main > section:hover,
+  [data-style="glassmorphism"] main > section:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 
+      0 16px 42px rgba(0, 0, 0, 0.42),
+      inset 0 1px 1px rgba(255, 255, 255, 0.24);
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]) > h2,
+  .glassmorphism-styled-container section:not([class*="style-"]) > h2,
+  .style-glassmorphism section:not([class*="style-"]) > h2,
+  [data-style="glassmorphism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]) > h2,
+  .style-glass section:not([class*="style-"]) > h2,
+  [data-style="glass"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]) > h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* ==========================================================================
@@ -3247,29 +3862,29 @@ const Ut = {
   }
 
   /* ==========================================================================
-     9. LISTS & SPECIFICATIONS
+     9. LISTS & SPECIFICATIONS (Content lists only, avoiding nav)
      ========================================================================== */
-  .lab-styled-preview[data-style="glassmorphism"] ul,
-  .glassmorphism-styled-container ul,
-  .style-glassmorphism ul,
-  [data-style="glassmorphism"] ul,
-  .ds-scope[data-style-id="glassmorphism"] ul,
-  .style-glass ul,
-  [data-style="glass"] ul,
-  .ds-scope[data-style-id="glass"] ul {
+  .lab-styled-preview[data-style="glassmorphism"] ul:not(nav ul),
+  .glassmorphism-styled-container ul:not(nav ul),
+  .style-glassmorphism ul:not(nav ul),
+  [data-style="glassmorphism"] ul:not(nav ul),
+  .ds-scope[data-style-id="glassmorphism"] ul:not(nav ul),
+  .style-glass ul:not(nav ul),
+  [data-style="glass"] ul:not(nav ul),
+  .ds-scope[data-style-id="glass"] ul:not(nav ul) {
     list-style: none;
     padding-left: 0;
     margin: 1.5rem 0;
   }
 
-  .lab-styled-preview[data-style="glassmorphism"] li,
-  .glassmorphism-styled-container li,
-  .style-glassmorphism li,
-  [data-style="glassmorphism"] li,
-  .ds-scope[data-style-id="glassmorphism"] li,
-  .style-glass li,
-  [data-style="glass"] li,
-  .ds-scope[data-style-id="glass"] li {
+  .lab-styled-preview[data-style="glassmorphism"] li:not(nav li),
+  .glassmorphism-styled-container li:not(nav li),
+  .style-glassmorphism li:not(nav li),
+  [data-style="glassmorphism"] li:not(nav li),
+  .ds-scope[data-style-id="glassmorphism"] li:not(nav li),
+  .style-glass li:not(nav li),
+  [data-style="glass"] li:not(nav li),
+  .ds-scope[data-style-id="glass"] li:not(nav li) {
     position: relative;
     padding: 0.625rem 0 0.625rem 1.5rem;
     font-size: 0.9375rem;
@@ -3277,14 +3892,14 @@ const Ut = {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .lab-styled-preview[data-style="glassmorphism"] li::before,
-  .glassmorphism-styled-container li::before,
-  .style-glassmorphism li::before,
-  [data-style="glassmorphism"] li::before,
-  .ds-scope[data-style-id="glassmorphism"] li::before,
-  .style-glass li::before,
-  [data-style="glass"] li::before,
-  .ds-scope[data-style-id="glass"] li::before {
+  .lab-styled-preview[data-style="glassmorphism"] li:not(nav li)::before,
+  .glassmorphism-styled-container li:not(nav li)::before,
+  .style-glassmorphism li:not(nav li)::before,
+  [data-style="glassmorphism"] li:not(nav li)::before,
+  .ds-scope[data-style-id="glassmorphism"] li:not(nav li)::before,
+  .style-glass li:not(nav li)::before,
+  [data-style="glass"] li:not(nav li)::before,
+  .ds-scope[data-style-id="glass"] li:not(nav li)::before {
     content: "";
     position: absolute;
     left: 0.25rem;
@@ -4758,6 +5373,75 @@ const Ut = {
     position: relative !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-swiss-design,
+  section.style-swiss-design,
+  main.style-swiss-design,
+  article.style-swiss-design,
+  .lab-styled-preview[data-style="swiss-design"],
+  .swiss-design-styled-container {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Engineered Masthead) */
+  .lab-styled-preview[data-style="swiss-design"] header,
+  .swiss-design-styled-container header,
+  .style-swiss-design header,
+  [data-style="swiss-design"] header,
+  .ds-scope[data-style-id="swiss-design"] header,
+  .style-swiss header,
+  [data-style="swiss"] header,
+  .ds-scope[data-style-id="swiss"] header {
+    background-color: #ffffff;
+    border-top: 4px solid #000000;
+    border-bottom: 2px solid #000000;
+    padding: 1.5rem 0 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] header h1,
+  .swiss-design-styled-container header h1,
+  .style-swiss-design header h1,
+  [data-style="swiss-design"] header h1,
+  .ds-scope[data-style-id="swiss-design"] header h1,
+  .style-swiss header h1,
+  [data-style="swiss"] header h1,
+  .ds-scope[data-style-id="swiss"] header h1 {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] header p,
+  .swiss-design-styled-container header p,
+  .style-swiss-design header p,
+  [data-style="swiss-design"] header p,
+  .ds-scope[data-style-id="swiss-design"] header p,
+  .style-swiss header p,
+  [data-style="swiss"] header p,
+  .ds-scope[data-style-id="swiss"] header p {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #52525b;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Engineered Masthead Navigation: Typographic Horizontal Baseline */
   .lab-styled-preview[data-style="swiss-design"] nav,
   .swiss-design-styled-container nav,
@@ -4775,6 +5459,59 @@ const Ut = {
     border-bottom: 1px solid #000000;
     margin-bottom: 3.5rem;
     position: relative;
+  }
+
+  .style-swiss-design header nav,
+  .lab-styled-preview[data-style="swiss-design"] header nav,
+  .swiss-design-styled-container header nav,
+  [data-style="swiss-design"] header nav,
+  .ds-scope[data-style-id="swiss-design"] header nav,
+  .style-swiss header nav,
+  [data-style="swiss"] header nav,
+  .ds-scope[data-style-id="swiss"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] nav ul,
+  .lab-styled-preview[data-style="swiss-design"] nav ol,
+  .swiss-design-styled-container nav ul,
+  .swiss-design-styled-container nav ol,
+  .style-swiss-design nav ul,
+  .style-swiss-design nav ol,
+  [data-style="swiss-design"] nav ul,
+  [data-style="swiss-design"] nav ol,
+  .ds-scope[data-style-id="swiss-design"] nav ul,
+  .ds-scope[data-style-id="swiss-design"] nav ol,
+  .style-swiss nav ul,
+  .style-swiss nav ol,
+  [data-style="swiss"] nav ul,
+  [data-style="swiss"] nav ol,
+  .ds-scope[data-style-id="swiss"] nav ul,
+  .ds-scope[data-style-id="swiss"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] nav li,
+  .swiss-design-styled-container nav li,
+  .style-swiss-design nav li,
+  [data-style="swiss-design"] nav li,
+  .ds-scope[data-style-id="swiss-design"] nav li,
+  .style-swiss nav li,
+  [data-style="swiss"] nav li,
+  .ds-scope[data-style-id="swiss"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="swiss-design"] nav a,
@@ -5511,43 +6248,43 @@ const Ut = {
     box-shadow: inset 0 0 0 1px #dc2626;
   }
 
-  /* 10. Lists & Hospitality Menu Enhancements */
-  .lab-styled-preview[data-style="swiss-design"] ul,
-  .lab-styled-preview[data-style="swiss-design"] ol,
-  .swiss-design-styled-container ul,
-  .style-swiss-design ul,
-  [data-style="swiss-design"] ul,
-  .ds-scope[data-style-id="swiss-design"] ul,
-  .style-swiss ul,
-  [data-style="swiss"] ul,
-  .ds-scope[data-style-id="swiss"] ul,
-  .swiss-design-styled-container ol,
-  .style-swiss-design ol,
-  [data-style="swiss-design"] ol,
-  .ds-scope[data-style-id="swiss-design"] ol,
-  .style-swiss ol,
-  [data-style="swiss"] ol,
-  .ds-scope[data-style-id="swiss"] ol {
+  /* 10. Lists (Content lists only, avoiding nav) */
+  .lab-styled-preview[data-style="swiss-design"] ul:not(nav ul),
+  .lab-styled-preview[data-style="swiss-design"] ol:not(nav ol),
+  .swiss-design-styled-container ul:not(nav ul),
+  .style-swiss-design ul:not(nav ul),
+  [data-style="swiss-design"] ul:not(nav ul),
+  .ds-scope[data-style-id="swiss-design"] ul:not(nav ul),
+  .style-swiss ul:not(nav ul),
+  [data-style="swiss"] ul:not(nav ul),
+  .ds-scope[data-style-id="swiss"] ul:not(nav ul),
+  .swiss-design-styled-container ol:not(nav ol),
+  .style-swiss-design ol:not(nav ol),
+  [data-style="swiss-design"] ol:not(nav ol),
+  .ds-scope[data-style-id="swiss-design"] ol:not(nav ol),
+  .style-swiss ol:not(nav ol),
+  [data-style="swiss"] ol:not(nav ol),
+  .ds-scope[data-style-id="swiss"] ol:not(nav ol) {
     padding-left: 1.25rem;
     margin: 1rem 0 1.5rem 0;
   }
 
-  .lab-styled-preview[data-style="swiss-design"] ul li,
-  .lab-styled-preview[data-style="swiss-design"] ol li,
-  .swiss-design-styled-container ul li,
-  .style-swiss-design ul li,
-  [data-style="swiss-design"] ul li,
-  .ds-scope[data-style-id="swiss-design"] ul li,
-  .style-swiss ul li,
-  [data-style="swiss"] ul li,
-  .ds-scope[data-style-id="swiss"] ul li,
-  .swiss-design-styled-container ol li,
-  .style-swiss-design ol li,
-  [data-style="swiss-design"] ol li,
-  .ds-scope[data-style-id="swiss-design"] ol li,
-  .style-swiss ol li,
-  [data-style="swiss"] ol li,
-  .ds-scope[data-style-id="swiss"] ol li {
+  .lab-styled-preview[data-style="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .lab-styled-preview[data-style="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .swiss-design-styled-container ul:not(nav ul) li:not(nav li),
+  .style-swiss-design ul:not(nav ul) li:not(nav li),
+  [data-style="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .ds-scope[data-style-id="swiss-design"] ul:not(nav ul) li:not(nav li),
+  .style-swiss ul:not(nav ul) li:not(nav li),
+  [data-style="swiss"] ul:not(nav ul) li:not(nav li),
+  .ds-scope[data-style-id="swiss"] ul:not(nav ul) li:not(nav li),
+  .swiss-design-styled-container ol:not(nav ol) li:not(nav li),
+  .style-swiss-design ol:not(nav ol) li:not(nav li),
+  [data-style="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .ds-scope[data-style-id="swiss-design"] ol:not(nav ol) li:not(nav li),
+  .style-swiss ol:not(nav ol) li:not(nav li),
+  [data-style="swiss"] ol:not(nav ol) li:not(nav li),
+  .ds-scope[data-style-id="swiss"] ol:not(nav ol) li:not(nav li) {
     margin-bottom: 0.5rem;
     line-height: 1.55;
     color: #18181b;
@@ -5652,27 +6389,57 @@ const Ut = {
     margin: 0;
   }
 
-  /* 12. General Structural Spacing and Clean Fallbacks */
-  .lab-styled-preview[data-style="swiss-design"] section,
-  .swiss-design-styled-container section,
-  .style-swiss-design section,
-  [data-style="swiss-design"] section,
-  .ds-scope[data-style-id="swiss-design"] section,
-  .style-swiss section,
-  [data-style="swiss"] section,
-  .ds-scope[data-style-id="swiss"] section {
-    margin-bottom: 3.5rem;
+  /* 12. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="swiss-design"] main,
+  .swiss-design-styled-container main,
+  .style-swiss-design main,
+  [data-style="swiss-design"] main,
+  .ds-scope[data-style-id="swiss-design"] main,
+  .style-swiss main,
+  [data-style="swiss"] main,
+  .ds-scope[data-style-id="swiss"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .lab-styled-preview[data-style="swiss-design"] section:last-child,
-  .swiss-design-styled-container section:last-child,
-  .style-swiss-design section:last-child,
-  [data-style="swiss-design"] section:last-child,
-  .ds-scope[data-style-id="swiss-design"] section:last-child,
-  .style-swiss section:last-child,
-  [data-style="swiss"] section:last-child,
-  .ds-scope[data-style-id="swiss"] section:last-child {
-    margin-bottom: 0;
+  .lab-styled-preview[data-style="swiss-design"] section:not([class*="style-"]),
+  .swiss-design-styled-container section:not([class*="style-"]),
+  .style-swiss-design section:not([class*="style-"]),
+  [data-style="swiss-design"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="swiss-design"] section:not([class*="style-"]),
+  .style-swiss section:not([class*="style-"]),
+  [data-style="swiss"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="swiss"] section:not([class*="style-"]),
+  .style-swiss-design main > section,
+  [data-style="swiss-design"] main > section {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="swiss-design"] section:not([class*="style-"]) > h2,
+  .swiss-design-styled-container section:not([class*="style-"]) > h2,
+  .style-swiss-design section:not([class*="style-"]) > h2,
+  [data-style="swiss-design"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="swiss-design"] section:not([class*="style-"]) > h2,
+  .style-swiss section:not([class*="style-"]) > h2,
+  [data-style="swiss"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="swiss"] section:not([class*="style-"]) > h2 {
+    font-family: 'Helvetica Neue', Helvetica, 'Inter', Arial, sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    color: #000000;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #000000;
   }
 
   /* Responsive Adjustments */
@@ -7246,6 +8013,73 @@ const Ut = {
     overflow-x: hidden !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-neo-brutalism,
+  section.style-neo-brutalism,
+  main.style-neo-brutalism,
+  article.style-neo-brutalism,
+  div.style-neobrutalism,
+  section.style-neobrutalism,
+  main.style-neobrutalism,
+  div.style-neo-brutalist,
+  section.style-neo-brutalist,
+  main.style-neo-brutalist,
+  .lab-styled-preview[data-style="neo-brutalism"],
+  .neo-brutalism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Playful Graphic Banner Card) */
+  .lab-styled-preview[data-style="neo-brutalism"] header,
+  .neo-brutalism-styled-container header,
+  .style-neo-brutalism header,
+  [data-style="neo-brutalism"] header,
+  .ds-scope[data-style-id="neo-brutalism"] header,
+  .style-neobrutalism header,
+  [data-style="neobrutalism"] header,
+  .ds-scope[data-style-id="neobrutalism"] header,
+  .style-neo-brutalist header,
+  [data-style="neo-brutalist"] header,
+  .ds-scope[data-style-id="neo-brutalist"] header {
+    background-color: #ffffff;
+    border: 3px solid #121212;
+    border-radius: 16px;
+    box-shadow: 5px 5px 0px #121212;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] header h1,
+  .neo-brutalism-styled-container header h1,
+  .style-neo-brutalism header h1,
+  [data-style="neo-brutalism"] header h1,
+  .ds-scope[data-style-id="neo-brutalism"] header h1,
+  .style-neobrutalism header h1,
+  [data-style="neobrutalism"] header h1,
+  .ds-scope[data-style-id="neobrutalism"] header h1,
+  .style-neo-brutalist header h1,
+  [data-style="neo-brutalist"] header h1,
+  .ds-scope[data-style-id="neo-brutalist"] header h1 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #121212;
+    margin: 0;
+  }
+
   /* 1. Graphic Navigation: Bold Wordmark & Tactile Pill Controls */
   .lab-styled-preview[data-style="neo-brutalism"] nav,
   .neo-brutalism-styled-container nav,
@@ -7267,6 +8101,71 @@ const Ut = {
     margin-bottom: 3.5rem;
     position: relative;
     z-index: 1;
+  }
+
+  .style-neo-brutalism header nav,
+  .lab-styled-preview[data-style="neo-brutalism"] header nav,
+  .neo-brutalism-styled-container header nav,
+  [data-style="neo-brutalism"] header nav,
+  .ds-scope[data-style-id="neo-brutalism"] header nav,
+  .style-neobrutalism header nav,
+  [data-style="neobrutalism"] header nav,
+  .ds-scope[data-style-id="neobrutalism"] header nav,
+  .style-neo-brutalist header nav,
+  [data-style="neo-brutalist"] header nav,
+  .ds-scope[data-style-id="neo-brutalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] nav ul,
+  .lab-styled-preview[data-style="neo-brutalism"] nav ol,
+  .neo-brutalism-styled-container nav ul,
+  .neo-brutalism-styled-container nav ol,
+  .style-neo-brutalism nav ul,
+  .style-neo-brutalism nav ol,
+  [data-style="neo-brutalism"] nav ul,
+  [data-style="neo-brutalism"] nav ol,
+  .ds-scope[data-style-id="neo-brutalism"] nav ul,
+  .ds-scope[data-style-id="neo-brutalism"] nav ol,
+  .style-neobrutalism nav ul,
+  .style-neobrutalism nav ol,
+  [data-style="neobrutalism"] nav ul,
+  [data-style="neobrutalism"] nav ol,
+  .ds-scope[data-style-id="neobrutalism"] nav ul,
+  .ds-scope[data-style-id="neobrutalism"] nav ol,
+  .style-neo-brutalist nav ul,
+  .style-neo-brutalist nav ol,
+  [data-style="neo-brutalist"] nav ul,
+  [data-style="neo-brutalist"] nav ol,
+  .ds-scope[data-style-id="neo-brutalist"] nav ul,
+  .ds-scope[data-style-id="neo-brutalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] nav li,
+  .neo-brutalism-styled-container nav li,
+  .style-neo-brutalism nav li,
+  [data-style="neo-brutalism"] nav li,
+  .ds-scope[data-style-id="neo-brutalism"] nav li,
+  .style-neobrutalism nav li,
+  [data-style="neobrutalism"] nav li,
+  .ds-scope[data-style-id="neobrutalism"] nav li,
+  .style-neo-brutalist nav li,
+  [data-style="neo-brutalist"] nav li,
+  .ds-scope[data-style-id="neo-brutalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="neo-brutalism"] nav a,
@@ -7662,6 +8561,89 @@ const Ut = {
   .ds-scope[data-style-id="neo-brutalist"] button + button:hover {
     background-color: #ffde59;
     color: #121212;
+  }
+
+  /* 5b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="neo-brutalism"] main,
+  .neo-brutalism-styled-container main,
+  .style-neo-brutalism main,
+  [data-style="neo-brutalism"] main,
+  .ds-scope[data-style-id="neo-brutalism"] main,
+  .style-neobrutalism main,
+  [data-style="neobrutalism"] main,
+  .ds-scope[data-style-id="neobrutalism"] main,
+  .style-neo-brutalist main,
+  [data-style="neo-brutalist"] main,
+  .ds-scope[data-style-id="neo-brutalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]),
+  .neo-brutalism-styled-container section:not([class*="style-"]),
+  .style-neo-brutalism section:not([class*="style-"]),
+  [data-style="neo-brutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]),
+  .style-neobrutalism section:not([class*="style-"]),
+  [data-style="neobrutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]),
+  .style-neo-brutalist section:not([class*="style-"]),
+  [data-style="neo-brutalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]),
+  .style-neo-brutalism main > section,
+  [data-style="neo-brutalism"] main > section,
+  .style-neobrutalism main > section,
+  [data-style="neobrutalism"] main > section,
+  .style-neo-brutalist main > section,
+  [data-style="neo-brutalist"] main > section {
+    background-color: #ffffff;
+    border: 3px solid #121212;
+    border-radius: 16px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 5px 5px 0px #121212;
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]):hover,
+  .neo-brutalism-styled-container section:not([class*="style-"]):hover,
+  .style-neo-brutalism section:not([class*="style-"]):hover,
+  [data-style="neo-brutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]):hover,
+  .style-neobrutalism section:not([class*="style-"]):hover,
+  [data-style="neobrutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]):hover,
+  .style-neo-brutalist section:not([class*="style-"]):hover,
+  [data-style="neo-brutalist"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]):hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #121212;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .neo-brutalism-styled-container section:not([class*="style-"]) > h2,
+  .style-neo-brutalism section:not([class*="style-"]) > h2,
+  [data-style="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .style-neobrutalism section:not([class*="style-"]) > h2,
+  [data-style="neobrutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]) > h2,
+  .style-neo-brutalist section:not([class*="style-"]) > h2,
+  [data-style="neo-brutalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #121212;
   }
 
   /* 6. Articles & Content: Open Editorial Rows vs Selective Cards (No Card-Everything) */
@@ -8492,7 +9474,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif"
     }
   }
-}, re = `
+}, se = `
   /* ==========================================================================
      NEO-CLASSICAL — ART-DIRECTED ARCHITECTURAL STYLESHEET
      
@@ -9556,7 +10538,7 @@ const Ut = {
       font-size: clamp(2rem, 8vw, 3rem);
     }
   }
-`, se = {
+`, re = {
   id: "neo-classical",
   name: "Neo-Classical",
   description: "Classical architectural proportion, editorial serif refinement, structured rules, plinth bases, and dignified restraint.",
@@ -12261,6 +13243,68 @@ const Ut = {
     letter-spacing: -0.01em !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-y2k-aesthetic,
+  section.style-y2k-aesthetic,
+  main.style-y2k-aesthetic,
+  article.style-y2k-aesthetic,
+  div.style-y2k,
+  section.style-y2k,
+  main.style-y2k,
+  article.style-y2k,
+  .lab-styled-preview[data-style="y2k-aesthetic"],
+  .y2k-aesthetic-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0b. Header Architecture (Pearlescent Cyber Header Bar) */
+  .lab-styled-preview[data-style="y2k-aesthetic"] header,
+  .y2k-aesthetic-styled-container header,
+  .style-y2k-aesthetic header,
+  [data-style="y2k-aesthetic"] header,
+  .ds-scope[data-style-id="y2k-aesthetic"] header,
+  .style-y2k header,
+  [data-style="y2k"] header,
+  .ds-scope[data-style-id="y2k"] header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 246, 253, 0.9) 100%);
+    border: 1px solid #b8cee2;
+    border-top: 1px solid #ffffff;
+    border-bottom: 2px solid #94b8d7;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08), inset 0 1px 0 #ffffff;
+    padding: 1.25rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] header h1,
+  .y2k-aesthetic-styled-container header h1,
+  .style-y2k-aesthetic header h1,
+  [data-style="y2k-aesthetic"] header h1,
+  .ds-scope[data-style-id="y2k-aesthetic"] header h1,
+  .style-y2k header h1,
+  [data-style="y2k"] header h1,
+  .ds-scope[data-style-id="y2k"] header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
   /* 1. Navigation: Futuristic Hardware / Cyber Browser Deck */
   .lab-styled-preview[data-style="y2k-aesthetic"] nav,
   .y2k-aesthetic-styled-container nav,
@@ -12285,6 +13329,61 @@ const Ut = {
     margin-bottom: 2.75rem;
     position: relative;
     z-index: 10;
+  }
+
+  .style-y2k-aesthetic header nav,
+  .lab-styled-preview[data-style="y2k-aesthetic"] header nav,
+  .y2k-aesthetic-styled-container header nav,
+  [data-style="y2k-aesthetic"] header nav,
+  .ds-scope[data-style-id="y2k-aesthetic"] header nav,
+  .style-y2k header nav,
+  [data-style="y2k"] header nav,
+  .ds-scope[data-style-id="y2k"] header nav {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav ul,
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav ol,
+  .y2k-aesthetic-styled-container nav ul,
+  .y2k-aesthetic-styled-container nav ol,
+  .style-y2k-aesthetic nav ul,
+  .style-y2k-aesthetic nav ol,
+  [data-style="y2k-aesthetic"] nav ul,
+  [data-style="y2k-aesthetic"] nav ol,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav ul,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav ol,
+  .style-y2k nav ul,
+  .style-y2k nav ol,
+  [data-style="y2k"] nav ul,
+  [data-style="y2k"] nav ol,
+  .ds-scope[data-style-id="y2k"] nav ul,
+  .ds-scope[data-style-id="y2k"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav li,
+  .y2k-aesthetic-styled-container nav li,
+  .style-y2k-aesthetic nav li,
+  [data-style="y2k-aesthetic"] nav li,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav li,
+  .style-y2k nav li,
+  [data-style="y2k"] nav li,
+  .ds-scope[data-style-id="y2k"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a,
@@ -12708,6 +13807,78 @@ const Ut = {
   .ds-scope[data-style-id="y2k"] .dispatch:hover {
     transform: none !important;
     box-shadow: none !important;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="y2k-aesthetic"] main,
+  .y2k-aesthetic-styled-container main,
+  .style-y2k-aesthetic main,
+  [data-style="y2k-aesthetic"] main,
+  .ds-scope[data-style-id="y2k-aesthetic"] main,
+  .style-y2k main,
+  [data-style="y2k"] main,
+  .ds-scope[data-style-id="y2k"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]),
+  .y2k-aesthetic-styled-container section:not([class*="style-"]),
+  .style-y2k-aesthetic section:not([class*="style-"]),
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]),
+  .style-y2k section:not([class*="style-"]),
+  [data-style="y2k"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]),
+  .style-y2k-aesthetic main > section,
+  [data-style="y2k-aesthetic"] main > section,
+  .style-y2k main > section,
+  [data-style="y2k"] main > section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 250, 255, 0.92) 100%) !important;
+    border: 1px solid #cbdbe9 !important;
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 2px solid #94b8d7 !important;
+    border-radius: 20px !important;
+    padding: 2.25rem 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05), inset 0 1px 0 #ffffff !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    transition: transform 180ms ease, box-shadow 180ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .y2k-aesthetic-styled-container section:not([class*="style-"]):hover,
+  .style-y2k-aesthetic section:not([class*="style-"]):hover,
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .style-y2k section:not([class*="style-"]):hover,
+  [data-style="y2k"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]):hover {
+    border-color: #7dd3fc !important;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12), inset 0 1px 0 #ffffff !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .y2k-aesthetic-styled-container section:not([class*="style-"]) > h2,
+  .style-y2k-aesthetic section:not([class*="style-"]) > h2,
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .style-y2k section:not([class*="style-"]) > h2,
+  [data-style="y2k"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]) > h2 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #0284c7 !important;
+    margin: 0 0 1.25rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #e0ecf8 !important;
   }
 
   /* 5. Pullquotes: Iridescent Ice & Aqua Framing */
@@ -14695,7 +15866,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', sans-serif"
     }
   }
-}, he = `
+}, be = `
   /* ==========================================================================
      PIXEL ART — 8-Bit / 16-Bit Retro Game Interface Visual Language
      Strict Semantic CSS Mapping: Zero DOM Wrappers, 100% User HTML Preservation
@@ -16053,7 +17224,7 @@ const Ut = {
       width: 100% !important;
     }
   }
-`, be = {
+`, he = {
   id: "pixel-art",
   name: "Pixel Art",
   description: "8-bit and 16-bit arcade aesthetics, aliased stepped borders, bitmap display typography, and retro gaming interfaces.",
@@ -21112,6 +22283,240 @@ const Ut = {
     box-sizing: border-box;
     position: relative;
     z-index: 2;
+  }
+
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-cyberpunk,
+  section.style-cyberpunk,
+  main.style-cyberpunk,
+  article.style-cyberpunk,
+  div.style-cyber,
+  section.style-cyber,
+  main.style-cyber,
+  article.style-cyber,
+  .lab-styled-preview[data-style="cyberpunk"],
+  .cyberpunk-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (High-Tech Obsidian & Neon Terminal Header) */
+  .lab-styled-preview[data-style="cyberpunk"] header,
+  .cyberpunk-styled-container header,
+  .style-cyberpunk header,
+  [data-style="cyberpunk"] header,
+  .ds-scope[data-style-id="cyberpunk"] header,
+  .style-cyber header,
+  [data-style="cyber"] header,
+  .ds-scope[data-style-id="cyber"] header {
+    background-color: var(--cp-bg-surface);
+    border: 1px solid var(--cp-border-cyan);
+    border-left: 4px solid var(--cp-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.05);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] header h1,
+  .cyberpunk-styled-container header h1,
+  .style-cyberpunk header h1,
+  [data-style="cyberpunk"] header h1,
+  .ds-scope[data-style-id="cyberpunk"] header h1,
+  .style-cyber header h1,
+  [data-style="cyber"] header h1,
+  .ds-scope[data-style-id="cyber"] header h1 {
+    margin: 0;
+  }
+
+  /* 1. Terminal HUD Navigation */
+  .lab-styled-preview[data-style="cyberpunk"] nav,
+  .cyberpunk-styled-container nav,
+  .style-cyberpunk nav,
+  [data-style="cyberpunk"] nav,
+  .ds-scope[data-style-id="cyberpunk"] nav,
+  .style-cyber nav,
+  [data-style="cyber"] nav,
+  .ds-scope[data-style-id="cyber"] nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.85rem 1.5rem;
+    background-color: rgba(10, 14, 23, 0.85);
+    border: 1px solid var(--cp-border-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .style-cyberpunk header nav,
+  .lab-styled-preview[data-style="cyberpunk"] header nav,
+  .cyberpunk-styled-container header nav,
+  [data-style="cyberpunk"] header nav,
+  .ds-scope[data-style-id="cyberpunk"] header nav,
+  .style-cyber header nav,
+  [data-style="cyber"] header nav,
+  .ds-scope[data-style-id="cyber"] header nav {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav ul,
+  .lab-styled-preview[data-style="cyberpunk"] nav ol,
+  .cyberpunk-styled-container nav ul,
+  .cyberpunk-styled-container nav ol,
+  .style-cyberpunk nav ul,
+  .style-cyberpunk nav ol,
+  [data-style="cyberpunk"] nav ul,
+  [data-style="cyberpunk"] nav ol,
+  .ds-scope[data-style-id="cyberpunk"] nav ul,
+  .ds-scope[data-style-id="cyberpunk"] nav ol,
+  .style-cyber nav ul,
+  .style-cyber nav ol,
+  [data-style="cyber"] nav ul,
+  [data-style="cyber"] nav ol,
+  .ds-scope[data-style-id="cyber"] nav ul,
+  .ds-scope[data-style-id="cyber"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1rem !important;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav li,
+  .cyberpunk-styled-container nav li,
+  .style-cyberpunk nav li,
+  [data-style="cyberpunk"] nav li,
+  .ds-scope[data-style-id="cyberpunk"] nav li,
+  .style-cyber nav li,
+  [data-style="cyber"] nav li,
+  .ds-scope[data-style-id="cyber"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav a,
+  .cyberpunk-styled-container nav a,
+  .style-cyberpunk nav a,
+  [data-style="cyberpunk"] nav a,
+  .ds-scope[data-style-id="cyberpunk"] nav a,
+  .style-cyber nav a,
+  [data-style="cyber"] nav a,
+  .ds-scope[data-style-id="cyber"] nav a {
+    font-family: var(--cp-font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cp-cyan);
+    text-decoration: none;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid transparent;
+    transition: all 120ms ease;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] nav a:hover,
+  .cyberpunk-styled-container nav a:hover,
+  .style-cyberpunk nav a:hover,
+  [data-style="cyberpunk"] nav a:hover,
+  .ds-scope[data-style-id="cyberpunk"] nav a:hover,
+  .style-cyber nav a:hover,
+  [data-style="cyber"] nav a:hover,
+  .ds-scope[data-style-id="cyber"] nav a:hover {
+    background-color: var(--cp-cyan-dim);
+    border-color: var(--cp-cyan);
+    box-shadow: 0 0 10px var(--cp-cyan-glow);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  /* Main Flow & Child Sections (Industrial Panels) */
+  .lab-styled-preview[data-style="cyberpunk"] main,
+  .cyberpunk-styled-container main,
+  .style-cyberpunk main,
+  [data-style="cyberpunk"] main,
+  .ds-scope[data-style-id="cyberpunk"] main,
+  .style-cyber main,
+  [data-style="cyber"] main,
+  .ds-scope[data-style-id="cyber"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] section:not([class*="style-"]),
+  .cyberpunk-styled-container section:not([class*="style-"]),
+  .style-cyberpunk section:not([class*="style-"]),
+  [data-style="cyberpunk"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="cyberpunk"] section:not([class*="style-"]),
+  .style-cyber section:not([class*="style-"]),
+  [data-style="cyber"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="cyber"] section:not([class*="style-"]),
+  .style-cyberpunk main > section,
+  [data-style="cyberpunk"] main > section,
+  .style-cyber main > section,
+  [data-style="cyber"] main > section {
+    background-color: var(--cp-bg-panel);
+    border: 1px solid var(--cp-border-cyan);
+    border-top: 2px solid var(--cp-cyan);
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.03);
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] section:not([class*="style-"]):hover,
+  .cyberpunk-styled-container section:not([class*="style-"]):hover,
+  .style-cyberpunk section:not([class*="style-"]):hover,
+  [data-style="cyberpunk"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="cyberpunk"] section:not([class*="style-"]):hover,
+  .style-cyber section:not([class*="style-"]):hover,
+  [data-style="cyber"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="cyber"] section:not([class*="style-"]):hover {
+    border-color: var(--cp-cyan);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+  }
+
+  .lab-styled-preview[data-style="cyberpunk"] section:not([class*="style-"]) > h2,
+  .cyberpunk-styled-container section:not([class*="style-"]) > h2,
+  .style-cyberpunk section:not([class*="style-"]) > h2,
+  [data-style="cyberpunk"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="cyberpunk"] section:not([class*="style-"]) > h2,
+  .style-cyber section:not([class*="style-"]) > h2,
+  [data-style="cyber"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="cyber"] section:not([class*="style-"]) > h2 {
+    font-family: var(--cp-font-heading);
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--cp-cyan);
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--cp-border-cyan);
+    text-transform: uppercase;
   }
 
   /* ==========================================================================
@@ -26684,7 +28089,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, Re = `
+}, Be = `
   /* ==========================================================================
      SCRAPBOOK DESIGN LANGUAGE — LAYERED MEMORY BOOK & COLLECTED EPHEMERA
      ========================================================================== */
@@ -27736,7 +29141,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Be = {
+`, Re = {
   id: "scrapbook",
   name: "Scrapbook",
   description: "Layered memory book surfaces, washi tape cues, handwritten annotations, clipped ephemera, and tactile paper cards.",
@@ -28873,6 +30278,47 @@ const Ut = {
     box-shadow: none !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-wabi-sabi,
+  section.style-wabi-sabi,
+  main.style-wabi-sabi,
+  article.style-wabi-sabi,
+  .lab-styled-preview[data-style="wabi-sabi"],
+  .wabi-sabi-styled-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Organic Handcrafted Banner) */
+  .lab-styled-preview[data-style="wabi-sabi"] header,
+  .wabi-sabi-styled-container header,
+  .style-wabi-sabi header,
+  .ds-scope[data-style-id="wabi-sabi"] header {
+    background-color: #faf7f2;
+    border: 1px solid #d6cfc4;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] header h1,
+  .wabi-sabi-styled-container header h1,
+  .style-wabi-sabi header h1,
+  .ds-scope[data-style-id="wabi-sabi"] header h1 {
+    margin: 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="wabi-sabi"] nav,
   .wabi-sabi-styled-container nav,
@@ -28885,6 +30331,43 @@ const Ut = {
     padding: 1.25rem 0 1.5rem;
     border-bottom: 1px solid #d6cfc4;
     margin-bottom: 3.5rem;
+  }
+
+  .style-wabi-sabi header nav,
+  .lab-styled-preview[data-style="wabi-sabi"] header nav,
+  .wabi-sabi-styled-container header nav,
+  .ds-scope[data-style-id="wabi-sabi"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] nav ul,
+  .lab-styled-preview[data-style="wabi-sabi"] nav ol,
+  .wabi-sabi-styled-container nav ul,
+  .wabi-sabi-styled-container nav ol,
+  .style-wabi-sabi nav ul,
+  .style-wabi-sabi nav ol,
+  .ds-scope[data-style-id="wabi-sabi"] nav ul,
+  .ds-scope[data-style-id="wabi-sabi"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] nav li,
+  .wabi-sabi-styled-container nav li,
+  .style-wabi-sabi nav li,
+  .ds-scope[data-style-id="wabi-sabi"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="wabi-sabi"] nav a,
@@ -29027,6 +30510,49 @@ const Ut = {
   .style-wabi-sabi button:active,
   .ds-scope[data-style-id="wabi-sabi"] button:active {
     transform: translateY(0px) !important;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="wabi-sabi"] main,
+  .wabi-sabi-styled-container main,
+  .style-wabi-sabi main,
+  .ds-scope[data-style-id="wabi-sabi"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]),
+  .wabi-sabi-styled-container section:not([class*="style-"]),
+  .style-wabi-sabi section:not([class*="style-"]),
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]),
+  .style-wabi-sabi main > section {
+    background-color: #faf7f2;
+    border: 1px solid #d6cfc4;
+    border-radius: 12px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 16px rgba(41, 37, 36, 0.04);
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]):hover,
+  .wabi-sabi-styled-container section:not([class*="style-"]):hover,
+  .style-wabi-sabi section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(41, 37, 36, 0.07);
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]) > h2,
+  .wabi-sabi-styled-container section:not([class*="style-"]) > h2,
+  .style-wabi-sabi section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]) > h2 {
+    margin-top: 0;
   }
 
   /* 5. Cards & Section Architecture */
@@ -30710,7 +32236,7 @@ const Ut = {
       padding-right: 8px !important;
     }
   }
-`, Oe = {
+`, Ne = {
   id: "victorian",
   name: "Victorian",
   description: "19th-century typography, ornate editorial print, engraved rules, botanical motifs, layered borders, and rich parchment surfaces.",
@@ -30901,7 +32427,7 @@ const Ut = {
       fontFamily: "'EB Garamond', 'Georgia', serif"
     }
   }
-}, Ne = `
+}, Oe = `
   /* ==========================================================================
      CYBERCORE DESIGN LANGUAGE — INTERNET-NATIVE DIGITAL CULTURE
      ========================================================================== */
@@ -39704,12 +41230,12 @@ const Ut = {
   Zt,
   ee,
   ie,
-  se,
+  re,
   le,
   de,
   pe,
   me,
-  be,
+  he,
   fe,
   ve,
   we,
@@ -39717,10 +41243,10 @@ const Ut = {
   ze,
   Ie,
   Ee,
-  Be,
+  Re,
   Fe,
   Me,
-  Oe,
+  Ne,
   Ge,
   We,
   Ue,
@@ -39810,12 +41336,12 @@ const et = class et {
    */
   static analyze(t) {
     var I;
-    const e = (t.tag || "div").toLowerCase(), a = t.text || "", i = (t.childrenTags || []).map((y) => y.toLowerCase()), r = (t.descendantTags || []).map((y) => y.toLowerCase()), o = i.some((y) => /^h[1-6]$/.test(y)) || /^h[1-6]$/.test(e), l = r.some((y) => /^h[1-6]$/.test(y)), s = o || l, n = i.find((y) => /^h[1-6]$/.test(y)) || r.find((y) => /^h[1-6]$/.test(y)) || (/^h[1-6]$/.test(e) ? e : void 0), h = n ? parseInt(n.replace("h", ""), 10) : void 0, m = i.includes("p") || r.includes("p") || e === "p", d = i.includes("button") || r.includes("button") || e === "button", p = i.includes("input") || i.includes("textarea") || r.includes("input") || r.includes("textarea") || e === "input", u = i.includes("img") || i.includes("picture") || r.includes("img") || r.includes("picture") || e === "img", g = i.includes("a") || r.includes("a") || e === "a", F = /* @__PURE__ */ new Set(["div", "section", "article", "ul", "ol", "main", "header", "footer", "aside", "nav"]), z = t.hasContainerChildren ?? i.some((y) => F.has(y)), f = t.hasPriceText ?? et.PRICE_PATTERNS.some((y) => y.test(a) || y.test(t.className || "")), T = t.siblingIndex ?? 0, A = t.totalSiblings ?? 1, v = t.childCount ?? i.length, R = a.length, E = R / (v || 1), B = t.density || (E > 200 ? "spacious" : E < 40 ? "compact" : "normal");
+    const e = (t.tag || "div").toLowerCase(), a = t.text || "", i = (t.childrenTags || []).map((y) => y.toLowerCase()), s = (t.descendantTags || []).map((y) => y.toLowerCase()), o = i.some((y) => /^h[1-6]$/.test(y)) || /^h[1-6]$/.test(e), l = s.some((y) => /^h[1-6]$/.test(y)), r = o || l, n = i.find((y) => /^h[1-6]$/.test(y)) || s.find((y) => /^h[1-6]$/.test(y)) || (/^h[1-6]$/.test(e) ? e : void 0), b = n ? parseInt(n.replace("h", ""), 10) : void 0, m = i.includes("p") || s.includes("p") || e === "p", d = i.includes("button") || s.includes("button") || e === "button", p = i.includes("input") || i.includes("textarea") || s.includes("input") || s.includes("textarea") || e === "input", u = i.includes("img") || i.includes("picture") || s.includes("img") || s.includes("picture") || e === "img", g = i.includes("a") || s.includes("a") || e === "a", F = /* @__PURE__ */ new Set(["div", "section", "article", "ul", "ol", "main", "header", "footer", "aside", "nav"]), z = t.hasContainerChildren ?? i.some((y) => F.has(y)), f = t.hasPriceText ?? et.PRICE_PATTERNS.some((y) => y.test(a) || y.test(t.className || "")), T = t.siblingIndex ?? 0, A = t.totalSiblings ?? 1, v = t.childCount ?? i.length, B = a.length, E = B / (v || 1), R = t.density || (E > 200 ? "spacious" : E < 40 ? "compact" : "normal");
     return {
       tag: e,
-      hasHeading: s,
+      hasHeading: r,
       hasHeadingDirect: o,
-      headingLevel: h,
+      headingLevel: b,
       hasParagraph: m,
       hasButton: d,
       hasInput: p,
@@ -39824,7 +41350,7 @@ const et = class et {
       hasPriceIndicator: f,
       hasContainerChildren: z,
       childCount: v,
-      textLength: R,
+      textLength: B,
       isFirstChild: t.isFirstChild ?? T === 0,
       isLastChild: t.isLastChild ?? T === A - 1,
       siblingIndex: T,
@@ -39833,29 +41359,29 @@ const et = class et {
       parentTag: (I = t.parentTag) == null ? void 0 : I.toLowerCase(),
       parentRole: t.parentRole,
       ancestorRoles: t.ancestorRoles,
-      density: B
+      density: R
     };
   }
   /**
    * Analyzes an actual DOM HTMLElement if running in browser environment.
    */
   static analyzeDOMElement(t, e) {
-    const a = t.tagName.toLowerCase(), i = t.textContent || "", r = Array.from(t.children).map((d) => d.tagName.toLowerCase()), o = [], l = (d) => {
+    const a = t.tagName.toLowerCase(), i = t.textContent || "", s = Array.from(t.children).map((d) => d.tagName.toLowerCase()), o = [], l = (d) => {
       for (const p of Array.from(d.children))
         o.push(p.tagName.toLowerCase()), l(p);
     };
     l(t);
-    const s = t.parentElement, n = s ? Array.from(s.children) : [t], h = n.indexOf(t), m = et.PRICE_PATTERNS.some((d) => d.test(i) || d.test(t.className));
+    const r = t.parentElement, n = r ? Array.from(r.children) : [t], b = n.indexOf(t), m = et.PRICE_PATTERNS.some((d) => d.test(i) || d.test(t.className));
     return et.analyze({
       tag: a,
       className: t.className,
       text: i,
-      childrenTags: r,
+      childrenTags: s,
       descendantTags: o,
       childCount: t.children.length,
-      parentTag: s == null ? void 0 : s.tagName.toLowerCase(),
+      parentTag: r == null ? void 0 : r.tagName.toLowerCase(),
       parentRole: e,
-      siblingIndex: h >= 0 ? h : 0,
+      siblingIndex: b >= 0 ? b : 0,
       totalSiblings: n.length,
       hasPriceText: m
     });
@@ -39983,42 +41509,42 @@ class $ {
    * for a given semantic role, style, structural signals, and content context.
    */
   static resolve(t, e, a, i) {
-    const r = typeof i == "object" && i !== null && "primaryContext" in i ? i.primaryContext : i || "landing-page", o = (a == null ? void 0 : a.density) || this.calculateDensity(a), l = this.resolveCompositionStrategy(t, e, a, r), s = this.resolveDecision(t, e, a, o, r);
+    const s = typeof i == "object" && i !== null && "primaryContext" in i ? i.primaryContext : i || "landing-page", o = (a == null ? void 0 : a.density) || this.calculateDensity(a), l = this.resolveCompositionStrategy(t, e, a, s), r = this.resolveDecision(t, e, a, o, s);
     return {
       composition: l,
       density: o,
-      decision: s
+      decision: r
     };
   }
   /**
    * Computes the concrete layout decision based on the style's design language grammar
    * and the detected content context.
    */
-  static resolveDecision(t, e, a, i, r) {
-    const o = typeof r == "object" && r !== null && "primaryContext" in r ? r.primaryContext : r || "landing-page", l = Pt.getGrammar(t), s = i || (a == null ? void 0 : a.density) || l.densityBias, n = (a == null ? void 0 : a.childCount) ?? 3;
+  static resolveDecision(t, e, a, i, s) {
+    const o = typeof s == "object" && s !== null && "primaryContext" in s ? s.primaryContext : s || "landing-page", l = Pt.getGrammar(t), r = i || (a == null ? void 0 : a.density) || l.densityBias, n = (a == null ? void 0 : a.childCount) ?? 3;
     switch (o) {
       case "portfolio":
-        return this.resolvePortfolioContextDecision(t, e, s, n);
+        return this.resolvePortfolioContextDecision(t, e, r, n);
       case "pricing":
-        return this.resolvePricingContextDecision(t, e, s, n);
+        return this.resolvePricingContextDecision(t, e, r, n);
       case "article":
-        return this.resolveArticleContextDecision(t, e, s, n);
+        return this.resolveArticleContextDecision(t, e, r, n);
       case "dashboard":
-        return this.resolveDashboardContextDecision(t, e, s, n);
+        return this.resolveDashboardContextDecision(t, e, r, n);
       case "form":
-        return this.resolveFormContextDecision(t, e, s, n);
+        return this.resolveFormContextDecision(t, e, r, n);
       default:
-        return this.resolveLandingContextDecision(t, e, s, n);
+        return this.resolveLandingContextDecision(t, e, r, n);
     }
   }
   /**
    * Extracts an evolved composition fingerprint capturing 14 structural dimensions.
    */
   static extractFingerprint(t, e, a, i) {
-    const r = typeof a == "object" && a !== null && "primaryContext" in a ? a.primaryContext : a || "landing-page", o = i && i.length > 0 ? Array.from(new Set(i.map((l) => l.layoutMode))) : [e.layoutMode];
+    const s = typeof a == "object" && a !== null && "primaryContext" in a ? a.primaryContext : a || "landing-page", o = i && i.length > 0 ? Array.from(new Set(i.map((l) => l.layoutMode))) : [e.layoutMode];
     return {
       styleId: t,
-      contentContext: r,
+      contentContext: s,
       majorLayoutMode: e.layoutMode,
       sectionLayoutModes: o,
       columnDistribution: e.columnDistribution,
@@ -41112,7 +42638,7 @@ class $ {
     return i > 200 ? "spacious" : i < 40 ? "compact" : "normal";
   }
 }
-class bt {
+class ht {
   /**
    * Infers the semantic component role, composition strategy, and layout decision
    * from objective structural signals, hierarchy, and content context.
@@ -41120,15 +42646,15 @@ class bt {
   static resolveRole(t, e = "base", a) {
     const i = [];
     t.isFirstChild && i.push("first-child"), t.isLastChild && i.push("last-child");
-    const r = t.siblingIndex % 3;
-    i.push(`variant-${r}`);
-    const o = (l, s, n, h = []) => {
-      const m = [...i, ...h], { composition: d, density: p, decision: u } = $.resolve(e, l, t, a);
+    const s = t.siblingIndex % 3;
+    i.push(`variant-${s}`);
+    const o = (l, r, n, b = []) => {
+      const m = [...i, ...b], { composition: d, density: p, decision: u } = $.resolve(e, l, t, a);
       return {
         role: l,
-        confidence: s,
+        confidence: r,
         rationale: n,
-        variantIndex: r,
+        variantIndex: s,
         modifiers: m,
         semanticTag: t.tag,
         composition: d,
@@ -41150,11 +42676,11 @@ class bt {
       return o("hero", 0.94, "High-level container with H1 headline, supporting paragraph, and call-to-action.", ["primary-hero"]);
     if (t.hasPriceIndicator) {
       const l = ["has-pricing"];
-      return (r === 1 || t.textLength > 120) && l.push("highlighted-tier"), o("pricing-card", 0.94, "Detected price currency/frequency markers alongside tier content.", l);
+      return (s === 1 || t.textLength > 120) && l.push("highlighted-tier"), o("pricing-card", 0.94, "Detected price currency/frequency markers alongside tier content.", l);
     }
     if (t.parentRole === "feature-group" || t.parentRole === "card-grid") {
       const l = [];
-      return r === 0 && l.push("item-primary"), r === 1 && l.push("item-secondary"), r === 2 && l.push("item-accent"), o("feature-item", 0.92, "Structured content unit within a feature group. Adaptive presentation mode applies (not forced into a card).", l);
+      return s === 0 && l.push("item-primary"), s === 1 && l.push("item-secondary"), s === 2 && l.push("item-accent"), o("feature-item", 0.92, "Structured content unit within a feature group. Adaptive presentation mode applies (not forced into a card).", l);
     }
     if (t.hasHeading && t.headingLevel === 2 && t.childCount >= 2 && (t.tag === "section" || t.tag === "div" && t.hasContainerChildren && t.totalSiblings < 2))
       return o("feature-section", 0.93, "Section with secondary heading and structured child units. Art-directed layout mode applies.", ["section-container"]);
@@ -41166,7 +42692,7 @@ class bt {
       return o("article", 0.89, "Extended text body and structured headings without card-like CTA clutter.", ["long-form"]);
     if (t.tag !== "article" && t.headingLevel !== 1 && (t.hasHeading || t.hasImage) && (t.hasParagraph || t.hasButton || t.childCount >= 2)) {
       const l = [];
-      return r === 1 && l.push("accent-variant"), r === 2 && l.push("inverted-variant"), o("card", 0.88, "Self-contained unit with heading/media, descriptive body, and sibling repetition.", l);
+      return s === 1 && l.push("accent-variant"), s === 2 && l.push("inverted-variant"), o("card", 0.88, "Self-contained unit with heading/media, descriptive body, and sibling repetition.", l);
     }
     return t.childCount >= 3 && !t.hasHeading && !t.hasParagraph && t.hasImage ? o("card-grid", 0.8, "Multi-item structural parent container for repetitive image cards.") : o("generic-container", 0.7, "Generic container without unambiguous structural role. Applying conservative baseline rules.");
   }
@@ -41176,29 +42702,29 @@ class q {
    * Resolves the adaptive recipe for a specific role and design language.
    */
   static resolveRecipe(t, e, a) {
-    const r = (a.getStyle(t) || a.getRegistry().getBaseStyle()).tokens;
+    const s = (a.getStyle(t) || a.getRegistry().getBaseStyle()).tokens;
     let o;
     switch (t) {
       case "brutalism":
-        o = q.resolveBrutalism(e, r);
+        o = q.resolveBrutalism(e, s);
         break;
       case "glassmorphism":
-        o = q.resolveGlassmorphism(e, r);
+        o = q.resolveGlassmorphism(e, s);
         break;
       case "minimalism":
-        o = q.resolveMinimalism(e, r);
+        o = q.resolveMinimalism(e, s);
         break;
       case "swiss-design":
-        o = q.resolveSwissDesign(e, r);
+        o = q.resolveSwissDesign(e, s);
         break;
       case "cyberpunk":
-        o = q.resolveCyberpunk(e, r);
+        o = q.resolveCyberpunk(e, s);
         break;
       case "wabi-sabi":
-        o = q.resolveWabiSabi(e, r);
+        o = q.resolveWabiSabi(e, s);
         break;
       default:
-        o = q.resolveBase(e, r);
+        o = q.resolveBase(e, s);
         break;
     }
     return o.composition || (o.composition = e.composition), o.density || (o.density = e.density), o.decision || (o.decision = e.decision), o;
@@ -41207,7 +42733,7 @@ class q {
   // BRUTALISM ADAPTIVE RECIPES
   // ==========================================
   static resolveBrutalism(t, e) {
-    const a = t.variantIndex, i = t.role === "hero", r = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
+    const a = t.variantIndex, i = t.role === "hero", s = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
     if (i)
       return {
         role: t.role,
@@ -41256,22 +42782,22 @@ class q {
         }
       };
     if (o) {
-      const s = t.modifiers.includes("highlighted-tier") || a === 1;
+      const r = t.modifiers.includes("highlighted-tier") || a === 1;
       return {
         role: t.role,
-        recipeName: s ? "Brutalist Highlighted Pricing Tier" : "Brutalist Standard Pricing Tier",
+        recipeName: r ? "Brutalist Highlighted Pricing Tier" : "Brutalist Standard Pricing Tier",
         styleId: "brutalism",
-        description: s ? "Featured acid yellow card with thick 4px border and tactile 6px drop shadow." : "Monochrome high-contrast pricing card with 3px solid border.",
+        description: r ? "Featured acid yellow card with thick 4px border and tactile 6px drop shadow." : "Monochrome high-contrast pricing card with 3px solid border.",
         modifiers: t.modifiers,
         containerStyles: {
           padding: "2rem",
-          backgroundColor: s ? "#ffe600" : "#ffffff",
+          backgroundColor: r ? "#ffe600" : "#ffffff",
           color: "#000000",
-          borderWidth: s ? "4px" : "3px",
+          borderWidth: r ? "4px" : "3px",
           borderStyle: "solid",
           borderColor: "#000000",
-          boxShadow: s ? "6px 6px 0px #000000" : "4px 4px 0px #000000",
-          transform: s ? "scale(1.02)" : "none"
+          boxShadow: r ? "6px 6px 0px #000000" : "4px 4px 0px #000000",
+          transform: r ? "scale(1.02)" : "none"
         },
         headingStyles: {
           textTransform: "uppercase",
@@ -41279,8 +42805,8 @@ class q {
           color: "#000000"
         },
         buttonStyles: {
-          backgroundColor: s ? "#000000" : "#ffe600",
-          color: s ? "#ffe600" : "#000000",
+          backgroundColor: r ? "#000000" : "#ffe600",
+          color: r ? "#ffe600" : "#000000",
           border: "3px solid #000000",
           boxShadow: "3px 3px 0px #000000",
           fontWeight: 800,
@@ -41292,12 +42818,12 @@ class q {
         }
       };
     }
-    if (r) {
-      const s = [
+    if (s) {
+      const r = [
         { name: "Brutalist Card / Acid Accent", bg: "#ffe600", text: "#000000", shadow: "5px 5px 0px #000000" },
         { name: "Brutalist Card / Stark White", bg: "#ffffff", text: "#000000", shadow: "5px 5px 0px #000000" },
         { name: "Brutalist Card / Inverted Black", bg: "#000000", text: "#ffffff", shadow: "5px 5px 0px #ffe600" }
-      ], n = s[a] || s[0];
+      ], n = r[a] || r[0];
       return {
         role: t.role,
         recipeName: n.name,
@@ -41336,25 +42862,25 @@ class q {
       };
     }
     if (l) {
-      const s = t.role === "cta-button" || t.modifiers.includes("prominent-cta"), n = t.role === "nav-action";
+      const r = t.role === "cta-button" || t.modifiers.includes("prominent-cta"), n = t.role === "nav-action";
       return {
         role: t.role,
-        recipeName: s ? "Brutalist Heavy Hero CTA" : n ? "Brutalist Compact Nav Action" : "Brutalist Standard Button",
+        recipeName: r ? "Brutalist Heavy Hero CTA" : n ? "Brutalist Compact Nav Action" : "Brutalist Standard Button",
         styleId: "brutalism",
-        description: s ? "High visual weight, oversized padding, thick 3px black border, and 5px offset shadow." : "Compact brutalist button with crisp offset.",
+        description: r ? "High visual weight, oversized padding, thick 3px black border, and 5px offset shadow." : "Compact brutalist button with crisp offset.",
         modifiers: t.modifiers,
         containerStyles: {},
         buttonStyles: {
-          padding: s ? "0.875rem 1.75rem" : n ? "0.35rem 0.75rem" : "0.65rem 1.25rem",
-          fontSize: s ? "1rem" : n ? "0.75rem" : "0.875rem",
+          padding: r ? "0.875rem 1.75rem" : n ? "0.35rem 0.75rem" : "0.65rem 1.25rem",
+          fontSize: r ? "1rem" : n ? "0.75rem" : "0.875rem",
           fontFamily: "'Space Grotesk', sans-serif",
           fontWeight: 800,
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          backgroundColor: s ? "#ffe600" : "#ffffff",
+          backgroundColor: r ? "#ffe600" : "#ffffff",
           color: "#000000",
           border: "3px solid #000000",
-          boxShadow: s ? "5px 5px 0px #000000" : "3px 3px 0px #000000",
+          boxShadow: r ? "5px 5px 0px #000000" : "3px 3px 0px #000000",
           cursor: "pointer"
         },
         cssVariables: {
@@ -41442,7 +42968,7 @@ class q {
   // GLASSMORPHISM ADAPTIVE RECIPES
   // ==========================================
   static resolveGlassmorphism(t, e) {
-    const a = t.variantIndex, i = t.role === "hero", r = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
+    const a = t.variantIndex, i = t.role === "hero", s = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
     if (i)
       return {
         role: t.role,
@@ -41487,24 +43013,24 @@ class q {
         }
       };
     if (o) {
-      const s = t.modifiers.includes("highlighted-tier") || a === 1;
+      const r = t.modifiers.includes("highlighted-tier") || a === 1;
       return {
         role: t.role,
-        recipeName: s ? "Glassmorphic Luminous Tier" : "Glassmorphic Frosted Tier",
+        recipeName: r ? "Glassmorphic Luminous Tier" : "Glassmorphic Frosted Tier",
         styleId: "glassmorphism",
-        description: s ? "Featured tier with cyan glow border, deeper 28px blur, and gradient button." : "Standard translucent frosted slab with 16px blur.",
+        description: r ? "Featured tier with cyan glow border, deeper 28px blur, and gradient button." : "Standard translucent frosted slab with 16px blur.",
         modifiers: t.modifiers,
         containerStyles: {
           padding: "2rem",
-          backgroundColor: s ? "rgba(99, 102, 241, 0.12)" : "rgba(255, 255, 255, 0.05)",
+          backgroundColor: r ? "rgba(99, 102, 241, 0.12)" : "rgba(255, 255, 255, 0.05)",
           borderRadius: "24px",
           borderWidth: "1px",
           borderStyle: "solid",
-          borderColor: s ? "rgba(56, 189, 248, 0.5)" : "rgba(255, 255, 255, 0.18)",
-          boxShadow: s ? "0 12px 40px rgba(99, 102, 241, 0.35), 0 0 20px rgba(56, 189, 248, 0.2)" : "0 8px 32px rgba(0, 0, 0, 0.35)",
+          borderColor: r ? "rgba(56, 189, 248, 0.5)" : "rgba(255, 255, 255, 0.18)",
+          boxShadow: r ? "0 12px 40px rgba(99, 102, 241, 0.35), 0 0 20px rgba(56, 189, 248, 0.2)" : "0 8px 32px rgba(0, 0, 0, 0.35)",
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
-          transform: s ? "scale(1.02)" : "none"
+          transform: r ? "scale(1.02)" : "none"
         },
         headingStyles: {
           color: "#ffffff"
@@ -41512,22 +43038,22 @@ class q {
         buttonStyles: {
           width: "100%",
           borderRadius: "9999px",
-          background: s ? "linear-gradient(135deg, #6366f1, #38bdf8)" : "rgba(255, 255, 255, 0.1)",
+          background: r ? "linear-gradient(135deg, #6366f1, #38bdf8)" : "rgba(255, 255, 255, 0.1)",
           color: "#ffffff",
           border: "1px solid rgba(255, 255, 255, 0.25)",
-          boxShadow: s ? "0 0 20px rgba(56, 189, 248, 0.4)" : "none"
+          boxShadow: r ? "0 0 20px rgba(56, 189, 248, 0.4)" : "none"
         },
         cssVariables: {
           "--ds-role": "pricing-card"
         }
       };
     }
-    if (r) {
-      const s = [
+    if (s) {
+      const r = [
         { name: "Glassmorphic Card / Frosted Standard", bg: "rgba(255, 255, 255, 0.05)", border: "rgba(255, 255, 255, 0.18)", blur: "20px" },
         { name: "Glassmorphic Card / Indigo Glow Wash", bg: "rgba(99, 102, 241, 0.09)", border: "rgba(56, 189, 248, 0.35)", blur: "28px" },
         { name: "Glassmorphic Card / Deep Specular", bg: "rgba(255, 255, 255, 0.03)", border: "rgba(255, 255, 255, 0.12)", blur: "16px" }
-      ], n = s[a] || s[0];
+      ], n = r[a] || r[0];
       return {
         role: t.role,
         recipeName: n.name,
@@ -41564,24 +43090,24 @@ class q {
       };
     }
     if (l) {
-      const s = t.role === "cta-button" || t.modifiers.includes("prominent-cta"), n = t.role === "nav-action";
+      const r = t.role === "cta-button" || t.modifiers.includes("prominent-cta"), n = t.role === "nav-action";
       return {
         role: t.role,
-        recipeName: s ? "Glassmorphic Radiant Aura CTA" : n ? "Glassmorphic Frosted Nav Pill" : "Glassmorphic Translucent Button",
+        recipeName: r ? "Glassmorphic Radiant Aura CTA" : n ? "Glassmorphic Frosted Nav Pill" : "Glassmorphic Translucent Button",
         styleId: "glassmorphism",
-        description: s ? "Luminescent indigo/cyan pill with vibrant glow aura." : "Frosted translucent pill.",
+        description: r ? "Luminescent indigo/cyan pill with vibrant glow aura." : "Frosted translucent pill.",
         modifiers: t.modifiers,
         containerStyles: {},
         buttonStyles: {
-          padding: s ? "0.875rem 1.75rem" : n ? "0.35rem 0.875rem" : "0.625rem 1.375rem",
-          fontSize: s ? "1rem" : n ? "0.75rem" : "0.875rem",
+          padding: r ? "0.875rem 1.75rem" : n ? "0.35rem 0.875rem" : "0.625rem 1.375rem",
+          fontSize: r ? "1rem" : n ? "0.75rem" : "0.875rem",
           fontFamily: "'Inter', sans-serif",
           fontWeight: 500,
           borderRadius: "9999px",
-          background: s ? "linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(56, 189, 248, 0.85))" : "rgba(255, 255, 255, 0.08)",
+          background: r ? "linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(56, 189, 248, 0.85))" : "rgba(255, 255, 255, 0.08)",
           color: "#ffffff",
           border: "1px solid rgba(255, 255, 255, 0.25)",
-          boxShadow: s ? "0 0 25px rgba(56, 189, 248, 0.45)" : "none",
+          boxShadow: r ? "0 0 25px rgba(56, 189, 248, 0.45)" : "none",
           cursor: "pointer"
         },
         cssVariables: {
@@ -41613,8 +43139,8 @@ class q {
   // MINIMALISM ADAPTIVE RECIPES
   // ==========================================
   static resolveMinimalism(t, e) {
-    var n, h, m;
-    const a = t.variantIndex, i = t.role === "hero", r = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
+    var n, b, m;
+    const a = t.variantIndex, i = t.role === "hero", s = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
     if (i)
       return {
         role: t.role,
@@ -41689,12 +43215,12 @@ class q {
         }
       };
     }
-    if (r) {
+    if (s) {
       const d = [
         { name: "Minimalist Card / Hairline Inset", bg: "#ffffff", border: "#e4e4e7", radius: "6px" },
         { name: "Minimalist Card / Subtle Zinc Tint", bg: "#f4f4f5", border: "transparent", radius: "6px" },
         { name: "Minimalist Card / Editorial Borderless", bg: "#ffffff", border: "#e4e4e7", radius: "0px" }
-      ], p = d[a] || d[0], u = t.role === "feature-item" || ((n = t.decision) == null ? void 0 : n.containerTreatment) === "borderless" || ((h = t.decision) == null ? void 0 : h.itemPresentation) === "borderless-editorial";
+      ], p = d[a] || d[0], u = t.role === "feature-item" || ((n = t.decision) == null ? void 0 : n.containerTreatment) === "borderless" || ((b = t.decision) == null ? void 0 : b.itemPresentation) === "borderless-editorial";
       return {
         role: t.role,
         recipeName: u ? "Minimalist Borderless Editorial Item" : p.name,
@@ -41765,14 +43291,14 @@ class q {
         }
       };
     }
-    const s = ((m = t.decision) == null ? void 0 : m.containerTreatment) === "borderless";
+    const r = ((m = t.decision) == null ? void 0 : m.containerTreatment) === "borderless";
     return {
       role: t.role,
-      recipeName: s ? "Minimalist Borderless Flow" : "Minimalist Clean Box",
+      recipeName: r ? "Minimalist Borderless Flow" : "Minimalist Clean Box",
       styleId: "minimalism",
-      description: s ? "Pure negative space without box containers." : "Generous whitespace with subtle hairline boundaries.",
+      description: r ? "Pure negative space without box containers." : "Generous whitespace with subtle hairline boundaries.",
       modifiers: t.modifiers,
-      containerStyles: s ? {
+      containerStyles: r ? {
         backgroundColor: "transparent",
         border: "none",
         boxShadow: "none",
@@ -41794,7 +43320,7 @@ class q {
   // SWISS DESIGN ADAPTIVE RECIPES
   // ==========================================
   static resolveSwissDesign(t, e) {
-    const a = t.role === "hero", i = t.role === "pricing-card", r = t.role === "card" || t.role === "feature-item";
+    const a = t.role === "hero", i = t.role === "pricing-card", s = t.role === "card" || t.role === "feature-item";
     if (a)
       return {
         role: t.role,
@@ -41872,7 +43398,7 @@ class q {
         }
       };
     }
-    return r ? {
+    return s ? {
       role: t.role,
       recipeName: "Swiss International Typographic Matrix",
       styleId: "swiss-design",
@@ -41962,10 +43488,10 @@ class q {
         }
       };
     if (i) {
-      const r = t.modifiers.includes("highlighted-tier") || t.variantIndex === 1;
+      const s = t.modifiers.includes("highlighted-tier") || t.variantIndex === 1;
       return {
         role: t.role,
-        recipeName: r ? "Cyberpunk High-Voltage Cyber Rig" : "Cyberpunk Standard Rig",
+        recipeName: s ? "Cyberpunk High-Voltage Cyber Rig" : "Cyberpunk Standard Rig",
         styleId: "cyberpunk",
         description: "Luminescent cyber terminal with telemetry status overlays.",
         modifiers: t.modifiers,
@@ -41974,16 +43500,16 @@ class q {
         containerStyles: {
           padding: "2rem",
           backgroundColor: "#0e111a",
-          border: r ? "2px solid #ff0055" : "2px solid #00f0ff",
-          boxShadow: r ? "0 0 35px rgba(255, 0, 85, 0.45)" : "0 0 20px rgba(0, 240, 255, 0.25)"
+          border: s ? "2px solid #ff0055" : "2px solid #00f0ff",
+          boxShadow: s ? "0 0 35px rgba(255, 0, 85, 0.45)" : "0 0 20px rgba(0, 240, 255, 0.25)"
         },
         headingStyles: {
-          color: r ? "#ff0055" : "#00f0ff",
+          color: s ? "#ff0055" : "#00f0ff",
           textTransform: "uppercase"
         },
         buttonStyles: {
-          backgroundColor: r ? "#ff0055" : "#00f0ff",
-          color: r ? "#ffffff" : "#000000",
+          backgroundColor: s ? "#ff0055" : "#00f0ff",
+          color: s ? "#ffffff" : "#000000",
           border: "none",
           fontWeight: 800,
           textTransform: "uppercase",
@@ -42067,10 +43593,10 @@ class q {
         }
       };
     if (i) {
-      const s = t.modifiers.includes("highlighted-tier") || t.variantIndex === 1;
+      const r = t.modifiers.includes("highlighted-tier") || t.variantIndex === 1;
       return {
         role: t.role,
-        recipeName: s ? "Wabi-Sabi Harmony Tier" : "Wabi-Sabi Natural Tier",
+        recipeName: r ? "Wabi-Sabi Harmony Tier" : "Wabi-Sabi Natural Tier",
         styleId: "wabi-sabi",
         description: "Mindful organic card with calm ceramic tones.",
         modifiers: t.modifiers,
@@ -42079,7 +43605,7 @@ class q {
         containerStyles: {
           padding: "2.25rem",
           backgroundColor: "#faf7f2",
-          border: s ? "1px solid #78716c" : "1px solid #d6cfc4",
+          border: r ? "1px solid #78716c" : "1px solid #d6cfc4",
           borderRadius: "12px",
           boxShadow: "0 4px 20px rgba(41, 37, 36, 0.04)"
         },
@@ -42088,8 +43614,8 @@ class q {
           color: "#292524"
         },
         buttonStyles: {
-          backgroundColor: s ? "#4d7c0f" : "#ede8df",
-          color: s ? "#ffffff" : "#292524",
+          backgroundColor: r ? "#4d7c0f" : "#ede8df",
+          color: r ? "#ffffff" : "#292524",
           border: "1px solid #d6cfc4",
           borderRadius: "8px",
           width: "100%"
@@ -42099,16 +43625,16 @@ class q {
         }
       };
     }
-    const r = ((o = t.decision) == null ? void 0 : o.containerTreatment) === "borderless" || ((l = t.decision) == null ? void 0 : l.itemPresentation) === "borderless-editorial";
+    const s = ((o = t.decision) == null ? void 0 : o.containerTreatment) === "borderless" || ((l = t.decision) == null ? void 0 : l.itemPresentation) === "borderless-editorial";
     return {
       role: t.role,
-      recipeName: r ? `Wabi-Sabi Tranquil Space / ${t.role}` : `Wabi-Sabi Organic Element / ${t.role}`,
+      recipeName: s ? `Wabi-Sabi Tranquil Space / ${t.role}` : `Wabi-Sabi Organic Element / ${t.role}`,
       styleId: "wabi-sabi",
-      description: r ? "Mindful organic asymmetry and unhurried negative space." : "Mindful organic stoneware container.",
+      description: s ? "Mindful organic asymmetry and unhurried negative space." : "Mindful organic stoneware container.",
       modifiers: t.modifiers,
       composition: t.composition,
       density: t.density,
-      containerStyles: r ? {
+      containerStyles: s ? {
         backgroundColor: "transparent",
         border: "none",
         borderTop: t.role === "feature-item" ? "1px solid #d6cfc4" : "none",
@@ -42179,12 +43705,12 @@ const kt = {
   "swiss-design": _t,
   surrealism: te,
   "neo-brutalism": ae,
-  "neo-classical": re,
+  "neo-classical": se,
   "luxury-typography": oe,
   "editorial-design": ne,
   "y2k-aesthetic": ce,
   "bento-grid": ye,
-  "pixel-art": he,
+  "pixel-art": be,
   "conceptual-sketch": ue,
   ethereal: ge,
   bohemian: xe,
@@ -42192,10 +43718,10 @@ const kt = {
   anthropomorphic: Ce,
   neumorphism: Te,
   "dark-mode-ui": Ae,
-  scrapbook: Re,
+  scrapbook: Be,
   claymorphism: Pe,
   victorian: He,
-  cybercore: Ne,
+  cybercore: Oe,
   synthwave: Le,
   graffiti: qe,
   gothic: Ye,
@@ -42228,6 +43754,29 @@ class aa {
    ADAPTIVE DESIGN ENGINE — ART-DIRECTED DESIGN LANGUAGES
    ========================================================================== */
 
+/* Universal Semantic Layout Resets for All Scoped Design Styles */
+[class*="style-"] nav ul,
+[class*="style-"] nav ol,
+.ds-scope nav ul,
+.ds-scope nav ol {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.75rem !important;
+}
+
+[class*="style-"] nav li,
+.ds-scope nav li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
 /* --------------------------------------------------------------------------
    1. BRUTALISM (.style-brutalism)
    Visual Grammar: Raw, structural, high-contrast, tactile newsprint/concrete canvas,
@@ -42246,15 +43795,17 @@ class aa {
 }
 
 /* Page Canvas Bounds */
+div.style-brutalism,
+section.style-brutalism,
+main.style-brutalism,
 .style-brutalism main,
 .style-brutalism [data-role="page"] {
   display: block !important;
   max-width: 1180px !important;
-  margin: 0 auto !important;
-  padding: 2rem 1.5rem 5rem !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 2.5rem 1.5rem 5rem !important;
+  box-sizing: border-box !important;
 }
 
 /* Typography Hierarchy */
@@ -42368,24 +43919,84 @@ class aa {
   text-decoration: none;
 }
 
-/* Navigation: Utilitarian Horizontal Ledger */
+/* Header Architecture (Banner Card) */
+.style-brutalism header,
+.style-brutalism [data-role="header"] {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  padding: 1.5rem 2rem !important;
+  margin-bottom: 2.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.style-brutalism header h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+.style-brutalism header p {
+  margin: 0.25rem 0 0 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Navigation: In-Header or Standalone */
 .style-brutalism nav,
-.style-brutalism header:not(:has(nav))[data-composition="nav-utilitarian-ticker"],
 .style-brutalism [data-role="navigation"] {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
   flex-wrap: wrap !important;
-  gap: 1.5rem !important;
-  padding: 1.25rem 0 !important;
+  gap: 1rem !important;
+}
+
+.style-brutalism > nav,
+.style-brutalism main > nav {
+  padding: 1rem 0 !important;
   border-bottom: 3px solid #000000 !important;
-  background: #f4f3ed !important;
-  margin-bottom: 3.5rem !important;
+  background: transparent !important;
+  margin-bottom: 2.5rem !important;
   width: 100% !important;
+}
+
+.style-brutalism header nav {
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  width: auto !important;
+}
+
+.style-brutalism nav ul,
+.style-brutalism nav ol {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.75rem !important;
+}
+
+.style-brutalism nav li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .style-brutalism nav a,
 .style-brutalism [data-role="navigation"] a {
+  font-family: 'JetBrains Mono', monospace !important;
   font-size: 0.875rem !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
@@ -42393,15 +44004,18 @@ class aa {
   color: #000000 !important;
   text-decoration: none !important;
   padding: 0.45rem 0.9rem !important;
-  border: 2px solid transparent !important;
+  border: 2px solid #000000 !important;
+  background-color: #ffffff !important;
+  box-shadow: 2px 2px 0px #000000 !important;
   transition: all 100ms ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .style-brutalism nav a:hover,
 .style-brutalism [data-role="navigation"] a:hover {
-  background: #ffe600 !important;
-  border-color: #000000 !important;
-  box-shadow: 3px 3px 0px #000000 !important;
+  background-color: #ffe600 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
   transform: translate(-1px, -1px) !important;
 }
 
@@ -42410,11 +44024,9 @@ class aa {
 .style-brutalism [data-layout="asymmetric-poster"],
 .style-brutalism:has(> h1),
 .style-brutalism section:has(> h1),
-.style-brutalism section:first-of-type,
 .style-brutalism [data-role="hero"] {
   padding: 3rem 0 4rem;
   margin-bottom: 4rem;
-  border: none !important;
   border-bottom: 3px solid #000000 !important;
   width: 100%;
   display: flex;
@@ -42517,10 +44129,24 @@ class aa {
 }
 
 /* Section Structure & Section Headings */
-.style-brutalism section {
-  margin-bottom: 4.5rem;
-  width: 100%;
-  border: none !important;
+.style-brutalism section:not([class*="style-"]),
+.style-brutalism [data-role="feature-section"],
+.style-brutalism [data-layout*="section"],
+.style-brutalism main > section {
+  background-color: #ffffff;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  padding: 2rem 2.25rem !important;
+  margin-bottom: 2.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.style-brutalism section:not([class*="style-"]):hover,
+.style-brutalism main > section:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000000 !important;
 }
 
 .style-brutalism [data-layout="asymmetric-catalog"] > h2,
@@ -42768,15 +44394,18 @@ class aa {
 /* Footer: Raw Structural Baseline */
 .style-brutalism footer,
 .style-brutalism [data-role="footer"] {
-  border-top: 4px solid #000000;
-  padding: 3rem 0 2rem;
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  width: 100%;
+  background-color: #ffffff;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 1.25rem 2rem !important;
+  margin-top: 2rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .style-brutalism footer p,
@@ -45739,53 +47368,53 @@ function la(c = typeof document < "u" ? document.body : null) {
   var e;
   if (typeof document < "u" && Ft(document), !c || typeof c.querySelectorAll != "function") return;
   ((e = c.matches) != null && e.call(c, '[class*="style-"]') ? [c, ...Array.from(c.querySelectorAll('[class*="style-"]'))] : Array.from(c.querySelectorAll('[class*="style-"]'))).forEach((a) => {
-    const i = a.className.match(/\bstyle-([a-z0-9-]+)\b/), r = i ? i[1] : "base", o = (l, s, n, h, m, d = []) => {
+    const i = a.className.match(/\bstyle-([a-z0-9-]+)\b/), s = i ? i[1] : "base", o = (l, r, n, b, m, d = []) => {
       var v;
-      const p = l.tagName.toLowerCase(), u = Array.from(l.children), g = u.map((R) => R.tagName.toLowerCase()), F = l.textContent || "", z = /[$€£¥]|\/mo\b|pricing/i.test(F);
+      const p = l.tagName.toLowerCase(), u = Array.from(l.children), g = u.map((B) => B.tagName.toLowerCase()), F = l.textContent || "", z = /[$€£¥]|\/mo\b|pricing/i.test(F);
       if (!l.getAttribute("data-role")) {
-        const R = [], E = (Y) => {
-          for (const b of Y.children)
-            b.tagName && (R.push(b.tagName.toLowerCase()), E(b));
+        const B = [], E = (Y) => {
+          for (const h of Y.children)
+            h.tagName && (B.push(h.tagName.toLowerCase()), E(h));
         };
         E(l);
-        const B = it.analyze({
+        const R = it.analyze({
           tag: p,
           childrenTags: g,
-          descendantTags: R,
+          descendantTags: B,
           text: F,
           childCount: u.length,
           hasPriceText: z,
-          depth: s,
-          totalSiblings: h,
+          depth: r,
+          totalSiblings: b,
           siblingIndex: n,
           parentRole: m,
           parentTag: (v = l.parentElement) == null ? void 0 : v.tagName.toLowerCase(),
           ancestorRoles: d
-        }), I = bt.resolveRole(B, r);
+        }), I = ht.resolveRole(R, s);
         l.setAttribute("data-role", I.role), l.setAttribute("data-composition", I.composition);
         const y = I.role === "feature-item" || I.role === "card" || I.role === "pricing-card" || p === "article";
         let C = I.variantIndex;
         if (y && l.parentElement) {
-          const b = Array.from(l.parentElement.children).filter((D) => {
+          const h = Array.from(l.parentElement.children).filter((D) => {
             var M, K;
             const P = (M = D.tagName) == null ? void 0 : M.toLowerCase(), x = (K = D.getAttribute) == null ? void 0 : K.call(D, "data-role");
             return P === p || x === I.role || P === "article";
           }).indexOf(l);
-          b >= 0 && (C = b % 3);
+          h >= 0 && (C = h % 3);
         }
         l.setAttribute("data-variant", String(C)), l.setAttribute("data-density", I.density), I.decision && (l.setAttribute("data-layout", I.decision.layoutMode), l.setAttribute("data-container", I.decision.containerTreatment), l.setAttribute("data-grouping", I.decision.groupingTreatment), l.setAttribute("data-item-presentation", I.decision.itemPresentation), l.setAttribute("data-align", I.decision.alignment));
       }
       const f = l.getAttribute("data-role") || "generic-container", T = [...d, f];
       u.some(
-        (R) => ["div", "section", "article", "form", "nav", "header", "footer"].includes(R.tagName.toLowerCase())
+        (B) => ["div", "section", "article", "form", "nav", "header", "footer"].includes(B.tagName.toLowerCase())
       ) || Array.from(l.querySelectorAll('button, input[type="submit"]')).forEach((E) => {
         if (!E.getAttribute("data-role")) {
-          let B = "button";
-          f === "hero" || f === "header" ? B = "cta-button" : f === "navigation" ? B = "nav-action" : f === "pricing-card" || f === "pricing-grid" ? B = "pricing-action" : f === "card" || f === "card-grid" || f === "feature-item" || f === "feature-group" ? B = "card-action" : f === "form" && (B = "form-submit"), E.setAttribute("data-role", B);
+          let R = "button";
+          f === "hero" || f === "header" ? R = "cta-button" : f === "navigation" ? R = "nav-action" : f === "pricing-card" || f === "pricing-grid" ? R = "pricing-action" : f === "card" || f === "card-grid" || f === "feature-item" || f === "feature-group" ? R = "card-action" : f === "form" && (R = "form-submit"), E.setAttribute("data-role", R);
         }
-      }), u.forEach((R, E) => {
-        const B = R.tagName.toLowerCase();
-        ["div", "section", "article", "form", "nav", "header", "footer"].includes(B) && o(R, s + 1, E, u.length, f, T);
+      }), u.forEach((B, E) => {
+        const R = B.tagName.toLowerCase();
+        ["div", "section", "article", "form", "nav", "header", "footer"].includes(R) && o(B, r + 1, E, u.length, f, T);
       });
     };
     o(a, 1, 0, 1);
@@ -45802,18 +47431,18 @@ class ut {
       try {
         const i = new DOMParser().parseFromString(t, "text/html");
         return this.FORBIDDEN_TAGS.forEach((o) => {
-          i.querySelectorAll(o).forEach((s) => s.remove());
+          i.querySelectorAll(o).forEach((r) => r.remove());
         }), i.body.querySelectorAll("*").forEach((o) => {
           const l = Array.from(o.attributes);
-          for (const s of l) {
-            const n = s.name.toLowerCase();
+          for (const r of l) {
+            const n = r.name.toLowerCase();
             if (n.startsWith("on")) {
-              o.removeAttribute(s.name);
+              o.removeAttribute(r.name);
               continue;
             }
             if (["href", "src", "action", "formaction"].includes(n)) {
-              const h = s.value.trim().toLowerCase();
-              this.DANGEROUS_URI_SCHEMES.some((m) => h.startsWith(m)) && o.removeAttribute(s.name);
+              const b = r.value.trim().toLowerCase();
+              this.DANGEROUS_URI_SCHEMES.some((m) => b.startsWith(m)) && o.removeAttribute(r.name);
             }
           }
         }), i.body.innerHTML;
@@ -45842,8 +47471,8 @@ W(ut, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
   "data:application/javascript"
 ]);
 class St {
-  static plan(t, e, a, i, r) {
-    const o = r || {
+  static plan(t, e, a, i, s) {
+    const o = s || {
       primaryContext: "landing-page",
       confidence: 0.85,
       rationale: "Default structural context",
@@ -45872,19 +47501,19 @@ class St {
       a,
       void 0,
       o
-    ), s = [], n = this.planSection(t, "hero", a, o.primaryContext);
-    s.push(n);
-    const h = this.planSection(t, "feature-section", a, o.primaryContext);
-    s.push(h);
+    ), r = [], n = this.planSection(t, "hero", a, o.primaryContext);
+    r.push(n);
+    const b = this.planSection(t, "feature-section", a, o.primaryContext);
+    r.push(b);
     const m = this.planSection(t, "navigation", a, o.primaryContext);
-    if (s.push(m), i && i.length > 0)
+    if (r.push(m), i && i.length > 0)
       for (const p of i)
-        ["hero", "feature-section", "navigation"].includes(p.role) || s.push(this.planSection(t, p.role, p.signals, o.primaryContext));
+        ["hero", "feature-section", "navigation"].includes(p.role) || r.push(this.planSection(t, p.role, p.signals, o.primaryContext));
     const d = $.extractFingerprint(
       t,
       l,
       o.primaryContext,
-      s
+      r
     );
     return {
       styleId: t,
@@ -45896,9 +47525,9 @@ class St {
       alignment: l.alignment,
       density: l.density,
       heroPlan: n,
-      featuresPlan: h,
+      featuresPlan: b,
       navPlan: m,
-      sectionPlans: s,
+      sectionPlans: r,
       fingerprint: d
     };
   }
@@ -45906,32 +47535,32 @@ class St {
    * Plans an individual section based on the design language's grammar and content context.
    */
   static planSection(t, e, a, i) {
-    const r = $.resolveDecision(
+    const s = $.resolveDecision(
       t,
       e,
       a,
       void 0,
       i
-    ), o = (a == null ? void 0 : a.childCount) ?? 3, l = (a == null ? void 0 : a.hasHeading) ?? !0, s = (e === "feature-section" || e === "section" || e === "card-grid" || e === "article" || e === "pricing-grid") && l && o >= 2, n = r.containerBoxCount ?? (r.containerTreatment === "borderless" || r.containerTreatment === "hairline-ledger" ? 0 : r.containerTreatment === "heavy-slab" ? 3 : r.containerTreatment === "hud-frame" ? 2 : 1);
+    ), o = (a == null ? void 0 : a.childCount) ?? 3, l = (a == null ? void 0 : a.hasHeading) ?? !0, r = (e === "feature-section" || e === "section" || e === "card-grid" || e === "article" || e === "pricing-grid") && l && o >= 2, n = s.containerBoxCount ?? (s.containerTreatment === "borderless" || s.containerTreatment === "hairline-ledger" ? 0 : s.containerTreatment === "heavy-slab" ? 3 : s.containerTreatment === "hud-frame" ? 2 : 1);
     return {
       role: e,
-      layoutMode: r.layoutMode,
-      columns: r.columns,
-      columnDistribution: r.columnDistribution,
-      containerTreatment: r.containerTreatment,
-      groupingTreatment: r.groupingTreatment,
-      itemPresentation: r.itemPresentation,
-      alignment: r.alignment,
-      density: r.density,
-      maxWidth: r.maxWidth,
-      hasStructuralBorders: r.hasStructuralBorders,
-      hasAsymmetricOffsets: r.hasAsymmetricOffsets,
-      hasDecorativeFraming: r.hasDecorativeFraming,
-      needsLayoutGroup: s,
-      sectionSpacing: r.sectionSpacing,
+      layoutMode: s.layoutMode,
+      columns: s.columns,
+      columnDistribution: s.columnDistribution,
+      containerTreatment: s.containerTreatment,
+      groupingTreatment: s.groupingTreatment,
+      itemPresentation: s.itemPresentation,
+      alignment: s.alignment,
+      density: s.density,
+      maxWidth: s.maxWidth,
+      hasStructuralBorders: s.hasStructuralBorders,
+      hasAsymmetricOffsets: s.hasAsymmetricOffsets,
+      hasDecorativeFraming: s.hasDecorativeFraming,
+      needsLayoutGroup: r,
+      sectionSpacing: s.sectionSpacing,
       containerBoxCount: n,
-      readingMeasure: r.readingMeasure,
-      typographyScale: r.typographyScale
+      readingMeasure: s.readingMeasure,
+      typographyScale: s.typographyScale
     };
   }
 }
@@ -45941,9 +47570,9 @@ class Ct {
    */
   static transformAST(t, e) {
     const a = this.computeASTTextLength(t), i = this.computeASTElementCount(t);
-    for (const s of t)
-      this.transformNodeRecursively(s, e);
-    const r = this.computeASTTextLength(t), o = this.computeASTElementCount(t), l = r >= a * 0.99 && o >= i;
+    for (const r of t)
+      this.transformNodeRecursively(r, e);
+    const s = this.computeASTTextLength(t), o = this.computeASTElementCount(t), l = s >= a * 0.99 && o >= i;
     return {
       transformedNodes: t,
       safetyPassed: l
@@ -45957,27 +47586,27 @@ class Ct {
       t.querySelectorAll('section, [data-role="feature-section"], [data-role="hero"]')
     );
     for (const o of i) {
-      const l = o.getAttribute("data-role") || "feature-section", s = e.sectionPlans.find((n) => n.role === l) || e.featuresPlan;
-      s && s.needsLayoutGroup && this.groupDOMSectionItems(o, s.groupingTreatment, s.itemPresentation);
+      const l = o.getAttribute("data-role") || "feature-section", r = e.sectionPlans.find((n) => n.role === l) || e.featuresPlan;
+      r && r.needsLayoutGroup && this.groupDOMSectionItems(o, r.groupingTreatment, r.itemPresentation);
     }
     return {
       safetyPassed: (t.textContent || "").trim().length >= a * 0.99
     };
   }
   static transformNodeRecursively(t, e) {
-    const a = t.attrs["data-role"] || "generic-container", i = e.sectionPlans.find((s) => s.role === a) || (a === "hero" ? e.heroPlan : e.featuresPlan), r = t.children.filter(
-      (s) => typeof s != "string"
-    ), o = r.some((s) => /^h[1-6]$/.test(s.tag)), l = r.filter((s) => !/^h[1-6]$/.test(s.tag) && s.tag !== "header");
-    if (i && i.needsLayoutGroup && (a === "feature-section" || a === "section" || a === "card-grid") && o && l.length >= 2 && !(r.length === 2 && r[1].attrs["data-layout-group"] === "items")) {
+    const a = t.attrs["data-role"] || "generic-container", i = e.sectionPlans.find((r) => r.role === a) || (a === "hero" ? e.heroPlan : e.featuresPlan), s = t.children.filter(
+      (r) => typeof r != "string"
+    ), o = s.some((r) => /^h[1-6]$/.test(r.tag)), l = s.filter((r) => !/^h[1-6]$/.test(r.tag) && r.tag !== "header");
+    if (i && i.needsLayoutGroup && (a === "feature-section" || a === "section" || a === "card-grid") && o && l.length >= 2 && !(s.length === 2 && s[1].attrs["data-layout-group"] === "items")) {
       t.children.filter(
         (d) => typeof d != "string" && /^h[1-6]$/.test(d.tag)
       ).forEach((d) => {
         typeof d != "string" && (d.attrs["data-layout-slot"] = "heading");
       });
-      const h = [], m = [];
+      const b = [], m = [];
       for (const d of t.children)
-        typeof d != "string" && /^h[1-6]$/.test(d.tag) || typeof d != "string" && d.tag === "header" ? m.push(d) : typeof d == "string" ? d.trim().length > 0 && h.push(d) : h.push(d);
-      if (h.length > 0) {
+        typeof d != "string" && /^h[1-6]$/.test(d.tag) || typeof d != "string" && d.tag === "header" ? m.push(d) : typeof d == "string" ? d.trim().length > 0 && b.push(d) : b.push(d);
+      if (b.length > 0) {
         const d = {
           tag: "div",
           attrs: {
@@ -45985,26 +47614,26 @@ class Ct {
             "data-grouping": i.groupingTreatment,
             "data-item-presentation": i.itemPresentation
           },
-          children: h,
-          text: h.map((p) => typeof p == "string" ? p : p.text).join(" "),
+          children: b,
+          text: b.map((p) => typeof p == "string" ? p : p.text).join(" "),
           parent: t
         };
-        h.forEach((p) => {
+        b.forEach((p) => {
           typeof p != "string" && (p.parent = d);
         }), m.push(d), t.children = m;
       }
     }
-    for (const s of t.children)
-      typeof s != "string" && this.transformNodeRecursively(s, e);
+    for (const r of t.children)
+      typeof r != "string" && this.transformNodeRecursively(r, e);
   }
   static groupDOMSectionItems(t, e, a) {
-    const i = Array.from(t.children), r = i.find((l) => /^H[1-6]$/.test(l.tagName)), o = i.filter((l) => !/^H[1-6]$/.test(l.tagName) && l.tagName !== "HEADER");
-    if (r && o.length >= 2 && !t.querySelector('[data-layout-group="items"]')) {
-      r.setAttribute("data-layout-slot", "heading");
-      const s = document.createElement("div");
-      s.setAttribute("data-layout-group", "items"), s.setAttribute("data-grouping", e), s.setAttribute("data-item-presentation", a), o.forEach((n) => {
-        s.appendChild(n);
-      }), t.appendChild(s);
+    const i = Array.from(t.children), s = i.find((l) => /^H[1-6]$/.test(l.tagName)), o = i.filter((l) => !/^H[1-6]$/.test(l.tagName) && l.tagName !== "HEADER");
+    if (s && o.length >= 2 && !t.querySelector('[data-layout-group="items"]')) {
+      s.setAttribute("data-layout-slot", "heading");
+      const r = document.createElement("div");
+      r.setAttribute("data-layout-group", "items"), r.setAttribute("data-grouping", e), r.setAttribute("data-item-presentation", a), o.forEach((n) => {
+        r.appendChild(n);
+      }), t.appendChild(r);
     }
   }
   static computeASTTextLength(t) {
@@ -46017,8 +47646,8 @@ class Ct {
     let e = 0;
     const a = (i) => {
       e++;
-      for (const r of i.children)
-        typeof r != "string" && a(r);
+      for (const s of i.children)
+        typeof s != "string" && a(s);
     };
     for (const i of t)
       a(i);
@@ -46044,15 +47673,15 @@ class zt {
    * Extracts raw document statistics from HTML string using fast deterministic scanning.
    */
   static extractDocumentStats(t) {
-    const e = {}, a = [], i = [], r = t.replace(/<!--[\s\S]*?-->/g, ""), o = r.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(), l = /<([a-z0-9]+)(\s+[^>]*)?>/gi;
-    let s, n = 0;
-    for (; (s = l.exec(r)) !== null; ) {
-      const f = s[1].toLowerCase();
+    const e = {}, a = [], i = [], s = t.replace(/<!--[\s\S]*?-->/g, ""), o = s.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(), l = /<([a-z0-9]+)(\s+[^>]*)?>/gi;
+    let r, n = 0;
+    for (; (r = l.exec(s)) !== null; ) {
+      const f = r[1].toLowerCase();
       n++, e[f] = (e[f] || 0) + 1, /^h[1-6]$/.test(f) && a.push(parseInt(f[1], 10));
     }
-    const h = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
+    const b = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
     let m;
-    for (; (m = h.exec(r)) !== null; ) {
+    for (; (m = b.exec(s)) !== null; ) {
       const f = m[1].replace(/<[^>]+>/g, "").trim();
       i.push(f.length);
     }
@@ -46060,7 +47689,7 @@ class zt {
     const u = /<(\/)?([a-z0-9]+)(?:\s+[^>]*?)?(\/)?>/gi;
     let g;
     const F = /* @__PURE__ */ new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
-    for (; (g = u.exec(r)) !== null; ) {
+    for (; (g = u.exec(s)) !== null; ) {
       const f = !!g[1], T = g[2].toLowerCase(), A = !!g[3] || F.has(T);
       f ? p = Math.max(0, p - 1) : A || (p++, p > d && (d = p));
     }
@@ -46098,14 +47727,14 @@ class zt {
       const p = d.tagName.toLowerCase();
       i[p] = (i[p] || 0) + 1;
     });
-    const o = Array.from(t.querySelectorAll("h1, h2, h3, h4, h5, h6")).map((d) => parseInt(d.tagName[1], 10)), l = Array.from(t.querySelectorAll("p")), s = l.map((d) => (d.textContent || "").trim().length);
+    const o = Array.from(t.querySelectorAll("h1, h2, h3, h4, h5, h6")).map((d) => parseInt(d.tagName[1], 10)), l = Array.from(t.querySelectorAll("p")), r = l.map((d) => (d.textContent || "").trim().length);
     let n = 1;
-    const h = (d, p) => {
+    const b = (d, p) => {
       p > n && (n = p);
       for (const u of Array.from(d.children))
-        h(u, p + 1);
+        b(u, p + 1);
     };
-    h(t, 1);
+    b(t, 1);
     const m = t.querySelectorAll("section, article, header, footer").length || 1;
     return {
       text: e,
@@ -46115,7 +47744,7 @@ class zt {
       headingCount: o.length,
       headingLevels: o,
       paragraphCount: l.length,
-      paragraphLengths: s,
+      paragraphLengths: r,
       buttonCount: t.querySelectorAll('button, input[type="submit"], a.button').length,
       inputCount: t.querySelectorAll("input, textarea, select").length,
       linkCount: t.querySelectorAll("a").length,
@@ -46131,9 +47760,9 @@ class zt {
    * Computes normalized document signals.
    */
   static computeDocumentSignals(t, e) {
-    const a = t.text.toLowerCase(), i = /[$€£¥₹]/.test(t.text), r = /\b(pricing|tiers?|plans?|\/mo|\/month|\/yr|\/year|billed|subscription|free|pro|enterprise)\b/i.test(
+    const a = t.text.toLowerCase(), i = /[$€£¥₹]/.test(t.text), s = /\b(pricing|tiers?|plans?|\/mo|\/month|\/yr|\/year|billed|subscription|free|pro|enterprise)\b/i.test(
       a
-    ), o = i && r || e && (e.includes("pricing-card") || e.includes("pricing-grid")), l = t.text.replace(/\b(19|20)\d{2}\b/g, ""), s = /\b(\d+(?:\.\d+)?\s*(?:%|ms|kb|mb|gb|tb|qps|req\/s|ops\/sec|ghz|mhz|k|m|b)\b)/i, n = /\b(cpu|memory|latency|throughput|uptime|storage|telemetry|active nodes|status|metrics?|bandwidth|requests|diagnostics)\b/i, h = s.test(t.text) || /\b\d{1,4}(?:,\d{3})*\b/.test(l) && n.test(a) && t.repeatedChildContainers >= 3, m = h && n.test(a) && !o && t.buttonCount <= 2, p = /\b(studio|selected work|portfolio|case stud(?:y|ies)|brand identity|editorial system|digital product|client|art direction|visual identity|exhibition|work)\b/i.test(a) && (t.tagCounts.article >= 2 || t.repeatedChildContainers >= 2) && !o && !m, u = t.paragraphLengths.some((v) => v > 120) || t.paragraphLengths.length >= 3, g = t.blockquoteCount > 0, z = u && (g || /\b(written by|published|read time|min read|author|essay|journal|curated|dispatch)\b/i.test(a) || t.tagCounts.article > 0) && t.buttonCount <= 2 && !o && !m, f = t.inputCount >= 2 || t.tagCounts.form !== void 0 && t.tagCounts.form > 0 && t.inputCount >= 1, T = t.text.trim().split(/\s+/).filter(Boolean).length, A = t.totalElements > 0 ? T / t.totalElements : 0;
+    ), o = i && s || e && (e.includes("pricing-card") || e.includes("pricing-grid")), l = t.text.replace(/\b(19|20)\d{2}\b/g, ""), r = /\b(\d+(?:\.\d+)?\s*(?:%|ms|kb|mb|gb|tb|qps|req\/s|ops\/sec|ghz|mhz|k|m|b)\b)/i, n = /\b(cpu|memory|latency|throughput|uptime|storage|telemetry|active nodes|status|metrics?|bandwidth|requests|diagnostics)\b/i, b = r.test(t.text) || /\b\d{1,4}(?:,\d{3})*\b/.test(l) && n.test(a) && t.repeatedChildContainers >= 3, m = b && n.test(a) && !o && t.buttonCount <= 2, p = /\b(studio|selected work|portfolio|case stud(?:y|ies)|brand identity|editorial system|digital product|client|art direction|visual identity|exhibition|work)\b/i.test(a) && (t.tagCounts.article >= 2 || t.repeatedChildContainers >= 2) && !o && !m, u = t.paragraphLengths.some((v) => v > 120) || t.paragraphLengths.length >= 3, g = t.blockquoteCount > 0, z = u && (g || /\b(written by|published|read time|min read|author|essay|journal|curated|dispatch)\b/i.test(a) || t.tagCounts.article > 0) && t.buttonCount <= 2 && !o && !m, f = t.inputCount >= 2 || t.tagCounts.form !== void 0 && t.tagCounts.form > 0 && t.inputCount >= 1, T = t.text.trim().split(/\s+/).filter(Boolean).length, A = t.totalElements > 0 ? T / t.totalElements : 0;
     return {
       sectionCount: t.sectionCount,
       repeatedItemCount: t.repeatedChildContainers,
@@ -46144,7 +47773,7 @@ class zt {
       imageCount: t.imageCount,
       inputCount: t.inputCount,
       hasCurrency: i,
-      hasMetricsOrNumbers: h,
+      hasMetricsOrNumbers: b,
       hasQuotes: t.blockquoteCount > 0,
       isPortfolioSignaled: !!p,
       hasArticleStructure: z,
@@ -46237,29 +47866,29 @@ class na {
    * Pass options.transformStructure = true to enable presentation-level layout wrapping transformations.
    */
   static analyzeHtml(t, e, a, i) {
-    const r = ut.sanitize(t);
+    const s = ut.sanitize(t);
     if (typeof DOMParser < "u")
       try {
-        return this.analyzeWithDOMParser(r, e, a, i);
+        return this.analyzeWithDOMParser(s, e, a, i);
       } catch (o) {
         console.warn("[DOMAnalyzer] DOMParser failed, falling back to AST parser:", o);
       }
-    return this.analyzeWithAST(r, e, a, i);
+    return this.analyzeWithAST(s, e, a, i);
   }
   /**
    * Browser-native analysis using DOMParser
    */
   static analyzeWithDOMParser(t, e, a, i) {
-    const l = new DOMParser().parseFromString(t, "text/html").body, s = Array.from(l.querySelectorAll("*")), n = l.querySelectorAll("h1, h2, h3, h4, h5, h6").length, h = l.querySelectorAll('button, input[type="submit"], a.button').length, m = l.querySelectorAll("input, textarea, select").length, d = l.textContent || "", p = /[$€£¥]|\/mo\b|pricing/i.test(d), u = [], g = zt.analyzeDOM(l), F = (b, D, P, x, M, K = []) => {
+    const l = new DOMParser().parseFromString(t, "text/html").body, r = Array.from(l.querySelectorAll("*")), n = l.querySelectorAll("h1, h2, h3, h4, h5, h6").length, b = l.querySelectorAll('button, input[type="submit"], a.button').length, m = l.querySelectorAll("input, textarea, select").length, d = l.textContent || "", p = /[$€£¥]|\/mo\b|pricing/i.test(d), u = [], g = zt.analyzeDOM(l), F = (h, D, P, x, M, K = []) => {
       var pt, V;
-      const H = b.tagName.toLowerCase(), J = Array.from(b.children), st = J.map((U) => U.tagName.toLowerCase()), tt = b.textContent || "", mt = /[$€£¥]|\/mo\b|pricing/i.test(tt), w = [], ot = (U) => {
+      const H = h.tagName.toLowerCase(), J = Array.from(h.children), rt = J.map((U) => U.tagName.toLowerCase()), tt = h.textContent || "", mt = /[$€£¥]|\/mo\b|pricing/i.test(tt), w = [], ot = (U) => {
         for (const Q of Array.from(U.children))
           w.push(Q.tagName.toLowerCase()), ot(Q);
       };
-      ot(b);
-      const N = it.analyze({
+      ot(h);
+      const O = it.analyze({
         tag: H,
-        childrenTags: st,
+        childrenTags: rt,
         descendantTags: w,
         text: tt,
         childCount: J.length,
@@ -46268,20 +47897,20 @@ class na {
         totalSiblings: x,
         siblingIndex: P,
         parentRole: M,
-        parentTag: (pt = b.parentElement) == null ? void 0 : pt.tagName.toLowerCase(),
+        parentTag: (pt = h.parentElement) == null ? void 0 : pt.tagName.toLowerCase(),
         ancestorRoles: K
-      }), k = bt.resolveRole(N, e, g), lt = q.resolveRecipe(e, k, a), G = k.decision;
-      b.setAttribute("data-role", k.role), b.setAttribute("data-composition", k.composition), b.setAttribute("data-density", k.density), /^h[1-6]$/i.test(H) && b.setAttribute("data-layout-slot", "heading");
-      const nt = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(H), dt = /^(header|nav|footer)$/i.test(H), ht = k.role === "feature-item" || k.role === "card" || k.role === "pricing-card" || H === "article", ct = (k.role === "feature-group" || k.role === "card-grid" || k.role === "pricing-grid" || J.length >= 2 && J.some((U) => U.tagName.toLowerCase() === "article" || U.getAttribute("data-role") === "feature-item")) && !nt && !dt, O = !nt && !dt && (H === "section" || H === "main" || H === "form" || k.role === "hero" || k.role === "feature-section" || k.role === "pricing-grid" || k.role === "card-grid" || D === 1);
-      if (ht) {
-        const Q = Array.from(((V = b.parentElement) == null ? void 0 : V.children) || []).filter((yt) => {
+      }), k = ht.resolveRole(O, e, g), lt = q.resolveRecipe(e, k, a), G = k.decision;
+      h.setAttribute("data-role", k.role), h.setAttribute("data-composition", k.composition), h.setAttribute("data-density", k.density), /^h[1-6]$/i.test(H) && h.setAttribute("data-layout-slot", "heading");
+      const nt = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(H), dt = /^(header|nav|footer)$/i.test(H), bt = k.role === "feature-item" || k.role === "card" || k.role === "pricing-card" || H === "article", ct = (k.role === "feature-group" || k.role === "card-grid" || k.role === "pricing-grid" || J.length >= 2 && J.some((U) => U.tagName.toLowerCase() === "article" || U.getAttribute("data-role") === "feature-item")) && !nt && !dt, N = !nt && !dt && (H === "section" || H === "main" || H === "form" || k.role === "hero" || k.role === "feature-section" || k.role === "pricing-grid" || k.role === "card-grid" || D === 1);
+      if (bt) {
+        const Q = Array.from(((V = h.parentElement) == null ? void 0 : V.children) || []).filter((yt) => {
           var vt, xt;
           const gt = (vt = yt.tagName) == null ? void 0 : vt.toLowerCase(), Ht = (xt = yt.getAttribute) == null ? void 0 : xt.call(yt, "data-role");
           return gt === H || Ht === k.role || gt === "article";
-        }).indexOf(b), Mt = Q >= 0 ? Q % 3 : k.variantIndex;
-        b.setAttribute("data-variant", String(Mt)), G && b.setAttribute("data-item-presentation", G.itemPresentation);
+        }).indexOf(h), Mt = Q >= 0 ? Q % 3 : k.variantIndex;
+        h.setAttribute("data-variant", String(Mt)), G && h.setAttribute("data-item-presentation", G.itemPresentation);
       }
-      O && G && (b.setAttribute("data-layout", G.layoutMode), b.setAttribute("data-container", G.containerTreatment), b.setAttribute("data-align", G.alignment)), ct && G && b.setAttribute("data-grouping", G.groupingTreatment), u.push({
+      N && G && (h.setAttribute("data-layout", G.layoutMode), h.setAttribute("data-container", G.containerTreatment), h.setAttribute("data-align", G.alignment)), ct && G && h.setAttribute("data-grouping", G.groupingTreatment), u.push({
         tag: H,
         role: k.role,
         composition: k.composition,
@@ -46297,19 +47926,19 @@ class na {
         F(U, D + 1, Q, J.length, k.role, L);
       });
     }, z = Array.from(l.children);
-    z.forEach((b, D) => {
-      F(b, 1, D, z.length);
-    }), Array.from(l.querySelectorAll('button, input[type="submit"], a.button')).forEach((b) => {
+    z.forEach((h, D) => {
+      F(h, 1, D, z.length);
+    }), Array.from(l.querySelectorAll('button, input[type="submit"], a.button')).forEach((h) => {
       var M;
-      const D = (M = b.parentElement) == null ? void 0 : M.closest("[data-role]:not(button):not(input):not(a)"), P = (D == null ? void 0 : D.getAttribute("data-role")) || "generic-container";
+      const D = (M = h.parentElement) == null ? void 0 : M.closest("[data-role]:not(button):not(input):not(a)"), P = (D == null ? void 0 : D.getAttribute("data-role")) || "generic-container";
       let x = "button";
-      P === "hero" || P === "header" ? x = "cta-button" : P === "navigation" ? x = "nav-action" : P === "pricing-card" || P === "pricing-grid" ? x = "pricing-action" : P === "feature-item" || P === "card" || P === "card-grid" || P === "feature-group" ? x = "card-action" : P === "form" && (x = "form-submit"), b.setAttribute("data-role", x);
+      P === "hero" || P === "header" ? x = "cta-button" : P === "navigation" ? x = "nav-action" : P === "pricing-card" || P === "pricing-grid" ? x = "pricing-action" : P === "feature-item" || P === "card" || P === "card-grid" || P === "feature-group" ? x = "card-action" : P === "form" && (x = "form-submit"), h.setAttribute("data-role", x);
     });
-    const T = z[0] || l, A = T.getAttribute("data-role") || "generic-container", v = T.getAttribute("data-composition") || "generic-balanced", R = T.getAttribute("data-density") || "normal", E = u[0], B = (A === "generic-container" || A === "page") && (u.find((b) => b.role === "feature-section") || u.find((b) => b.role === "hero") || u.find((b) => b.role === "pricing-card") || u.find((b) => b.role === "article")) || E, I = (A === "generic-container" || A === "page") && (B == null ? void 0 : B.role) || A, y = St.plan(
+    const T = z[0] || l, A = T.getAttribute("data-role") || "generic-container", v = T.getAttribute("data-composition") || "generic-balanced", B = T.getAttribute("data-density") || "normal", E = u[0], R = (A === "generic-container" || A === "page") && (u.find((h) => h.role === "feature-section") || u.find((h) => h.role === "hero") || u.find((h) => h.role === "pricing-card") || u.find((h) => h.role === "article")) || E, I = (A === "generic-container" || A === "page") && (R == null ? void 0 : R.role) || A, y = St.plan(
       e,
       I,
       void 0,
-      u.map((b) => ({ role: b.role, signals: {} })),
+      u.map((h) => ({ role: h.role, signals: {} })),
       g
     );
     (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformDOM(l, y);
@@ -46317,7 +47946,7 @@ class na {
       e,
       I,
       void 0,
-      R,
+      B,
       g
     ), Y = $.extractFingerprint(
       e,
@@ -46331,7 +47960,7 @@ class na {
       styleId: e,
       rootRole: A,
       composition: v,
-      density: R,
+      density: B,
       decision: C,
       plan: y,
       fingerprint: Y,
@@ -46341,9 +47970,9 @@ class na {
       modifiers: [`variant-${T.getAttribute("data-variant") || "0"}`],
       detectedBlocks: u,
       stats: {
-        totalElements: s.length,
+        totalElements: r.length,
         headingCount: n,
-        buttonCount: h,
+        buttonCount: b,
         inputCount: m,
         hasCurrency: p
       },
@@ -46355,102 +47984,102 @@ class na {
    * Parses the HTML tree, stamps attributes on all nodes recursively, and serializes back.
    */
   static analyzeWithAST(t, e, a, i) {
-    const r = this.parseMiniAST(t);
+    const s = this.parseMiniAST(t);
     let o = 0;
-    const l = [], s = zt.analyze(t);
-    let n = 0, h = 0, m = 0;
-    const d = (y, C, Y, b, D, P = []) => {
+    const l = [], r = zt.analyze(t);
+    let n = 0, b = 0, m = 0;
+    const d = (y, C, Y, h, D, P = []) => {
       var ct;
       o++;
       const x = y.tag.toLowerCase();
-      /^h[1-6]$/.test(x) && n++, x === "button" && h++, (x === "input" || x === "textarea" || x === "select") && m++;
-      const M = y.children.filter((O) => typeof O != "string"), K = M.map((O) => O.tag.toLowerCase()), H = y.text || "", J = /[$€£¥]|\/mo\b|pricing/i.test(H), st = [], tt = (O) => {
-        for (const L of O.children)
-          typeof L != "string" && (st.push(L.tag.toLowerCase()), tt(L));
+      /^h[1-6]$/.test(x) && n++, x === "button" && b++, (x === "input" || x === "textarea" || x === "select") && m++;
+      const M = y.children.filter((N) => typeof N != "string"), K = M.map((N) => N.tag.toLowerCase()), H = y.text || "", J = /[$€£¥]|\/mo\b|pricing/i.test(H), rt = [], tt = (N) => {
+        for (const L of N.children)
+          typeof L != "string" && (rt.push(L.tag.toLowerCase()), tt(L));
       };
       tt(y);
       const mt = it.analyze({
         tag: x,
         childrenTags: K,
-        descendantTags: st,
+        descendantTags: rt,
         text: H,
         childCount: M.length,
         hasPriceText: J,
         depth: C,
-        totalSiblings: b,
+        totalSiblings: h,
         siblingIndex: Y,
         parentRole: D,
         parentTag: (ct = y.parent) == null ? void 0 : ct.tag.toLowerCase(),
         ancestorRoles: P
-      }), w = bt.resolveRole(mt, e, s), ot = q.resolveRecipe(e, w, a), N = w.decision;
+      }), w = ht.resolveRole(mt, e, r), ot = q.resolveRecipe(e, w, a), O = w.decision;
       y.attrs["data-role"] = w.role, y.attrs["data-composition"] = w.composition, y.attrs["data-density"] = w.density, /^h[1-6]$/i.test(x) && (y.attrs["data-layout-slot"] = "heading");
-      const k = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(x), lt = /^(header|nav|footer)$/i.test(x), G = w.role === "feature-item" || w.role === "card" || w.role === "pricing-card" || x === "article", nt = (w.role === "feature-group" || w.role === "card-grid" || w.role === "pricing-grid" || M.length >= 2 && M.some((O) => O.tag.toLowerCase() === "article" || O.attrs["data-role"] === "feature-item")) && !k && !lt, dt = !k && !lt && (x === "section" || x === "main" || x === "form" || w.role === "hero" || w.role === "feature-section" || w.role === "pricing-grid" || w.role === "card-grid" || C === 1);
+      const k = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(x), lt = /^(header|nav|footer)$/i.test(x), G = w.role === "feature-item" || w.role === "card" || w.role === "pricing-card" || x === "article", nt = (w.role === "feature-group" || w.role === "card-grid" || w.role === "pricing-grid" || M.length >= 2 && M.some((N) => N.tag.toLowerCase() === "article" || N.attrs["data-role"] === "feature-item")) && !k && !lt, dt = !k && !lt && (x === "section" || x === "main" || x === "form" || w.role === "hero" || w.role === "feature-section" || w.role === "pricing-grid" || w.role === "card-grid" || C === 1);
       if (G) {
         const L = (y.parent ? y.parent.children.filter((V) => typeof V != "string").filter(
           (V) => V.tag.toLowerCase() === x || V.attrs["data-role"] === w.role || V.tag.toLowerCase() === "article"
         ) : []).indexOf(y), pt = L >= 0 ? L % 3 : w.variantIndex;
-        y.attrs["data-variant"] = String(pt), N && (y.attrs["data-item-presentation"] = N.itemPresentation);
+        y.attrs["data-variant"] = String(pt), O && (y.attrs["data-item-presentation"] = O.itemPresentation);
       }
-      dt && N && (y.attrs["data-layout"] = N.layoutMode, y.attrs["data-container"] = N.containerTreatment, y.attrs["data-align"] = N.alignment), nt && N && (y.attrs["data-grouping"] = N.groupingTreatment), l.push({
+      dt && O && (y.attrs["data-layout"] = O.layoutMode, y.attrs["data-container"] = O.containerTreatment, y.attrs["data-align"] = O.alignment), nt && O && (y.attrs["data-grouping"] = O.groupingTreatment), l.push({
         tag: x,
         role: w.role,
         composition: w.composition,
         density: w.density,
-        decision: N,
+        decision: O,
         recipeName: ot.recipeName,
         confidence: w.confidence,
         textSummary: H.trim().slice(0, 60),
         depth: C
       });
-      const ht = [...P, w.role];
-      M.forEach((O, L) => {
-        d(O, C + 1, L, M.length, w.role, ht);
+      const bt = [...P, w.role];
+      M.forEach((N, L) => {
+        d(N, C + 1, L, M.length, w.role, bt);
       });
     };
-    r.forEach((y, C) => {
-      d(y, 1, C, r.length);
+    s.forEach((y, C) => {
+      d(y, 1, C, s.length);
     });
     const p = (y, C) => {
       const Y = y.attrs["data-role"] || C;
       if (y.tag === "button") {
-        let b = "button";
-        C === "hero" || C === "header" ? b = "cta-button" : C === "navigation" ? b = "nav-action" : C === "pricing-card" || C === "pricing-grid" ? b = "pricing-action" : C === "feature-item" || C === "card" || C === "card-grid" || C === "feature-group" ? b = "card-action" : C === "form" && (b = "form-submit"), y.attrs["data-role"] = b;
+        let h = "button";
+        C === "hero" || C === "header" ? h = "cta-button" : C === "navigation" ? h = "nav-action" : C === "pricing-card" || C === "pricing-grid" ? h = "pricing-action" : C === "feature-item" || C === "card" || C === "card-grid" || C === "feature-group" ? h = "card-action" : C === "form" && (h = "form-submit"), y.attrs["data-role"] = h;
       }
-      y.children.forEach((b) => {
-        typeof b != "string" && p(b, Y);
+      y.children.forEach((h) => {
+        typeof h != "string" && p(h, Y);
       });
     };
-    r.forEach((y) => p(y));
-    const u = r[0], g = (u == null ? void 0 : u.attrs["data-role"]) || "generic-container", F = (u == null ? void 0 : u.attrs["data-composition"]) || "generic-balanced", z = (u == null ? void 0 : u.attrs["data-density"]) || "normal", f = l[0], T = (g === "generic-container" || g === "page") && (l.find((y) => y.role === "feature-section") || l.find((y) => y.role === "hero") || l.find((y) => y.role === "pricing-card") || l.find((y) => y.role === "article")) || f, A = (g === "generic-container" || g === "page") && (T == null ? void 0 : T.role) || g, v = St.plan(
+    s.forEach((y) => p(y));
+    const u = s[0], g = (u == null ? void 0 : u.attrs["data-role"]) || "generic-container", F = (u == null ? void 0 : u.attrs["data-composition"]) || "generic-balanced", z = (u == null ? void 0 : u.attrs["data-density"]) || "normal", f = l[0], T = (g === "generic-container" || g === "page") && (l.find((y) => y.role === "feature-section") || l.find((y) => y.role === "hero") || l.find((y) => y.role === "pricing-card") || l.find((y) => y.role === "article")) || f, A = (g === "generic-container" || g === "page") && (T == null ? void 0 : T.role) || g, v = St.plan(
       e,
       A,
       void 0,
       l.map((y) => ({ role: y.role, signals: {} })),
-      s
+      r
     );
-    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformAST(r, v);
-    const R = $.resolveDecision(
+    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformAST(s, v);
+    const B = $.resolveDecision(
       e,
       A,
       void 0,
       z,
-      s
+      r
     ), E = $.extractFingerprint(
       e,
-      R,
-      s.primaryContext,
+      B,
+      r.primaryContext,
       v.sectionPlans
     );
-    u && (u.attrs["data-context"] = s.primaryContext);
-    const B = r.map((y) => this.serializeMiniNode(y)).join(""), I = /[$€£¥]|\/mo\b|pricing/i.test(t);
+    u && (u.attrs["data-context"] = r.primaryContext);
+    const R = s.map((y) => this.serializeMiniNode(y)).join(""), I = /[$€£¥]|\/mo\b|pricing/i.test(t);
     return {
       sanitizedHtml: t,
-      stampedHtml: B,
+      stampedHtml: R,
       styleId: e,
       rootRole: g,
       composition: F,
       density: z,
-      decision: R,
+      decision: B,
       plan: v,
       fingerprint: E,
       confidence: (f == null ? void 0 : f.confidence) ?? 0.85,
@@ -46461,11 +48090,11 @@ class na {
       stats: {
         totalElements: Math.max(o, 1),
         headingCount: n,
-        buttonCount: h,
+        buttonCount: b,
         inputCount: m,
         hasCurrency: I
       },
-      contentContext: s
+      contentContext: r
     };
   }
   /**
@@ -46473,9 +48102,9 @@ class na {
    */
   static parseMiniAST(t) {
     const e = [], a = [], i = /(?:<!--[\s\S]*?-->|<(\/)?([a-z0-9-]+)((?:\s+[^>]*?)?)\s*(\/)?>|([^<]+))/gi;
-    let r;
-    for (; (r = i.exec(t)) !== null; ) {
-      const [o, l, s, n, h, m] = r;
+    let s;
+    for (; (s = i.exec(t)) !== null; ) {
+      const [o, l, r, n, b, m] = s;
       if (!o.startsWith("<!--")) {
         if (m) {
           if (a.length > 0) {
@@ -46486,8 +48115,8 @@ class na {
           }
           continue;
         }
-        if (s) {
-          const d = s.toLowerCase();
+        if (r) {
+          const d = r.toLowerCase();
           if (l) {
             for (let p = a.length - 1; p >= 0; p--)
               if (a[p].tag === d) {
@@ -46511,7 +48140,7 @@ class na {
               text: "",
               parent: a[a.length - 1]
             };
-            a.length > 0 ? a[a.length - 1].children.push(u) : e.push(u), Tt.has(d) || !!h || a.push(u);
+            a.length > 0 ? a[a.length - 1].children.push(u) : e.push(u), Tt.has(d) || !!b || a.push(u);
           }
         }
       }
@@ -46525,8 +48154,8 @@ class na {
     const e = Object.entries(t.attrs), a = e.length > 0 ? " " + e.map(([o, l]) => `${o}="${l.replace(/"/g, "&quot;")}"`).join(" ") : "";
     if (Tt.has(t.tag))
       return `<${t.tag}${a}>`;
-    const r = t.children.map((o) => typeof o == "string" ? o : this.serializeMiniNode(o)).join("");
-    return `<${t.tag}${a}>${r}</${t.tag}>`;
+    const s = t.children.map((o) => typeof o == "string" ? o : this.serializeMiniNode(o)).join("");
+    return `<${t.tag}${a}>${s}</${t.tag}>`;
   }
   /**
    * Helper to extract composition fingerprint directly from an analysis report.
@@ -46541,30 +48170,30 @@ const ft = Gt(null), da = ({
   initialStyleId: e,
   children: a
 }) => {
-  const i = j(() => c || new ta(), [c]), [r, o] = at(t || e || "base");
+  const i = j(() => c || new ta(), [c]), [s, o] = at(t || e || "base");
   Lt(() => {
     typeof document < "u" && Ft(document);
   }, []);
   const l = j(() => ({
     level: "global",
-    styleId: r
-  }), [r]), s = j(() => i.resolveScope(l), [i, l]), n = () => {
+    styleId: s
+  }), [s]), r = j(() => i.resolveScope(l), [i, l]), n = () => {
     o("base");
-  }, h = (d) => ({
+  }, b = (d) => ({
     level: d.level,
-    styleId: d.styleId || r,
+    styleId: d.styleId || s,
     parentScope: l,
     tokenOverrides: d.tokenOverrides,
     componentOverrides: d.componentOverrides
   }), m = j(() => ({
     engine: i,
     currentScope: l,
-    resolvedStyle: s,
-    activeStyleId: r,
+    resolvedStyle: r,
+    activeStyleId: s,
     setActiveStyleId: o,
     resetToBaseStyle: n,
-    createChildScope: h
-  }), [i, l, s, r]);
+    createChildScope: b
+  }), [i, l, r, s]);
   return /* @__PURE__ */ S(ft.Provider, { value: m, children: a });
 };
 function Dt() {
@@ -46577,29 +48206,29 @@ function X() {
   const { resolvedStyle: c } = Dt();
   return c;
 }
-const rt = ({
+const st = ({
   level: c = "section",
   styleId: t,
   tokenOverrides: e,
   componentOverrides: a,
   className: i = "",
-  style: r = {},
+  style: s = {},
   as: o = "div",
   children: l
 }) => {
-  const s = Dt(), n = j(() => ({
+  const r = Dt(), n = j(() => ({
     level: c,
-    styleId: t || s.currentScope.styleId,
-    parentScope: s.currentScope,
+    styleId: t || r.currentScope.styleId,
+    parentScope: r.currentScope,
     tokenOverrides: e,
     componentOverrides: a
-  }), [c, t, s.currentScope, e, a]), h = j(() => s.engine.resolveScope(n), [s.engine, n]), m = j(() => ({
-    engine: s.engine,
+  }), [c, t, r.currentScope, e, a]), b = j(() => r.engine.resolveScope(n), [r.engine, n]), m = j(() => ({
+    engine: r.engine,
     currentScope: n,
-    resolvedStyle: h,
+    resolvedStyle: b,
     activeStyleId: n.styleId,
-    setActiveStyleId: s.setActiveStyleId,
-    resetToBaseStyle: s.resetToBaseStyle,
+    setActiveStyleId: r.setActiveStyleId,
+    resetToBaseStyle: r.resetToBaseStyle,
     createChildScope: (p) => ({
       level: p.level,
       styleId: p.styleId || n.styleId,
@@ -46607,26 +48236,26 @@ const rt = ({
       tokenOverrides: p.tokenOverrides,
       componentOverrides: p.componentOverrides
     })
-  }), [s.engine, s.setActiveStyleId, s.resetToBaseStyle, n, h]), d = j(() => ({
-    ...Z.toStyleObject(h.cssVariables),
-    ...r
-  }), [h.cssVariables, r]);
+  }), [r.engine, r.setActiveStyleId, r.resetToBaseStyle, n, b]), d = j(() => ({
+    ...Z.toStyleObject(b.cssVariables),
+    ...s
+  }), [b.cssVariables, s]);
   return /* @__PURE__ */ S(ft.Provider, { value: m, children: /* @__PURE__ */ S(
     o,
     {
       className: `ds-scope ds-scope-${c} ${i}`,
       style: d,
-      "data-style-id": h.styleId,
+      "data-style-id": b.styleId,
       "data-scope-level": c,
       children: l
     }
   ) });
 }, ca = ({ children: c, style: t = {}, className: e = "", ...a }) => {
-  const i = X(), r = i.components.page, l = {
+  const i = X(), s = i.components.page, l = {
     ...Z.toStyleObject(i.cssVariables),
-    backgroundColor: r.background,
-    color: r.color,
-    fontFamily: r.fontFamily,
+    backgroundColor: s.background,
+    color: s.color,
+    fontFamily: s.fontFamily,
     minHeight: "100vh",
     width: "100%",
     transition: "background-color 250ms ease, color 250ms ease",
@@ -46649,32 +48278,32 @@ const rt = ({
   className: e = "",
   ...a
 }) => {
-  const r = X().components.section, o = {
-    padding: r.padding,
-    backgroundColor: r.background,
-    borderColor: r.borderColor,
-    borderWidth: r.borderWidth,
-    borderStyle: r.borderStyle,
+  const s = X().components.section, o = {
+    padding: s.padding,
+    backgroundColor: s.background,
+    borderColor: s.borderColor,
+    borderWidth: s.borderWidth,
+    borderStyle: s.borderStyle,
     ...t
   };
   return /* @__PURE__ */ S("section", { ...a, className: `ds-section ${e}`, style: o, children: c });
-}, pa = ({ styleId: c, tokenOverrides: t, ...e }) => c || t ? /* @__PURE__ */ S(rt, { level: "section", styleId: c, tokenOverrides: t, as: "section", children: /* @__PURE__ */ S(It, { ...e }) }) : /* @__PURE__ */ S(It, { ...e }), At = ({
+}, pa = ({ styleId: c, tokenOverrides: t, ...e }) => c || t ? /* @__PURE__ */ S(st, { level: "section", styleId: c, tokenOverrides: t, as: "section", children: /* @__PURE__ */ S(It, { ...e }) }) : /* @__PURE__ */ S(It, { ...e }), At = ({
   children: c,
   style: t = {},
   className: e = "",
   onMouseEnter: a,
   onMouseLeave: i,
-  ...r
+  ...s
 }) => {
-  const l = X().components.card, [s, n] = at(!1), h = Z.getCardBaseStyle(l), m = s && l.hover ? l.hover : {}, d = {
-    ...h,
+  const l = X().components.card, [r, n] = at(!1), b = Z.getCardBaseStyle(l), m = r && l.hover ? l.hover : {}, d = {
+    ...b,
     ...m,
     ...t
   };
   return /* @__PURE__ */ S(
     "div",
     {
-      ...r,
+      ...s,
       className: `ds-card ${e}`,
       style: d,
       onMouseEnter: (p) => {
@@ -46686,16 +48315,16 @@ const rt = ({
       children: c
     }
   );
-}, ya = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(rt, { level: "component", styleId: c, as: "div", children: /* @__PURE__ */ S(At, { ...t }) }) : /* @__PURE__ */ S(At, { ...t }), Et = ({
+}, ya = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "div", children: /* @__PURE__ */ S(At, { ...t }) }) : /* @__PURE__ */ S(At, { ...t }), Et = ({
   children: c,
   style: t = {},
   className: e = "",
   onMouseEnter: a,
   onMouseLeave: i,
-  onMouseDown: r,
+  onMouseDown: s,
   onMouseUp: o,
   onFocus: l,
-  onBlur: s,
+  onBlur: r,
   ...n
 }) => {
   const m = X().components.button, [d, p] = at(!1), [u, g] = at(!1), [F, z] = at(!1), f = Z.getButtonBaseStyle(m), T = {
@@ -46720,7 +48349,7 @@ const rt = ({
         p(!1), g(!1), i == null || i(v);
       },
       onMouseDown: (v) => {
-        g(!0), r == null || r(v);
+        g(!0), s == null || s(v);
       },
       onMouseUp: (v) => {
         g(!1), o == null || o(v);
@@ -46729,26 +48358,26 @@ const rt = ({
         z(!0), l == null || l(v);
       },
       onBlur: (v) => {
-        z(!1), s == null || s(v);
+        z(!1), r == null || r(v);
       },
       children: c
     }
   );
-}, ma = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(rt, { level: "component", styleId: c, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ S(Et, { ...t }) }) : /* @__PURE__ */ S(Et, { ...t }), ha = ({
+}, ma = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ S(Et, { ...t }) }) : /* @__PURE__ */ S(Et, { ...t }), ba = ({
   level: c = 1,
   children: t,
   style: e = {},
   className: a = "",
   ...i
 }) => {
-  const r = X(), o = r.components.heading, l = {
-    1: r.tokens.typography.fontSize2xl,
-    2: r.tokens.typography.fontSizeXl,
-    3: r.tokens.typography.fontSizeLg,
-    4: r.tokens.typography.fontSizeBase,
-    5: r.tokens.typography.fontSizeSm,
-    6: r.tokens.typography.fontSizeXs
-  }, s = {
+  const s = X(), o = s.components.heading, l = {
+    1: s.tokens.typography.fontSize2xl,
+    2: s.tokens.typography.fontSizeXl,
+    3: s.tokens.typography.fontSizeLg,
+    4: s.tokens.typography.fontSizeBase,
+    5: s.tokens.typography.fontSizeSm,
+    6: s.tokens.typography.fontSizeXs
+  }, r = {
     fontFamily: o.fontFamily,
     fontWeight: o.fontWeight,
     letterSpacing: o.letterSpacing,
@@ -46761,31 +48390,31 @@ const rt = ({
   }, n = `h${c}`;
   return (
     // @ts-expect-error dynamic HTML heading tag
-    /* @__PURE__ */ S(n, { ...i, className: `ds-heading ds-heading-${c} ${a}`, style: s, children: t })
+    /* @__PURE__ */ S(n, { ...i, className: `ds-heading ds-heading-${c} ${a}`, style: r, children: t })
   );
-}, ba = ({
+}, ha = ({
   children: c,
   style: t = {},
   className: e = "",
   ...a
 }) => {
-  const r = X().components.paragraph, o = {
-    fontFamily: r.fontFamily,
-    fontSize: r.fontSize,
-    lineHeight: r.lineHeight,
-    color: r.color,
+  const s = X().components.paragraph, o = {
+    fontFamily: s.fontFamily,
+    fontSize: s.fontSize,
+    lineHeight: s.lineHeight,
+    color: s.color,
     margin: 0,
     ...t
   };
   return /* @__PURE__ */ S("p", { ...a, className: `ds-paragraph ${e}`, style: o, children: c });
-}, Rt = ({
+}, Bt = ({
   style: c = {},
   className: t = "",
   onFocus: e,
   onBlur: a,
   ...i
 }) => {
-  const o = X().components.input, [l, s] = at(!1), h = {
+  const o = X().components.input, [l, r] = at(!1), b = {
     ...Z.getInputBaseStyle(o),
     ...l ? {
       borderColor: o.focusBorderColor,
@@ -46798,27 +48427,27 @@ const rt = ({
     {
       ...i,
       className: `ds-input ${t}`,
-      style: h,
+      style: b,
       onFocus: (m) => {
-        s(!0), e == null || e(m);
+        r(!0), e == null || e(m);
       },
       onBlur: (m) => {
-        s(!1), a == null || a(m);
+        r(!1), a == null || a(m);
       }
     }
   );
-}, ua = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(rt, { level: "component", styleId: c, as: "span", style: { display: "inline-block", width: "100%" }, children: /* @__PURE__ */ S(Rt, { ...t }) }) : /* @__PURE__ */ S(Rt, { ...t }), Bt = ({
+}, ua = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "span", style: { display: "inline-block", width: "100%" }, children: /* @__PURE__ */ S(Bt, { ...t }) }) : /* @__PURE__ */ S(Bt, { ...t }), Rt = ({
   children: c,
   style: t = {},
   className: e = "",
   ...a
 }) => {
-  const r = X().components.badge, l = {
-    ...Z.getBadgeBaseStyle(r),
+  const s = X().components.badge, l = {
+    ...Z.getBadgeBaseStyle(s),
     ...t
   };
   return /* @__PURE__ */ S("span", { ...a, className: `ds-badge ${e}`, style: l, children: c });
-}, fa = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(rt, { level: "component", styleId: c, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ S(Bt, { ...t }) }) : /* @__PURE__ */ S(Bt, { ...t });
+}, fa = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ S(Rt, { ...t }) }) : /* @__PURE__ */ S(Rt, { ...t });
 export {
   oa as ALL_29_STYLES,
   aa as AdaptiveCSSGenerator,
@@ -46829,19 +48458,19 @@ export {
   $ as CompositionStrategyResolver,
   na as DOMAnalyzer,
   ut as HTMLSanitizer,
-  ha as Heading,
+  ba as Heading,
   ua as Input,
   ca as Page,
-  ba as Paragraph,
+  ha as Paragraph,
   q as RecipeEngine,
-  bt as RoleResolver,
+  ht as RoleResolver,
   pa as Section,
   it as StructureAnalyzer,
   ta as StyleEngine,
   da as StyleEngineProvider,
   qt as StyleRegistry,
   _ as StyleResolver,
-  rt as StyleScope,
+  st as StyleScope,
   Ce as anthropomorphicSemanticCss,
   ze as anthropomorphicStyle,
   je as artDecoSemanticCss,
@@ -46859,7 +48488,7 @@ export {
   Fe as claymorphismStyle,
   ue as conceptualSketchSemanticCss,
   fe as conceptualSketchStyle,
-  Ne as cybercoreSemanticCss,
+  Oe as cybercoreSemanticCss,
   Ge as cybercoreStyle,
   ke as cyberpunkSemanticCss,
   Se as cyberpunkStyle,
@@ -46888,14 +48517,14 @@ export {
   Ve as mixedMediaStyle,
   ie as neoBrutalismStyle,
   ae as neoBrutalistSemanticCss,
-  re as neoClassicalSemanticCss,
-  se as neoClassicalStyle,
+  se as neoClassicalSemanticCss,
+  re as neoClassicalStyle,
   Te as neumorphicSemanticCss,
   Ie as neumorphismStyle,
-  he as pixelArtSemanticCss,
-  be as pixelArtStyle,
-  Re as scrapbookSemanticCss,
-  Be as scrapbookStyle,
+  be as pixelArtSemanticCss,
+  he as pixelArtStyle,
+  Be as scrapbookSemanticCss,
+  Re as scrapbookStyle,
   Qe as solarpunkSemanticCss,
   _e as solarpunkStyle,
   te as surrealDesignSemanticCss,
@@ -46906,7 +48535,7 @@ export {
   We as synthwaveStyle,
   Dt as useStyleEngine,
   He as victorianSemanticCss,
-  Oe as victorianStyle,
+  Ne as victorianStyle,
   De as wabiSabiSemanticCss,
   Me as wabiSabiStyle,
   ce as y2kAestheticSemanticCss,

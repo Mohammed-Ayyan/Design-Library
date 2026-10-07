@@ -38,6 +38,68 @@
     letter-spacing: -0.01em !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-y2k-aesthetic,
+  section.style-y2k-aesthetic,
+  main.style-y2k-aesthetic,
+  article.style-y2k-aesthetic,
+  div.style-y2k,
+  section.style-y2k,
+  main.style-y2k,
+  article.style-y2k,
+  .lab-styled-preview[data-style="y2k-aesthetic"],
+  .y2k-aesthetic-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0b. Header Architecture (Pearlescent Cyber Header Bar) */
+  .lab-styled-preview[data-style="y2k-aesthetic"] header,
+  .y2k-aesthetic-styled-container header,
+  .style-y2k-aesthetic header,
+  [data-style="y2k-aesthetic"] header,
+  .ds-scope[data-style-id="y2k-aesthetic"] header,
+  .style-y2k header,
+  [data-style="y2k"] header,
+  .ds-scope[data-style-id="y2k"] header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 246, 253, 0.9) 100%);
+    border: 1px solid #b8cee2;
+    border-top: 1px solid #ffffff;
+    border-bottom: 2px solid #94b8d7;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08), inset 0 1px 0 #ffffff;
+    padding: 1.25rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] header h1,
+  .y2k-aesthetic-styled-container header h1,
+  .style-y2k-aesthetic header h1,
+  [data-style="y2k-aesthetic"] header h1,
+  .ds-scope[data-style-id="y2k-aesthetic"] header h1,
+  .style-y2k header h1,
+  [data-style="y2k"] header h1,
+  .ds-scope[data-style-id="y2k"] header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
   /* 1. Navigation: Futuristic Hardware / Cyber Browser Deck */
   .lab-styled-preview[data-style="y2k-aesthetic"] nav,
   .y2k-aesthetic-styled-container nav,
@@ -62,6 +124,61 @@
     margin-bottom: 2.75rem;
     position: relative;
     z-index: 10;
+  }
+
+  .style-y2k-aesthetic header nav,
+  .lab-styled-preview[data-style="y2k-aesthetic"] header nav,
+  .y2k-aesthetic-styled-container header nav,
+  [data-style="y2k-aesthetic"] header nav,
+  .ds-scope[data-style-id="y2k-aesthetic"] header nav,
+  .style-y2k header nav,
+  [data-style="y2k"] header nav,
+  .ds-scope[data-style-id="y2k"] header nav {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav ul,
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav ol,
+  .y2k-aesthetic-styled-container nav ul,
+  .y2k-aesthetic-styled-container nav ol,
+  .style-y2k-aesthetic nav ul,
+  .style-y2k-aesthetic nav ol,
+  [data-style="y2k-aesthetic"] nav ul,
+  [data-style="y2k-aesthetic"] nav ol,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav ul,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav ol,
+  .style-y2k nav ul,
+  .style-y2k nav ol,
+  [data-style="y2k"] nav ul,
+  [data-style="y2k"] nav ol,
+  .ds-scope[data-style-id="y2k"] nav ul,
+  .ds-scope[data-style-id="y2k"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] nav li,
+  .y2k-aesthetic-styled-container nav li,
+  .style-y2k-aesthetic nav li,
+  [data-style="y2k-aesthetic"] nav li,
+  .ds-scope[data-style-id="y2k-aesthetic"] nav li,
+  .style-y2k nav li,
+  [data-style="y2k"] nav li,
+  .ds-scope[data-style-id="y2k"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="y2k-aesthetic"] nav a,
@@ -485,6 +602,78 @@
   .ds-scope[data-style-id="y2k"] .dispatch:hover {
     transform: none !important;
     box-shadow: none !important;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="y2k-aesthetic"] main,
+  .y2k-aesthetic-styled-container main,
+  .style-y2k-aesthetic main,
+  [data-style="y2k-aesthetic"] main,
+  .ds-scope[data-style-id="y2k-aesthetic"] main,
+  .style-y2k main,
+  [data-style="y2k"] main,
+  .ds-scope[data-style-id="y2k"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]),
+  .y2k-aesthetic-styled-container section:not([class*="style-"]),
+  .style-y2k-aesthetic section:not([class*="style-"]),
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]),
+  .style-y2k section:not([class*="style-"]),
+  [data-style="y2k"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]),
+  .style-y2k-aesthetic main > section,
+  [data-style="y2k-aesthetic"] main > section,
+  .style-y2k main > section,
+  [data-style="y2k"] main > section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 250, 255, 0.92) 100%) !important;
+    border: 1px solid #cbdbe9 !important;
+    border-top: 1px solid #ffffff !important;
+    border-bottom: 2px solid #94b8d7 !important;
+    border-radius: 20px !important;
+    padding: 2.25rem 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05), inset 0 1px 0 #ffffff !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    transition: transform 180ms ease, box-shadow 180ms ease !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .y2k-aesthetic-styled-container section:not([class*="style-"]):hover,
+  .style-y2k-aesthetic section:not([class*="style-"]):hover,
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]):hover,
+  .style-y2k section:not([class*="style-"]):hover,
+  [data-style="y2k"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]):hover {
+    border-color: #7dd3fc !important;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12), inset 0 1px 0 #ffffff !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .lab-styled-preview[data-style="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .y2k-aesthetic-styled-container section:not([class*="style-"]) > h2,
+  .style-y2k-aesthetic section:not([class*="style-"]) > h2,
+  [data-style="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="y2k-aesthetic"] section:not([class*="style-"]) > h2,
+  .style-y2k section:not([class*="style-"]) > h2,
+  [data-style="y2k"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="y2k"] section:not([class*="style-"]) > h2 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #0284c7 !important;
+    margin: 0 0 1.25rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid #e0ecf8 !important;
   }
 
   /* 5. Pullquotes: Iridescent Ice & Aqua Framing */

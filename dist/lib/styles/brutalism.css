@@ -19,6 +19,76 @@
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-brutalism,
+  section.style-brutalism,
+  main.style-brutalism,
+  article.style-brutalism,
+  .lab-styled-preview[data-style="brutalism"],
+  .brutalism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Banner Card) */
+  .lab-styled-preview[data-style="brutalism"] header,
+  .brutalism-styled-container header,
+  .style-brutalism header,
+  [data-style="brutalism"] header,
+  .ds-scope[data-style-id="brutalism"] header,
+  .style-brutalist header,
+  [data-style="brutalist"] header,
+  .ds-scope[data-style-id="brutalist"] header {
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 5px 5px 0px #000000;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] header h1,
+  .brutalism-styled-container header h1,
+  .style-brutalism header h1,
+  [data-style="brutalism"] header h1,
+  .ds-scope[data-style-id="brutalism"] header h1,
+  .style-brutalist header h1,
+  [data-style="brutalist"] header h1,
+  .ds-scope[data-style-id="brutalist"] header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] header p,
+  .brutalism-styled-container header p,
+  .style-brutalism header p,
+  [data-style="brutalism"] header p,
+  .ds-scope[data-style-id="brutalism"] header p,
+  .style-brutalist header p,
+  [data-style="brutalist"] header p,
+  .ds-scope[data-style-id="brutalist"] header p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: #222222;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="brutalism"] nav,
   .brutalism-styled-container nav,
@@ -31,10 +101,71 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
+  }
+
+  /* Standalone nav outside header gets bottom border ledger */
+  .style-brutalism > nav,
+  .style-brutalism main > nav,
+  .lab-styled-preview[data-style="brutalism"] > nav {
     padding: 0.85rem 0 1.25rem;
     border-bottom: 3px solid #000000;
     margin-bottom: 2.5rem;
+    width: 100%;
+  }
+
+  /* Header nav has no extra border */
+  .style-brutalism header nav,
+  .lab-styled-preview[data-style="brutalism"] header nav,
+  .brutalism-styled-container header nav,
+  [data-style="brutalism"] header nav,
+  .ds-scope[data-style-id="brutalism"] header nav,
+  .style-brutalist header nav,
+  [data-style="brutalist"] header nav,
+  .ds-scope[data-style-id="brutalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] nav ul,
+  .lab-styled-preview[data-style="brutalism"] nav ol,
+  .brutalism-styled-container nav ul,
+  .brutalism-styled-container nav ol,
+  .style-brutalism nav ul,
+  .style-brutalism nav ol,
+  [data-style="brutalism"] nav ul,
+  [data-style="brutalism"] nav ol,
+  .ds-scope[data-style-id="brutalism"] nav ul,
+  .ds-scope[data-style-id="brutalism"] nav ol,
+  .style-brutalist nav ul,
+  .style-brutalist nav ol,
+  [data-style="brutalist"] nav ul,
+  [data-style="brutalist"] nav ol,
+  .ds-scope[data-style-id="brutalist"] nav ul,
+  .ds-scope[data-style-id="brutalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] nav li,
+  .brutalism-styled-container nav li,
+  .style-brutalism nav li,
+  [data-style="brutalism"] nav li,
+  .ds-scope[data-style-id="brutalism"] nav li,
+  .style-brutalist nav li,
+  [data-style="brutalist"] nav li,
+  .ds-scope[data-style-id="brutalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="brutalism"] nav a,
@@ -52,8 +183,10 @@
     letter-spacing: 0.06em;
     color: #000000;
     text-decoration: none;
-    padding: 0.4rem 0.75rem;
-    border: 2px solid transparent;
+    padding: 0.45rem 0.9rem;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 0px #000000;
     transition: transform 80ms ease, box-shadow 80ms ease, background-color 80ms ease;
     display: inline-flex;
     align-items: center;
@@ -69,7 +202,7 @@
   .ds-scope[data-style-id="brutalist"] nav a:hover {
     border-color: #000000;
     background-color: #ffe600;
-    box-shadow: 2px 2px 0px #000000;
+    box-shadow: 4px 4px 0px #000000;
     transform: translate(-1px, -1px);
     text-decoration: none;
   }
@@ -83,7 +216,7 @@
   [data-style="brutalist"] nav a:active,
   .ds-scope[data-style-id="brutalist"] nav a:active {
     transform: translate(1px, 1px);
-    box-shadow: none;
+    box-shadow: 1px 1px 0px #000000;
   }
 
   /* 2. Eyebrow Kickers & Metadata */
@@ -339,7 +472,78 @@
     transform: none;
   }
 
-  /* 5. Editorial Content & Articles */
+  /* 5. Main Flow & Child Sections / Content Cards */
+  .lab-styled-preview[data-style="brutalism"] main,
+  .brutalism-styled-container main,
+  .style-brutalism main,
+  [data-style="brutalism"] main,
+  .ds-scope[data-style-id="brutalism"] main,
+  .style-brutalist main,
+  [data-style="brutalist"] main,
+  .ds-scope[data-style-id="brutalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]),
+  .brutalism-styled-container section:not([class*="style-"]),
+  .style-brutalism section:not([class*="style-"]),
+  [data-style="brutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]),
+  .style-brutalist section:not([class*="style-"]),
+  [data-style="brutalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]),
+  .style-brutalism main > section,
+  [data-style="brutalism"] main > section {
+    background-color: #ffffff;
+    border: 3px solid #000000 !important;
+    border-radius: 0px;
+    padding: 2rem 2.25rem;
+    box-shadow: 5px 5px 0px #000000;
+    margin-bottom: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]):hover,
+  .brutalism-styled-container section:not([class*="style-"]):hover,
+  .style-brutalism section:not([class*="style-"]):hover,
+  [data-style="brutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]):hover,
+  .style-brutalist section:not([class*="style-"]):hover,
+  [data-style="brutalist"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]):hover,
+  .style-brutalism main > section:hover,
+  [data-style="brutalism"] main > section:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000000;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] section:not([class*="style-"]) > h2,
+  .brutalism-styled-container section:not([class*="style-"]) > h2,
+  .style-brutalism section:not([class*="style-"]) > h2,
+  [data-style="brutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="brutalism"] section:not([class*="style-"]) > h2,
+  .style-brutalist section:not([class*="style-"]) > h2,
+  [data-style="brutalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="brutalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2.5px solid #000000;
+    text-transform: uppercase;
+  }
+
+  /* 5b. Editorial Content & Articles */
   .lab-styled-preview[data-style="brutalism"] article,
   .brutalism-styled-container article,
   .style-brutalism article,
@@ -367,6 +571,24 @@
   .ds-scope[data-style-id="brutalist"] article:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px #000000;
+  }
+
+  .lab-styled-preview[data-style="brutalism"] code,
+  .brutalism-styled-container code,
+  .style-brutalism code,
+  [data-style="brutalism"] code,
+  .ds-scope[data-style-id="brutalism"] code,
+  .style-brutalist code,
+  [data-style="brutalist"] code,
+  .ds-scope[data-style-id="brutalist"] code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background-color: #ffe600;
+    color: #000000;
+    border: 1.5px solid #000000;
+    padding: 0.15rem 0.4rem;
+    box-shadow: 1.5px 1.5px 0px #000000;
+    font-weight: 700;
   }
 
   .lab-styled-preview[data-style="brutalism"] blockquote,
@@ -637,35 +859,35 @@
     opacity: 1;
   }
 
-  /* 8. Lists */
-  .lab-styled-preview[data-style="brutalism"] ul,
-  .lab-styled-preview[data-style="brutalism"] ol,
-  .brutalism-styled-container ul,
-  .style-brutalism ul,
-  [data-style="brutalism"] ul,
-  .ds-scope[data-style-id="brutalism"] ul,
-  .style-brutalist ul,
-  [data-style="brutalist"] ul,
-  .ds-scope[data-style-id="brutalist"] ul,
-  .brutalism-styled-container ol,
-  .style-brutalism ol,
-  [data-style="brutalism"] ol,
-  .ds-scope[data-style-id="brutalism"] ol,
-  .style-brutalist ol,
-  [data-style="brutalist"] ol,
-  .ds-scope[data-style-id="brutalist"] ol {
+  /* 8. Lists (Content lists only, avoiding navigation lists) */
+  .lab-styled-preview[data-style="brutalism"] ul:not(nav ul),
+  .lab-styled-preview[data-style="brutalism"] ol:not(nav ol),
+  .brutalism-styled-container ul:not(nav ul),
+  .style-brutalism ul:not(nav ul),
+  [data-style="brutalism"] ul:not(nav ul),
+  .ds-scope[data-style-id="brutalism"] ul:not(nav ul),
+  .style-brutalist ul:not(nav ul),
+  [data-style="brutalist"] ul:not(nav ul),
+  .ds-scope[data-style-id="brutalist"] ul:not(nav ul),
+  .brutalism-styled-container ol:not(nav ol),
+  .style-brutalism ol:not(nav ol),
+  [data-style="brutalism"] ol:not(nav ol),
+  .ds-scope[data-style-id="brutalism"] ol:not(nav ol),
+  .style-brutalist ol:not(nav ol),
+  [data-style="brutalist"] ol:not(nav ol),
+  .ds-scope[data-style-id="brutalist"] ol:not(nav ol) {
     padding-left: 1.5rem;
     margin: 1rem 0 1.5rem;
   }
 
-  .lab-styled-preview[data-style="brutalism"] li,
-  .brutalism-styled-container li,
-  .style-brutalism li,
-  [data-style="brutalism"] li,
-  .ds-scope[data-style-id="brutalism"] li,
-  .style-brutalist li,
-  [data-style="brutalist"] li,
-  .ds-scope[data-style-id="brutalist"] li {
+  .lab-styled-preview[data-style="brutalism"] li:not(nav li),
+  .brutalism-styled-container li:not(nav li),
+  .style-brutalism li:not(nav li),
+  [data-style="brutalism"] li:not(nav li),
+  .ds-scope[data-style-id="brutalism"] li:not(nav li),
+  .style-brutalist li:not(nav li),
+  [data-style="brutalist"] li:not(nav li),
+  .ds-scope[data-style-id="brutalist"] li:not(nav li) {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
@@ -673,14 +895,14 @@
     margin-bottom: 0.5rem;
   }
 
-  .lab-styled-preview[data-style="brutalism"] ul > li,
-  .brutalism-styled-container ul > li,
-  .style-brutalism ul > li,
-  [data-style="brutalism"] ul > li,
-  .ds-scope[data-style-id="brutalism"] ul > li,
-  .style-brutalist ul > li,
-  [data-style="brutalist"] ul > li,
-  .ds-scope[data-style-id="brutalist"] ul > li {
+  .lab-styled-preview[data-style="brutalism"] ul:not(nav ul) > li,
+  .brutalism-styled-container ul:not(nav ul) > li,
+  .style-brutalism ul:not(nav ul) > li,
+  [data-style="brutalism"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="brutalism"] ul:not(nav ul) > li,
+  .style-brutalist ul:not(nav ul) > li,
+  [data-style="brutalist"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="brutalist"] ul:not(nav ul) > li {
     list-style-type: square;
   }
 
@@ -763,14 +985,18 @@
   .style-brutalist footer,
   [data-style="brutalist"] footer,
   .ds-scope[data-style-id="brutalist"] footer {
-    border-top: 3px solid #000000;
-    padding: 2rem 0 1rem;
-    margin-top: 3rem;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+    padding: 1.25rem 2rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .lab-styled-preview[data-style="brutalism"] footer p,
@@ -783,6 +1009,7 @@
   .ds-scope[data-style-id="brutalist"] footer p {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
+    font-weight: 700;
     color: #555555;
     margin: 0;
   }

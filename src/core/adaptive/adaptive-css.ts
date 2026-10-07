@@ -103,6 +103,29 @@ export class AdaptiveCSSGenerator {
    ADAPTIVE DESIGN ENGINE — ART-DIRECTED DESIGN LANGUAGES
    ========================================================================== */
 
+/* Universal Semantic Layout Resets for All Scoped Design Styles */
+[class*="style-"] nav ul,
+[class*="style-"] nav ol,
+.ds-scope nav ul,
+.ds-scope nav ol {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.75rem !important;
+}
+
+[class*="style-"] nav li,
+.ds-scope nav li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
 /* --------------------------------------------------------------------------
    1. BRUTALISM (.style-brutalism)
    Visual Grammar: Raw, structural, high-contrast, tactile newsprint/concrete canvas,
@@ -121,15 +144,17 @@ export class AdaptiveCSSGenerator {
 }
 
 /* Page Canvas Bounds */
+div.style-brutalism,
+section.style-brutalism,
+main.style-brutalism,
 .style-brutalism main,
 .style-brutalism [data-role="page"] {
   display: block !important;
   max-width: 1180px !important;
-  margin: 0 auto !important;
-  padding: 2rem 1.5rem 5rem !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 2.5rem 1.5rem 5rem !important;
+  box-sizing: border-box !important;
 }
 
 /* Typography Hierarchy */
@@ -243,24 +268,84 @@ export class AdaptiveCSSGenerator {
   text-decoration: none;
 }
 
-/* Navigation: Utilitarian Horizontal Ledger */
+/* Header Architecture (Banner Card) */
+.style-brutalism header,
+.style-brutalism [data-role="header"] {
+  background-color: #ffffff !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  padding: 1.5rem 2rem !important;
+  margin-bottom: 2.5rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.style-brutalism header h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+.style-brutalism header p {
+  margin: 0.25rem 0 0 !important;
+  font-size: 0.95rem !important;
+}
+
+/* Navigation: In-Header or Standalone */
 .style-brutalism nav,
-.style-brutalism header:not(:has(nav))[data-composition="nav-utilitarian-ticker"],
 .style-brutalism [data-role="navigation"] {
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important;
   flex-wrap: wrap !important;
-  gap: 1.5rem !important;
-  padding: 1.25rem 0 !important;
+  gap: 1rem !important;
+}
+
+.style-brutalism > nav,
+.style-brutalism main > nav {
+  padding: 1rem 0 !important;
   border-bottom: 3px solid #000000 !important;
-  background: #f4f3ed !important;
-  margin-bottom: 3.5rem !important;
+  background: transparent !important;
+  margin-bottom: 2.5rem !important;
   width: 100% !important;
+}
+
+.style-brutalism header nav {
+  border-bottom: none !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  width: auto !important;
+}
+
+.style-brutalism nav ul,
+.style-brutalism nav ol {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.75rem !important;
+}
+
+.style-brutalism nav li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .style-brutalism nav a,
 .style-brutalism [data-role="navigation"] a {
+  font-family: 'JetBrains Mono', monospace !important;
   font-size: 0.875rem !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
@@ -268,15 +353,18 @@ export class AdaptiveCSSGenerator {
   color: #000000 !important;
   text-decoration: none !important;
   padding: 0.45rem 0.9rem !important;
-  border: 2px solid transparent !important;
+  border: 2px solid #000000 !important;
+  background-color: #ffffff !important;
+  box-shadow: 2px 2px 0px #000000 !important;
   transition: all 100ms ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .style-brutalism nav a:hover,
 .style-brutalism [data-role="navigation"] a:hover {
-  background: #ffe600 !important;
-  border-color: #000000 !important;
-  box-shadow: 3px 3px 0px #000000 !important;
+  background-color: #ffe600 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
   transform: translate(-1px, -1px) !important;
 }
 
@@ -285,11 +373,9 @@ export class AdaptiveCSSGenerator {
 .style-brutalism [data-layout="asymmetric-poster"],
 .style-brutalism:has(> h1),
 .style-brutalism section:has(> h1),
-.style-brutalism section:first-of-type,
 .style-brutalism [data-role="hero"] {
   padding: 3rem 0 4rem;
   margin-bottom: 4rem;
-  border: none !important;
   border-bottom: 3px solid #000000 !important;
   width: 100%;
   display: flex;
@@ -392,10 +478,24 @@ export class AdaptiveCSSGenerator {
 }
 
 /* Section Structure & Section Headings */
-.style-brutalism section {
-  margin-bottom: 4.5rem;
-  width: 100%;
-  border: none !important;
+.style-brutalism section:not([class*="style-"]),
+.style-brutalism [data-role="feature-section"],
+.style-brutalism [data-layout*="section"],
+.style-brutalism main > section {
+  background-color: #ffffff;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  padding: 2rem 2.25rem !important;
+  margin-bottom: 2.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.style-brutalism section:not([class*="style-"]):hover,
+.style-brutalism main > section:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000000 !important;
 }
 
 .style-brutalism [data-layout="asymmetric-catalog"] > h2,
@@ -643,15 +743,18 @@ export class AdaptiveCSSGenerator {
 /* Footer: Raw Structural Baseline */
 .style-brutalism footer,
 .style-brutalism [data-role="footer"] {
-  border-top: 4px solid #000000;
-  padding: 3rem 0 2rem;
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  width: 100%;
+  background-color: #ffffff;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  padding: 1.25rem 2rem !important;
+  margin-top: 2rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .style-brutalism footer p,

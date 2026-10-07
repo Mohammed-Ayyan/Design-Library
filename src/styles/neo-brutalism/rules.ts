@@ -31,6 +31,73 @@ export const neoBrutalistSemanticCss = `
     overflow-x: hidden !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-neo-brutalism,
+  section.style-neo-brutalism,
+  main.style-neo-brutalism,
+  article.style-neo-brutalism,
+  div.style-neobrutalism,
+  section.style-neobrutalism,
+  main.style-neobrutalism,
+  div.style-neo-brutalist,
+  section.style-neo-brutalist,
+  main.style-neo-brutalist,
+  .lab-styled-preview[data-style="neo-brutalism"],
+  .neo-brutalism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Playful Graphic Banner Card) */
+  .lab-styled-preview[data-style="neo-brutalism"] header,
+  .neo-brutalism-styled-container header,
+  .style-neo-brutalism header,
+  [data-style="neo-brutalism"] header,
+  .ds-scope[data-style-id="neo-brutalism"] header,
+  .style-neobrutalism header,
+  [data-style="neobrutalism"] header,
+  .ds-scope[data-style-id="neobrutalism"] header,
+  .style-neo-brutalist header,
+  [data-style="neo-brutalist"] header,
+  .ds-scope[data-style-id="neo-brutalist"] header {
+    background-color: #ffffff;
+    border: 3px solid #121212;
+    border-radius: 16px;
+    box-shadow: 5px 5px 0px #121212;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] header h1,
+  .neo-brutalism-styled-container header h1,
+  .style-neo-brutalism header h1,
+  [data-style="neo-brutalism"] header h1,
+  .ds-scope[data-style-id="neo-brutalism"] header h1,
+  .style-neobrutalism header h1,
+  [data-style="neobrutalism"] header h1,
+  .ds-scope[data-style-id="neobrutalism"] header h1,
+  .style-neo-brutalist header h1,
+  [data-style="neo-brutalist"] header h1,
+  .ds-scope[data-style-id="neo-brutalist"] header h1 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #121212;
+    margin: 0;
+  }
+
   /* 1. Graphic Navigation: Bold Wordmark & Tactile Pill Controls */
   .lab-styled-preview[data-style="neo-brutalism"] nav,
   .neo-brutalism-styled-container nav,
@@ -52,6 +119,71 @@ export const neoBrutalistSemanticCss = `
     margin-bottom: 3.5rem;
     position: relative;
     z-index: 1;
+  }
+
+  .style-neo-brutalism header nav,
+  .lab-styled-preview[data-style="neo-brutalism"] header nav,
+  .neo-brutalism-styled-container header nav,
+  [data-style="neo-brutalism"] header nav,
+  .ds-scope[data-style-id="neo-brutalism"] header nav,
+  .style-neobrutalism header nav,
+  [data-style="neobrutalism"] header nav,
+  .ds-scope[data-style-id="neobrutalism"] header nav,
+  .style-neo-brutalist header nav,
+  [data-style="neo-brutalist"] header nav,
+  .ds-scope[data-style-id="neo-brutalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] nav ul,
+  .lab-styled-preview[data-style="neo-brutalism"] nav ol,
+  .neo-brutalism-styled-container nav ul,
+  .neo-brutalism-styled-container nav ol,
+  .style-neo-brutalism nav ul,
+  .style-neo-brutalism nav ol,
+  [data-style="neo-brutalism"] nav ul,
+  [data-style="neo-brutalism"] nav ol,
+  .ds-scope[data-style-id="neo-brutalism"] nav ul,
+  .ds-scope[data-style-id="neo-brutalism"] nav ol,
+  .style-neobrutalism nav ul,
+  .style-neobrutalism nav ol,
+  [data-style="neobrutalism"] nav ul,
+  [data-style="neobrutalism"] nav ol,
+  .ds-scope[data-style-id="neobrutalism"] nav ul,
+  .ds-scope[data-style-id="neobrutalism"] nav ol,
+  .style-neo-brutalist nav ul,
+  .style-neo-brutalist nav ol,
+  [data-style="neo-brutalist"] nav ul,
+  [data-style="neo-brutalist"] nav ol,
+  .ds-scope[data-style-id="neo-brutalist"] nav ul,
+  .ds-scope[data-style-id="neo-brutalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] nav li,
+  .neo-brutalism-styled-container nav li,
+  .style-neo-brutalism nav li,
+  [data-style="neo-brutalism"] nav li,
+  .ds-scope[data-style-id="neo-brutalism"] nav li,
+  .style-neobrutalism nav li,
+  [data-style="neobrutalism"] nav li,
+  .ds-scope[data-style-id="neobrutalism"] nav li,
+  .style-neo-brutalist nav li,
+  [data-style="neo-brutalist"] nav li,
+  .ds-scope[data-style-id="neo-brutalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="neo-brutalism"] nav a,
@@ -447,6 +579,89 @@ export const neoBrutalistSemanticCss = `
   .ds-scope[data-style-id="neo-brutalist"] button + button:hover {
     background-color: #ffde59;
     color: #121212;
+  }
+
+  /* 5b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="neo-brutalism"] main,
+  .neo-brutalism-styled-container main,
+  .style-neo-brutalism main,
+  [data-style="neo-brutalism"] main,
+  .ds-scope[data-style-id="neo-brutalism"] main,
+  .style-neobrutalism main,
+  [data-style="neobrutalism"] main,
+  .ds-scope[data-style-id="neobrutalism"] main,
+  .style-neo-brutalist main,
+  [data-style="neo-brutalist"] main,
+  .ds-scope[data-style-id="neo-brutalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]),
+  .neo-brutalism-styled-container section:not([class*="style-"]),
+  .style-neo-brutalism section:not([class*="style-"]),
+  [data-style="neo-brutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]),
+  .style-neobrutalism section:not([class*="style-"]),
+  [data-style="neobrutalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]),
+  .style-neo-brutalist section:not([class*="style-"]),
+  [data-style="neo-brutalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]),
+  .style-neo-brutalism main > section,
+  [data-style="neo-brutalism"] main > section,
+  .style-neobrutalism main > section,
+  [data-style="neobrutalism"] main > section,
+  .style-neo-brutalist main > section,
+  [data-style="neo-brutalist"] main > section {
+    background-color: #ffffff;
+    border: 3px solid #121212;
+    border-radius: 16px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 5px 5px 0px #121212;
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]):hover,
+  .neo-brutalism-styled-container section:not([class*="style-"]):hover,
+  .style-neo-brutalism section:not([class*="style-"]):hover,
+  [data-style="neo-brutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]):hover,
+  .style-neobrutalism section:not([class*="style-"]):hover,
+  [data-style="neobrutalism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]):hover,
+  .style-neo-brutalist section:not([class*="style-"]):hover,
+  [data-style="neo-brutalist"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]):hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #121212;
+  }
+
+  .lab-styled-preview[data-style="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .neo-brutalism-styled-container section:not([class*="style-"]) > h2,
+  .style-neo-brutalism section:not([class*="style-"]) > h2,
+  [data-style="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neo-brutalism"] section:not([class*="style-"]) > h2,
+  .style-neobrutalism section:not([class*="style-"]) > h2,
+  [data-style="neobrutalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neobrutalism"] section:not([class*="style-"]) > h2,
+  .style-neo-brutalist section:not([class*="style-"]) > h2,
+  [data-style="neo-brutalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="neo-brutalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #121212;
   }
 
   /* 6. Articles & Content: Open Editorial Rows vs Selective Cards (No Card-Everything) */

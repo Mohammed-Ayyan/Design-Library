@@ -21,6 +21,47 @@ export const wabiSabiSemanticCss = `
     box-shadow: none !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-wabi-sabi,
+  section.style-wabi-sabi,
+  main.style-wabi-sabi,
+  article.style-wabi-sabi,
+  .lab-styled-preview[data-style="wabi-sabi"],
+  .wabi-sabi-styled-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture (Organic Handcrafted Banner) */
+  .lab-styled-preview[data-style="wabi-sabi"] header,
+  .wabi-sabi-styled-container header,
+  .style-wabi-sabi header,
+  .ds-scope[data-style-id="wabi-sabi"] header {
+    background-color: #faf7f2;
+    border: 1px solid #d6cfc4;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] header h1,
+  .wabi-sabi-styled-container header h1,
+  .style-wabi-sabi header h1,
+  .ds-scope[data-style-id="wabi-sabi"] header h1 {
+    margin: 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="wabi-sabi"] nav,
   .wabi-sabi-styled-container nav,
@@ -33,6 +74,43 @@ export const wabiSabiSemanticCss = `
     padding: 1.25rem 0 1.5rem;
     border-bottom: 1px solid #d6cfc4;
     margin-bottom: 3.5rem;
+  }
+
+  .style-wabi-sabi header nav,
+  .lab-styled-preview[data-style="wabi-sabi"] header nav,
+  .wabi-sabi-styled-container header nav,
+  .ds-scope[data-style-id="wabi-sabi"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] nav ul,
+  .lab-styled-preview[data-style="wabi-sabi"] nav ol,
+  .wabi-sabi-styled-container nav ul,
+  .wabi-sabi-styled-container nav ol,
+  .style-wabi-sabi nav ul,
+  .style-wabi-sabi nav ol,
+  .ds-scope[data-style-id="wabi-sabi"] nav ul,
+  .ds-scope[data-style-id="wabi-sabi"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] nav li,
+  .wabi-sabi-styled-container nav li,
+  .style-wabi-sabi nav li,
+  .ds-scope[data-style-id="wabi-sabi"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="wabi-sabi"] nav a,
@@ -175,6 +253,49 @@ export const wabiSabiSemanticCss = `
   .style-wabi-sabi button:active,
   .ds-scope[data-style-id="wabi-sabi"] button:active {
     transform: translateY(0px) !important;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="wabi-sabi"] main,
+  .wabi-sabi-styled-container main,
+  .style-wabi-sabi main,
+  .ds-scope[data-style-id="wabi-sabi"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]),
+  .wabi-sabi-styled-container section:not([class*="style-"]),
+  .style-wabi-sabi section:not([class*="style-"]),
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]),
+  .style-wabi-sabi main > section {
+    background-color: #faf7f2;
+    border: 1px solid #d6cfc4;
+    border-radius: 12px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 16px rgba(41, 37, 36, 0.04);
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]):hover,
+  .wabi-sabi-styled-container section:not([class*="style-"]):hover,
+  .style-wabi-sabi section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(41, 37, 36, 0.07);
+  }
+
+  .lab-styled-preview[data-style="wabi-sabi"] section:not([class*="style-"]) > h2,
+  .wabi-sabi-styled-container section:not([class*="style-"]) > h2,
+  .style-wabi-sabi section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="wabi-sabi"] section:not([class*="style-"]) > h2 {
+    margin-top: 0;
   }
 
   /* 5. Cards & Section Architecture */

@@ -27,6 +27,73 @@ export const minimalistSemanticCss = `
     box-shadow: none !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-minimalism,
+  section.style-minimalism,
+  main.style-minimalism,
+  article.style-minimalism,
+  .lab-styled-preview[data-style="minimalism"],
+  .minimalism-styled-container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture */
+  .lab-styled-preview[data-style="minimalism"] header,
+  .minimalism-styled-container header,
+  .style-minimalism header,
+  [data-style="minimalism"] header,
+  .ds-scope[data-style-id="minimalism"] header,
+  .style-minimalist header,
+  [data-style="minimalist"] header,
+  .ds-scope[data-style-id="minimalist"] header {
+    background-color: transparent;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1.5rem 0 2rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] header h1,
+  .minimalism-styled-container header h1,
+  .style-minimalism header h1,
+  [data-style="minimalism"] header h1,
+  .ds-scope[data-style-id="minimalism"] header h1,
+  .style-minimalist header h1,
+  [data-style="minimalist"] header h1,
+  .ds-scope[data-style-id="minimalist"] header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: #111111;
+    margin: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] header p,
+  .minimalism-styled-container header p,
+  .style-minimalism header p,
+  [data-style="minimalism"] header p,
+  .ds-scope[data-style-id="minimalism"] header p,
+  .style-minimalist header p,
+  [data-style="minimalist"] header p,
+  .ds-scope[data-style-id="minimalist"] header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    color: #71717a;
+    margin: 0.25rem 0 0;
+  }
+
   /* 1. Navigation Bar Language */
   .lab-styled-preview[data-style="minimalism"] nav,
   .minimalism-styled-container nav,
@@ -42,10 +109,69 @@ export const minimalistSemanticCss = `
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+
+  /* Standalone nav outside header */
+  .style-minimalism > nav,
+  .style-minimalism main > nav,
+  .lab-styled-preview[data-style="minimalism"] > nav {
     padding: 1.25rem 0 1.5rem;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 3.5rem;
+    width: 100%;
+  }
+
+  /* Header nav has no extra border */
+  .style-minimalism header nav,
+  .lab-styled-preview[data-style="minimalism"] header nav,
+  .minimalism-styled-container header nav,
+  [data-style="minimalism"] header nav,
+  .ds-scope[data-style-id="minimalism"] header nav,
+  .style-minimalist header nav,
+  [data-style="minimalist"] header nav,
+  .ds-scope[data-style-id="minimalist"] header nav {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav ul,
+  .lab-styled-preview[data-style="minimalism"] nav ol,
+  .minimalism-styled-container nav ul,
+  .minimalism-styled-container nav ol,
+  .style-minimalism nav ul,
+  .style-minimalism nav ol,
+  [data-style="minimalism"] nav ul,
+  [data-style="minimalism"] nav ol,
+  .ds-scope[data-style-id="minimalism"] nav ul,
+  .ds-scope[data-style-id="minimalism"] nav ol,
+  .style-minimalist nav ul,
+  .style-minimalist nav ol,
+  [data-style="minimalist"] nav ul,
+  [data-style="minimalist"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 1.5rem !important;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] nav li,
+  .minimalism-styled-container nav li,
+  .style-minimalism nav li,
+  [data-style="minimalism"] nav li,
+  .ds-scope[data-style-id="minimalism"] nav li,
+  .style-minimalist nav li,
+  [data-style="minimalist"] nav li,
+  .ds-scope[data-style-id="minimalist"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .lab-styled-preview[data-style="minimalism"] nav a,
@@ -397,6 +523,60 @@ export const minimalistSemanticCss = `
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+  }
+
+  /* 4b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="minimalism"] main,
+  .minimalism-styled-container main,
+  .style-minimalism main,
+  [data-style="minimalism"] main,
+  .ds-scope[data-style-id="minimalism"] main,
+  .style-minimalist main,
+  [data-style="minimalist"] main,
+  .ds-scope[data-style-id="minimalist"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] section:not([class*="style-"]),
+  .minimalism-styled-container section:not([class*="style-"]),
+  .style-minimalism section:not([class*="style-"]),
+  [data-style="minimalism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="minimalism"] section:not([class*="style-"]),
+  .style-minimalist section:not([class*="style-"]),
+  [data-style="minimalist"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="minimalist"] section:not([class*="style-"]),
+  .style-minimalism main > section,
+  [data-style="minimalism"] main > section {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .lab-styled-preview[data-style="minimalism"] section:not([class*="style-"]) > h2,
+  .minimalism-styled-container section:not([class*="style-"]) > h2,
+  .style-minimalism section:not([class*="style-"]) > h2,
+  [data-style="minimalism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="minimalism"] section:not([class*="style-"]) > h2,
+  .style-minimalist section:not([class*="style-"]) > h2,
+  [data-style="minimalist"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="minimalist"] section:not([class*="style-"]) > h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #111111;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   /* 5. Editorial Content & Articles (The Anti-Card Rule) */
@@ -772,44 +952,44 @@ export const minimalistSemanticCss = `
     opacity: 1;
   }
 
-  /* 8. Lists */
-  .lab-styled-preview[data-style="minimalism"] ul,
-  .lab-styled-preview[data-style="minimalism"] ol,
-  .minimalism-styled-container ul,
-  .style-minimalism ul,
-  [data-style="minimalism"] ul,
-  .ds-scope[data-style-id="minimalism"] ul,
-  .style-minimalist ul,
-  [data-style="minimalist"] ul,
-  .ds-scope[data-style-id="minimalist"] ul,
-  .style-minimal ul,
-  [data-style="minimal"] ul,
-  .ds-scope[data-style-id="minimal"] ul,
-  .minimalism-styled-container ol,
-  .style-minimalism ol,
-  [data-style="minimalism"] ol,
-  .ds-scope[data-style-id="minimalism"] ol,
-  .style-minimalist ol,
-  [data-style="minimalist"] ol,
-  .ds-scope[data-style-id="minimalist"] ol,
-  .style-minimal ol,
-  [data-style="minimal"] ol,
-  .ds-scope[data-style-id="minimal"] ol {
+  /* 8. Lists (Content lists only, avoiding nav) */
+  .lab-styled-preview[data-style="minimalism"] ul:not(nav ul),
+  .lab-styled-preview[data-style="minimalism"] ol:not(nav ol),
+  .minimalism-styled-container ul:not(nav ul),
+  .style-minimalism ul:not(nav ul),
+  [data-style="minimalism"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimalism"] ul:not(nav ul),
+  .style-minimalist ul:not(nav ul),
+  [data-style="minimalist"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimalist"] ul:not(nav ul),
+  .style-minimal ul:not(nav ul),
+  [data-style="minimal"] ul:not(nav ul),
+  .ds-scope[data-style-id="minimal"] ul:not(nav ul),
+  .minimalism-styled-container ol:not(nav ol),
+  .style-minimalism ol:not(nav ol),
+  [data-style="minimalism"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimalism"] ol:not(nav ol),
+  .style-minimalist ol:not(nav ol),
+  [data-style="minimalist"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimalist"] ol:not(nav ol),
+  .style-minimal ol:not(nav ol),
+  [data-style="minimal"] ol:not(nav ol),
+  .ds-scope[data-style-id="minimal"] ol:not(nav ol) {
     padding-left: 1.25rem;
     margin: 1rem 0 1.75rem;
   }
 
-  .lab-styled-preview[data-style="minimalism"] li,
-  .minimalism-styled-container li,
-  .style-minimalism li,
-  [data-style="minimalism"] li,
-  .ds-scope[data-style-id="minimalism"] li,
-  .style-minimalist li,
-  [data-style="minimalist"] li,
-  .ds-scope[data-style-id="minimalist"] li,
-  .style-minimal li,
-  [data-style="minimal"] li,
-  .ds-scope[data-style-id="minimal"] li {
+  .lab-styled-preview[data-style="minimalism"] li:not(nav li),
+  .minimalism-styled-container li:not(nav li),
+  .style-minimalism li:not(nav li),
+  [data-style="minimalism"] li:not(nav li),
+  .ds-scope[data-style-id="minimalism"] li:not(nav li),
+  .style-minimalist li:not(nav li),
+  [data-style="minimalist"] li:not(nav li),
+  .ds-scope[data-style-id="minimalist"] li:not(nav li),
+  .style-minimal li:not(nav li),
+  [data-style="minimal"] li:not(nav li),
+  .ds-scope[data-style-id="minimal"] li:not(nav li) {
     font-family: 'Inter', sans-serif;
     font-size: 0.9375rem;
     line-height: 1.65;
@@ -817,17 +997,17 @@ export const minimalistSemanticCss = `
     margin-bottom: 0.5rem;
   }
 
-  .lab-styled-preview[data-style="minimalism"] ul > li,
-  .minimalism-styled-container ul > li,
-  .style-minimalism ul > li,
-  [data-style="minimalism"] ul > li,
-  .ds-scope[data-style-id="minimalism"] ul > li,
-  .style-minimalist ul > li,
-  [data-style="minimalist"] ul > li,
-  .ds-scope[data-style-id="minimalist"] ul > li,
-  .style-minimal ul > li,
-  [data-style="minimal"] ul > li,
-  .ds-scope[data-style-id="minimal"] ul > li {
+  .lab-styled-preview[data-style="minimalism"] ul:not(nav ul) > li,
+  .minimalism-styled-container ul:not(nav ul) > li,
+  .style-minimalism ul:not(nav ul) > li,
+  [data-style="minimalism"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimalism"] ul:not(nav ul) > li,
+  .style-minimalist ul:not(nav ul) > li,
+  [data-style="minimalist"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimalist"] ul:not(nav ul) > li,
+  .style-minimal ul:not(nav ul) > li,
+  [data-style="minimal"] ul:not(nav ul) > li,
+  .ds-scope[data-style-id="minimal"] ul:not(nav ul) > li {
     list-style-type: disc;
   }
 

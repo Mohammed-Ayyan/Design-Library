@@ -28,6 +28,76 @@
     box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.7) !important;
   }
 
+  /* Container Canvas Bounds when applied to wrapper div/section/main */
+  div.style-glassmorphism,
+  section.style-glassmorphism,
+  main.style-glassmorphism,
+  article.style-glassmorphism,
+  .lab-styled-preview[data-style="glassmorphism"],
+  .glassmorphism-styled-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 2rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* 0. Header Architecture */
+  .lab-styled-preview[data-style="glassmorphism"] header,
+  .glassmorphism-styled-container header,
+  .style-glassmorphism header,
+  [data-style="glassmorphism"] header,
+  .ds-scope[data-style-id="glassmorphism"] header,
+  .style-glass header,
+  [data-style="glass"] header,
+  .ds-scope[data-style-id="glass"] header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] header h1,
+  .glassmorphism-styled-container header h1,
+  .style-glassmorphism header h1,
+  [data-style="glassmorphism"] header h1,
+  .ds-scope[data-style-id="glassmorphism"] header h1,
+  .style-glass header h1,
+  [data-style="glass"] header h1,
+  .ds-scope[data-style-id="glass"] header h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] header p,
+  .glassmorphism-styled-container header p,
+  .style-glassmorphism header p,
+  [data-style="glassmorphism"] header p,
+  .ds-scope[data-style-id="glassmorphism"] header p,
+  .style-glass header p,
+  [data-style="glass"] header p,
+  .ds-scope[data-style-id="glass"] header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0.25rem 0 0;
+  }
+
   /* ==========================================================================
      2. FLOATING NAVIGATION DOCK (GLASS-1)
      ========================================================================== */
@@ -53,6 +123,69 @@
     box-shadow: 
       0 8px 28px rgba(0, 0, 0, 0.35),
       inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .style-glassmorphism header nav,
+  .lab-styled-preview[data-style="glassmorphism"] header nav,
+  .glassmorphism-styled-container header nav,
+  [data-style="glassmorphism"] header nav,
+  .ds-scope[data-style-id="glassmorphism"] header nav,
+  .style-glass header nav,
+  [data-style="glass"] header nav,
+  .ds-scope[data-style-id="glass"] header nav {
+    margin-bottom: 0;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav ul,
+  .lab-styled-preview[data-style="glassmorphism"] nav ol,
+  .glassmorphism-styled-container nav ul,
+  .glassmorphism-styled-container nav ol,
+  .style-glassmorphism nav ul,
+  .style-glassmorphism nav ol,
+  [data-style="glassmorphism"] nav ul,
+  [data-style="glassmorphism"] nav ol,
+  .ds-scope[data-style-id="glassmorphism"] nav ul,
+  .ds-scope[data-style-id="glassmorphism"] nav ol,
+  .style-glass nav ul,
+  .style-glass nav ol,
+  [data-style="glass"] nav ul,
+  [data-style="glass"] nav ol,
+  .ds-scope[data-style-id="glass"] nav ul,
+  .ds-scope[data-style-id="glass"] nav ol {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav li,
+  .glassmorphism-styled-container nav li,
+  .style-glassmorphism nav li,
+  [data-style="glassmorphism"] nav li,
+  .ds-scope[data-style-id="glassmorphism"] nav li,
+  .style-glass nav li,
+  [data-style="glass"] nav li,
+  .ds-scope[data-style-id="glass"] nav li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    border: none !important;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] nav li::before,
+  .glassmorphism-styled-container nav li::before,
+  .style-glassmorphism nav li::before,
+  [data-style="glassmorphism"] nav li::before,
+  .ds-scope[data-style-id="glassmorphism"] nav li::before,
+  .style-glass nav li::before,
+  [data-style="glass"] nav li::before,
+  .ds-scope[data-style-id="glass"] nav li::before {
+    display: none !important;
   }
 
   .lab-styled-preview[data-style="glassmorphism"] nav a,
@@ -199,6 +332,81 @@
     color: #94a3b8;
     max-width: 48ch;
     margin-bottom: 2.25rem;
+  }
+
+  /* 3b. Main Flow & Child Sections */
+  .lab-styled-preview[data-style="glassmorphism"] main,
+  .glassmorphism-styled-container main,
+  .style-glassmorphism main,
+  [data-style="glassmorphism"] main,
+  .ds-scope[data-style-id="glassmorphism"] main,
+  .style-glass main,
+  [data-style="glass"] main,
+  .ds-scope[data-style-id="glass"] main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]),
+  .glassmorphism-styled-container section:not([class*="style-"]),
+  .style-glassmorphism section:not([class*="style-"]),
+  [data-style="glassmorphism"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]),
+  .style-glass section:not([class*="style-"]),
+  [data-style="glass"] section:not([class*="style-"]),
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]),
+  .style-glassmorphism main > section,
+  [data-style="glassmorphism"] main > section {
+    padding: 2.25rem 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 12px 36px rgba(0, 0, 0, 0.32),
+      inset 0 1px 1px rgba(255, 255, 255, 0.16);
+    box-sizing: border-box;
+    width: 100%;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]):hover,
+  .glassmorphism-styled-container section:not([class*="style-"]):hover,
+  .style-glassmorphism section:not([class*="style-"]):hover,
+  [data-style="glassmorphism"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]):hover,
+  .style-glass section:not([class*="style-"]):hover,
+  [data-style="glass"] section:not([class*="style-"]):hover,
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]):hover,
+  .style-glassmorphism main > section:hover,
+  [data-style="glassmorphism"] main > section:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 
+      0 16px 42px rgba(0, 0, 0, 0.42),
+      inset 0 1px 1px rgba(255, 255, 255, 0.24);
+  }
+
+  .lab-styled-preview[data-style="glassmorphism"] section:not([class*="style-"]) > h2,
+  .glassmorphism-styled-container section:not([class*="style-"]) > h2,
+  .style-glassmorphism section:not([class*="style-"]) > h2,
+  [data-style="glassmorphism"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="glassmorphism"] section:not([class*="style-"]) > h2,
+  .style-glass section:not([class*="style-"]) > h2,
+  [data-style="glass"] section:not([class*="style-"]) > h2,
+  .ds-scope[data-style-id="glass"] section:not([class*="style-"]) > h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* ==========================================================================
@@ -676,29 +884,29 @@
   }
 
   /* ==========================================================================
-     9. LISTS & SPECIFICATIONS
+     9. LISTS & SPECIFICATIONS (Content lists only, avoiding nav)
      ========================================================================== */
-  .lab-styled-preview[data-style="glassmorphism"] ul,
-  .glassmorphism-styled-container ul,
-  .style-glassmorphism ul,
-  [data-style="glassmorphism"] ul,
-  .ds-scope[data-style-id="glassmorphism"] ul,
-  .style-glass ul,
-  [data-style="glass"] ul,
-  .ds-scope[data-style-id="glass"] ul {
+  .lab-styled-preview[data-style="glassmorphism"] ul:not(nav ul),
+  .glassmorphism-styled-container ul:not(nav ul),
+  .style-glassmorphism ul:not(nav ul),
+  [data-style="glassmorphism"] ul:not(nav ul),
+  .ds-scope[data-style-id="glassmorphism"] ul:not(nav ul),
+  .style-glass ul:not(nav ul),
+  [data-style="glass"] ul:not(nav ul),
+  .ds-scope[data-style-id="glass"] ul:not(nav ul) {
     list-style: none;
     padding-left: 0;
     margin: 1.5rem 0;
   }
 
-  .lab-styled-preview[data-style="glassmorphism"] li,
-  .glassmorphism-styled-container li,
-  .style-glassmorphism li,
-  [data-style="glassmorphism"] li,
-  .ds-scope[data-style-id="glassmorphism"] li,
-  .style-glass li,
-  [data-style="glass"] li,
-  .ds-scope[data-style-id="glass"] li {
+  .lab-styled-preview[data-style="glassmorphism"] li:not(nav li),
+  .glassmorphism-styled-container li:not(nav li),
+  .style-glassmorphism li:not(nav li),
+  [data-style="glassmorphism"] li:not(nav li),
+  .ds-scope[data-style-id="glassmorphism"] li:not(nav li),
+  .style-glass li:not(nav li),
+  [data-style="glass"] li:not(nav li),
+  .ds-scope[data-style-id="glass"] li:not(nav li) {
     position: relative;
     padding: 0.625rem 0 0.625rem 1.5rem;
     font-size: 0.9375rem;
@@ -706,14 +914,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .lab-styled-preview[data-style="glassmorphism"] li::before,
-  .glassmorphism-styled-container li::before,
-  .style-glassmorphism li::before,
-  [data-style="glassmorphism"] li::before,
-  .ds-scope[data-style-id="glassmorphism"] li::before,
-  .style-glass li::before,
-  [data-style="glass"] li::before,
-  .ds-scope[data-style-id="glass"] li::before {
+  .lab-styled-preview[data-style="glassmorphism"] li:not(nav li)::before,
+  .glassmorphism-styled-container li:not(nav li)::before,
+  .style-glassmorphism li:not(nav li)::before,
+  [data-style="glassmorphism"] li:not(nav li)::before,
+  .ds-scope[data-style-id="glassmorphism"] li:not(nav li)::before,
+  .style-glass li:not(nav li)::before,
+  [data-style="glass"] li:not(nav li)::before,
+  .ds-scope[data-style-id="glass"] li:not(nav li)::before {
     content: "";
     position: absolute;
     left: 0.25rem;

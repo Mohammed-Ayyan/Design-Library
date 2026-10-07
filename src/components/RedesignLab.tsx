@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useStyleEngine } from '../react/context/StyleEngineContext';
 import { CSSAdapter } from '../core/adapters/css-adapter';
 import { HTMLSanitizer } from '../core/adaptive/sanitizer';
@@ -9,10 +9,13 @@ import {
   RotateCcw,
   ShieldCheck,
   Eye,
-  Columns,
+  Sliders,
   FileCode,
   Maximize2,
+  Minimize2,
   ExternalLink,
+  Layers,
+  Wand2,
 } from 'lucide-react';
 
 interface SampleTemplate {
@@ -344,23 +347,118 @@ const SAMPLE_TEMPLATES: SampleTemplate[] = [
   },
 ];
 
+const SEMANTIC_CSS_MAP: Record<string, string> = {
+  brutalism: brutalistSemanticCss,
+  minimalism: minimalistSemanticCss,
+  glassmorphism: glassmorphismSemanticCss,
+  maximalism: maximalistSemanticCss,
+  'swiss-design': swissDesignSemanticCss,
+  surrealism: surrealDesignSemanticCss,
+  'neo-brutalism': neoBrutalistSemanticCss,
+  'neo-classical': neoClassicalSemanticCss,
+  'luxury-typography': luxuryTypographySemanticCss,
+  'editorial-design': editorialDesignSemanticCss,
+  'y2k-aesthetic': y2kAestheticSemanticCss,
+  'bento-grid': bentoGridSemanticCss,
+  'pixel-art': pixelArtSemanticCss,
+  'conceptual-sketch': conceptualSketchSemanticCss,
+  ethereal: etherealSemanticCss,
+  bohemian: bohemianSemanticCss,
+  cyberpunk: cyberpunkSemanticCss,
+  anthropomorphic: anthropomorphicSemanticCss,
+  neumorphism: neumorphicSemanticCss,
+  'dark-mode-ui': darkModeUiSemanticCss,
+  scrapbook: scrapbookSemanticCss,
+  claymorphism: claymorphicSemanticCss,
+  victorian: victorianSemanticCss,
+  cybercore: cybercoreSemanticCss,
+  synthwave: synthwaveSemanticCss,
+  graffiti: graffitiSemanticCss,
+  gothic: gothicSemanticCss,
+  'mixed-media': mixedMediaSemanticCss,
+  'art-deco': artDecoSemanticCss,
+  bauhaus: bauhausSemanticCss,
+  solarpunk: solarpunkSemanticCss,
+  'wabi-sabi': wabiSabiSemanticCss,
+};
+
+interface HybridPreset {
+  name: string;
+  expression: string;
+  tagline: string;
+  badge: string;
+}
+
+const POPULAR_HYBRID_PRESETS: HybridPreset[] = [
+  {
+    name: 'Wabi-Sabi + Glassmorphism',
+    expression: '/name = wabi-sabi + glassmorphism',
+    tagline: 'Zen organic washi paper with frosted specular glass depth',
+    badge: 'Zen Frosted',
+  },
+  {
+    name: 'Brutalism + Minimalism',
+    expression: '/name = brutalism + minimalism',
+    tagline: 'High-contrast structural slabs tempered by serene whitespace',
+    badge: 'Restrained Monolith',
+  },
+  {
+    name: 'Cyberpunk + Synthwave',
+    expression: '/name = cyberpunk + synthwave',
+    tagline: 'Obsidian terminal matrix layered with outrun neon magenta glow',
+    badge: 'Outrun Matrix',
+  },
+  {
+    name: 'Solarpunk + Neo-Brutalism',
+    expression: '/name = solarpunk + neo-brutalism',
+    tagline: 'Verdant botanical optimism merged with bold tactile geometry',
+    badge: 'Eco Pop',
+  },
+  {
+    name: 'Bauhaus + Glassmorphism',
+    expression: '/name = bauhaus + glassmorphism',
+    tagline: 'Constructivist primary geometry rendered on translucent frosted planes',
+    badge: 'Constructivist Glass',
+  },
+  {
+    name: 'Swiss Design + Dark Mode UI',
+    expression: '/name = swiss-design + dark-mode-ui',
+    tagline: 'International typographic precision against an obsidian dark canvas',
+    badge: 'Obsidian Grid',
+  },
+  {
+    name: 'Claymorphism + Y2K Aesthetic',
+    expression: '/name = claymorphism + y2k-aesthetic',
+    tagline: 'Tactile inflated 3D clay volumes with bubbly chrome highlights',
+    badge: 'Tactile Chrome',
+  },
+  {
+    name: 'Luxury Typography + Glassmorphism',
+    expression: '/name = luxury-typography + glassmorphism',
+    tagline: 'Authoritative Didone editorial serifs on ethereal frosted surfaces',
+    badge: 'Editorial Frosted',
+  },
+];
+
 export const RedesignLab: React.FC = () => {
   const { engine } = useStyleEngine();
   const [htmlInput, setHtmlInput] = useState<string>(SAMPLE_TEMPLATES[0].html);
   const [appliedHtml, setAppliedHtml] = useState<string>(SAMPLE_TEMPLATES[0].html);
   const [selectedStyleId, setSelectedStyleId] = useState<string>('brutalism');
-  const [viewMode, setViewMode] = useState<'styled' | 'comparison' | 'source'>('styled');
+  const [viewMode, setViewMode] = useState<'comparison' | 'styled' | 'source'>('comparison');
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isFullscreen) {
-        setIsFullscreen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFullscreen]);
+  // Split Slider state
+  const [splitPos, setSplitPos] = useState<number>(50);
+  const [isDraggingSplit, setIsDraggingSplit] = useState<boolean>(false);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
+  const sliderContainerRef = useRef<HTMLDivElement>(null);
+
+  // Style Composition / Hybrid State
+  const [isHybridMode, setIsHybridMode] = useState<boolean>(false);
+  const [primaryHybridId, setPrimaryHybridId] = useState<string>('wabi-sabi');
+  const [secondaryHybridId, setSecondaryHybridId] = useState<string>('glassmorphism');
+  const [hybridExpressionInput, setHybridExpressionInput] = useState<string>('/name = wabi-sabi + glassmorphism');
 
   const realStyles: { id: string; name: string; desc: string }[] = [
     { id: 'brutalism', name: 'Brutalism', desc: 'Bold geometry, thick borders, tactile contrast' },
@@ -394,14 +492,101 @@ export const RedesignLab: React.FC = () => {
     { id: 'mixed-media', name: 'Mixed Media', desc: 'Cotton rag paper, matted photography, collage layers, vermilion registration marks' },
     { id: 'art-deco', name: 'Art Deco', desc: 'Roaring 1920s luxury, sunburst motifs, stepped chevrons, metallic gold ornament' },
     { id: 'bauhaus', name: 'Bauhaus', desc: 'Form follows function, primary geometry, red, blue, and yellow' },
+    { id: 'solarpunk', name: 'Solarpunk', desc: 'Verdant greens, sunlit amber, organic curves, techno-ecological optimism' },
   ];
+
+  // Measure container width for the slider overlay so raw text never reflows or rewraps
+  useEffect(() => {
+    const updateWidth = () => {
+      if (sliderContainerRef.current) {
+        setContainerWidth(sliderContainerRef.current.offsetWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined' && sliderContainerRef.current) {
+      ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          setContainerWidth(entry.contentRect.width);
+        }
+      });
+      ro.observe(sliderContainerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+      if (ro) ro.disconnect();
+    };
+  }, [viewMode, isFullscreen]);
+
+  // Pointer drag listener for the Before/After split slider
+  useEffect(() => {
+    if (!isDraggingSplit) return;
+
+    const handlePointerMove = (clientX: number) => {
+      if (!sliderContainerRef.current) return;
+      const rect = sliderContainerRef.current.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const pct = Math.max(5, Math.min(95, (x / rect.width) * 100));
+      setSplitPos(pct);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      e.preventDefault();
+      handlePointerMove(e.clientX);
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        handlePointerMove(e.touches[0].clientX);
+      }
+    };
+
+    const onPointerUp = () => {
+      setIsDraggingSplit(false);
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('touchmove', onTouchMove);
+    window.addEventListener('touchend', onPointerUp);
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onPointerUp);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onPointerUp);
+    };
+  }, [isDraggingSplit]);
+
+  // Fullscreen event & Escape listeners
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        handleExitFullscreen();
+      }
+    };
+    const handleFsChange = () => {
+      if (!document.fullscreenElement && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('fullscreenchange', handleFsChange);
+    };
+  }, [isFullscreen]);
 
   // Sanitize the HTML safely
   const sanitizedHtml = useMemo(() => {
     return HTMLSanitizer.sanitize(appliedHtml);
   }, [appliedHtml]);
 
-  // Resolve style tokens via the Core Style Engine
+  // Resolve style tokens via the Core Style Engine (supports single and hybrid styles)
   const resolved = useMemo(() => {
     return engine.resolveStyleById(selectedStyleId, 'page');
   }, [engine, selectedStyleId]);
@@ -413,6 +598,20 @@ export const RedesignLab: React.FC = () => {
 
   const handleApply = () => {
     setAppliedHtml(htmlInput);
+  };
+
+  const handlePasteClipboard = async () => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard) {
+        const text = await navigator.clipboard.readText();
+        if (text && text.trim().length > 0) {
+          setHtmlInput(text);
+          setAppliedHtml(text);
+        }
+      }
+    } catch {
+      // If clipboard access is restricted, user can paste into textarea directly
+    }
   };
 
   const handleLoadTemplate = (template: SampleTemplate) => {
@@ -427,8 +626,59 @@ export const RedesignLab: React.FC = () => {
   };
 
   const handleToggleFullscreen = () => {
-    setIsFullscreen((prev) => !prev);
+    if (!isFullscreen) {
+      setIsFullscreen(true);
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    } else {
+      handleExitFullscreen();
+    }
   };
+
+  const handleExitFullscreen = () => {
+    setIsFullscreen(false);
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
+
+  // Style composition / hybrid handlers
+  const handleSelectHybridPrimary = (id: string) => {
+    setPrimaryHybridId(id);
+    const expr = `/name = ${id} + ${secondaryHybridId}`;
+    setHybridExpressionInput(expr);
+    setSelectedStyleId(expr);
+  };
+
+  const handleSelectHybridSecondary = (id: string) => {
+    setSecondaryHybridId(id);
+    const expr = `/name = ${primaryHybridId} + ${id}`;
+    setHybridExpressionInput(expr);
+    setSelectedStyleId(expr);
+  };
+
+  const handleApplyPreset = (preset: HybridPreset) => {
+    setIsHybridMode(true);
+    setHybridExpressionInput(preset.expression);
+    setSelectedStyleId(preset.expression);
+    const parts = engine.parseStyleQuery(preset.expression).constituentIds;
+    if (parts[0]) setPrimaryHybridId(parts[0]);
+    if (parts[1]) setSecondaryHybridId(parts[1]);
+  };
+
+  const handleExpressionChange = (val: string) => {
+    setHybridExpressionInput(val);
+    setSelectedStyleId(val);
+  };
+
+  const activeConstituents = resolved.constituentStyles && resolved.constituentStyles.length > 0
+    ? resolved.constituentStyles
+    : [resolved.styleId];
+
+  const activeSemanticCss = activeConstituents
+    .map((id) => SEMANTIC_CSS_MAP[id] || '')
+    .join('\n');
 
   const handleOpenInNewTab = () => {
     const standaloneDoc = `<!DOCTYPE html>
@@ -559,43 +809,11 @@ export const RedesignLab: React.FC = () => {
       color: var(--ds-color-text-primary, inherit);
       font-weight: var(--ds-font-weight-bold, 700);
     }
-    ${selectedStyleId === 'brutalism' ? brutalistSemanticCss : ''}
-    ${selectedStyleId === 'minimalism' ? minimalistSemanticCss : ''}
-    ${selectedStyleId === 'glassmorphism' ? glassmorphismSemanticCss : ''}
-    ${selectedStyleId === 'maximalism' ? maximalistSemanticCss : ''}
-    ${selectedStyleId === 'swiss-design' ? swissDesignSemanticCss : ''}
-    ${selectedStyleId === 'surrealism' ? surrealDesignSemanticCss : ''}
-    ${selectedStyleId === 'neo-brutalism' ? neoBrutalistSemanticCss : ''}
-    ${selectedStyleId === 'neo-classical' ? neoClassicalSemanticCss : ''}
-    ${selectedStyleId === 'luxury-typography' ? luxuryTypographySemanticCss : ''}
-    ${selectedStyleId === 'editorial-design' ? editorialDesignSemanticCss : ''}
-    ${selectedStyleId === 'y2k-aesthetic' ? y2kAestheticSemanticCss : ''}
-    ${selectedStyleId === 'bento-grid' ? bentoGridSemanticCss : ''}
-    ${selectedStyleId === 'pixel-art' ? pixelArtSemanticCss : ''}
-    ${selectedStyleId === 'conceptual-sketch' ? conceptualSketchSemanticCss : ''}
-    ${selectedStyleId === 'ethereal' ? etherealSemanticCss : ''}
-    ${selectedStyleId === 'bohemian' ? bohemianSemanticCss : ''}
-    ${selectedStyleId === 'cyberpunk' ? cyberpunkSemanticCss : ''}
-    ${selectedStyleId === 'anthropomorphic' ? anthropomorphicSemanticCss : ''}
-    ${selectedStyleId === 'neumorphism' ? neumorphicSemanticCss : ''}
-    ${selectedStyleId === 'dark-mode-ui' ? darkModeUiSemanticCss : ''}
-    ${selectedStyleId === 'scrapbook' ? scrapbookSemanticCss : ''}
-    ${selectedStyleId === 'claymorphism' ? claymorphicSemanticCss : ''}
-    ${selectedStyleId === 'victorian' ? victorianSemanticCss : ''}
-    ${selectedStyleId === 'cybercore' ? cybercoreSemanticCss : ''}
-    ${selectedStyleId === 'synthwave' ? synthwaveSemanticCss : ''}
-    ${selectedStyleId === 'graffiti' ? graffitiSemanticCss : ''}
-    ${selectedStyleId === 'gothic' ? gothicSemanticCss : ''}
-    ${selectedStyleId === 'mixed-media' ? mixedMediaSemanticCss : ''}
-    ${selectedStyleId === 'art-deco' ? artDecoSemanticCss : ''}
-    ${selectedStyleId === 'bauhaus' ? bauhausSemanticCss : ''}
-        ${selectedStyleId === 'solarpunk' ? solarpunkSemanticCss : ''}
-    ${selectedStyleId === 'solarpunk' ? solarpunkSemanticCss : ''}
-    ${selectedStyleId === 'wabi-sabi' ? wabiSabiSemanticCss : ''}
+    ${activeSemanticCss}
   </style>
 </head>
 <body>
-  <div class="page-container ${selectedStyleId === 'brutalism' ? 'brutalism-styled-container' : selectedStyleId === 'minimalism' ? 'minimalism-styled-container' : selectedStyleId === 'glassmorphism' ? 'glassmorphism-styled-container' : selectedStyleId === 'maximalism' ? 'maximalism-styled-container' : selectedStyleId === 'swiss-design' ? 'swiss-design-styled-container' : selectedStyleId === 'surrealism' ? 'surrealism-styled-container' : selectedStyleId === 'neo-brutalism' ? 'neo-brutalism-styled-container' : selectedStyleId === 'neo-classical' ? 'neo-classical-styled-container' : selectedStyleId === 'luxury-typography' ? 'luxury-typography-styled-container' : selectedStyleId === 'editorial-design' ? 'editorial-design-styled-container' : selectedStyleId === 'y2k-aesthetic' ? 'y2k-aesthetic-styled-container' : selectedStyleId === 'bento-grid' ? 'bento-grid-styled-container' : selectedStyleId === 'pixel-art' ? 'pixel-art-styled-container' : selectedStyleId === 'conceptual-sketch' ? 'conceptual-sketch-styled-container' : selectedStyleId === 'ethereal' ? 'ethereal-styled-container' : selectedStyleId === 'bohemian' ? 'bohemian-styled-container' : selectedStyleId === 'cyberpunk' ? 'cyberpunk-styled-container' : selectedStyleId === 'anthropomorphic' ? 'anthropomorphic-styled-container' : selectedStyleId === 'neumorphism' ? 'neumorphism-styled-container' : selectedStyleId === 'dark-mode-ui' ? 'dark-mode-ui-styled-container' : selectedStyleId === 'scrapbook' ? 'scrapbook-styled-container' : selectedStyleId === 'claymorphism' ? 'claymorphism-styled-container' : selectedStyleId === 'victorian' ? 'victorian-styled-container' : selectedStyleId === 'cybercore' ? 'cybercore-styled-container' : selectedStyleId === 'synthwave' ? 'synthwave-styled-container' : selectedStyleId === 'graffiti' ? 'graffiti-styled-container' : selectedStyleId === 'gothic' ? 'gothic-styled-container' : selectedStyleId === 'mixed-media' ? 'mixed-media-styled-container' : selectedStyleId === 'art-deco' ? 'art-deco-styled-container' : selectedStyleId === 'bauhaus' ? 'bauhaus-styled-container' : selectedStyleId === 'wabi-sabi' ? 'wabi-sabi-styled-container' : ''}">
+  <div class="page-container ${resolved.hybridClassNames || `style-${resolved.styleId}`}" data-style="${resolved.styleId}" data-styles="${activeConstituents.join(',')}">
     ${sanitizedHtml}
   </div>
 </body>
@@ -650,6 +868,25 @@ export const RedesignLab: React.FC = () => {
             <ShieldCheck size={12} />
             Safe Sanitized Execution
           </span>
+          {resolved.isHybrid && (
+            <span
+              style={{
+                fontSize: '0.75rem',
+                padding: '0.15rem 0.6rem',
+                borderRadius: '9999px',
+                backgroundColor: 'rgba(168, 85, 247, 0.2)',
+                color: '#c084fc',
+                border: '1px solid rgba(168, 85, 247, 0.4)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                fontWeight: 700,
+              }}
+            >
+              <Wand2 size={12} />
+              Hybrid Style Composition Active
+            </span>
+          )}
         </div>
 
         <h1
@@ -663,10 +900,10 @@ export const RedesignLab: React.FC = () => {
         >
           Transform Arbitrary Plain HTML
         </h1>
-        <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.9375rem', maxWidth: '780px', lineHeight: 1.55 }}>
+        <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.9375rem', maxWidth: '820px', lineHeight: 1.55 }}>
           Paste completely plain, unstyled HTML with <strong>no custom classes</strong>.
-          The Style Engine applies the selected design language's tokens, typography, surfaces, and component rules directly
-          while preserving the source structure.
+          The Style Engine applies single design languages or <strong>hybrid multi-language compositions</strong> directly
+          to the DOM structure with an interactive draggable Before / After slider.
         </p>
       </div>
 
@@ -708,10 +945,32 @@ export const RedesignLab: React.FC = () => {
           </button>
         ))}
         <button
+          id="btn-paste-clipboard"
+          onClick={handlePasteClipboard}
+          title="Paste custom HTML directly from your clipboard"
+          style={{
+            marginLeft: 'auto',
+            padding: '0.35rem 0.75rem',
+            fontSize: '0.8125rem',
+            fontWeight: 600,
+            borderRadius: '6px',
+            border: '1px solid rgba(56, 189, 248, 0.4)',
+            backgroundColor: 'rgba(56, 189, 248, 0.12)',
+            color: '#38bdf8',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            transition: 'all 120ms ease',
+          }}
+        >
+          <Sparkles size={12} />
+          Paste Clipboard
+        </button>
+        <button
           id="btn-clear-editor"
           onClick={handleClear}
           style={{
-            marginLeft: 'auto',
             padding: '0.35rem 0.75rem',
             fontSize: '0.8125rem',
             fontWeight: 500,
@@ -734,143 +993,376 @@ export const RedesignLab: React.FC = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.25fr)',
+          gridTemplateColumns: isFullscreen ? '1fr' : 'minmax(0, 1fr) minmax(0, 1.35fr)',
           gap: '1.5rem',
           alignItems: 'start',
         }}
       >
-        {/* LEFT COLUMN: HTML EDITOR & CONTROLS */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.25rem',
-            backgroundColor: '#0f172a',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: '16px',
-            padding: '1.5rem',
-            boxShadow: '0 12px 28px rgba(0, 0, 0, 0.4)',
-          }}
-        >
-          {/* Editor Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Code2 size={16} color="#38bdf8" />
-              <span style={{ fontWeight: 700, fontSize: '0.875rem', color: '#f8fafc' }}>
-                PASTE YOUR HTML
+        {/* LEFT COLUMN: HTML EDITOR & STYLE CONTROLS (Hidden when in Fullscreen) */}
+        {!isFullscreen && (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.25rem',
+              backgroundColor: '#0f172a',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              padding: '1.5rem',
+              boxShadow: '0 12px 28px rgba(0, 0, 0, 0.4)',
+            }}
+          >
+            {/* Editor Header */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Code2 size={16} color="#38bdf8" />
+                <span style={{ fontWeight: 700, fontSize: '0.875rem', color: '#f8fafc' }}>
+                  PASTE YOUR HTML
+                </span>
+              </div>
+              <span style={{ fontSize: '0.75rem', color: '#64748b', fontFamily: "'JetBrains Mono', monospace" }}>
+                {htmlInput.length} chars • {(htmlInput.match(/\n/g) || []).length + 1} lines
               </span>
             </div>
-            <span style={{ fontSize: '0.75rem', color: '#64748b', fontFamily: "'JetBrains Mono', monospace" }}>
-              {htmlInput.length} chars • {(htmlInput.match(/\n/g) || []).length + 1} lines
-            </span>
-          </div>
 
-          {/* HTML Textarea */}
-          <div style={{ position: 'relative' }}>
-            <textarea
-              id="html-input-editor"
-              value={htmlInput}
-              onChange={(e) => setHtmlInput(e.target.value)}
-              rows={12}
-              placeholder="Paste arbitrary HTML here (e.g. <div><h1>Title</h1><p>Text</p><button>Action</button></div>)"
-              style={{
-                width: '100%',
-                padding: '1rem',
-                backgroundColor: '#020617',
-                border: '1px solid #334155',
-                borderRadius: '8px',
-                color: '#e2e8f0',
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: '0.875rem',
-                lineHeight: 1.5,
-                resize: 'vertical',
-                outline: 'none',
-                boxSizing: 'border-box',
-              }}
-            />
-          </div>
-
-          {/* Design Language Selector */}
-          <div>
-            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-              CHOOSE DESIGN LANGUAGE:
+            {/* HTML Textarea */}
+            <div style={{ position: 'relative' }}>
+              <textarea
+                id="html-input-editor"
+                value={htmlInput}
+                onChange={(e) => setHtmlInput(e.target.value)}
+                rows={11}
+                placeholder="Paste arbitrary HTML here (e.g. <div><h1>Title</h1><p>Text</p><button>Action</button></div>)"
+                style={{
+                  width: '100%',
+                  padding: '1rem',
+                  backgroundColor: '#020617',
+                  border: '1px solid #334155',
+                  borderRadius: '8px',
+                  color: '#e2e8f0',
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '0.875rem',
+                  lineHeight: 1.5,
+                  resize: 'vertical',
+                  outline: 'none',
+                  boxSizing: 'border-box',
+                }}
+              />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
-              {realStyles.map((st) => {
-                const isSelected = selectedStyleId === st.id;
-                return (
+
+            {/* Style Mode Selector Tabs: Single vs Style Composition */}
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.6rem' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase' }}>
+                  DESIGN LANGUAGE MODE:
+                </span>
+                <div style={{ display: 'flex', gap: '0.35rem', backgroundColor: '#1e293b', padding: '0.2rem', borderRadius: '6px' }}>
                   <button
-                    key={st.id}
-                    id={`lab-style-${st.id}`}
-                    onClick={() => setSelectedStyleId(st.id)}
+                    id="btn-mode-single"
+                    onClick={() => {
+                      setIsHybridMode(false);
+                      if (selectedStyleId.includes('+')) {
+                        setSelectedStyleId('wabi-sabi');
+                      }
+                    }}
                     style={{
-                      padding: '0.75rem 0.5rem',
-                      borderRadius: '8px',
-                      border: isSelected ? '2px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: isSelected ? 'rgba(56, 189, 248, 0.15)' : '#1e293b',
-                      color: isSelected ? '#38bdf8' : '#cbd5e1',
+                      padding: '0.25rem 0.6rem',
+                      fontSize: '0.75rem',
+                      fontWeight: !isHybridMode ? 700 : 500,
+                      borderRadius: '4px',
+                      border: 'none',
+                      backgroundColor: !isHybridMode ? '#38bdf8' : 'transparent',
+                      color: !isHybridMode ? '#020617' : '#94a3b8',
                       cursor: 'pointer',
-                      textAlign: 'center',
-                      transition: 'all 120ms ease',
                     }}
                   >
-                    <div style={{ fontWeight: 700, fontSize: '0.875rem', marginBottom: '0.2rem' }}>
-                      {st.name}
-                    </div>
-                    <div style={{ fontSize: '0.6875rem', opacity: 0.75, lineHeight: 1.2 }}>
-                      {st.desc.split(',')[0]}
-                    </div>
+                    Single Style
                   </button>
-                );
-              })}
+                  <button
+                    id="btn-mode-hybrid"
+                    onClick={() => {
+                      setIsHybridMode(true);
+                      const expr = `/name = ${primaryHybridId} + ${secondaryHybridId}`;
+                      setHybridExpressionInput(expr);
+                      setSelectedStyleId(expr);
+                    }}
+                    style={{
+                      padding: '0.25rem 0.6rem',
+                      fontSize: '0.75rem',
+                      fontWeight: isHybridMode ? 700 : 500,
+                      borderRadius: '4px',
+                      border: 'none',
+                      backgroundColor: isHybridMode ? '#a855f7' : 'transparent',
+                      color: isHybridMode ? '#ffffff' : '#94a3b8',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.25rem',
+                    }}
+                  >
+                    <Layers size={12} />
+                    Style Composition (Hybrid)
+                  </button>
+                </div>
+              </div>
+
+              {/* MODE A: SINGLE STYLE SELECTION */}
+              {!isHybridMode && (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem', maxHeight: '340px', overflowY: 'auto', paddingRight: '4px' }}>
+                  {realStyles.map((st) => {
+                    const isSelected = selectedStyleId === st.id;
+                    return (
+                      <button
+                        key={st.id}
+                        id={`lab-style-${st.id}`}
+                        onClick={() => setSelectedStyleId(st.id)}
+                        style={{
+                          padding: '0.65rem 0.5rem',
+                          borderRadius: '8px',
+                          border: isSelected ? '2px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.1)',
+                          backgroundColor: isSelected ? 'rgba(56, 189, 248, 0.15)' : '#1e293b',
+                          color: isSelected ? '#38bdf8' : '#cbd5e1',
+                          cursor: 'pointer',
+                          textAlign: 'center',
+                          transition: 'all 120ms ease',
+                        }}
+                      >
+                        <div style={{ fontWeight: 700, fontSize: '0.8125rem', marginBottom: '0.15rem' }}>
+                          {st.name}
+                        </div>
+                        <div style={{ fontSize: '0.65rem', opacity: 0.75, lineHeight: 1.2 }}>
+                          {st.desc.split(',')[0]}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* MODE B: STYLE COMPOSITION / HYBRID DESIGN LANGUAGES */}
+              {isHybridMode && (
+                <div
+                  id="hybrid-composer-panel"
+                  style={{
+                    backgroundColor: '#020617',
+                    border: '1px solid rgba(168, 85, 247, 0.3)',
+                    borderRadius: '12px',
+                    padding: '1.25rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                  }}
+                >
+                  {/* Syntax Expression Box */}
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#c084fc', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                        <Wand2 size={13} />
+                        Hybrid Syntax Expression:
+                      </span>
+                      <span style={{ fontSize: '0.6875rem', color: '#64748b' }}>
+                        Supports <code>/name = styleA + styleB</code>
+                      </span>
+                    </div>
+                    <input
+                      id="hybrid-expression-input"
+                      type="text"
+                      value={hybridExpressionInput}
+                      onChange={(e) => handleExpressionChange(e.target.value)}
+                      placeholder="/name = wabi-sabi + glassmorphism"
+                      style={{
+                        width: '100%',
+                        padding: '0.65rem 0.85rem',
+                        backgroundColor: '#090d16',
+                        border: '1px solid #a855f7',
+                        borderRadius: '6px',
+                        color: '#f8fafc',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: '0.8125rem',
+                        boxSizing: 'border-box',
+                        outline: 'none',
+                      }}
+                    />
+                  </div>
+
+                  {/* Dual Language Blend Selectors */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+                        1. Primary (Foundation & Type):
+                      </label>
+                      <select
+                        id="hybrid-primary-select"
+                        value={primaryHybridId}
+                        onChange={(e) => handleSelectHybridPrimary(e.target.value)}
+                        style={{
+                          width: '100%',
+                          padding: '0.55rem',
+                          backgroundColor: '#1e293b',
+                          border: '1px solid #475569',
+                          borderRadius: '6px',
+                          color: '#f8fafc',
+                          fontSize: '0.8125rem',
+                        }}
+                      >
+                        {realStyles.map((st) => (
+                          <option key={st.id} value={st.id}>
+                            {st.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+                        2. Secondary (Surfaces & Effects):
+                      </label>
+                      <select
+                        id="hybrid-secondary-select"
+                        value={secondaryHybridId}
+                        onChange={(e) => handleSelectHybridSecondary(e.target.value)}
+                        style={{
+                          width: '100%',
+                          padding: '0.55rem',
+                          backgroundColor: '#1e293b',
+                          border: '1px solid #475569',
+                          borderRadius: '6px',
+                          color: '#f8fafc',
+                          fontSize: '0.8125rem',
+                        }}
+                      >
+                        {realStyles.map((st) => (
+                          <option key={st.id} value={st.id}>
+                            {st.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Curated Hybrid Presets */}
+                  <div>
+                    <span style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
+                      POPULAR CURATED HYBRIDS:
+                    </span>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.4rem' }}>
+                      {POPULAR_HYBRID_PRESETS.map((prs) => (
+                        <button
+                          key={prs.expression}
+                          id={`preset-hybrid-${prs.badge.toLowerCase().replace(/\s+/g, '-')}`}
+                          onClick={() => handleApplyPreset(prs)}
+                          title={prs.tagline}
+                          style={{
+                            padding: '0.45rem 0.6rem',
+                            textAlign: 'left',
+                            borderRadius: '6px',
+                            border: hybridExpressionInput.includes(prs.expression.replace('/name = ', '')) ? '1px solid #c084fc' : '1px solid rgba(255, 255, 255, 0.08)',
+                            backgroundColor: hybridExpressionInput.includes(prs.expression.replace('/name = ', '')) ? 'rgba(168, 85, 247, 0.2)' : '#1e293b',
+                            color: '#e2e8f0',
+                            cursor: 'pointer',
+                            fontSize: '0.75rem',
+                            transition: 'all 120ms ease',
+                          }}
+                        >
+                          <div style={{ fontWeight: 700, color: '#c084fc', marginBottom: '0.1rem' }}>
+                            {prs.name}
+                          </div>
+                          <div style={{ fontSize: '0.65rem', color: '#94a3b8', lineHeight: 1.2 }}>
+                            {prs.badge}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Apply & Preview Action Button */}
+            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.25rem' }}>
+              <button
+                id="lab-apply-btn"
+                onClick={handleApply}
+                style={{
+                  flex: 1,
+                  padding: '0.85rem 1.5rem',
+                  backgroundColor: resolved.isHybrid ? '#9333ea' : '#0284c7',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontWeight: 700,
+                  fontSize: '0.9375rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  boxShadow: resolved.isHybrid ? '0 4px 14px rgba(147, 51, 234, 0.4)' : '0 4px 14px rgba(2, 132, 199, 0.4)',
+                  transition: 'all 150ms ease',
+                }}
+              >
+                <Sparkles size={16} />
+                Apply {resolved.styleName}
+              </button>
             </div>
           </div>
+        )}
 
-          {/* Apply & Preview Action Button */}
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.25rem' }}>
-            <button
-              id="lab-apply-btn"
-              onClick={handleApply}
-              style={{
-                flex: 1,
-                padding: '0.85rem 1.5rem',
-                backgroundColor: '#0284c7',
-                color: '#ffffff',
-                border: 'none',
-                borderRadius: '8px',
-                fontWeight: 700,
-                fontSize: '0.9375rem',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                boxShadow: '0 4px 14px rgba(2, 132, 199, 0.4)',
-                transition: 'all 150ms ease',
-              }}
-            >
-              <Sparkles size={16} />
-              Apply {resolved.styleName}
-            </button>
-          </div>
-        </div>
-
-        {/* RIGHT COLUMN: LIVE RESULT CANVAS & VIEWS */}
+        {/* RIGHT COLUMN: LIVE RESULT CANVAS & UNIFIED BEFORE/AFTER SLIDER */}
         <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.25rem',
-            backgroundColor: '#0f172a',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: '16px',
-            padding: '1.5rem',
-            boxShadow: '0 12px 28px rgba(0, 0, 0, 0.4)',
-          }}
+          id="lab-result-column"
+          style={
+            isFullscreen
+              ? {
+                  position: 'fixed',
+                  inset: 0,
+                  zIndex: 99999,
+                  backgroundColor: '#090a0f',
+                  width: '100vw',
+                  height: '100vh',
+                  overflowY: 'auto',
+                  padding: '1.5rem 2rem',
+                  boxSizing: 'border-box',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
+                }
+              : {
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.25rem',
+                  backgroundColor: '#0f172a',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '16px',
+                  padding: '1.5rem',
+                  boxShadow: '0 12px 28px rgba(0, 0, 0, 0.4)',
+                }
+          }
         >
           {/* View Switcher Bar */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', backgroundColor: '#1e293b', padding: '0.25rem', borderRadius: '8px' }}>
+              <button
+                id="view-comparison-btn"
+                onClick={() => setViewMode('comparison')}
+                style={{
+                  padding: '0.4rem 0.85rem',
+                  fontSize: '0.8125rem',
+                  fontWeight: viewMode === 'comparison' ? 700 : 500,
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: viewMode === 'comparison' ? '#38bdf8' : 'transparent',
+                  color: viewMode === 'comparison' ? '#020617' : '#94a3b8',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                }}
+              >
+                <Sliders size={14} />
+                Before / After Slider
+              </button>
+
               <button
                 id="view-styled-btn"
                 onClick={() => setViewMode('styled')}
@@ -889,28 +1381,7 @@ export const RedesignLab: React.FC = () => {
                 }}
               >
                 <Eye size={14} />
-                Styled Result
-              </button>
-
-              <button
-                id="view-comparison-btn"
-                onClick={() => setViewMode('comparison')}
-                style={{
-                  padding: '0.4rem 0.85rem',
-                  fontSize: '0.8125rem',
-                  fontWeight: viewMode === 'comparison' ? 700 : 500,
-                  borderRadius: '6px',
-                  border: 'none',
-                  backgroundColor: viewMode === 'comparison' ? '#38bdf8' : 'transparent',
-                  color: viewMode === 'comparison' ? '#020617' : '#94a3b8',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                }}
-              >
-                <Columns size={14} />
-                Before / After
+                Styled View
               </button>
 
               <button
@@ -937,22 +1408,22 @@ export const RedesignLab: React.FC = () => {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
               <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                Active: <strong style={{ color: '#38bdf8' }}>{resolved.styleName.toUpperCase()}</strong>
+                Active: <strong style={{ color: resolved.isHybrid ? '#c084fc' : '#38bdf8' }}>{resolved.styleName.toUpperCase()}</strong>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <button
                   id="open-fullscreen-btn"
                   onClick={handleToggleFullscreen}
-                  title="Toggle Fullscreen Result Canvas"
+                  title={isFullscreen ? 'Exit Full Screen (Esc)' : 'Toggle Full Screen Workspace'}
                   style={{
                     padding: '0.35rem 0.75rem',
                     fontSize: '0.75rem',
                     fontWeight: 600,
                     borderRadius: '6px',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    backgroundColor: '#1e293b',
-                    color: '#cbd5e1',
+                    border: isFullscreen ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.15)',
+                    backgroundColor: isFullscreen ? 'rgba(56, 189, 248, 0.2)' : '#1e293b',
+                    color: isFullscreen ? '#38bdf8' : '#cbd5e1',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -960,8 +1431,8 @@ export const RedesignLab: React.FC = () => {
                     transition: 'all 120ms ease',
                   }}
                 >
-                  <Maximize2 size={13} />
-                  Full Screen
+                  {isFullscreen ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
+                  {isFullscreen ? 'Exit Full Screen' : 'Full Screen'}
                 </button>
 
                 <button
@@ -990,17 +1461,199 @@ export const RedesignLab: React.FC = () => {
             </div>
           </div>
 
-          {/* VIEW 1: STYLED RESULT */}
+          {/* VIEW 1: UNIFIED BEFORE / AFTER INTERACTIVE SLIDER (ONE BIG SECTION) */}
+          {viewMode === 'comparison' && (
+            <div
+              id="lab-slider-container"
+              ref={sliderContainerRef}
+              style={{
+                position: 'relative',
+                width: '100%',
+                minHeight: isFullscreen ? 'calc(100vh - 120px)' : '480px',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                userSelect: 'none',
+                cursor: isDraggingSplit ? 'ew-resize' : 'default',
+                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.5)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                backgroundColor: '#ffffff',
+              }}
+              onMouseDown={() => setIsDraggingSplit(true)}
+              onTouchStart={() => setIsDraggingSplit(true)}
+            >
+              {/* BACKGROUND LAYER: AFTER (Fully Styled with Design Language or Hybrid) */}
+              <div
+                id="lab-after-canvas"
+                className={`lab-styled-preview ${resolved.hybridClassNames || `style-${resolved.styleId}`}`}
+                data-style={resolved.styleId}
+                data-styles={activeConstituents.join(',')}
+                data-hybrid={resolved.isHybrid ? 'true' : undefined}
+                style={{
+                  ...cssVariables,
+                  padding: '2.5rem',
+                  minHeight: isFullscreen ? 'calc(100vh - 120px)' : '480px',
+                  backgroundColor: 'var(--ds-color-background, #ffffff)',
+                  color: 'var(--ds-color-text-primary, #000000)',
+                  fontFamily: 'var(--ds-font-family-base, sans-serif)',
+                  boxSizing: 'border-box',
+                  overflow: 'auto',
+                }}
+                dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+              />
+
+              {/* OVERLAY LAYER: BEFORE (Raw Unstyled Plain Semantic HTML Defaults) */}
+              <div
+                id="lab-before-overlay"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  width: `${splitPos}%`,
+                  overflow: 'hidden',
+                  backgroundColor: '#ffffff',
+                  color: '#000000',
+                  borderRight: '3px solid #38bdf8',
+                  boxShadow: '4px 0 16px rgba(56, 189, 248, 0.4)',
+                  zIndex: 20,
+                  pointerEvents: 'none',
+                }}
+              >
+                <div
+                  id="lab-before-canvas"
+                  style={{
+                    width: containerWidth > 0 ? `${containerWidth}px` : '100%',
+                    padding: '2.5rem',
+                    minHeight: isFullscreen ? 'calc(100vh - 120px)' : '480px',
+                    fontFamily: 'initial',
+                    boxSizing: 'border-box',
+                    color: '#000000',
+                    backgroundColor: '#ffffff',
+                    overflow: 'hidden',
+                  }}
+                  dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+                />
+              </div>
+
+              {/* DRAGGABLE DIVIDER HANDLE */}
+              <div
+                id="lab-slider-handle"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  left: `calc(${splitPos}% - 16px)`,
+                  width: '32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'ew-resize',
+                  zIndex: 40,
+                }}
+              >
+                <div
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    backgroundColor: '#38bdf8',
+                    boxShadow: '0 0 16px rgba(56, 189, 248, 0.9), 0 2px 8px rgba(0, 0, 0, 0.4)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#020617',
+                    fontWeight: 900,
+                    fontSize: '13px',
+                    border: '2px solid #ffffff',
+                    userSelect: 'none',
+                  }}
+                >
+                  ⇄
+                </div>
+              </div>
+
+              {/* FLOATING INFORMATIVE BADGES */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '12px',
+                  left: '12px',
+                  padding: '0.35rem 0.75rem',
+                  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                  color: '#f8fafc',
+                  borderRadius: '6px',
+                  fontSize: '0.6875rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                  zIndex: 30,
+                  backdropFilter: 'blur(6px)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  pointerEvents: 'none',
+                }}
+              >
+                BEFORE: Raw Plain HTML Defaults
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '12px',
+                  right: '12px',
+                  padding: '0.35rem 0.75rem',
+                  backgroundColor: 'rgba(15, 23, 42, 0.88)',
+                  color: resolved.isHybrid ? '#c084fc' : '#38bdf8',
+                  borderRadius: '6px',
+                  fontSize: '0.6875rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                  zIndex: 30,
+                  backdropFilter: 'blur(6px)',
+                  border: resolved.isHybrid ? '1px solid rgba(168, 85, 247, 0.4)' : '1px solid rgba(56, 189, 248, 0.4)',
+                  pointerEvents: 'none',
+                }}
+              >
+                AFTER: {resolved.styleName} ({Math.round(splitPos)}% split)
+              </div>
+
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '12px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  padding: '0.25rem 0.75rem',
+                  backgroundColor: 'rgba(2, 6, 23, 0.85)',
+                  color: '#94a3b8',
+                  borderRadius: '9999px',
+                  fontSize: '0.6875rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                  zIndex: 30,
+                  backdropFilter: 'blur(6px)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  pointerEvents: 'none',
+                }}
+              >
+                Drag slider ⇄ left or right to inspect transformation
+              </div>
+            </div>
+          )}
+
+          {/* VIEW 2: STYLED RESULT */}
           {viewMode === 'styled' && (
             <div
               id="lab-rendered-result-canvas"
-              className="lab-styled-preview"
-              data-style={selectedStyleId}
+              className={`lab-styled-preview ${resolved.hybridClassNames || `style-${resolved.styleId}`}`}
+              data-style={resolved.styleId}
+              data-styles={activeConstituents.join(',')}
+              data-hybrid={resolved.isHybrid ? 'true' : undefined}
               style={{
                 ...cssVariables,
                 padding: '2.5rem',
                 borderRadius: '12px',
-                minHeight: '340px',
+                minHeight: isFullscreen ? 'calc(100vh - 120px)' : '480px',
                 backgroundColor: 'var(--ds-color-background, #ffffff)',
                 color: 'var(--ds-color-text-primary, #000000)',
                 fontFamily: 'var(--ds-font-family-base, sans-serif)',
@@ -1011,61 +1664,6 @@ export const RedesignLab: React.FC = () => {
             />
           )}
 
-          {/* VIEW 2: BEFORE / AFTER SIDE-BY-SIDE */}
-          {viewMode === 'comparison' && (
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '1.25rem',
-                minHeight: '340px',
-              }}
-            >
-              {/* BEFORE: Plain unstyled browser defaults */}
-              <div
-                style={{
-                  backgroundColor: '#ffffff',
-                  color: '#000000',
-                  padding: '1.5rem',
-                  borderRadius: '8px',
-                  border: '1px solid #cbd5e1',
-                  overflow: 'auto',
-                  fontFamily: 'initial',
-                }}
-              >
-                <div style={{ fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase', color: '#64748b', marginBottom: '1rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.35rem' }}>
-                  BEFORE: Plain Unstyled HTML (Browser Defaults)
-                </div>
-                <div
-                  id="lab-before-canvas"
-                  dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
-                />
-              </div>
-
-              {/* AFTER: Styled with design language */}
-              <div
-                id="lab-after-canvas"
-                className="lab-styled-preview"
-                data-style={selectedStyleId}
-                style={{
-                  ...cssVariables,
-                  padding: '1.5rem',
-                  borderRadius: '8px',
-                  backgroundColor: 'var(--ds-color-background, #ffffff)',
-                  color: 'var(--ds-color-text-primary, #000000)',
-                  fontFamily: 'var(--ds-font-family-base, sans-serif)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  overflow: 'auto',
-                }}
-              >
-                <div style={{ fontSize: '0.6875rem', fontWeight: 800, textTransform: 'uppercase', opacity: 0.6, marginBottom: '1rem', borderBottom: '1px solid currentColor', paddingBottom: '0.35rem' }}>
-                  AFTER: {resolved.styleName.toUpperCase()} (Style Engine)
-                </div>
-                <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
-              </div>
-            </div>
-          )}
-
           {/* VIEW 3: SANITIZED HTML SOURCE */}
           {viewMode === 'source' && (
             <div
@@ -1074,7 +1672,7 @@ export const RedesignLab: React.FC = () => {
                 border: '1px solid #334155',
                 borderRadius: '8px',
                 padding: '1.25rem',
-                minHeight: '340px',
+                minHeight: isFullscreen ? 'calc(100vh - 120px)' : '480px',
                 overflow: 'auto',
               }}
             >
@@ -1098,37 +1696,7 @@ export const RedesignLab: React.FC = () => {
 
       {/* Scoped CSS for Lab Styled Previews using Style Engine variables */}
       <style>{`
-        ${selectedStyleId === 'brutalism' ? brutalistSemanticCss : ''}
-        ${selectedStyleId === 'minimalism' ? minimalistSemanticCss : ''}
-        ${selectedStyleId === 'glassmorphism' ? glassmorphismSemanticCss : ''}
-        ${selectedStyleId === 'maximalism' ? maximalistSemanticCss : ''}
-        ${selectedStyleId === 'swiss-design' ? swissDesignSemanticCss : ''}
-        ${selectedStyleId === 'surrealism' ? surrealDesignSemanticCss : ''}
-        ${selectedStyleId === 'neo-brutalism' ? neoBrutalistSemanticCss : ''}
-        ${selectedStyleId === 'neo-classical' ? neoClassicalSemanticCss : ''}
-        ${selectedStyleId === 'luxury-typography' ? luxuryTypographySemanticCss : ''}
-        ${selectedStyleId === 'editorial-design' ? editorialDesignSemanticCss : ''}
-        ${selectedStyleId === 'y2k-aesthetic' ? y2kAestheticSemanticCss : ''}
-        ${selectedStyleId === 'bento-grid' ? bentoGridSemanticCss : ''}
-        ${selectedStyleId === 'pixel-art' ? pixelArtSemanticCss : ''}
-        ${selectedStyleId === 'conceptual-sketch' ? conceptualSketchSemanticCss : ''}
-        ${selectedStyleId === 'ethereal' ? etherealSemanticCss : ''}
-        ${selectedStyleId === 'bohemian' ? bohemianSemanticCss : ''}
-        ${selectedStyleId === 'cyberpunk' ? cyberpunkSemanticCss : ''}
-        ${selectedStyleId === 'anthropomorphic' ? anthropomorphicSemanticCss : ''}
-        ${selectedStyleId === 'neumorphism' ? neumorphicSemanticCss : ''}
-        ${selectedStyleId === 'dark-mode-ui' ? darkModeUiSemanticCss : ''}
-        ${selectedStyleId === 'scrapbook' ? scrapbookSemanticCss : ''}
-        ${selectedStyleId === 'claymorphism' ? claymorphicSemanticCss : ''}
-        ${selectedStyleId === 'victorian' ? victorianSemanticCss : ''}
-        ${selectedStyleId === 'cybercore' ? cybercoreSemanticCss : ''}
-        ${selectedStyleId === 'synthwave' ? synthwaveSemanticCss : ''}
-        ${selectedStyleId === 'graffiti' ? graffitiSemanticCss : ''}
-        ${selectedStyleId === 'gothic' ? gothicSemanticCss : ''}
-        ${selectedStyleId === 'mixed-media' ? mixedMediaSemanticCss : ''}
-        ${selectedStyleId === 'art-deco' ? artDecoSemanticCss : ''}
-        ${selectedStyleId === 'bauhaus' ? bauhausSemanticCss : ''}
-        ${selectedStyleId === 'wabi-sabi' ? wabiSabiSemanticCss : ''}
+        ${activeSemanticCss}
         .lab-styled-preview h1, .lab-styled-preview h2, .lab-styled-preview h3, .lab-styled-preview h4 {
           font-family: var(--ds-font-family-heading, inherit);
           color: var(--ds-color-text-primary, inherit);
@@ -1222,6 +1790,42 @@ export const RedesignLab: React.FC = () => {
         .lab-styled-preview strong, .lab-styled-preview b {
           color: var(--ds-color-text-primary, inherit);
           font-weight: var(--ds-font-weight-bold, 700);
+        }
+
+        /* HYBRID SURFACE OVERLAYS */
+        .style-hybrid[data-styles*="glassmorphism"] article,
+        .style-hybrid[data-styles*="glassmorphism"] .card,
+        .lab-styled-preview[data-styles*="glassmorphism"] article,
+        .lab-styled-preview[data-styles*="glassmorphism"] .card {
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          background: rgba(255, 255, 255, 0.5) !important;
+          border: 1px solid rgba(255, 255, 255, 0.4) !important;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .style-hybrid[data-styles*="brutalism"] article,
+        .style-hybrid[data-styles*="brutalism"] .card,
+        .lab-styled-preview[data-styles*="brutalism"] article,
+        .lab-styled-preview[data-styles*="brutalism"] .card {
+          border: 3px solid #000000 !important;
+          box-shadow: 5px 5px 0px #000000 !important;
+        }
+
+        .style-hybrid[data-styles*="cyberpunk"] article,
+        .style-hybrid[data-styles*="cyberpunk"] .card,
+        .lab-styled-preview[data-styles*="cyberpunk"] article,
+        .lab-styled-preview[data-styles*="cyberpunk"] .card {
+          box-shadow: 0 0 15px rgba(0, 240, 255, 0.35) !important;
+          border: 1px solid #00f0ff !important;
+        }
+
+        .style-hybrid[data-styles*="synthwave"] article,
+        .style-hybrid[data-styles*="synthwave"] .card,
+        .lab-styled-preview[data-styles*="synthwave"] article,
+        .lab-styled-preview[data-styles*="synthwave"] .card {
+          box-shadow: 0 0 20px rgba(255, 0, 127, 0.35) !important;
+          border: 1px solid #ff007f !important;
         }
       `}</style>
     </div>

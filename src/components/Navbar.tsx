@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSiteEditor } from '../react/context/SiteEditorContext';
 import { Terminal, Edit3, Check, Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 
-export type AppTab = 'library' | 'studio' | 'playground' | 'cli' | 'docs' | 'redesign-lab';
+export type AppTab = 'library' | 'custom-html' | 'saas-app' | 'studio' | 'playground' | 'cli' | 'docs' | 'redesign-lab';
 
 export interface NavbarProps {
   activeTab: AppTab;
@@ -22,8 +22,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   const { isEditMode, toggleEditMode } = useSiteEditor();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinks: { id: AppTab; label: string; elementId: string }[] = [
+  const navLinks: { id: AppTab; label: string; elementId: string; badge?: string }[] = [
     { id: 'library', label: 'Style Library', elementId: 'nav-library-btn' },
+    { id: 'custom-html', label: 'Custom HTML', elementId: 'nav-custom-html-btn' },
+    { id: 'saas-app', label: 'Live SaaS App', elementId: 'nav-saas-app-btn', badge: 'Zero CSS' },
     { id: 'studio', label: 'Studio', elementId: 'nav-studio-btn' },
     { id: 'playground', label: 'Playground', elementId: 'nav-playground-btn' },
     { id: 'docs', label: 'Docs', elementId: 'nav-docs-btn' },
@@ -172,14 +174,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           }}
         >
           {navLinks.map((link) => {
-            const isActive = activeTab === link.id;
+            const isActive = activeTab === link.id || (link.id === 'custom-html' && activeTab === 'redesign-lab');
             return (
               <button
                 key={link.id}
                 id={link.elementId}
                 onClick={() => handleSelectTab(link.id)}
                 style={{
-                  padding: '0.45rem 0.95rem',
+                  padding: '0.45rem 0.85rem',
                   fontSize: '0.8125rem',
                   fontWeight: isActive ? 600 : 500,
                   borderRadius: '6px',
@@ -189,9 +191,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.35rem',
+                  gap: '0.4rem',
                   transition: 'all 120ms ease',
                   fontFamily: "'Inter', sans-serif",
+                  whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
@@ -206,7 +209,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }
                 }}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.badge && (
+                  <span
+                    style={{
+                      fontSize: '0.625rem',
+                      fontWeight: 700,
+                      padding: '1px 5px',
+                      borderRadius: '4px',
+                      backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                      color: '#38bdf8',
+                      border: '1px solid rgba(56, 189, 248, 0.3)',
+                      fontFamily: "'JetBrains Mono', monospace",
+                      letterSpacing: '0.02em',
+                      lineHeight: '1.2',
+                    }}
+                  >
+                    {link.badge}
+                  </span>
+                )}
               </button>
             );
           })}
@@ -331,7 +352,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {navLinks.map((link) => {
-            const isActive = activeTab === link.id;
+            const isActive = activeTab === link.id || (link.id === 'custom-html' && activeTab === 'redesign-lab');
             return (
               <button
                 key={link.id}
@@ -353,7 +374,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                   transition: 'all 120ms ease',
                 }}
               >
-                <span>{link.label}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span>{link.label}</span>
+                  {link.badge && (
+                    <span
+                      style={{
+                        fontSize: '0.625rem',
+                        fontWeight: 700,
+                        padding: '1px 5px',
+                        borderRadius: '4px',
+                        backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                        color: '#38bdf8',
+                        border: '1px solid rgba(56, 189, 248, 0.3)',
+                        fontFamily: "'JetBrains Mono', monospace",
+                      }}
+                    >
+                      {link.badge}
+                    </span>
+                  )}
+                </div>
                 {isActive ? (
                   <span style={{ fontSize: '0.6875rem', fontWeight: 700, padding: '2px 6px', borderRadius: '4px', backgroundColor: '#2563eb', color: '#fff' }}>
                     Active

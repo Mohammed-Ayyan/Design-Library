@@ -215,6 +215,8 @@ function exportCss(cmdArgs) {
   }
 
   if (outputPath) {
+    const outDir = path.dirname(path.resolve(outputPath));
+    if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(outputPath, resultCss, 'utf8');
     console.log(`✔ Successfully exported CSS to ${outputPath}`);
   } else {
@@ -283,7 +285,10 @@ async function handleApply(cliArgs) {
   }
 
   const engine = new StyleEngine();
-  const analysis = DOMAnalyzer.analyzeHtml(rawHtml, styleId, engine);
+  const resolved = engine.resolveStyleById(styleId);
+  const isHybrid = Boolean(resolved.isHybrid);
+  const primaryId = isHybrid && resolved.constituentStyles ? resolved.constituentStyles[0] : styleId;
+  const analysis = DOMAnalyzer.analyzeHtml(rawHtml, primaryId, engine);
 
   if (report) {
     const outputContent = JSON.stringify(analysis, null, 2);
@@ -296,12 +301,23 @@ async function handleApply(cliArgs) {
     return;
   }
 
-  const styleDef = engine.getStyle(styleId) || engine.getRegistry().getBaseStyle();
+  const styleDef = engine.getStyle(primaryId) || engine.getRegistry().getBaseStyle();
+  const wrapperClass = isHybrid && resolved.hybridClassNames ? resolved.hybridClassNames : `style-${styleId}`;
+  const hybridAttr = isHybrid ? ' data-hybrid="true"' : '';
 
   let finalOutput = '';
 
   if (standalone) {
-    const standaloneCss = (typeof AdaptiveCSSGenerator.getStyleCSS === 'function' ? AdaptiveCSSGenerator.getStyleCSS(styleId) : '') || AdaptiveCSSGenerator.getAdaptiveStyles();
+    let standaloneCss = '';
+    if (isHybrid && resolved.constituentStyles) {
+      standaloneCss = resolved.constituentStyles
+        .map((s) => (typeof AdaptiveCSSGenerator.getStyleCSS === 'function' ? AdaptiveCSSGenerator.getStyleCSS(s) : ''))
+        .filter(Boolean)
+        .join('\n');
+    }
+    if (!standaloneCss) {
+      standaloneCss = (typeof AdaptiveCSSGenerator.getStyleCSS === 'function' ? AdaptiveCSSGenerator.getStyleCSS(primaryId) : '') || AdaptiveCSSGenerator.getAdaptiveStyles();
+    }
     const bgColor = styleDef.tokens.colors.background || '#ffffff';
     const textColor = styleDef.tokens.colors.textPrimary || styleDef.tokens.colors.text || '#000000';
     const font = styleDef.tokens.typography.fontFamilyBase || styleDef.tokens.typography.fontFamily || 'sans-serif';
@@ -311,7 +327,7 @@ async function handleApply(cliArgs) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${styleDef.name} — Design Style Library</title>
+  <title>${resolved.styleName || styleDef.name} — Design Style Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -334,7 +350,7 @@ async function handleApply(cliArgs) {
 </head>
 <body>
   <div class="page-container">
-    <div class="style-${styleId}">
+    <div class="${wrapperClass}"${hybridAttr}>
 ${analysis.stampedHtml
   .split('\n')
   .map((line) => '      ' + line)
@@ -344,10 +360,12 @@ ${analysis.stampedHtml
 </body>
 </html>`;
   } else {
-    finalOutput = `<div class="style-${styleId}">\n${analysis.stampedHtml}\n</div>`;
+    finalOutput = `<div class="${wrapperClass}"${hybridAttr}>\n${analysis.stampedHtml}\n</div>`;
   }
 
   if (outputPath) {
+    const outDir = path.dirname(path.resolve(outputPath));
+    if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(outputPath, finalOutput, 'utf8');
     console.error(`Successfully wrote transformed HTML to ${outputPath}`);
   } else {

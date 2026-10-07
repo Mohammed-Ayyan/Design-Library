@@ -12,6 +12,9 @@ export interface ResolvedStyle {
   tokens: DesignTokens;
   components: ComponentStyles;
   cssVariables: Record<string, string>;
+  isHybrid?: boolean;
+  constituentStyles?: string[];
+  hybridClassNames?: string;
 }
 
 export class StyleResolver {
@@ -22,6 +25,38 @@ export class StyleResolver {
   }
 
   /**
+   * Normalizes a style ID string, converting spaces to hyphens and removing invalid characters
+   */
+  public static normalizeStyleId(id: string): string {
+    return id
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, '-');
+  }
+
+  /**
+   * Parses a style expression, supporting single styles or hybrid compositions.
+   * Examples:
+   *  - "wabi-sabi" -> ["wabi-sabi"]
+   *  - "wabi-sabi + glassmorphism" -> ["wabi-sabi", "glassmorphism"]
+   *  - "/name = wabi-sabi + glassmorphism" -> ["wabi-sabi", "glassmorphism"]
+   *  - "name = brutalism + minimalism" -> ["brutalism", "minimalism"]
+   */
+  public static parseStyleExpression(expression: string): string[] {
+    if (!expression || typeof expression !== 'string') return ['base'];
+    let cleaned = expression.trim();
+    // Strip prefixes like "/name =", "name =", "/style =", "style =", "/name:", "name:"
+    cleaned = cleaned.replace(/^\/?(name|style)\s*[:=]\s*/i, '');
+    // Split on '+' or '&'
+    const parts = cleaned
+      .split(/\s*(?:\+|\&)\s*/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (parts.length === 0) return ['base'];
+    return parts.map((p) => StyleResolver.normalizeStyleId(p));
+  }
+
+  /**
    * Deep merge helper for objects
    */
   private static deepMerge<T extends Record<string, any>>(target: T, source?: Record<string, any>): T {
@@ -29,6 +64,9 @@ export class StyleResolver {
     const output = { ...target };
 
     for (const key of Object.keys(source)) {
+      if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+        continue;
+      }
       const sourceVal = source[key];
       const targetVal = (target as any)[key];
 
@@ -68,19 +106,134 @@ export class StyleResolver {
 
   /**
    * Resolves a ScopeContext into a fully computed ResolvedStyle with tokens,
-   * component rules, and CSS variables.
+   * component rules, and CSS variables. Supports single styles and hybrid compositions.
    */
   public resolve(scope: ScopeContext): ResolvedStyle {
-    // 1. Determine effective style ID: current scope styleId or inherited from parent
-    const effectiveStyleId = scope.styleId || (scope.parentScope ? scope.parentScope.styleId : 'base');
-    const lookup = this.registry.getWithFallback(effectiveStyleId);
-    const styleDef = lookup.style;
+    // 1. Determine effective raw style ID from current scope or inherited parent
+    const effectiveRawStyleId = scope.styleId || (scope.parentScope ? scope.parentScope.styleId : 'base');
+    const constituentIds = StyleResolver.parseStyleExpression(effectiveRawStyleId);
+    const isHybrid = constituentIds.length > 1;
 
-    // 2. Clone baseline tokens and component definitions from the active style definition
-    let resolvedTokens = JSON.parse(JSON.stringify(styleDef.tokens)) as DesignTokens;
-    let resolvedComponents = JSON.parse(JSON.stringify(styleDef.components)) as ComponentStyles;
+    // --- CASE A: SINGLE STYLE RESOLUTION ---
+    if (!isHybrid) {
+      const singleId = constituentIds[0] || 'base';
+      const lookup = this.registry.getWithFallback(singleId);
+      const styleDef = lookup.style;
 
-    // 3. Collect inherited overrides from ancestor chain (outermost to innermost)
+      let resolvedTokens = JSON.parse(JSON.stringify(styleDef.tokens)) as DesignTokens;
+      let resolvedComponents = JSON.parse(JSON.stringify(styleDef.components)) as ComponentStyles;
+
+      // Collect inherited overrides from ancestor chain (outermost to innermost)
+      const ancestorScopes: ScopeContext[] = [];
+      let curr: ScopeContext | undefined = scope.parentScope;
+      while (curr) {
+        ancestorScopes.unshift(curr);
+        curr = curr.parentScope;
+      }
+
+      for (const ancestor of ancestorScopes) {
+        if (ancestor.tokenOverrides) {
+          resolvedTokens = StyleResolver.deepMerge(resolvedTokens, ancestor.tokenOverrides);
+        }
+        if (ancestor.componentOverrides) {
+          resolvedComponents = StyleResolver.deepMerge(resolvedComponents, ancestor.componentOverrides);
+        }
+      }
+
+      if (scope.tokenOverrides) {
+        resolvedTokens = StyleResolver.deepMerge(resolvedTokens, scope.tokenOverrides);
+      }
+      if (scope.componentOverrides) {
+        resolvedComponents = StyleResolver.deepMerge(resolvedComponents, scope.componentOverrides);
+      }
+
+      const cssVariables = this.generateCssVariables(resolvedTokens);
+      const scopeChain = this.buildScopeChain(scope);
+
+      return {
+        styleId: styleDef.id,
+        styleName: styleDef.name,
+        isBase: Boolean(styleDef.metadata.isBase),
+        fallbackUsed: lookup.fallbackUsed,
+        scope: {
+          level: scope.level,
+          effectiveStyleId: styleDef.id,
+          scopeChain,
+        },
+        tokens: resolvedTokens,
+        components: resolvedComponents,
+        cssVariables,
+        isHybrid: false,
+        constituentStyles: [styleDef.id],
+        hybridClassNames: `style-${styleDef.id}`,
+      };
+    }
+
+    // --- CASE B: HYBRID STYLE COMPOSITION ---
+    const primaryLookup = this.registry.getWithFallback(constituentIds[0]);
+    let fallbackUsed = primaryLookup.fallbackUsed;
+    const primaryDef = primaryLookup.style;
+
+    // 1. Primary style serves as foundational base
+    let resolvedTokens = JSON.parse(JSON.stringify(primaryDef.tokens)) as DesignTokens;
+    let resolvedComponents = JSON.parse(JSON.stringify(primaryDef.components)) as ComponentStyles;
+
+    // 2. Synthesize each secondary style onto the primary base
+    const secondaryDefs = constituentIds.slice(1).map((id) => {
+      const lk = this.registry.getWithFallback(id);
+      if (lk.fallbackUsed) fallbackUsed = true;
+      return lk.style;
+    });
+
+    for (const secDef of secondaryDefs) {
+      // (a) Overlay visual effects (backdrop blur, glassmorphism, glow, reflections)
+      if (secDef.tokens.effects) {
+        resolvedTokens.effects = {
+          ...resolvedTokens.effects,
+          ...secDef.tokens.effects,
+        };
+      }
+
+      // (b) Overlay surfaces & translucent colors if secondary provides translucency/glass
+      const secSurface = secDef.tokens.colors?.surface;
+      if (secSurface && (secSurface.includes('rgba') || secSurface.includes('hsla') || secDef.id.includes('glass'))) {
+        resolvedTokens.colors.surface = secSurface;
+        if (secDef.tokens.colors?.surfaceSubtle) {
+          resolvedTokens.colors.surfaceSubtle = secDef.tokens.colors.surfaceSubtle;
+        }
+      }
+
+      // (c) If secondary has distinctive accents (e.g. cyber neon or acid yellow), integrate
+      if (secDef.tokens.colors?.accent && secDef.tokens.colors.accent !== primaryDef.tokens.colors.accent) {
+        resolvedTokens.colors.accent = secDef.tokens.colors.accent;
+      }
+
+      // (d) Radii synthesis: if secondary is soft glass/clay or sharp brutalist
+      if (
+        secDef.id.includes('glass') ||
+        secDef.id.includes('clay') ||
+        secDef.id.includes('y2k')
+      ) {
+        resolvedTokens.radii = { ...resolvedTokens.radii, ...secDef.tokens.radii };
+      } else if (secDef.id === 'brutalism' || secDef.id === 'swiss-design') {
+        resolvedTokens.radii = { ...secDef.tokens.radii };
+      }
+
+      // (e) Shadows & Borders synthesis
+      if (secDef.tokens.shadows) {
+        if (secDef.id.includes('glass') || secDef.id === 'cyberpunk' || secDef.id === 'synthwave') {
+          resolvedTokens.shadows = { ...resolvedTokens.shadows, ...secDef.tokens.shadows };
+        } else if (secDef.id === 'brutalism' || secDef.id === 'neo-brutalism') {
+          resolvedTokens.shadows = { ...secDef.tokens.shadows };
+          resolvedTokens.borders = { ...secDef.tokens.borders };
+        }
+      }
+
+      // (f) Deep merge component definitions
+      resolvedComponents = StyleResolver.deepMerge(resolvedComponents, secDef.components);
+    }
+
+    // Apply ancestor and current scope overrides
     const ancestorScopes: ScopeContext[] = [];
     let curr: ScopeContext | undefined = scope.parentScope;
     while (curr) {
@@ -88,7 +241,6 @@ export class StyleResolver {
       curr = curr.parentScope;
     }
 
-    // Apply ancestor token and component overrides
     for (const ancestor of ancestorScopes) {
       if (ancestor.tokenOverrides) {
         resolvedTokens = StyleResolver.deepMerge(resolvedTokens, ancestor.tokenOverrides);
@@ -98,7 +250,6 @@ export class StyleResolver {
       }
     }
 
-    // Apply current scope overrides
     if (scope.tokenOverrides) {
       resolvedTokens = StyleResolver.deepMerge(resolvedTokens, scope.tokenOverrides);
     }
@@ -106,25 +257,36 @@ export class StyleResolver {
       resolvedComponents = StyleResolver.deepMerge(resolvedComponents, scope.componentOverrides);
     }
 
-    // 4. Generate CSS variables dictionary
     const cssVariables = this.generateCssVariables(resolvedTokens);
+    cssVariables['--ds-hybrid'] = 'true';
+    cssVariables['--ds-hybrid-styles'] = constituentIds.join(', ');
+    cssVariables['--ds-hybrid-primary'] = constituentIds[0];
+    cssVariables['--ds-hybrid-secondary'] = constituentIds.slice(1).join(', ');
 
-    // 5. Build scope chain summary
+    const compoundId = constituentIds.join('+');
+    const compoundName =
+      constituentIds
+        .map((id) => this.registry.get(id)?.name || id)
+        .join(' + ') + ' (Hybrid)';
+    const hybridClassNames = constituentIds.map((id) => `style-${id}`).join(' ') + ' style-hybrid';
     const scopeChain = this.buildScopeChain(scope);
 
     return {
-      styleId: styleDef.id,
-      styleName: styleDef.name,
-      isBase: Boolean(styleDef.metadata.isBase),
-      fallbackUsed: lookup.fallbackUsed,
+      styleId: compoundId,
+      styleName: compoundName,
+      isBase: false,
+      fallbackUsed,
       scope: {
         level: scope.level,
-        effectiveStyleId: styleDef.id,
+        effectiveStyleId: compoundId,
         scopeChain,
       },
       tokens: resolvedTokens,
       components: resolvedComponents,
       cssVariables,
+      isHybrid: true,
+      constituentStyles: constituentIds,
+      hybridClassNames,
     };
   }
 

@@ -119,4 +119,18 @@ describe('CLI Executable Interface Suite', () => {
       if (fs.existsSync(tmpOutput)) fs.unlinkSync(tmpOutput);
     }
   });
+
+  it('10. should transform input HTML with hybrid style expression', () => {
+    const inputHtml = '<section><h2>Hybrid Card</h2><p>Zen frosted blend.</p><button>Confirm</button></section>';
+    const output = execSync(`node "${cliPath}" --style "wabi-sabi + glassmorphism"`, {
+      input: inputHtml,
+      encoding: 'utf8',
+    });
+
+    expect(output).toContain('style-wabi-sabi');
+    expect(output).toContain('style-glassmorphism');
+    expect(output).toContain('style-hybrid');
+    expect(output).toContain('data-hybrid="true"');
+    expect(output).toContain('Hybrid Card');
+  });
 });

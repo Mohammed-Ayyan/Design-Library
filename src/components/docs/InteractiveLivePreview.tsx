@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Code2, Eye, Check, Copy } from 'lucide-react';
 import { defaultStyles } from '../../styles';
+import { HTMLSanitizer } from '../../core/adaptive/sanitizer';
 
 interface PresetItem {
   id: string;
@@ -279,7 +280,7 @@ export const InteractiveLivePreview: React.FC<InteractiveLivePreviewProps> = ({
               maxWidth: '560px',
               margin: '0 auto',
             }}
-            dangerouslySetInnerHTML={{ __html: activePreset.innerHtml }}
+            dangerouslySetInnerHTML={{ __html: HTMLSanitizer.sanitize(activePreset.innerHtml) }}
           />
         </div>
       ) : (

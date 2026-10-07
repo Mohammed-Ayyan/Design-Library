@@ -9,6 +9,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist/lib',
+    copyPublicDir: false,
     emptyOutDir: false,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),

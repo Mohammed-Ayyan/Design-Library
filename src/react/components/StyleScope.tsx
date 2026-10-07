@@ -68,16 +68,22 @@ export const StyleScope: React.FC<StyleScopeProps> = ({
     };
   }, [childResolved.cssVariables, style]);
 
-  return (
-    <StyleEngineContext.Provider value={childContextValue}>
-      <Component
-        className={`ds-scope ds-scope-${level} ${className}`}
-        style={dynamicStyles}
-        data-style-id={childResolved.styleId}
-        data-scope-level={level}
-      >
-        {children}
-      </Component>
-    </StyleEngineContext.Provider>
-  );
-};
+    const scopeClass = childResolved.isHybrid
+      ? childResolved.hybridClassNames
+      : `style-${childResolved.styleId}`;
+
+    return (
+      <StyleEngineContext.Provider value={childContextValue}>
+        <Component
+          className={`ds-scope ds-scope-${level} ${scopeClass} ${className}`.trim()}
+          style={dynamicStyles}
+          data-style-id={childResolved.styleId}
+          data-scope-level={level}
+          data-hybrid={childResolved.isHybrid ? 'true' : undefined}
+          data-styles={childResolved.constituentStyles?.join(',')}
+        >
+          {children}
+        </Component>
+      </StyleEngineContext.Provider>
+    );
+  };

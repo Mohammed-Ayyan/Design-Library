@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Sparkles,
   ArrowRight,
@@ -1592,14 +1592,222 @@ npm run build`}
                 <td style={{ padding: '0.65rem 0.5rem' }}><code>void</code></td>
                 <td style={{ padding: '0.65rem 0.5rem' }}>Registers custom design language</td>
               </tr>
-              <tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                 <td style={{ padding: '0.65rem 0.5rem' }}><code>getAvailableStyles()</code></td>
-                <td style={{ padding: '0.65rem 0.5rem' }}>â€”</td>
+                <td style={{ padding: '0.65rem 0.5rem' }}>—</td>
                 <td style={{ padding: '0.65rem 0.5rem' }}><code>StyleDefinition[]</code></td>
                 <td style={{ padding: '0.65rem 0.5rem' }}>Lists all registered styles</td>
               </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>resolveHybrid(styleIds, level?)</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>styleIds: string[], level?: StyleScopeLevel</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>ResolvedStyle</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}>Blends multiple styles into a synthesized hybrid</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>createHybrid(styleIds, customName?)</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>styleIds: string[], customName?: string</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>StyleDefinition</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}>Constructs and permanently registers a new hybrid in registry</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>parseStyleQuery(query)</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>query: string</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}><code>{"{ constituentIds, compoundId, formattedQuery }"}</code></td>
+                <td style={{ padding: '0.65rem 0.5rem' }}>Parses /name = a + b compound expressions</td>
+              </tr>
             </tbody>
           </table>
+        </div>
+      )}
+
+      {/* 20. STYLE COMPOSITION & MULTI-LANGUAGE HYBRIDS */}
+      {(section.id === 'composition' || section.id === 'combining-styles') && (
+        <div>
+          <div
+            style={{
+              padding: '1.5rem',
+              borderRadius: '12px',
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(56, 189, 248, 0.12) 100%)',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
+              marginBottom: '2rem',
+            }}
+          >
+            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#c084fc', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
+              Multi-Language Hybrids & Expression Syntax
+            </div>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem' }}>
+              Style Composition & Hybrid Languages
+            </h3>
+            <p style={{ margin: 0, color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.55 }}>
+              The Style Engine allows combining <strong>two or more design languages in a single element, section, or page</strong>.
+              Compound expressions like <code>/name = wabi-sabi + glassmorphism</code> blend foundational structural typography and layout with translucent surfaces, specular depth, and accent highlights.
+            </p>
+          </div>
+
+          <h4 style={{ color: '#f8fafc', margin: '1.5rem 0 0.5rem' }}>
+            Supported Expression Syntaxes
+          </h4>
+          <p>The parser supports human-friendly query formats:</p>
+          <CodeBlock
+            code={`// 1. Slash-command expression
+/name = wabi-sabi + glassmorphism
+
+// 2. Direct name equation
+name = brutalism + minimalism
+
+// 3. Compact plus-separated query
+cyberpunk + synthwave
+
+// 4. Natural language space-separated IDs (automatically normalized)
+solarpunk + neo-brutalism`}
+            language="bash"
+          />
+
+          <h4 style={{ color: '#f8fafc', margin: '2rem 0 0.5rem' }}>
+            Usage in React Components
+          </h4>
+          <p>
+            Pass any compound expression directly into <code>styleId</code> on <code>StyleScope</code> or typed containers:
+          </p>
+          <CodeBlock
+            code={`import React from 'react';
+import { StyleScope, Section, Card, Button } from 'design-library';
+
+export function HybridDemo() {
+  return (
+    <div>
+      {/* Zen Frosted Glass: Wabi-Sabi organic earthiness + Glassmorphism specular blur */}
+      <StyleScope styleId="/name = wabi-sabi + glassmorphism" level="section" as="section">
+        <h2>Handcrafted Zen Interface</h2>
+        <p>Tactile washi typography with 20px frosted backdrop filtration.</p>
+        <Button>Order Vessel</Button>
+      </StyleScope>
+
+      {/* Minimal Raw: Brutalism high-contrast structural rules + Minimalism airy spacing */}
+      <Section styleId="brutalism + minimalism">
+        <h2>Unflinching Clarity</h2>
+        <Card>
+          <p>Monochrome architectural grid without ornamentation.</p>
+        </Card>
+      </Section>
+    </div>
+  );
+}`}
+            language="tsx"
+            filename="components/HybridDemo.tsx"
+          />
+
+          <h4 style={{ color: '#f8fafc', margin: '2rem 0 0.5rem' }}>
+            Usage in Vanilla HTML & CSS
+          </h4>
+          <p>
+            Hybrids emit multi-class utilities and the <code>data-hybrid="true"</code> attribute:
+          </p>
+          <CodeBlock
+            code={`<div class="style-wabi-sabi style-glassmorphism style-hybrid" data-hybrid="true" data-styles="wabi-sabi,glassmorphism">
+  <h1>Zen Frosted Card</h1>
+  <p>Seamlessly rendered with both design language cascades active.</p>
+  <button>Action</button>
+</div>`}
+            language="html"
+          />
+
+          <h4 style={{ color: '#f8fafc', margin: '2rem 0 0.5rem' }}>
+            CLI Hybrid Transformation
+          </h4>
+          <CodeBlock
+            code={`# Transform HTML into a hybrid standalone document
+npx design-library apply input.html --style "wabi-sabi + glassmorphism" --standalone -o hybrid.html`}
+            language="bash"
+          />
+        </div>
+      )}
+
+      {/* 21. RESPONSIVE USAGE */}
+      {section.id === 'responsive' && (
+        <div>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', margin: '0 0 1rem' }}>
+            Mobile Responsiveness & Adaptive Viewports
+          </h3>
+          <p>
+            Every design language in the library is built with <strong>fluid, responsive foundations</strong> that look exquisite on screens from 320px mobile phones to 4K desktop displays.
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', margin: '1.5rem 0' }}>
+            <div style={{ padding: '1.25rem', borderRadius: '10px', backgroundColor: '#111827', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ fontWeight: 700, color: '#38bdf8', marginBottom: '0.25rem' }}>Fluid Clamp Typography</div>
+              <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.5rem' }}>
+                Headings dynamically scale using CSS <code>clamp(1.75rem, 5vw, 3.5rem)</code> so large titles never cause horizontal scrollbars on mobile viewports.
+              </p>
+            </div>
+
+            <div style={{ padding: '1.25rem', borderRadius: '10px', backgroundColor: '#111827', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ fontWeight: 700, color: '#38bdf8', marginBottom: '0.25rem' }}>Touch Target Accessibility</div>
+              <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.5rem' }}>
+                All interactive controls (buttons, inputs, selects) enforce minimum touch dimensions (min 44px height) and adequate spacing to satisfy WCAG 2.1 Level AA mobile standards.
+              </p>
+            </div>
+
+            <div style={{ padding: '1.25rem', borderRadius: '10px', backgroundColor: '#111827', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ fontWeight: 700, color: '#38bdf8', marginBottom: '0.25rem' }}>Adaptive Card & Grid Wrapping</div>
+              <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.5rem' }}>
+                Complex modular layouts (such as Bento Grid and Broadsheet Editorial columns) automatically reflow into a clean single-column vertical stack below 768px.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 22. EXPORTING STYLES & CSS */}
+      {section.id === 'exporting' && (
+        <div>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', margin: '0 0 1rem' }}>
+            Exporting Compiled CSS & Zero-JS Environments
+          </h3>
+          <p>
+            If you need to use Design Style Library in static site generators (Hugo, Jekyll, 11ty, Astro) or ship zero-JS client bundles, you can export static CSS stylesheets:
+          </p>
+
+          <CodeBlock
+            code={`# 1. Export complete design library CSS (all 32 languages)
+npx design-library export-css -o public/design-library.css
+
+# 2. Export only a single design language
+npx design-library export-css wabi-sabi -o public/wabi-sabi.css
+
+# 3. Initialize a clean starter stylesheet for your project
+npx design-library init -o src/styles/theme.css`}
+            language="bash"
+          />
+        </div>
+      )}
+
+      {/* 23. BUILD & PRODUCTION */}
+      {section.id === 'build-production' && (
+        <div>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', margin: '0 0 1rem' }}>
+            Production Optimization & Performance
+          </h3>
+          <p>
+            Best practices for achieving 100% Core Web Vitals (LCP, INP, CLS) when shipping with Design Style Library:
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', margin: '1.5rem 0' }}>
+            <div style={{ padding: '1.25rem', borderRadius: '10px', backgroundColor: '#111827', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ fontWeight: 700, color: '#10b981', marginBottom: '0.25rem' }}>Preload Google Fonts</div>
+              <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.5rem' }}>
+                Add <code>rel="preconnect"</code> to your HTML head to establish early SSL handshakes with Google Fonts before the stylesheet requests them.
+              </p>
+            </div>
+
+            <div style={{ padding: '1.25rem', borderRadius: '10px', backgroundColor: '#111827', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ fontWeight: 700, color: '#10b981', marginBottom: '0.25rem' }}>Tree-Shaking via Named Imports</div>
+              <p style={{ fontSize: '0.875rem', color: '#94a3b8', margin: '0 0 0.5rem' }}>
+                Import only the specific style definitions you need (e.g. <code>wabiSabiStyle</code>) instead of registering all 32 styles if your application only uses one or two.
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
@@ -1626,6 +1834,11 @@ npm run build`}
         'troubleshooting',
         'zero-to-production',
         'api-reference',
+        'composition',
+        'combining-styles',
+        'responsive',
+        'exporting',
+        'build-production',
       ].includes(section.id) && (
         <div>
           <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#f8fafc', margin: '0 0 1rem' }}>

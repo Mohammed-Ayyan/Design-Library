@@ -6,6 +6,7 @@ export interface StyleMetadata {
     tags?: string[];
     category?: string;
     isBase?: boolean;
+    isHybrid?: boolean;
 }
 export interface StyleDefinition {
     id: string;

@@ -1,12 +1,12 @@
 var Nt = Object.defineProperty;
-var Ot = (c, t, e) => t in c ? Nt(c, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : c[t] = e;
-var W = (c, t, e) => Ot(c, typeof t != "symbol" ? t + "" : t, e);
-import { jsx as S } from "react/jsx-runtime";
-import { createContext as Gt, useMemo as j, useState as at, useEffect as Lt, useContext as Wt } from "react";
+var Ot = (p, t, e) => t in p ? Nt(p, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : p[t] = e;
+var U = (p, t, e) => Ot(p, typeof t != "symbol" ? t + "" : t, e);
+import { jsx as A } from "react/jsx-runtime";
+import { createContext as Gt, useMemo as $, useState as at, useEffect as Lt, useContext as Wt } from "react";
 class qt {
   constructor(t = []) {
-    W(this, "styles", /* @__PURE__ */ new Map());
-    W(this, "baseStyleId", "base");
+    U(this, "styles", /* @__PURE__ */ new Map());
+    U(this, "baseStyleId", "base");
     for (const e of t)
       this.register(e);
   }
@@ -88,10 +88,31 @@ class qt {
     this.styles.clear(), t && this.styles.set(t.id, t);
   }
 }
-class _ {
+class M {
   constructor(t) {
-    W(this, "registry");
+    U(this, "registry");
     this.registry = t;
+  }
+  /**
+   * Normalizes a style ID string, converting spaces to hyphens and removing invalid characters
+   */
+  static normalizeStyleId(t) {
+    return t.trim().toLowerCase().replace(/\s+/g, "-");
+  }
+  /**
+   * Parses a style expression, supporting single styles or hybrid compositions.
+   * Examples:
+   *  - "wabi-sabi" -> ["wabi-sabi"]
+   *  - "wabi-sabi + glassmorphism" -> ["wabi-sabi", "glassmorphism"]
+   *  - "/name = wabi-sabi + glassmorphism" -> ["wabi-sabi", "glassmorphism"]
+   *  - "name = brutalism + minimalism" -> ["brutalism", "minimalism"]
+   */
+  static parseStyleExpression(t) {
+    if (!t || typeof t != "string") return ["base"];
+    let e = t.trim();
+    e = e.replace(/^\/?(name|style)\s*[:=]\s*/i, "");
+    const a = e.split(/\s*(?:\+|\&)\s*/).map((i) => i.trim()).filter(Boolean);
+    return a.length === 0 ? ["base"] : a.map((i) => M.normalizeStyleId(i));
   }
   /**
    * Deep merge helper for objects
@@ -100,8 +121,10 @@ class _ {
     if (!e) return { ...t };
     const a = { ...t };
     for (const i of Object.keys(e)) {
+      if (i === "__proto__" || i === "constructor" || i === "prototype")
+        continue;
       const s = e[i], o = t[i];
-      s != null && typeof s == "object" && !Array.isArray(s) && typeof o == "object" && !Array.isArray(o) ? a[i] = _.deepMerge(o, s) : s !== void 0 && (a[i] = s);
+      s != null && typeof s == "object" && !Array.isArray(s) && typeof o == "object" && !Array.isArray(o) ? a[i] = M.deepMerge(o, s) : s !== void 0 && (a[i] = s);
     }
     return a;
   }
@@ -120,32 +143,85 @@ class _ {
   }
   /**
    * Resolves a ScopeContext into a fully computed ResolvedStyle with tokens,
-   * component rules, and CSS variables.
+   * component rules, and CSS variables. Supports single styles and hybrid compositions.
    */
   resolve(t) {
-    const e = t.styleId || (t.parentScope ? t.parentScope.styleId : "base"), a = this.registry.getWithFallback(e), i = a.style;
-    let s = JSON.parse(JSON.stringify(i.tokens)), o = JSON.parse(JSON.stringify(i.components));
-    const l = [];
-    let r = t.parentScope;
-    for (; r; )
-      l.unshift(r), r = r.parentScope;
-    for (const m of l)
-      m.tokenOverrides && (s = _.deepMerge(s, m.tokenOverrides)), m.componentOverrides && (o = _.deepMerge(o, m.componentOverrides));
-    t.tokenOverrides && (s = _.deepMerge(s, t.tokenOverrides)), t.componentOverrides && (o = _.deepMerge(o, t.componentOverrides));
-    const n = this.generateCssVariables(s), b = this.buildScopeChain(t);
+    var g, C, R;
+    const e = t.styleId || (t.parentScope ? t.parentScope.styleId : "base"), a = M.parseStyleExpression(e);
+    if (!(a.length > 1)) {
+      const y = a[0] || "base", x = this.registry.getWithFallback(y), w = x.style;
+      let B = JSON.parse(JSON.stringify(w.tokens)), S = JSON.parse(JSON.stringify(w.components));
+      const m = [];
+      let k = t.parentScope;
+      for (; k; )
+        m.unshift(k), k = k.parentScope;
+      for (const P of m)
+        P.tokenOverrides && (B = M.deepMerge(B, P.tokenOverrides)), P.componentOverrides && (S = M.deepMerge(S, P.componentOverrides));
+      t.tokenOverrides && (B = M.deepMerge(B, t.tokenOverrides)), t.componentOverrides && (S = M.deepMerge(S, t.componentOverrides));
+      const W = this.generateCssVariables(B), f = this.buildScopeChain(t);
+      return {
+        styleId: w.id,
+        styleName: w.name,
+        isBase: !!w.metadata.isBase,
+        fallbackUsed: x.fallbackUsed,
+        scope: {
+          level: t.level,
+          effectiveStyleId: w.id,
+          scopeChain: f
+        },
+        tokens: B,
+        components: S,
+        cssVariables: W,
+        isHybrid: !1,
+        constituentStyles: [w.id],
+        hybridClassNames: `style-${w.id}`
+      };
+    }
+    const s = this.registry.getWithFallback(a[0]);
+    let o = s.fallbackUsed;
+    const l = s.style;
+    let r = JSON.parse(JSON.stringify(l.tokens)), n = JSON.parse(JSON.stringify(l.components));
+    const b = a.slice(1).map((y) => {
+      const x = this.registry.getWithFallback(y);
+      return x.fallbackUsed && (o = !0), x.style;
+    });
+    for (const y of b) {
+      y.tokens.effects && (r.effects = {
+        ...r.effects,
+        ...y.tokens.effects
+      });
+      const x = (g = y.tokens.colors) == null ? void 0 : g.surface;
+      x && (x.includes("rgba") || x.includes("hsla") || y.id.includes("glass")) && (r.colors.surface = x, (C = y.tokens.colors) != null && C.surfaceSubtle && (r.colors.surfaceSubtle = y.tokens.colors.surfaceSubtle)), (R = y.tokens.colors) != null && R.accent && y.tokens.colors.accent !== l.tokens.colors.accent && (r.colors.accent = y.tokens.colors.accent), y.id.includes("glass") || y.id.includes("clay") || y.id.includes("y2k") ? r.radii = { ...r.radii, ...y.tokens.radii } : (y.id === "brutalism" || y.id === "swiss-design") && (r.radii = { ...y.tokens.radii }), y.tokens.shadows && (y.id.includes("glass") || y.id === "cyberpunk" || y.id === "synthwave" ? r.shadows = { ...r.shadows, ...y.tokens.shadows } : (y.id === "brutalism" || y.id === "neo-brutalism") && (r.shadows = { ...y.tokens.shadows }, r.borders = { ...y.tokens.borders })), n = M.deepMerge(n, y.components);
+    }
+    const h = [];
+    let d = t.parentScope;
+    for (; d; )
+      h.unshift(d), d = d.parentScope;
+    for (const y of h)
+      y.tokenOverrides && (r = M.deepMerge(r, y.tokenOverrides)), y.componentOverrides && (n = M.deepMerge(n, y.componentOverrides));
+    t.tokenOverrides && (r = M.deepMerge(r, t.tokenOverrides)), t.componentOverrides && (n = M.deepMerge(n, t.componentOverrides));
+    const c = this.generateCssVariables(r);
+    c["--ds-hybrid"] = "true", c["--ds-hybrid-styles"] = a.join(", "), c["--ds-hybrid-primary"] = a[0], c["--ds-hybrid-secondary"] = a.slice(1).join(", ");
+    const u = a.join("+"), v = a.map((y) => {
+      var x;
+      return ((x = this.registry.get(y)) == null ? void 0 : x.name) || y;
+    }).join(" + ") + " (Hybrid)", F = a.map((y) => `style-${y}`).join(" ") + " style-hybrid", E = this.buildScopeChain(t);
     return {
-      styleId: i.id,
-      styleName: i.name,
-      isBase: !!i.metadata.isBase,
-      fallbackUsed: a.fallbackUsed,
+      styleId: u,
+      styleName: v,
+      isBase: !1,
+      fallbackUsed: o,
       scope: {
         level: t.level,
-        effectiveStyleId: i.id,
-        scopeChain: b
+        effectiveStyleId: u,
+        scopeChain: E
       },
-      tokens: s,
-      components: o,
-      cssVariables: n
+      tokens: r,
+      components: n,
+      cssVariables: c,
+      isHybrid: !0,
+      constituentStyles: a,
+      hybridClassNames: F
     };
   }
   /**
@@ -1781,7 +1857,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, Vt = `
+}, jt = `
   /* Container Foundation */
   .lab-styled-preview[data-style="brutalism"],
   .brutalism-styled-container,
@@ -2793,7 +2869,7 @@ const Ut = {
     color: #555555;
     margin: 0;
   }
-`, jt = {
+`, Vt = {
   id: "brutalism",
   name: "Brutalism",
   description: "Uncompromising, high-contrast aesthetic featuring stark 3px solid black borders, 0px sharp corners, bold tactile offset drop shadows, uppercase typography, and electric neo-acid highlights.",
@@ -37943,7 +38019,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Ve = {
+`, je = {
   id: "mixed-media",
   name: "Mixed Media",
   description: "Curated art direction combining photography, fine art paper, paint marks, geometric vectors, and editorial typography.",
@@ -38141,7 +38217,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, je = `
+}, Ve = `
   /* ==========================================================================
      ART DECO DESIGN LANGUAGE — JAZZ-AGE GEOMETRY & METALLIC ORNAMENT
      ========================================================================== */
@@ -41224,7 +41300,7 @@ const Ut = {
 ], Ze = [
   Ut,
   Jt,
-  jt,
+  Vt,
   Xt,
   Qt,
   Zt,
@@ -41251,16 +41327,16 @@ const Ut = {
   We,
   Ue,
   Je,
-  Ve,
+  je,
   $e,
   Ke,
   _e
 ];
 class ta {
   constructor(t = Ze) {
-    W(this, "registry");
-    W(this, "resolver");
-    this.registry = new qt(t), this.resolver = new _(this.registry);
+    U(this, "registry");
+    U(this, "resolver");
+    this.registry = new qt(t), this.resolver = new M(this.registry);
   }
   /**
    * Access the underlying StyleRegistry.
@@ -41310,6 +41386,7 @@ class ta {
   }
   /**
    * Resolves styles for a specific style ID at a specified scope level (defaults to 'page').
+   * Supports single style IDs or compound expressions (e.g. "wabi-sabi + glassmorphism", "/name = brutalism + minimalism").
    */
   resolveStyleById(t, e = "page") {
     return this.resolver.resolve({
@@ -41324,6 +41401,48 @@ class ta {
     return this.resolveStyleById(t, e);
   }
   /**
+   * Resolves a hybrid composition of two or more design styles.
+   * e.g. engine.resolveHybrid(['wabi-sabi', 'glassmorphism'])
+   */
+  resolveHybrid(t, e = "page") {
+    return this.resolver.resolve({
+      level: e,
+      styleId: t.join("+")
+    });
+  }
+  /**
+   * Creates and registers a new composite hybrid style definition in the engine registry.
+   */
+  createHybrid(t, e) {
+    var s;
+    const a = this.resolveHybrid(t), i = {
+      id: a.styleId,
+      name: e || a.styleName,
+      description: `Hybrid composition of ${(s = a.constituentStyles) == null ? void 0 : s.join(", ")}`,
+      metadata: {
+        version: "1.0.0",
+        category: "Modern",
+        tags: ["hybrid", "composition", ...a.constituentStyles || []],
+        isHybrid: !0
+      },
+      tokens: a.tokens,
+      components: a.components
+    };
+    return this.registerStyle(i), i;
+  }
+  /**
+   * Parses a user style expression into constituent IDs and canonical compound ID.
+   * Handles "/name = wabi-sabi + glassmorphism", "brutalism + minimalism", etc.
+   */
+  parseStyleQuery(t) {
+    const e = M.parseStyleExpression(t), a = e.join("+");
+    return {
+      constituentIds: e,
+      compoundId: a,
+      formattedQuery: `/name = ${e.join(" + ")}`
+    };
+  }
+  /**
    * Helper to format CSS variables for React style attribute.
    */
   toStyleObject(t) {
@@ -41335,31 +41454,31 @@ const et = class et {
    * Analyzes an element structure and extracts objective signals.
    */
   static analyze(t) {
-    var I;
-    const e = (t.tag || "div").toLowerCase(), a = t.text || "", i = (t.childrenTags || []).map((y) => y.toLowerCase()), s = (t.descendantTags || []).map((y) => y.toLowerCase()), o = i.some((y) => /^h[1-6]$/.test(y)) || /^h[1-6]$/.test(e), l = s.some((y) => /^h[1-6]$/.test(y)), r = o || l, n = i.find((y) => /^h[1-6]$/.test(y)) || s.find((y) => /^h[1-6]$/.test(y)) || (/^h[1-6]$/.test(e) ? e : void 0), b = n ? parseInt(n.replace("h", ""), 10) : void 0, m = i.includes("p") || s.includes("p") || e === "p", d = i.includes("button") || s.includes("button") || e === "button", p = i.includes("input") || i.includes("textarea") || s.includes("input") || s.includes("textarea") || e === "input", u = i.includes("img") || i.includes("picture") || s.includes("img") || s.includes("picture") || e === "img", g = i.includes("a") || s.includes("a") || e === "a", F = /* @__PURE__ */ new Set(["div", "section", "article", "ul", "ol", "main", "header", "footer", "aside", "nav"]), z = t.hasContainerChildren ?? i.some((y) => F.has(y)), f = t.hasPriceText ?? et.PRICE_PATTERNS.some((y) => y.test(a) || y.test(t.className || "")), T = t.siblingIndex ?? 0, A = t.totalSiblings ?? 1, v = t.childCount ?? i.length, B = a.length, E = B / (v || 1), R = t.density || (E > 200 ? "spacious" : E < 40 ? "compact" : "normal");
+    var S;
+    const e = (t.tag || "div").toLowerCase(), a = t.text || "", i = (t.childrenTags || []).map((m) => m.toLowerCase()), s = (t.descendantTags || []).map((m) => m.toLowerCase()), o = i.some((m) => /^h[1-6]$/.test(m)) || /^h[1-6]$/.test(e), l = s.some((m) => /^h[1-6]$/.test(m)), r = o || l, n = i.find((m) => /^h[1-6]$/.test(m)) || s.find((m) => /^h[1-6]$/.test(m)) || (/^h[1-6]$/.test(e) ? e : void 0), b = n ? parseInt(n.replace("h", ""), 10) : void 0, h = i.includes("p") || s.includes("p") || e === "p", d = i.includes("button") || s.includes("button") || e === "button", c = i.includes("input") || i.includes("textarea") || s.includes("input") || s.includes("textarea") || e === "input", u = i.includes("img") || i.includes("picture") || s.includes("img") || s.includes("picture") || e === "img", v = i.includes("a") || s.includes("a") || e === "a", F = /* @__PURE__ */ new Set(["div", "section", "article", "ul", "ol", "main", "header", "footer", "aside", "nav"]), E = t.hasContainerChildren ?? i.some((m) => F.has(m)), g = t.hasPriceText ?? et.PRICE_PATTERNS.some((m) => m.test(a) || m.test(t.className || "")), C = t.siblingIndex ?? 0, R = t.totalSiblings ?? 1, y = t.childCount ?? i.length, x = a.length, w = x / (y || 1), B = t.density || (w > 200 ? "spacious" : w < 40 ? "compact" : "normal");
     return {
       tag: e,
       hasHeading: r,
       hasHeadingDirect: o,
       headingLevel: b,
-      hasParagraph: m,
+      hasParagraph: h,
       hasButton: d,
-      hasInput: p,
+      hasInput: c,
       hasImage: u,
-      hasLinks: g,
-      hasPriceIndicator: f,
-      hasContainerChildren: z,
-      childCount: v,
-      textLength: B,
-      isFirstChild: t.isFirstChild ?? T === 0,
-      isLastChild: t.isLastChild ?? T === A - 1,
-      siblingIndex: T,
-      totalSiblings: A,
+      hasLinks: v,
+      hasPriceIndicator: g,
+      hasContainerChildren: E,
+      childCount: y,
+      textLength: x,
+      isFirstChild: t.isFirstChild ?? C === 0,
+      isLastChild: t.isLastChild ?? C === R - 1,
+      siblingIndex: C,
+      totalSiblings: R,
       depth: t.depth ?? 1,
-      parentTag: (I = t.parentTag) == null ? void 0 : I.toLowerCase(),
+      parentTag: (S = t.parentTag) == null ? void 0 : S.toLowerCase(),
       parentRole: t.parentRole,
       ancestorRoles: t.ancestorRoles,
-      density: R
+      density: B
     };
   }
   /**
@@ -41367,11 +41486,11 @@ const et = class et {
    */
   static analyzeDOMElement(t, e) {
     const a = t.tagName.toLowerCase(), i = t.textContent || "", s = Array.from(t.children).map((d) => d.tagName.toLowerCase()), o = [], l = (d) => {
-      for (const p of Array.from(d.children))
-        o.push(p.tagName.toLowerCase()), l(p);
+      for (const c of Array.from(d.children))
+        o.push(c.tagName.toLowerCase()), l(c);
     };
     l(t);
-    const r = t.parentElement, n = r ? Array.from(r.children) : [t], b = n.indexOf(t), m = et.PRICE_PATTERNS.some((d) => d.test(i) || d.test(t.className));
+    const r = t.parentElement, n = r ? Array.from(r.children) : [t], b = n.indexOf(t), h = et.PRICE_PATTERNS.some((d) => d.test(i) || d.test(t.className));
     return et.analyze({
       tag: a,
       className: t.className,
@@ -41383,11 +41502,11 @@ const et = class et {
       parentRole: e,
       siblingIndex: b >= 0 ? b : 0,
       totalSiblings: n.length,
-      hasPriceText: m
+      hasPriceText: h
     });
   }
 };
-W(et, "PRICE_PATTERNS", [/[$€£¥]/, /\/mo(nth)?/i, /\/yr(ear)?/i, /pricing/i, /\b(free|pro|starter|enterprise|tier|plan)\b/i]);
+U(et, "PRICE_PATTERNS", [/[$€£¥]/, /\/mo(nth)?/i, /\/yr(ear)?/i, /pricing/i, /\b(free|pro|starter|enterprise|tier|plan)\b/i]);
 let it = et;
 class Pt {
   /**
@@ -41416,7 +41535,7 @@ class Pt {
     this.grammars[t.styleId] = t;
   }
 }
-W(Pt, "grammars", {
+U(Pt, "grammars", {
   minimalism: {
     styleId: "minimalism",
     densityBias: "spacious",
@@ -41503,7 +41622,7 @@ W(Pt, "grammars", {
     hasDecorativeFraming: !1
   }
 });
-class $ {
+class X {
   /**
    * Resolves the design language composition strategy and concrete layout decision
    * for a given semantic role, style, structural signals, and content context.
@@ -42649,16 +42768,16 @@ class ht {
     const s = t.siblingIndex % 3;
     i.push(`variant-${s}`);
     const o = (l, r, n, b = []) => {
-      const m = [...i, ...b], { composition: d, density: p, decision: u } = $.resolve(e, l, t, a);
+      const h = [...i, ...b], { composition: d, density: c, decision: u } = X.resolve(e, l, t, a);
       return {
         role: l,
         confidence: r,
         rationale: n,
         variantIndex: s,
-        modifiers: m,
+        modifiers: h,
         semanticTag: t.tag,
         composition: d,
-        density: p,
+        density: c,
         decision: u
       };
     };
@@ -42697,7 +42816,7 @@ class ht {
     return t.childCount >= 3 && !t.hasHeading && !t.hasParagraph && t.hasImage ? o("card-grid", 0.8, "Multi-item structural parent container for repetitive image cards.") : o("generic-container", 0.7, "Generic container without unambiguous structural role. Applying conservative baseline rules.");
   }
 }
-class q {
+class Y {
   /**
    * Resolves the adaptive recipe for a specific role and design language.
    */
@@ -42706,25 +42825,25 @@ class q {
     let o;
     switch (t) {
       case "brutalism":
-        o = q.resolveBrutalism(e, s);
+        o = Y.resolveBrutalism(e, s);
         break;
       case "glassmorphism":
-        o = q.resolveGlassmorphism(e, s);
+        o = Y.resolveGlassmorphism(e, s);
         break;
       case "minimalism":
-        o = q.resolveMinimalism(e, s);
+        o = Y.resolveMinimalism(e, s);
         break;
       case "swiss-design":
-        o = q.resolveSwissDesign(e, s);
+        o = Y.resolveSwissDesign(e, s);
         break;
       case "cyberpunk":
-        o = q.resolveCyberpunk(e, s);
+        o = Y.resolveCyberpunk(e, s);
         break;
       case "wabi-sabi":
-        o = q.resolveWabiSabi(e, s);
+        o = Y.resolveWabiSabi(e, s);
         break;
       default:
-        o = q.resolveBase(e, s);
+        o = Y.resolveBase(e, s);
         break;
     }
     return o.composition || (o.composition = e.composition), o.density || (o.density = e.density), o.decision || (o.decision = e.decision), o;
@@ -43139,7 +43258,7 @@ class q {
   // MINIMALISM ADAPTIVE RECIPES
   // ==========================================
   static resolveMinimalism(t, e) {
-    var n, b, m;
+    var n, b, h;
     const a = t.variantIndex, i = t.role === "hero", s = t.role === "card" || t.role === "feature-item", o = t.role === "pricing-card", l = t.role === "cta-button" || t.role === "button" || t.role === "card-action" || t.role === "pricing-action";
     if (i)
       return {
@@ -43220,10 +43339,10 @@ class q {
         { name: "Minimalist Card / Hairline Inset", bg: "#ffffff", border: "#e4e4e7", radius: "6px" },
         { name: "Minimalist Card / Subtle Zinc Tint", bg: "#f4f4f5", border: "transparent", radius: "6px" },
         { name: "Minimalist Card / Editorial Borderless", bg: "#ffffff", border: "#e4e4e7", radius: "0px" }
-      ], p = d[a] || d[0], u = t.role === "feature-item" || ((n = t.decision) == null ? void 0 : n.containerTreatment) === "borderless" || ((b = t.decision) == null ? void 0 : b.itemPresentation) === "borderless-editorial";
+      ], c = d[a] || d[0], u = t.role === "feature-item" || ((n = t.decision) == null ? void 0 : n.containerTreatment) === "borderless" || ((b = t.decision) == null ? void 0 : b.itemPresentation) === "borderless-editorial";
       return {
         role: t.role,
-        recipeName: u ? "Minimalist Borderless Editorial Item" : p.name,
+        recipeName: u ? "Minimalist Borderless Editorial Item" : c.name,
         styleId: "minimalism",
         description: u ? "Pure borderless typographic item with subtle hairline divider." : `Deterministic variant ${a} establishing subtle hierarchy without heavy visual clutter.`,
         modifiers: t.modifiers,
@@ -43238,10 +43357,10 @@ class q {
           boxShadow: "none"
         } : {
           padding: "1.75rem",
-          borderRadius: p.radius,
-          backgroundColor: p.bg,
-          borderColor: p.border,
-          borderWidth: p.border === "transparent" ? "0px" : "1px",
+          borderRadius: c.radius,
+          backgroundColor: c.bg,
+          borderColor: c.border,
+          borderWidth: c.border === "transparent" ? "0px" : "1px",
           borderStyle: "solid",
           boxShadow: "0 1px 3px rgba(0, 0, 0, 0.02)"
         },
@@ -43267,23 +43386,23 @@ class q {
       };
     }
     if (l) {
-      const d = t.role === "cta-button" || t.modifiers.includes("prominent-cta"), p = t.role === "nav-action";
+      const d = t.role === "cta-button" || t.modifiers.includes("prominent-cta"), c = t.role === "nav-action";
       return {
         role: t.role,
-        recipeName: d ? "Minimalist Ink Hero CTA" : p ? "Minimalist Quiet Nav Action" : "Minimalist Standard Button",
+        recipeName: d ? "Minimalist Ink Hero CTA" : c ? "Minimalist Quiet Nav Action" : "Minimalist Standard Button",
         styleId: "minimalism",
         description: d ? "Deep ink black with subtle 5px radius." : "Quiet text button with hairline boundary.",
         modifiers: t.modifiers,
         containerStyles: {},
         buttonStyles: {
-          padding: d ? "0.75rem 1.625rem" : p ? "0.35rem 0.75rem" : "0.5rem 1.125rem",
-          fontSize: d ? "0.9375rem" : p ? "0.75rem" : "0.8125rem",
+          padding: d ? "0.75rem 1.625rem" : c ? "0.35rem 0.75rem" : "0.5rem 1.125rem",
+          fontSize: d ? "0.9375rem" : c ? "0.75rem" : "0.8125rem",
           fontFamily: "'Inter', sans-serif",
           fontWeight: 400,
           borderRadius: "4px",
-          backgroundColor: d ? "#18181b" : p ? "transparent" : "#ffffff",
+          backgroundColor: d ? "#18181b" : c ? "transparent" : "#ffffff",
           color: d ? "#ffffff" : "#18181b",
-          border: p ? "none" : "1px solid #18181b",
+          border: c ? "none" : "1px solid #18181b",
           cursor: "pointer"
         },
         cssVariables: {
@@ -43291,7 +43410,7 @@ class q {
         }
       };
     }
-    const r = ((m = t.decision) == null ? void 0 : m.containerTreatment) === "borderless";
+    const r = ((h = t.decision) == null ? void 0 : h.containerTreatment) === "borderless";
     return {
       role: t.role,
       recipeName: r ? "Minimalist Borderless Flow" : "Minimalist Clean Box",
@@ -43698,7 +43817,7 @@ class q {
   }
 }
 const kt = {
-  brutalism: Vt,
+  brutalism: jt,
   minimalism: Yt,
   glassmorphism: $t,
   maximalism: Kt,
@@ -43727,7 +43846,7 @@ const kt = {
   gothic: Ye,
   mixedMedia: wt,
   "mixed-media": wt,
-  "art-deco": je,
+  "art-deco": Ve,
   bauhaus: Xe,
   solarpunk: Qe,
   "wabi-sabi": De
@@ -47357,70 +47476,76 @@ ${this.getAllSemanticStyles()}`;
 ` : "";
   }
 }
-function Ft(c = typeof document < "u" ? document : null) {
-  if (!c || !c.head) return null;
-  const t = c.getElementById("style-engine-adaptive-css");
+function Ft(p = typeof document < "u" ? document : null) {
+  if (!p || !p.head) return null;
+  const t = p.getElementById("style-engine-adaptive-css");
   if (t) return t;
-  const e = c.createElement("style");
-  return e.id = "style-engine-adaptive-css", e.textContent = aa.getAdaptiveStyles(), c.head.appendChild(e), e;
+  const e = p.createElement("style");
+  return e.id = "style-engine-adaptive-css", e.textContent = aa.getAdaptiveStyles(), p.head.appendChild(e), e;
 }
-function la(c = typeof document < "u" ? document.body : null) {
+function la(p = typeof document < "u" ? document.body : null) {
   var e;
-  if (typeof document < "u" && Ft(document), !c || typeof c.querySelectorAll != "function") return;
-  ((e = c.matches) != null && e.call(c, '[class*="style-"]') ? [c, ...Array.from(c.querySelectorAll('[class*="style-"]'))] : Array.from(c.querySelectorAll('[class*="style-"]'))).forEach((a) => {
-    const i = a.className.match(/\bstyle-([a-z0-9-]+)\b/), s = i ? i[1] : "base", o = (l, r, n, b, m, d = []) => {
-      var v;
-      const p = l.tagName.toLowerCase(), u = Array.from(l.children), g = u.map((B) => B.tagName.toLowerCase()), F = l.textContent || "", z = /[$€£¥]|\/mo\b|pricing/i.test(F);
+  if (typeof document < "u" && Ft(document), !p || typeof p.querySelectorAll != "function") return;
+  ((e = p.matches) != null && e.call(p, '[class*="style-"]') ? [p, ...Array.from(p.querySelectorAll('[class*="style-"]'))] : Array.from(p.querySelectorAll('[class*="style-"]'))).forEach((a) => {
+    const i = a.className.match(/\bstyle-([a-z0-9-]+)\b/), s = i ? i[1] : "base", o = (l, r, n, b, h, d = []) => {
+      var y;
+      const c = l.tagName.toLowerCase(), u = Array.from(l.children), v = u.map((x) => x.tagName.toLowerCase()), F = l.textContent || "", E = /[$€£¥]|\/mo\b|pricing/i.test(F);
       if (!l.getAttribute("data-role")) {
-        const B = [], E = (Y) => {
-          for (const h of Y.children)
-            h.tagName && (B.push(h.tagName.toLowerCase()), E(h));
+        const x = [], w = (W) => {
+          for (const f of W.children)
+            f.tagName && (x.push(f.tagName.toLowerCase()), w(f));
         };
-        E(l);
-        const R = it.analyze({
-          tag: p,
-          childrenTags: g,
-          descendantTags: B,
+        w(l);
+        const B = it.analyze({
+          tag: c,
+          childrenTags: v,
+          descendantTags: x,
           text: F,
           childCount: u.length,
-          hasPriceText: z,
+          hasPriceText: E,
           depth: r,
           totalSiblings: b,
           siblingIndex: n,
-          parentRole: m,
-          parentTag: (v = l.parentElement) == null ? void 0 : v.tagName.toLowerCase(),
+          parentRole: h,
+          parentTag: (y = l.parentElement) == null ? void 0 : y.tagName.toLowerCase(),
           ancestorRoles: d
-        }), I = ht.resolveRole(R, s);
-        l.setAttribute("data-role", I.role), l.setAttribute("data-composition", I.composition);
-        const y = I.role === "feature-item" || I.role === "card" || I.role === "pricing-card" || p === "article";
-        let C = I.variantIndex;
-        if (y && l.parentElement) {
-          const h = Array.from(l.parentElement.children).filter((D) => {
-            var M, K;
-            const P = (M = D.tagName) == null ? void 0 : M.toLowerCase(), x = (K = D.getAttribute) == null ? void 0 : K.call(D, "data-role");
-            return P === p || x === I.role || P === "article";
+        }), S = ht.resolveRole(B, s);
+        l.setAttribute("data-role", S.role), l.setAttribute("data-composition", S.composition);
+        const m = S.role === "feature-item" || S.role === "card" || S.role === "pricing-card" || c === "article";
+        let k = S.variantIndex;
+        if (m && l.parentElement) {
+          const f = Array.from(l.parentElement.children).filter((P) => {
+            var H, Q;
+            const D = (H = P.tagName) == null ? void 0 : H.toLowerCase(), z = (Q = P.getAttribute) == null ? void 0 : Q.call(P, "data-role");
+            return D === c || z === S.role || D === "article";
           }).indexOf(l);
-          h >= 0 && (C = h % 3);
+          f >= 0 && (k = f % 3);
         }
-        l.setAttribute("data-variant", String(C)), l.setAttribute("data-density", I.density), I.decision && (l.setAttribute("data-layout", I.decision.layoutMode), l.setAttribute("data-container", I.decision.containerTreatment), l.setAttribute("data-grouping", I.decision.groupingTreatment), l.setAttribute("data-item-presentation", I.decision.itemPresentation), l.setAttribute("data-align", I.decision.alignment));
+        l.setAttribute("data-variant", String(k)), l.setAttribute("data-density", S.density), S.decision && (l.setAttribute("data-layout", S.decision.layoutMode), l.setAttribute("data-container", S.decision.containerTreatment), l.setAttribute("data-grouping", S.decision.groupingTreatment), l.setAttribute("data-item-presentation", S.decision.itemPresentation), l.setAttribute("data-align", S.decision.alignment));
       }
-      const f = l.getAttribute("data-role") || "generic-container", T = [...d, f];
+      const g = l.getAttribute("data-role") || "generic-container", C = [...d, g];
       u.some(
-        (B) => ["div", "section", "article", "form", "nav", "header", "footer"].includes(B.tagName.toLowerCase())
-      ) || Array.from(l.querySelectorAll('button, input[type="submit"]')).forEach((E) => {
-        if (!E.getAttribute("data-role")) {
-          let R = "button";
-          f === "hero" || f === "header" ? R = "cta-button" : f === "navigation" ? R = "nav-action" : f === "pricing-card" || f === "pricing-grid" ? R = "pricing-action" : f === "card" || f === "card-grid" || f === "feature-item" || f === "feature-group" ? R = "card-action" : f === "form" && (R = "form-submit"), E.setAttribute("data-role", R);
+        (x) => ["div", "section", "article", "form", "nav", "header", "footer"].includes(x.tagName.toLowerCase())
+      ) || Array.from(l.querySelectorAll('button, input[type="submit"]')).forEach((w) => {
+        if (!w.getAttribute("data-role")) {
+          let B = "button";
+          g === "hero" || g === "header" ? B = "cta-button" : g === "navigation" ? B = "nav-action" : g === "pricing-card" || g === "pricing-grid" ? B = "pricing-action" : g === "card" || g === "card-grid" || g === "feature-item" || g === "feature-group" ? B = "card-action" : g === "form" && (B = "form-submit"), w.setAttribute("data-role", B);
         }
-      }), u.forEach((B, E) => {
-        const R = B.tagName.toLowerCase();
-        ["div", "section", "article", "form", "nav", "header", "footer"].includes(R) && o(B, r + 1, E, u.length, f, T);
+      }), u.forEach((x, w) => {
+        const B = x.tagName.toLowerCase();
+        ["div", "section", "article", "form", "nav", "header", "footer"].includes(B) && o(x, r + 1, w, u.length, g, C);
       });
     };
     o(a, 1, 0, 1);
   });
 }
 class ut {
+  /**
+   * Cleans a URI string from null bytes, tabs, newlines and spaces to detect obfuscated protocols.
+   */
+  static normalizeUri(t) {
+    return t.replace(/[\u0000-\u001F\u007F-\u009F\s]+/g, "").toLowerCase();
+  }
   /**
    * Sanitizes arbitrary HTML string, stripping forbidden tags, inline event handlers,
    * and malicious URIs.
@@ -47440,9 +47565,9 @@ class ut {
               o.removeAttribute(r.name);
               continue;
             }
-            if (["href", "src", "action", "formaction"].includes(n)) {
-              const b = r.value.trim().toLowerCase();
-              this.DANGEROUS_URI_SCHEMES.some((m) => b.startsWith(m)) && o.removeAttribute(r.name);
+            if (["href", "xlink:href", "src", "action", "formaction", "data", "poster"].includes(n)) {
+              const b = this.normalizeUri(r.value);
+              this.DANGEROUS_URI_SCHEMES.some((h) => b.startsWith(h)) && o.removeAttribute(r.name);
             }
           }
         }), i.body.innerHTML;
@@ -47450,25 +47575,31 @@ class ut {
         console.warn("[HTMLSanitizer] DOMParser failed, using regex fallback:", a);
       }
     let e = t;
-    return e = e.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ""), e = e.replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, ""), e = e.replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, ""), e = e.replace(/<embed\b[^>]*>/gi, ""), e = e.replace(/<link\b[^>]*>/gi, ""), e = e.replace(/<meta\b[^>]*>/gi, ""), e = e.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, ""), e = e.replace(/\son\w+\s*=\s*["'][^"']*["']/gi, ""), e = e.replace(/\son\w+\s*=\s*[^\s>]+/gi, ""), e = e.replace(/href\s*=\s*["']\s*javascript:[^"']*["']/gi, 'href="#"'), e = e.replace(/src\s*=\s*["']\s*javascript:[^"']*["']/gi, 'src=""'), e;
+    return e = e.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ""), e = e.replace(/<script\b[^>]*\/?>/gi, ""), e = e.replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, ""), e = e.replace(/<iframe\b[^>]*\/?>/gi, ""), e = e.replace(/<template\b[^<]*(?:(?!<\/template>)<[^<]*)*<\/template>/gi, ""), e = e.replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, ""), e = e.replace(/<embed\b[^>]*\/?>/gi, ""), e = e.replace(/<link\b[^>]*\/?>/gi, ""), e = e.replace(/<meta\b[^>]*\/?>/gi, ""), e = e.replace(/<base\b[^>]*\/?>/gi, ""), e = e.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, ""), e = e.replace(/[\s/]on\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, ""), e = e.replace(/(?:href|src|action|formaction)\s*=\s*["']\s*(?:javascript|vbscript|data\s*:\s*text\/html)[^"']*["']/gi, 'href="#"'), e = e.replace(/(?:href|src|action|formaction)\s*=\s*(?:javascript|vbscript):[^\s>]+/gi, 'href="#"'), e;
   }
 }
-W(ut, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
+U(ut, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
   "script",
   "iframe",
+  "frame",
+  "frameset",
   "object",
   "embed",
   "applet",
   "meta",
   "link",
   "base",
+  "template",
+  "portal",
   "style"
   // We control styles through the Style Engine, not arbitrary <style> tags
-])), W(ut, "DANGEROUS_URI_SCHEMES", [
+])), U(ut, "DANGEROUS_URI_SCHEMES", [
   "javascript:",
   "vbscript:",
   "data:text/html",
-  "data:application/javascript"
+  "data:application/javascript",
+  "data:text/javascript",
+  "data:image/svg+xml"
 ]);
 class St {
   static plan(t, e, a, i, s) {
@@ -47495,7 +47626,7 @@ class St {
         hasPricingStructure: !1,
         maxNestingDepth: 3
       }
-    }, l = $.resolveDecision(
+    }, l = X.resolveDecision(
       t,
       e,
       a,
@@ -47505,11 +47636,11 @@ class St {
     r.push(n);
     const b = this.planSection(t, "feature-section", a, o.primaryContext);
     r.push(b);
-    const m = this.planSection(t, "navigation", a, o.primaryContext);
-    if (r.push(m), i && i.length > 0)
-      for (const p of i)
-        ["hero", "feature-section", "navigation"].includes(p.role) || r.push(this.planSection(t, p.role, p.signals, o.primaryContext));
-    const d = $.extractFingerprint(
+    const h = this.planSection(t, "navigation", a, o.primaryContext);
+    if (r.push(h), i && i.length > 0)
+      for (const c of i)
+        ["hero", "feature-section", "navigation"].includes(c.role) || r.push(this.planSection(t, c.role, c.signals, o.primaryContext));
+    const d = X.extractFingerprint(
       t,
       l,
       o.primaryContext,
@@ -47526,7 +47657,7 @@ class St {
       density: l.density,
       heroPlan: n,
       featuresPlan: b,
-      navPlan: m,
+      navPlan: h,
       sectionPlans: r,
       fingerprint: d
     };
@@ -47535,7 +47666,7 @@ class St {
    * Plans an individual section based on the design language's grammar and content context.
    */
   static planSection(t, e, a, i) {
-    const s = $.resolveDecision(
+    const s = X.resolveDecision(
       t,
       e,
       a,
@@ -47603,9 +47734,9 @@ class Ct {
       ).forEach((d) => {
         typeof d != "string" && (d.attrs["data-layout-slot"] = "heading");
       });
-      const b = [], m = [];
+      const b = [], h = [];
       for (const d of t.children)
-        typeof d != "string" && /^h[1-6]$/.test(d.tag) || typeof d != "string" && d.tag === "header" ? m.push(d) : typeof d == "string" ? d.trim().length > 0 && b.push(d) : b.push(d);
+        typeof d != "string" && /^h[1-6]$/.test(d.tag) || typeof d != "string" && d.tag === "header" ? h.push(d) : typeof d == "string" ? d.trim().length > 0 && b.push(d) : b.push(d);
       if (b.length > 0) {
         const d = {
           tag: "div",
@@ -47615,12 +47746,12 @@ class Ct {
             "data-item-presentation": i.itemPresentation
           },
           children: b,
-          text: b.map((p) => typeof p == "string" ? p : p.text).join(" "),
+          text: b.map((c) => typeof c == "string" ? c : c.text).join(" "),
           parent: t
         };
-        b.forEach((p) => {
-          typeof p != "string" && (p.parent = d);
-        }), m.push(d), t.children = m;
+        b.forEach((c) => {
+          typeof c != "string" && (c.parent = d);
+        }), h.push(d), t.children = h;
       }
     }
     for (const r of t.children)
@@ -47676,29 +47807,29 @@ class zt {
     const e = {}, a = [], i = [], s = t.replace(/<!--[\s\S]*?-->/g, ""), o = s.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(), l = /<([a-z0-9]+)(\s+[^>]*)?>/gi;
     let r, n = 0;
     for (; (r = l.exec(s)) !== null; ) {
-      const f = r[1].toLowerCase();
-      n++, e[f] = (e[f] || 0) + 1, /^h[1-6]$/.test(f) && a.push(parseInt(f[1], 10));
+      const g = r[1].toLowerCase();
+      n++, e[g] = (e[g] || 0) + 1, /^h[1-6]$/.test(g) && a.push(parseInt(g[1], 10));
     }
     const b = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
-    let m;
-    for (; (m = b.exec(s)) !== null; ) {
-      const f = m[1].replace(/<[^>]+>/g, "").trim();
-      i.push(f.length);
+    let h;
+    for (; (h = b.exec(s)) !== null; ) {
+      const g = h[1].replace(/<[^>]+>/g, "").trim();
+      i.push(g.length);
     }
-    let d = 1, p = 0;
+    let d = 1, c = 0;
     const u = /<(\/)?([a-z0-9]+)(?:\s+[^>]*?)?(\/)?>/gi;
-    let g;
+    let v;
     const F = /* @__PURE__ */ new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
-    for (; (g = u.exec(s)) !== null; ) {
-      const f = !!g[1], T = g[2].toLowerCase(), A = !!g[3] || F.has(T);
-      f ? p = Math.max(0, p - 1) : A || (p++, p > d && (d = p));
+    for (; (v = u.exec(s)) !== null; ) {
+      const g = !!v[1], C = v[2].toLowerCase(), R = !!v[3] || F.has(C);
+      g ? c = Math.max(0, c - 1) : R || (c++, c > d && (d = c));
     }
-    const z = (e.section || 0) + (e.article || 0) + (e.header || 0) + (e.footer || 0);
+    const E = (e.section || 0) + (e.article || 0) + (e.header || 0) + (e.footer || 0);
     return {
       text: o,
       totalElements: n,
       tagCounts: e,
-      sectionCount: Math.max(z, 1),
+      sectionCount: Math.max(E, 1),
       headingCount: a.length,
       headingLevels: a,
       paragraphCount: i.length,
@@ -47724,23 +47855,23 @@ class zt {
   static extractDOMStats(t) {
     const e = t.textContent || "", a = Array.from(t.querySelectorAll("*")), i = {};
     a.forEach((d) => {
-      const p = d.tagName.toLowerCase();
-      i[p] = (i[p] || 0) + 1;
+      const c = d.tagName.toLowerCase();
+      i[c] = (i[c] || 0) + 1;
     });
     const o = Array.from(t.querySelectorAll("h1, h2, h3, h4, h5, h6")).map((d) => parseInt(d.tagName[1], 10)), l = Array.from(t.querySelectorAll("p")), r = l.map((d) => (d.textContent || "").trim().length);
     let n = 1;
-    const b = (d, p) => {
-      p > n && (n = p);
+    const b = (d, c) => {
+      c > n && (n = c);
       for (const u of Array.from(d.children))
-        b(u, p + 1);
+        b(u, c + 1);
     };
     b(t, 1);
-    const m = t.querySelectorAll("section, article, header, footer").length || 1;
+    const h = t.querySelectorAll("section, article, header, footer").length || 1;
     return {
       text: e,
       totalElements: a.length,
       tagCounts: i,
-      sectionCount: m,
+      sectionCount: h,
       headingCount: o.length,
       headingLevels: o,
       paragraphCount: l.length,
@@ -47762,12 +47893,12 @@ class zt {
   static computeDocumentSignals(t, e) {
     const a = t.text.toLowerCase(), i = /[$€£¥₹]/.test(t.text), s = /\b(pricing|tiers?|plans?|\/mo|\/month|\/yr|\/year|billed|subscription|free|pro|enterprise)\b/i.test(
       a
-    ), o = i && s || e && (e.includes("pricing-card") || e.includes("pricing-grid")), l = t.text.replace(/\b(19|20)\d{2}\b/g, ""), r = /\b(\d+(?:\.\d+)?\s*(?:%|ms|kb|mb|gb|tb|qps|req\/s|ops\/sec|ghz|mhz|k|m|b)\b)/i, n = /\b(cpu|memory|latency|throughput|uptime|storage|telemetry|active nodes|status|metrics?|bandwidth|requests|diagnostics)\b/i, b = r.test(t.text) || /\b\d{1,4}(?:,\d{3})*\b/.test(l) && n.test(a) && t.repeatedChildContainers >= 3, m = b && n.test(a) && !o && t.buttonCount <= 2, p = /\b(studio|selected work|portfolio|case stud(?:y|ies)|brand identity|editorial system|digital product|client|art direction|visual identity|exhibition|work)\b/i.test(a) && (t.tagCounts.article >= 2 || t.repeatedChildContainers >= 2) && !o && !m, u = t.paragraphLengths.some((v) => v > 120) || t.paragraphLengths.length >= 3, g = t.blockquoteCount > 0, z = u && (g || /\b(written by|published|read time|min read|author|essay|journal|curated|dispatch)\b/i.test(a) || t.tagCounts.article > 0) && t.buttonCount <= 2 && !o && !m, f = t.inputCount >= 2 || t.tagCounts.form !== void 0 && t.tagCounts.form > 0 && t.inputCount >= 1, T = t.text.trim().split(/\s+/).filter(Boolean).length, A = t.totalElements > 0 ? T / t.totalElements : 0;
+    ), o = i && s || e && (e.includes("pricing-card") || e.includes("pricing-grid")), l = t.text.replace(/\b(19|20)\d{2}\b/g, ""), r = /\b(\d+(?:\.\d+)?\s*(?:%|ms|kb|mb|gb|tb|qps|req\/s|ops\/sec|ghz|mhz|k|m|b)\b)/i, n = /\b(cpu|memory|latency|throughput|uptime|storage|telemetry|active nodes|status|metrics?|bandwidth|requests|diagnostics)\b/i, b = r.test(t.text) || /\b\d{1,4}(?:,\d{3})*\b/.test(l) && n.test(a) && t.repeatedChildContainers >= 3, h = b && n.test(a) && !o && t.buttonCount <= 2, c = /\b(studio|selected work|portfolio|case stud(?:y|ies)|brand identity|editorial system|digital product|client|art direction|visual identity|exhibition|work)\b/i.test(a) && (t.tagCounts.article >= 2 || t.repeatedChildContainers >= 2) && !o && !h, u = t.paragraphLengths.some((y) => y > 120) || t.paragraphLengths.length >= 3, v = t.blockquoteCount > 0, E = u && (v || /\b(written by|published|read time|min read|author|essay|journal|curated|dispatch)\b/i.test(a) || t.tagCounts.article > 0) && t.buttonCount <= 2 && !o && !h, g = t.inputCount >= 2 || t.tagCounts.form !== void 0 && t.tagCounts.form > 0 && t.inputCount >= 1, C = t.text.trim().split(/\s+/).filter(Boolean).length, R = t.totalElements > 0 ? C / t.totalElements : 0;
     return {
       sectionCount: t.sectionCount,
       repeatedItemCount: t.repeatedChildContainers,
       headingDepth: t.headingLevels.length > 0 ? Math.max(...t.headingLevels) : 1,
-      textDensityRatio: A,
+      textDensityRatio: R,
       actionCount: t.buttonCount,
       linkCount: t.linkCount,
       imageCount: t.imageCount,
@@ -47775,10 +47906,10 @@ class zt {
       hasCurrency: i,
       hasMetricsOrNumbers: b,
       hasQuotes: t.blockquoteCount > 0,
-      isPortfolioSignaled: !!p,
-      hasArticleStructure: z,
-      hasDashboardStructure: m,
-      hasFormStructure: f,
+      isPortfolioSignaled: !!c,
+      hasArticleStructure: E,
+      hasDashboardStructure: h,
+      hasFormStructure: g,
       hasPricingStructure: !!o,
       maxNestingDepth: t.maxNestingDepth
     };
@@ -47879,104 +48010,104 @@ class na {
    * Browser-native analysis using DOMParser
    */
   static analyzeWithDOMParser(t, e, a, i) {
-    const l = new DOMParser().parseFromString(t, "text/html").body, r = Array.from(l.querySelectorAll("*")), n = l.querySelectorAll("h1, h2, h3, h4, h5, h6").length, b = l.querySelectorAll('button, input[type="submit"], a.button').length, m = l.querySelectorAll("input, textarea, select").length, d = l.textContent || "", p = /[$€£¥]|\/mo\b|pricing/i.test(d), u = [], g = zt.analyzeDOM(l), F = (h, D, P, x, M, K = []) => {
+    const l = new DOMParser().parseFromString(t, "text/html").body, r = Array.from(l.querySelectorAll("*")), n = l.querySelectorAll("h1, h2, h3, h4, h5, h6").length, b = l.querySelectorAll('button, input[type="submit"], a.button').length, h = l.querySelectorAll("input, textarea, select").length, d = l.textContent || "", c = /[$€£¥]|\/mo\b|pricing/i.test(d), u = [], v = zt.analyzeDOM(l), F = (f, P, D, z, H, Q = []) => {
       var pt, V;
-      const H = h.tagName.toLowerCase(), J = Array.from(h.children), rt = J.map((U) => U.tagName.toLowerCase()), tt = h.textContent || "", mt = /[$€£¥]|\/mo\b|pricing/i.test(tt), w = [], ot = (U) => {
-        for (const Q of Array.from(U.children))
-          w.push(Q.tagName.toLowerCase()), ot(Q);
+      const N = f.tagName.toLowerCase(), j = Array.from(f.children), rt = j.map((J) => J.tagName.toLowerCase()), tt = f.textContent || "", mt = /[$€£¥]|\/mo\b|pricing/i.test(tt), T = [], ot = (J) => {
+        for (const _ of Array.from(J.children))
+          T.push(_.tagName.toLowerCase()), ot(_);
       };
-      ot(h);
-      const O = it.analyze({
-        tag: H,
+      ot(f);
+      const G = it.analyze({
+        tag: N,
         childrenTags: rt,
-        descendantTags: w,
+        descendantTags: T,
         text: tt,
-        childCount: J.length,
+        childCount: j.length,
         hasPriceText: mt,
-        depth: D,
-        totalSiblings: x,
-        siblingIndex: P,
-        parentRole: M,
-        parentTag: (pt = h.parentElement) == null ? void 0 : pt.tagName.toLowerCase(),
-        ancestorRoles: K
-      }), k = ht.resolveRole(O, e, g), lt = q.resolveRecipe(e, k, a), G = k.decision;
-      h.setAttribute("data-role", k.role), h.setAttribute("data-composition", k.composition), h.setAttribute("data-density", k.density), /^h[1-6]$/i.test(H) && h.setAttribute("data-layout-slot", "heading");
-      const nt = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(H), dt = /^(header|nav|footer)$/i.test(H), bt = k.role === "feature-item" || k.role === "card" || k.role === "pricing-card" || H === "article", ct = (k.role === "feature-group" || k.role === "card-grid" || k.role === "pricing-grid" || J.length >= 2 && J.some((U) => U.tagName.toLowerCase() === "article" || U.getAttribute("data-role") === "feature-item")) && !nt && !dt, N = !nt && !dt && (H === "section" || H === "main" || H === "form" || k.role === "hero" || k.role === "feature-section" || k.role === "pricing-grid" || k.role === "card-grid" || D === 1);
+        depth: P,
+        totalSiblings: z,
+        siblingIndex: D,
+        parentRole: H,
+        parentTag: (pt = f.parentElement) == null ? void 0 : pt.tagName.toLowerCase(),
+        ancestorRoles: Q
+      }), I = ht.resolveRole(G, e, v), lt = Y.resolveRecipe(e, I, a), L = I.decision;
+      f.setAttribute("data-role", I.role), f.setAttribute("data-composition", I.composition), f.setAttribute("data-density", I.density), /^h[1-6]$/i.test(N) && f.setAttribute("data-layout-slot", "heading");
+      const nt = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(N), dt = /^(header|nav|footer)$/i.test(N), bt = I.role === "feature-item" || I.role === "card" || I.role === "pricing-card" || N === "article", ct = (I.role === "feature-group" || I.role === "card-grid" || I.role === "pricing-grid" || j.length >= 2 && j.some((J) => J.tagName.toLowerCase() === "article" || J.getAttribute("data-role") === "feature-item")) && !nt && !dt, O = !nt && !dt && (N === "section" || N === "main" || N === "form" || I.role === "hero" || I.role === "feature-section" || I.role === "pricing-grid" || I.role === "card-grid" || P === 1);
       if (bt) {
-        const Q = Array.from(((V = h.parentElement) == null ? void 0 : V.children) || []).filter((yt) => {
+        const _ = Array.from(((V = f.parentElement) == null ? void 0 : V.children) || []).filter((yt) => {
           var vt, xt;
           const gt = (vt = yt.tagName) == null ? void 0 : vt.toLowerCase(), Ht = (xt = yt.getAttribute) == null ? void 0 : xt.call(yt, "data-role");
-          return gt === H || Ht === k.role || gt === "article";
-        }).indexOf(h), Mt = Q >= 0 ? Q % 3 : k.variantIndex;
-        h.setAttribute("data-variant", String(Mt)), G && h.setAttribute("data-item-presentation", G.itemPresentation);
+          return gt === N || Ht === I.role || gt === "article";
+        }).indexOf(f), Mt = _ >= 0 ? _ % 3 : I.variantIndex;
+        f.setAttribute("data-variant", String(Mt)), L && f.setAttribute("data-item-presentation", L.itemPresentation);
       }
-      N && G && (h.setAttribute("data-layout", G.layoutMode), h.setAttribute("data-container", G.containerTreatment), h.setAttribute("data-align", G.alignment)), ct && G && h.setAttribute("data-grouping", G.groupingTreatment), u.push({
-        tag: H,
-        role: k.role,
-        composition: k.composition,
-        density: k.density,
-        decision: G,
+      O && L && (f.setAttribute("data-layout", L.layoutMode), f.setAttribute("data-container", L.containerTreatment), f.setAttribute("data-align", L.alignment)), ct && L && f.setAttribute("data-grouping", L.groupingTreatment), u.push({
+        tag: N,
+        role: I.role,
+        composition: I.composition,
+        density: I.density,
+        decision: L,
         recipeName: lt.recipeName,
-        confidence: k.confidence,
+        confidence: I.confidence,
         textSummary: tt.trim().slice(0, 60),
-        depth: D
+        depth: P
       });
-      const L = [...K, k.role];
-      J.forEach((U, Q) => {
-        F(U, D + 1, Q, J.length, k.role, L);
+      const q = [...Q, I.role];
+      j.forEach((J, _) => {
+        F(J, P + 1, _, j.length, I.role, q);
       });
-    }, z = Array.from(l.children);
-    z.forEach((h, D) => {
-      F(h, 1, D, z.length);
-    }), Array.from(l.querySelectorAll('button, input[type="submit"], a.button')).forEach((h) => {
-      var M;
-      const D = (M = h.parentElement) == null ? void 0 : M.closest("[data-role]:not(button):not(input):not(a)"), P = (D == null ? void 0 : D.getAttribute("data-role")) || "generic-container";
-      let x = "button";
-      P === "hero" || P === "header" ? x = "cta-button" : P === "navigation" ? x = "nav-action" : P === "pricing-card" || P === "pricing-grid" ? x = "pricing-action" : P === "feature-item" || P === "card" || P === "card-grid" || P === "feature-group" ? x = "card-action" : P === "form" && (x = "form-submit"), h.setAttribute("data-role", x);
+    }, E = Array.from(l.children);
+    E.forEach((f, P) => {
+      F(f, 1, P, E.length);
+    }), Array.from(l.querySelectorAll('button, input[type="submit"], a.button')).forEach((f) => {
+      var H;
+      const P = (H = f.parentElement) == null ? void 0 : H.closest("[data-role]:not(button):not(input):not(a)"), D = (P == null ? void 0 : P.getAttribute("data-role")) || "generic-container";
+      let z = "button";
+      D === "hero" || D === "header" ? z = "cta-button" : D === "navigation" ? z = "nav-action" : D === "pricing-card" || D === "pricing-grid" ? z = "pricing-action" : D === "feature-item" || D === "card" || D === "card-grid" || D === "feature-group" ? z = "card-action" : D === "form" && (z = "form-submit"), f.setAttribute("data-role", z);
     });
-    const T = z[0] || l, A = T.getAttribute("data-role") || "generic-container", v = T.getAttribute("data-composition") || "generic-balanced", B = T.getAttribute("data-density") || "normal", E = u[0], R = (A === "generic-container" || A === "page") && (u.find((h) => h.role === "feature-section") || u.find((h) => h.role === "hero") || u.find((h) => h.role === "pricing-card") || u.find((h) => h.role === "article")) || E, I = (A === "generic-container" || A === "page") && (R == null ? void 0 : R.role) || A, y = St.plan(
+    const C = E[0] || l, R = C.getAttribute("data-role") || "generic-container", y = C.getAttribute("data-composition") || "generic-balanced", x = C.getAttribute("data-density") || "normal", w = u[0], B = (R === "generic-container" || R === "page") && (u.find((f) => f.role === "feature-section") || u.find((f) => f.role === "hero") || u.find((f) => f.role === "pricing-card") || u.find((f) => f.role === "article")) || w, S = (R === "generic-container" || R === "page") && (B == null ? void 0 : B.role) || R, m = St.plan(
       e,
-      I,
+      S,
       void 0,
-      u.map((h) => ({ role: h.role, signals: {} })),
-      g
+      u.map((f) => ({ role: f.role, signals: {} })),
+      v
     );
-    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformDOM(l, y);
-    const C = $.resolveDecision(
+    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformDOM(l, m);
+    const k = X.resolveDecision(
       e,
-      I,
+      S,
       void 0,
-      B,
-      g
-    ), Y = $.extractFingerprint(
+      x,
+      v
+    ), W = X.extractFingerprint(
       e,
-      C,
-      g.primaryContext,
-      y.sectionPlans
+      k,
+      v.primaryContext,
+      m.sectionPlans
     );
-    return T.setAttribute("data-context", g.primaryContext), {
+    return C.setAttribute("data-context", v.primaryContext), {
       sanitizedHtml: t,
       stampedHtml: l.innerHTML,
       styleId: e,
-      rootRole: A,
-      composition: v,
-      density: B,
-      decision: C,
-      plan: y,
-      fingerprint: Y,
-      confidence: (E == null ? void 0 : E.confidence) ?? 0.85,
-      recipeName: (E == null ? void 0 : E.recipeName) ?? "Base Generic Recipe",
-      rationale: `Hierarchically resolved as ${A} with ${v} composition.`,
-      modifiers: [`variant-${T.getAttribute("data-variant") || "0"}`],
+      rootRole: R,
+      composition: y,
+      density: x,
+      decision: k,
+      plan: m,
+      fingerprint: W,
+      confidence: (w == null ? void 0 : w.confidence) ?? 0.85,
+      recipeName: (w == null ? void 0 : w.recipeName) ?? "Base Generic Recipe",
+      rationale: `Hierarchically resolved as ${R} with ${y} composition.`,
+      modifiers: [`variant-${C.getAttribute("data-variant") || "0"}`],
       detectedBlocks: u,
       stats: {
         totalElements: r.length,
         headingCount: n,
         buttonCount: b,
-        inputCount: m,
-        hasCurrency: p
+        inputCount: h,
+        hasCurrency: c
       },
-      contentContext: g
+      contentContext: v
     };
   }
   /**
@@ -47987,112 +48118,112 @@ class na {
     const s = this.parseMiniAST(t);
     let o = 0;
     const l = [], r = zt.analyze(t);
-    let n = 0, b = 0, m = 0;
-    const d = (y, C, Y, h, D, P = []) => {
+    let n = 0, b = 0, h = 0;
+    const d = (m, k, W, f, P, D = []) => {
       var ct;
       o++;
-      const x = y.tag.toLowerCase();
-      /^h[1-6]$/.test(x) && n++, x === "button" && b++, (x === "input" || x === "textarea" || x === "select") && m++;
-      const M = y.children.filter((N) => typeof N != "string"), K = M.map((N) => N.tag.toLowerCase()), H = y.text || "", J = /[$€£¥]|\/mo\b|pricing/i.test(H), rt = [], tt = (N) => {
-        for (const L of N.children)
-          typeof L != "string" && (rt.push(L.tag.toLowerCase()), tt(L));
+      const z = m.tag.toLowerCase();
+      /^h[1-6]$/.test(z) && n++, z === "button" && b++, (z === "input" || z === "textarea" || z === "select") && h++;
+      const H = m.children.filter((O) => typeof O != "string"), Q = H.map((O) => O.tag.toLowerCase()), N = m.text || "", j = /[$€£¥]|\/mo\b|pricing/i.test(N), rt = [], tt = (O) => {
+        for (const q of O.children)
+          typeof q != "string" && (rt.push(q.tag.toLowerCase()), tt(q));
       };
-      tt(y);
+      tt(m);
       const mt = it.analyze({
-        tag: x,
-        childrenTags: K,
+        tag: z,
+        childrenTags: Q,
         descendantTags: rt,
-        text: H,
-        childCount: M.length,
-        hasPriceText: J,
-        depth: C,
-        totalSiblings: h,
-        siblingIndex: Y,
-        parentRole: D,
-        parentTag: (ct = y.parent) == null ? void 0 : ct.tag.toLowerCase(),
-        ancestorRoles: P
-      }), w = ht.resolveRole(mt, e, r), ot = q.resolveRecipe(e, w, a), O = w.decision;
-      y.attrs["data-role"] = w.role, y.attrs["data-composition"] = w.composition, y.attrs["data-density"] = w.density, /^h[1-6]$/i.test(x) && (y.attrs["data-layout-slot"] = "heading");
-      const k = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(x), lt = /^(header|nav|footer)$/i.test(x), G = w.role === "feature-item" || w.role === "card" || w.role === "pricing-card" || x === "article", nt = (w.role === "feature-group" || w.role === "card-grid" || w.role === "pricing-grid" || M.length >= 2 && M.some((N) => N.tag.toLowerCase() === "article" || N.attrs["data-role"] === "feature-item")) && !k && !lt, dt = !k && !lt && (x === "section" || x === "main" || x === "form" || w.role === "hero" || w.role === "feature-section" || w.role === "pricing-grid" || w.role === "card-grid" || C === 1);
-      if (G) {
-        const L = (y.parent ? y.parent.children.filter((V) => typeof V != "string").filter(
-          (V) => V.tag.toLowerCase() === x || V.attrs["data-role"] === w.role || V.tag.toLowerCase() === "article"
-        ) : []).indexOf(y), pt = L >= 0 ? L % 3 : w.variantIndex;
-        y.attrs["data-variant"] = String(pt), O && (y.attrs["data-item-presentation"] = O.itemPresentation);
+        text: N,
+        childCount: H.length,
+        hasPriceText: j,
+        depth: k,
+        totalSiblings: f,
+        siblingIndex: W,
+        parentRole: P,
+        parentTag: (ct = m.parent) == null ? void 0 : ct.tag.toLowerCase(),
+        ancestorRoles: D
+      }), T = ht.resolveRole(mt, e, r), ot = Y.resolveRecipe(e, T, a), G = T.decision;
+      m.attrs["data-role"] = T.role, m.attrs["data-composition"] = T.composition, m.attrs["data-density"] = T.density, /^h[1-6]$/i.test(z) && (m.attrs["data-layout-slot"] = "heading");
+      const I = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(z), lt = /^(header|nav|footer)$/i.test(z), L = T.role === "feature-item" || T.role === "card" || T.role === "pricing-card" || z === "article", nt = (T.role === "feature-group" || T.role === "card-grid" || T.role === "pricing-grid" || H.length >= 2 && H.some((O) => O.tag.toLowerCase() === "article" || O.attrs["data-role"] === "feature-item")) && !I && !lt, dt = !I && !lt && (z === "section" || z === "main" || z === "form" || T.role === "hero" || T.role === "feature-section" || T.role === "pricing-grid" || T.role === "card-grid" || k === 1);
+      if (L) {
+        const q = (m.parent ? m.parent.children.filter((V) => typeof V != "string").filter(
+          (V) => V.tag.toLowerCase() === z || V.attrs["data-role"] === T.role || V.tag.toLowerCase() === "article"
+        ) : []).indexOf(m), pt = q >= 0 ? q % 3 : T.variantIndex;
+        m.attrs["data-variant"] = String(pt), G && (m.attrs["data-item-presentation"] = G.itemPresentation);
       }
-      dt && O && (y.attrs["data-layout"] = O.layoutMode, y.attrs["data-container"] = O.containerTreatment, y.attrs["data-align"] = O.alignment), nt && O && (y.attrs["data-grouping"] = O.groupingTreatment), l.push({
-        tag: x,
-        role: w.role,
-        composition: w.composition,
-        density: w.density,
-        decision: O,
+      dt && G && (m.attrs["data-layout"] = G.layoutMode, m.attrs["data-container"] = G.containerTreatment, m.attrs["data-align"] = G.alignment), nt && G && (m.attrs["data-grouping"] = G.groupingTreatment), l.push({
+        tag: z,
+        role: T.role,
+        composition: T.composition,
+        density: T.density,
+        decision: G,
         recipeName: ot.recipeName,
-        confidence: w.confidence,
-        textSummary: H.trim().slice(0, 60),
-        depth: C
+        confidence: T.confidence,
+        textSummary: N.trim().slice(0, 60),
+        depth: k
       });
-      const bt = [...P, w.role];
-      M.forEach((N, L) => {
-        d(N, C + 1, L, M.length, w.role, bt);
+      const bt = [...D, T.role];
+      H.forEach((O, q) => {
+        d(O, k + 1, q, H.length, T.role, bt);
       });
     };
-    s.forEach((y, C) => {
-      d(y, 1, C, s.length);
+    s.forEach((m, k) => {
+      d(m, 1, k, s.length);
     });
-    const p = (y, C) => {
-      const Y = y.attrs["data-role"] || C;
-      if (y.tag === "button") {
-        let h = "button";
-        C === "hero" || C === "header" ? h = "cta-button" : C === "navigation" ? h = "nav-action" : C === "pricing-card" || C === "pricing-grid" ? h = "pricing-action" : C === "feature-item" || C === "card" || C === "card-grid" || C === "feature-group" ? h = "card-action" : C === "form" && (h = "form-submit"), y.attrs["data-role"] = h;
+    const c = (m, k) => {
+      const W = m.attrs["data-role"] || k;
+      if (m.tag === "button") {
+        let f = "button";
+        k === "hero" || k === "header" ? f = "cta-button" : k === "navigation" ? f = "nav-action" : k === "pricing-card" || k === "pricing-grid" ? f = "pricing-action" : k === "feature-item" || k === "card" || k === "card-grid" || k === "feature-group" ? f = "card-action" : k === "form" && (f = "form-submit"), m.attrs["data-role"] = f;
       }
-      y.children.forEach((h) => {
-        typeof h != "string" && p(h, Y);
+      m.children.forEach((f) => {
+        typeof f != "string" && c(f, W);
       });
     };
-    s.forEach((y) => p(y));
-    const u = s[0], g = (u == null ? void 0 : u.attrs["data-role"]) || "generic-container", F = (u == null ? void 0 : u.attrs["data-composition"]) || "generic-balanced", z = (u == null ? void 0 : u.attrs["data-density"]) || "normal", f = l[0], T = (g === "generic-container" || g === "page") && (l.find((y) => y.role === "feature-section") || l.find((y) => y.role === "hero") || l.find((y) => y.role === "pricing-card") || l.find((y) => y.role === "article")) || f, A = (g === "generic-container" || g === "page") && (T == null ? void 0 : T.role) || g, v = St.plan(
+    s.forEach((m) => c(m));
+    const u = s[0], v = (u == null ? void 0 : u.attrs["data-role"]) || "generic-container", F = (u == null ? void 0 : u.attrs["data-composition"]) || "generic-balanced", E = (u == null ? void 0 : u.attrs["data-density"]) || "normal", g = l[0], C = (v === "generic-container" || v === "page") && (l.find((m) => m.role === "feature-section") || l.find((m) => m.role === "hero") || l.find((m) => m.role === "pricing-card") || l.find((m) => m.role === "article")) || g, R = (v === "generic-container" || v === "page") && (C == null ? void 0 : C.role) || v, y = St.plan(
       e,
-      A,
+      R,
       void 0,
-      l.map((y) => ({ role: y.role, signals: {} })),
+      l.map((m) => ({ role: m.role, signals: {} })),
       r
     );
-    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformAST(s, v);
-    const B = $.resolveDecision(
+    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformAST(s, y);
+    const x = X.resolveDecision(
       e,
-      A,
+      R,
       void 0,
-      z,
+      E,
       r
-    ), E = $.extractFingerprint(
+    ), w = X.extractFingerprint(
       e,
-      B,
+      x,
       r.primaryContext,
-      v.sectionPlans
+      y.sectionPlans
     );
     u && (u.attrs["data-context"] = r.primaryContext);
-    const R = s.map((y) => this.serializeMiniNode(y)).join(""), I = /[$€£¥]|\/mo\b|pricing/i.test(t);
+    const B = s.map((m) => this.serializeMiniNode(m)).join(""), S = /[$€£¥]|\/mo\b|pricing/i.test(t);
     return {
       sanitizedHtml: t,
-      stampedHtml: R,
+      stampedHtml: B,
       styleId: e,
-      rootRole: g,
+      rootRole: v,
       composition: F,
-      density: z,
-      decision: B,
-      plan: v,
-      fingerprint: E,
-      confidence: (f == null ? void 0 : f.confidence) ?? 0.85,
-      recipeName: (f == null ? void 0 : f.recipeName) ?? "Base Generic Recipe",
-      rationale: `Hierarchically resolved as ${g} with ${F} composition.`,
+      density: E,
+      decision: x,
+      plan: y,
+      fingerprint: w,
+      confidence: (g == null ? void 0 : g.confidence) ?? 0.85,
+      recipeName: (g == null ? void 0 : g.recipeName) ?? "Base Generic Recipe",
+      rationale: `Hierarchically resolved as ${v} with ${F} composition.`,
       modifiers: [`variant-${(u == null ? void 0 : u.attrs["data-variant"]) || "0"}`],
       detectedBlocks: l,
       stats: {
         totalElements: Math.max(o, 1),
         headingCount: n,
         buttonCount: b,
-        inputCount: m,
-        hasCurrency: I
+        inputCount: h,
+        hasCurrency: S
       },
       contentContext: r
     };
@@ -48104,38 +48235,38 @@ class na {
     const e = [], a = [], i = /(?:<!--[\s\S]*?-->|<(\/)?([a-z0-9-]+)((?:\s+[^>]*?)?)\s*(\/)?>|([^<]+))/gi;
     let s;
     for (; (s = i.exec(t)) !== null; ) {
-      const [o, l, r, n, b, m] = s;
+      const [o, l, r, n, b, h] = s;
       if (!o.startsWith("<!--")) {
-        if (m) {
+        if (h) {
           if (a.length > 0) {
             const d = a[a.length - 1];
-            d.children.push(m), d.text += m;
-            for (let p = a.length - 2; p >= 0; p--)
-              a[p].text += m;
+            d.children.push(h), d.text += h;
+            for (let c = a.length - 2; c >= 0; c--)
+              a[c].text += h;
           }
           continue;
         }
         if (r) {
           const d = r.toLowerCase();
           if (l) {
-            for (let p = a.length - 1; p >= 0; p--)
-              if (a[p].tag === d) {
-                a.splice(p);
+            for (let c = a.length - 1; c >= 0; c--)
+              if (a[c].tag === d) {
+                a.splice(c);
                 break;
               }
           } else {
-            const p = {};
+            const c = {};
             if (n) {
               const F = /([a-z0-9_-]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/gi;
-              let z;
-              for (; (z = F.exec(n)) !== null; ) {
-                const f = z[1], T = z[2] ?? z[3] ?? z[4] ?? "";
-                p[f] = T;
+              let E;
+              for (; (E = F.exec(n)) !== null; ) {
+                const g = E[1], C = E[2] ?? E[3] ?? E[4] ?? "";
+                c[g] = C;
               }
             }
             const u = {
               tag: d,
-              attrs: p,
+              attrs: c,
               children: [],
               text: "",
               parent: a[a.length - 1]
@@ -48165,19 +48296,19 @@ class na {
   }
 }
 const ft = Gt(null), da = ({
-  engine: c,
+  engine: p,
   initialStyle: t,
   initialStyleId: e,
   children: a
 }) => {
-  const i = j(() => c || new ta(), [c]), [s, o] = at(t || e || "base");
+  const i = $(() => p || new ta(), [p]), [s, o] = at(t || e || "base");
   Lt(() => {
     typeof document < "u" && Ft(document);
   }, []);
-  const l = j(() => ({
+  const l = $(() => ({
     level: "global",
     styleId: s
-  }), [s]), r = j(() => i.resolveScope(l), [i, l]), n = () => {
+  }), [s]), r = $(() => i.resolveScope(l), [i, l]), n = () => {
     o("base");
   }, b = (d) => ({
     level: d.level,
@@ -48185,7 +48316,7 @@ const ft = Gt(null), da = ({
     parentScope: l,
     tokenOverrides: d.tokenOverrides,
     componentOverrides: d.componentOverrides
-  }), m = j(() => ({
+  }), h = $(() => ({
     engine: i,
     currentScope: l,
     resolvedStyle: r,
@@ -48194,20 +48325,20 @@ const ft = Gt(null), da = ({
     resetToBaseStyle: n,
     createChildScope: b
   }), [i, l, r, s]);
-  return /* @__PURE__ */ S(ft.Provider, { value: m, children: a });
+  return /* @__PURE__ */ A(ft.Provider, { value: h, children: a });
 };
 function Dt() {
-  const c = Wt(ft);
-  if (!c)
+  const p = Wt(ft);
+  if (!p)
     throw new Error("useStyleEngine must be used within a StyleEngineProvider");
-  return c;
+  return p;
 }
-function X() {
-  const { resolvedStyle: c } = Dt();
-  return c;
+function K() {
+  const { resolvedStyle: p } = Dt();
+  return p;
 }
 const st = ({
-  level: c = "section",
+  level: p = "section",
   styleId: t,
   tokenOverrides: e,
   componentOverrides: a,
@@ -48216,42 +48347,45 @@ const st = ({
   as: o = "div",
   children: l
 }) => {
-  const r = Dt(), n = j(() => ({
-    level: c,
+  var u;
+  const r = Dt(), n = $(() => ({
+    level: p,
     styleId: t || r.currentScope.styleId,
     parentScope: r.currentScope,
     tokenOverrides: e,
     componentOverrides: a
-  }), [c, t, r.currentScope, e, a]), b = j(() => r.engine.resolveScope(n), [r.engine, n]), m = j(() => ({
+  }), [p, t, r.currentScope, e, a]), b = $(() => r.engine.resolveScope(n), [r.engine, n]), h = $(() => ({
     engine: r.engine,
     currentScope: n,
     resolvedStyle: b,
     activeStyleId: n.styleId,
     setActiveStyleId: r.setActiveStyleId,
     resetToBaseStyle: r.resetToBaseStyle,
-    createChildScope: (p) => ({
-      level: p.level,
-      styleId: p.styleId || n.styleId,
+    createChildScope: (v) => ({
+      level: v.level,
+      styleId: v.styleId || n.styleId,
       parentScope: n,
-      tokenOverrides: p.tokenOverrides,
-      componentOverrides: p.componentOverrides
+      tokenOverrides: v.tokenOverrides,
+      componentOverrides: v.componentOverrides
     })
-  }), [r.engine, r.setActiveStyleId, r.resetToBaseStyle, n, b]), d = j(() => ({
+  }), [r.engine, r.setActiveStyleId, r.resetToBaseStyle, n, b]), d = $(() => ({
     ...Z.toStyleObject(b.cssVariables),
     ...s
-  }), [b.cssVariables, s]);
-  return /* @__PURE__ */ S(ft.Provider, { value: m, children: /* @__PURE__ */ S(
+  }), [b.cssVariables, s]), c = b.isHybrid ? b.hybridClassNames : `style-${b.styleId}`;
+  return /* @__PURE__ */ A(ft.Provider, { value: h, children: /* @__PURE__ */ A(
     o,
     {
-      className: `ds-scope ds-scope-${c} ${i}`,
+      className: `ds-scope ds-scope-${p} ${c} ${i}`.trim(),
       style: d,
       "data-style-id": b.styleId,
-      "data-scope-level": c,
+      "data-scope-level": p,
+      "data-hybrid": b.isHybrid ? "true" : void 0,
+      "data-styles": (u = b.constituentStyles) == null ? void 0 : u.join(","),
       children: l
     }
   ) });
-}, ca = ({ children: c, style: t = {}, className: e = "", ...a }) => {
-  const i = X(), s = i.components.page, l = {
+}, ca = ({ children: p, style: t = {}, className: e = "", ...a }) => {
+  const i = K(), s = i.components.page, l = {
     ...Z.toStyleObject(i.cssVariables),
     backgroundColor: s.background,
     color: s.color,
@@ -48261,7 +48395,7 @@ const st = ({
     transition: "background-color 250ms ease, color 250ms ease",
     ...t
   };
-  return /* @__PURE__ */ S(
+  return /* @__PURE__ */ A(
     "div",
     {
       ...a,
@@ -48269,16 +48403,16 @@ const st = ({
       style: l,
       "data-ds-style-id": i.styleId,
       "data-ds-scope": "page",
-      children: c
+      children: p
     }
   );
 }, It = ({
-  children: c,
+  children: p,
   style: t = {},
   className: e = "",
   ...a
 }) => {
-  const s = X().components.section, o = {
+  const s = K().components.section, o = {
     padding: s.padding,
     backgroundColor: s.background,
     borderColor: s.borderColor,
@@ -48286,37 +48420,37 @@ const st = ({
     borderStyle: s.borderStyle,
     ...t
   };
-  return /* @__PURE__ */ S("section", { ...a, className: `ds-section ${e}`, style: o, children: c });
-}, pa = ({ styleId: c, tokenOverrides: t, ...e }) => c || t ? /* @__PURE__ */ S(st, { level: "section", styleId: c, tokenOverrides: t, as: "section", children: /* @__PURE__ */ S(It, { ...e }) }) : /* @__PURE__ */ S(It, { ...e }), At = ({
-  children: c,
+  return /* @__PURE__ */ A("section", { ...a, className: `ds-section ${e}`, style: o, children: p });
+}, pa = ({ styleId: p, tokenOverrides: t, ...e }) => p || t ? /* @__PURE__ */ A(st, { level: "section", styleId: p, tokenOverrides: t, as: "section", children: /* @__PURE__ */ A(It, { ...e }) }) : /* @__PURE__ */ A(It, { ...e }), At = ({
+  children: p,
   style: t = {},
   className: e = "",
   onMouseEnter: a,
   onMouseLeave: i,
   ...s
 }) => {
-  const l = X().components.card, [r, n] = at(!1), b = Z.getCardBaseStyle(l), m = r && l.hover ? l.hover : {}, d = {
+  const l = K().components.card, [r, n] = at(!1), b = Z.getCardBaseStyle(l), h = r && l.hover ? l.hover : {}, d = {
     ...b,
-    ...m,
+    ...h,
     ...t
   };
-  return /* @__PURE__ */ S(
+  return /* @__PURE__ */ A(
     "div",
     {
       ...s,
       className: `ds-card ${e}`,
       style: d,
-      onMouseEnter: (p) => {
-        n(!0), a == null || a(p);
+      onMouseEnter: (c) => {
+        n(!0), a == null || a(c);
       },
-      onMouseLeave: (p) => {
-        n(!1), i == null || i(p);
+      onMouseLeave: (c) => {
+        n(!1), i == null || i(c);
       },
-      children: c
+      children: p
     }
   );
-}, ya = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "div", children: /* @__PURE__ */ S(At, { ...t }) }) : /* @__PURE__ */ S(At, { ...t }), Et = ({
-  children: c,
+}, ya = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "div", children: /* @__PURE__ */ A(At, { ...t }) }) : /* @__PURE__ */ A(At, { ...t }), Et = ({
+  children: p,
   style: t = {},
   className: e = "",
   onMouseEnter: a,
@@ -48327,50 +48461,50 @@ const st = ({
   onBlur: r,
   ...n
 }) => {
-  const m = X().components.button, [d, p] = at(!1), [u, g] = at(!1), [F, z] = at(!1), f = Z.getButtonBaseStyle(m), T = {
-    ...d ? m.hover : {},
-    ...u ? m.active : {},
-    ...F ? { boxShadow: m.focusRing } : {}
-  }, A = {
-    ...f,
-    ...T,
+  const h = K().components.button, [d, c] = at(!1), [u, v] = at(!1), [F, E] = at(!1), g = Z.getButtonBaseStyle(h), C = {
+    ...d ? h.hover : {},
+    ...u ? h.active : {},
+    ...F ? { boxShadow: h.focusRing } : {}
+  }, R = {
+    ...g,
+    ...C,
     ...t
   };
-  return /* @__PURE__ */ S(
+  return /* @__PURE__ */ A(
     "button",
     {
       ...n,
       className: `ds-button ${e}`,
-      style: A,
-      onMouseEnter: (v) => {
-        p(!0), a == null || a(v);
+      style: R,
+      onMouseEnter: (y) => {
+        c(!0), a == null || a(y);
       },
-      onMouseLeave: (v) => {
-        p(!1), g(!1), i == null || i(v);
+      onMouseLeave: (y) => {
+        c(!1), v(!1), i == null || i(y);
       },
-      onMouseDown: (v) => {
-        g(!0), s == null || s(v);
+      onMouseDown: (y) => {
+        v(!0), s == null || s(y);
       },
-      onMouseUp: (v) => {
-        g(!1), o == null || o(v);
+      onMouseUp: (y) => {
+        v(!1), o == null || o(y);
       },
-      onFocus: (v) => {
-        z(!0), l == null || l(v);
+      onFocus: (y) => {
+        E(!0), l == null || l(y);
       },
-      onBlur: (v) => {
-        z(!1), r == null || r(v);
+      onBlur: (y) => {
+        E(!1), r == null || r(y);
       },
-      children: c
+      children: p
     }
   );
-}, ma = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ S(Et, { ...t }) }) : /* @__PURE__ */ S(Et, { ...t }), ba = ({
-  level: c = 1,
+}, ma = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ A(Et, { ...t }) }) : /* @__PURE__ */ A(Et, { ...t }), ba = ({
+  level: p = 1,
   children: t,
   style: e = {},
   className: a = "",
   ...i
 }) => {
-  const s = X(), o = s.components.heading, l = {
+  const s = K(), o = s.components.heading, l = {
     1: s.tokens.typography.fontSize2xl,
     2: s.tokens.typography.fontSizeXl,
     3: s.tokens.typography.fontSizeLg,
@@ -48384,21 +48518,21 @@ const st = ({
     lineHeight: o.lineHeight,
     color: o.color,
     textTransform: o.textTransform ?? "none",
-    fontSize: l[c],
+    fontSize: l[p],
     margin: 0,
     ...e
-  }, n = `h${c}`;
+  }, n = `h${p}`;
   return (
     // @ts-expect-error dynamic HTML heading tag
-    /* @__PURE__ */ S(n, { ...i, className: `ds-heading ds-heading-${c} ${a}`, style: r, children: t })
+    /* @__PURE__ */ A(n, { ...i, className: `ds-heading ds-heading-${p} ${a}`, style: r, children: t })
   );
 }, ha = ({
-  children: c,
+  children: p,
   style: t = {},
   className: e = "",
   ...a
 }) => {
-  const s = X().components.paragraph, o = {
+  const s = K().components.paragraph, o = {
     fontFamily: s.fontFamily,
     fontSize: s.fontSize,
     lineHeight: s.lineHeight,
@@ -48406,48 +48540,48 @@ const st = ({
     margin: 0,
     ...t
   };
-  return /* @__PURE__ */ S("p", { ...a, className: `ds-paragraph ${e}`, style: o, children: c });
+  return /* @__PURE__ */ A("p", { ...a, className: `ds-paragraph ${e}`, style: o, children: p });
 }, Bt = ({
-  style: c = {},
+  style: p = {},
   className: t = "",
   onFocus: e,
   onBlur: a,
   ...i
 }) => {
-  const o = X().components.input, [l, r] = at(!1), b = {
+  const o = K().components.input, [l, r] = at(!1), b = {
     ...Z.getInputBaseStyle(o),
     ...l ? {
       borderColor: o.focusBorderColor,
       boxShadow: o.focusRing
     } : {},
-    ...c
+    ...p
   };
-  return /* @__PURE__ */ S(
+  return /* @__PURE__ */ A(
     "input",
     {
       ...i,
       className: `ds-input ${t}`,
       style: b,
-      onFocus: (m) => {
-        r(!0), e == null || e(m);
+      onFocus: (h) => {
+        r(!0), e == null || e(h);
       },
-      onBlur: (m) => {
-        r(!1), a == null || a(m);
+      onBlur: (h) => {
+        r(!1), a == null || a(h);
       }
     }
   );
-}, ua = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "span", style: { display: "inline-block", width: "100%" }, children: /* @__PURE__ */ S(Bt, { ...t }) }) : /* @__PURE__ */ S(Bt, { ...t }), Rt = ({
-  children: c,
+}, ua = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block", width: "100%" }, children: /* @__PURE__ */ A(Bt, { ...t }) }) : /* @__PURE__ */ A(Bt, { ...t }), Rt = ({
+  children: p,
   style: t = {},
   className: e = "",
   ...a
 }) => {
-  const s = X().components.badge, l = {
+  const s = K().components.badge, l = {
     ...Z.getBadgeBaseStyle(s),
     ...t
   };
-  return /* @__PURE__ */ S("span", { ...a, className: `ds-badge ${e}`, style: l, children: c });
-}, fa = ({ styleId: c, ...t }) => c ? /* @__PURE__ */ S(st, { level: "component", styleId: c, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ S(Rt, { ...t }) }) : /* @__PURE__ */ S(Rt, { ...t });
+  return /* @__PURE__ */ A("span", { ...a, className: `ds-badge ${e}`, style: l, children: p });
+}, fa = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ A(Rt, { ...t }) }) : /* @__PURE__ */ A(Rt, { ...t });
 export {
   oa as ALL_29_STYLES,
   aa as AdaptiveCSSGenerator,
@@ -48455,25 +48589,25 @@ export {
   ma as Button,
   Z as CSSAdapter,
   ya as Card,
-  $ as CompositionStrategyResolver,
+  X as CompositionStrategyResolver,
   na as DOMAnalyzer,
   ut as HTMLSanitizer,
   ba as Heading,
   ua as Input,
   ca as Page,
   ha as Paragraph,
-  q as RecipeEngine,
+  Y as RecipeEngine,
   ht as RoleResolver,
   pa as Section,
   it as StructureAnalyzer,
   ta as StyleEngine,
   da as StyleEngineProvider,
   qt as StyleRegistry,
-  _ as StyleResolver,
+  M as StyleResolver,
   st as StyleScope,
   Ce as anthropomorphicSemanticCss,
   ze as anthropomorphicStyle,
-  je as artDecoSemanticCss,
+  Ve as artDecoSemanticCss,
   $e as artDecoStyle,
   Ut as baseStyle,
   Xe as bauhausSemanticCss,
@@ -48482,8 +48616,8 @@ export {
   me as bentoGridStyle,
   xe as bohemianSemanticCss,
   we as bohemianStyle,
-  jt as brutalismStyle,
-  Vt as brutalistSemanticCss,
+  Vt as brutalismStyle,
+  jt as brutalistSemanticCss,
   Pe as claymorphicSemanticCss,
   Fe as claymorphismStyle,
   ue as conceptualSketchSemanticCss,
@@ -48514,7 +48648,7 @@ export {
   Jt as minimalismStyle,
   Yt as minimalistSemanticCss,
   wt as mixedMediaSemanticCss,
-  Ve as mixedMediaStyle,
+  je as mixedMediaStyle,
   ie as neoBrutalismStyle,
   ae as neoBrutalistSemanticCss,
   se as neoClassicalSemanticCss,

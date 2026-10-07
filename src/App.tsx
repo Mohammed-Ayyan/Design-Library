@@ -12,6 +12,8 @@ import { CliStudio } from './components/CliStudio';
 import { DevInspectorDrawer } from './components/DevInspectorDrawer';
 import { RedesignLab } from './components/RedesignLab';
 import { DeveloperDocs } from './components/docs/DeveloperDocs';
+import { HowItWorksSection } from './components/HowItWorksSection';
+import { SaasApp } from './components/saas/SaasApp';
 import { SiteEditorProvider, useSiteEditor } from './react/context/SiteEditorContext';
 import { SiteEditorTopBar } from './components/editor/SiteEditorTopBar';
 import { SiteEditorOverlay } from './components/editor/SiteEditorOverlay';
@@ -29,7 +31,8 @@ function getInitialTabFromLocation(): AppTab {
   if (path.includes('/studio') || hash.includes('#studio')) return 'studio';
   if (path.includes('/playground') || hash.includes('#playground')) return 'playground';
   if (path.includes('/docs') || hash.includes('#docs')) return 'docs';
-  if (path.includes('/redesign-lab') || hash.includes('#redesign-lab')) return 'redesign-lab';
+  if (path.includes('/custom-html') || hash.includes('#custom-html') || path.includes('/redesign-lab') || hash.includes('#redesign-lab')) return 'custom-html';
+  if (path.includes('/saas') || hash.includes('#saas') || path.includes('/saas-app') || hash.includes('#saas-app')) return 'saas-app';
   return 'library';
 }
 
@@ -146,6 +149,12 @@ const AppContent: React.FC = () => {
                 onOpenPlayground={(id) => handleOpenStudioWithStyle(id || heroStyleId)}
                 onOpenDocs={handleOpenDocs}
               />
+              <HowItWorksSection
+                onOpenCustomHtml={() => setActiveTab('custom-html')}
+                onOpenSaasApp={() => setActiveTab('saas-app')}
+                onOpenStudio={handleOpenStudioWithStyle}
+                onOpenDocs={handleOpenDocs}
+              />
               <StyleGallery
                 onOpenStyleDetail={handleOpenDetail}
                 onOpenPlaygroundWithStyle={handleOpenStudioWithStyle}
@@ -157,6 +166,17 @@ const AppContent: React.FC = () => {
                 }}
               />
             </>
+          )}
+
+          {(activeTab === 'custom-html' || activeTab === 'redesign-lab') && (
+            <RedesignLab />
+          )}
+
+          {activeTab === 'saas-app' && (
+            <SaasApp
+              onBackToLibrary={() => setActiveTab('library')}
+              onOpenCustomHtml={() => setActiveTab('custom-html')}
+            />
           )}
 
           {activeTab === 'studio' && (
@@ -176,10 +196,6 @@ const AppContent: React.FC = () => {
               onOpenStudio={handleOpenStudioWithStyle}
               onOpenDocs={handleOpenDocs}
             />
-          )}
-
-          {activeTab === 'redesign-lab' && (
-            <RedesignLab />
           )}
 
           {activeTab === 'docs' && (
@@ -215,6 +231,18 @@ const AppContent: React.FC = () => {
                 style={{ cursor: 'pointer', color: activeTab === 'library' ? '#f8fafc' : '#8e96a4', fontWeight: activeTab === 'library' ? 600 : 400 }}
               >
                 Style Library
+              </span>
+              <span
+                onClick={() => setActiveTab('custom-html')}
+                style={{ cursor: 'pointer', color: (activeTab === 'custom-html' || activeTab === 'redesign-lab') ? '#f8fafc' : '#8e96a4', fontWeight: (activeTab === 'custom-html' || activeTab === 'redesign-lab') ? 600 : 400 }}
+              >
+                Custom HTML
+              </span>
+              <span
+                onClick={() => setActiveTab('saas-app')}
+                style={{ cursor: 'pointer', color: activeTab === 'saas-app' ? '#f8fafc' : '#8e96a4', fontWeight: activeTab === 'saas-app' ? 600 : 400 }}
+              >
+                Live SaaS App (Zero CSS)
               </span>
               <span
                 onClick={() => setActiveTab('studio')}

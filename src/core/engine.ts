@@ -73,6 +73,7 @@ export class StyleEngine {
 
   /**
    * Resolves styles for a specific style ID at a specified scope level (defaults to 'page').
+   * Supports single style IDs or compound expressions (e.g. "wabi-sabi + glassmorphism", "/name = brutalism + minimalism").
    */
   public resolveStyleById(id: string, level: StyleScopeLevel = 'page'): ResolvedStyle {
     return this.resolver.resolve({
@@ -86,6 +87,53 @@ export class StyleEngine {
    */
   public resolveStyle(id: string, level: StyleScopeLevel = 'page'): ResolvedStyle {
     return this.resolveStyleById(id, level);
+  }
+
+  /**
+   * Resolves a hybrid composition of two or more design styles.
+   * e.g. engine.resolveHybrid(['wabi-sabi', 'glassmorphism'])
+   */
+  public resolveHybrid(styleIds: string[], level: StyleScopeLevel = 'page'): ResolvedStyle {
+    return this.resolver.resolve({
+      level,
+      styleId: styleIds.join('+'),
+    });
+  }
+
+  /**
+   * Creates and registers a new composite hybrid style definition in the engine registry.
+   */
+  public createHybrid(styleIds: string[], customName?: string): StyleDefinition {
+    const resolved = this.resolveHybrid(styleIds);
+    const def: StyleDefinition = {
+      id: resolved.styleId,
+      name: customName || resolved.styleName,
+      description: `Hybrid composition of ${resolved.constituentStyles?.join(', ')}`,
+      metadata: {
+        version: '1.0.0',
+        category: 'Modern',
+        tags: ['hybrid', 'composition', ...(resolved.constituentStyles || [])],
+        isHybrid: true,
+      },
+      tokens: resolved.tokens,
+      components: resolved.components,
+    };
+    this.registerStyle(def);
+    return def;
+  }
+
+  /**
+   * Parses a user style expression into constituent IDs and canonical compound ID.
+   * Handles "/name = wabi-sabi + glassmorphism", "brutalism + minimalism", etc.
+   */
+  public parseStyleQuery(query: string): { constituentIds: string[]; compoundId: string; formattedQuery: string } {
+    const constituentIds = StyleResolver.parseStyleExpression(query);
+    const compoundId = constituentIds.join('+');
+    return {
+      constituentIds,
+      compoundId,
+      formattedQuery: `/name = ${constituentIds.join(' + ')}`,
+    };
   }
 
   /**

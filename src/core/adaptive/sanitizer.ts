@@ -8,12 +8,16 @@ export class HTMLSanitizer {
   private static FORBIDDEN_TAGS = new Set([
     'script',
     'iframe',
+    'frame',
+    'frameset',
     'object',
     'embed',
     'applet',
     'meta',
     'link',
     'base',
+    'template',
+    'portal',
     'style', // We control styles through the Style Engine, not arbitrary <style> tags
   ]);
 
@@ -22,7 +26,18 @@ export class HTMLSanitizer {
     'vbscript:',
     'data:text/html',
     'data:application/javascript',
+    'data:text/javascript',
+    'data:image/svg+xml',
   ];
+
+  /**
+   * Cleans a URI string from null bytes, tabs, newlines and spaces to detect obfuscated protocols.
+   */
+  private static normalizeUri(val: string): string {
+    return val
+      .replace(/[\u0000-\u001F\u007F-\u009F\s]+/g, '')
+      .toLowerCase();
+  }
 
   /**
    * Sanitizes arbitrary HTML string, stripping forbidden tags, inline event handlers,
@@ -43,24 +58,23 @@ export class HTMLSanitizer {
           elements.forEach((el) => el.remove());
         });
 
-        // 2. Sanitize all remaining elements
+        // 2. Sanitize all remaining elements across body and any nested fragments
         const allElements = doc.body.querySelectorAll('*');
         allElements.forEach((el) => {
-          // Remove all inline event handlers (attributes starting with 'on')
           const attrs = Array.from(el.attributes);
           for (const attr of attrs) {
             const attrName = attr.name.toLowerCase();
 
-            // Block event handlers (onclick, onload, onerror, etc.)
+            // Block any event handlers (attributes starting with 'on')
             if (attrName.startsWith('on')) {
               el.removeAttribute(attr.name);
               continue;
             }
 
-            // Block dangerous URI schemes in href, src, action, formaction
-            if (['href', 'src', 'action', 'formaction'].includes(attrName)) {
-              const val = attr.value.trim().toLowerCase();
-              if (this.DANGEROUS_URI_SCHEMES.some((scheme) => val.startsWith(scheme))) {
+            // Block dangerous URI schemes in href, xlink:href, src, action, formaction, data, poster
+            if (['href', 'xlink:href', 'src', 'action', 'formaction', 'data', 'poster'].includes(attrName)) {
+              const normalized = this.normalizeUri(attr.value);
+              if (this.DANGEROUS_URI_SCHEMES.some((scheme) => normalized.startsWith(scheme))) {
                 el.removeAttribute(attr.name);
               }
             }
@@ -78,20 +92,23 @@ export class HTMLSanitizer {
 
     // Strip forbidden tags and their contents
     clean = clean.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+    clean = clean.replace(/<script\b[^>]*\/?>/gi, '');
     clean = clean.replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '');
+    clean = clean.replace(/<iframe\b[^>]*\/?>/gi, '');
+    clean = clean.replace(/<template\b[^<]*(?:(?!<\/template>)<[^<]*)*<\/template>/gi, '');
     clean = clean.replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '');
-    clean = clean.replace(/<embed\b[^>]*>/gi, '');
-    clean = clean.replace(/<link\b[^>]*>/gi, '');
-    clean = clean.replace(/<meta\b[^>]*>/gi, '');
+    clean = clean.replace(/<embed\b[^>]*\/?>/gi, '');
+    clean = clean.replace(/<link\b[^>]*\/?>/gi, '');
+    clean = clean.replace(/<meta\b[^>]*\/?>/gi, '');
+    clean = clean.replace(/<base\b[^>]*\/?>/gi, '');
     clean = clean.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
 
-    // Strip inline on* handlers
-    clean = clean.replace(/\son\w+\s*=\s*["'][^"']*["']/gi, '');
-    clean = clean.replace(/\son\w+\s*=\s*[^\s>]+/gi, '');
+    // Strip inline on* handlers (handling whitespace or slash delimiters like <img/onerror=...>)
+    clean = clean.replace(/[\s/]on\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
 
-    // Strip javascript: URIs
-    clean = clean.replace(/href\s*=\s*["']\s*javascript:[^"']*["']/gi, 'href="#"');
-    clean = clean.replace(/src\s*=\s*["']\s*javascript:[^"']*["']/gi, 'src=""');
+    // Strip obfuscated and standard javascript:/vbscript:/data:html URIs
+    clean = clean.replace(/(?:href|src|action|formaction)\s*=\s*["']\s*(?:javascript|vbscript|data\s*:\s*text\/html)[^"']*["']/gi, 'href="#"');
+    clean = clean.replace(/(?:href|src|action|formaction)\s*=\s*(?:javascript|vbscript):[^\s>]+/gi, 'href="#"');
 
     return clean;
   }

@@ -161,12 +161,13 @@ An architectural deep-dive section on the home page explaining what happens behi
   3. *Stage 3: Aesthetic Grammar Synthesis* — Projects the target design language tokens into a scoped variable contract.
   4. *Stage 4: Scoped Cascade Compiler* — Compiles `--ds-*` custom properties and utility classes.
   5. *Stage 5: Sub-Millisecond CSS Injection* — Injects styles with zero layout shift and sub-millisecond execution.
-- **Full Engineering Build Process Video**: Embedded 1080p development build timelapse documentary with interactive chapter bookmarks:
+- **Full Engineering Build Process Video**: Embedded 1080p development build timelapse documentary streamed via official YouTube player with interactive timecode chapter bookmarks:
   - `00:00` Architectural Setup & Engine Core
   - `01:15` Token Model & AST Parser
   - `02:40` Context-Aware Grammar Ingestion
   - `04:00` 32 Visual Languages Implementation
   - `05:30` Zero-CSS Testing & CLI
+  - Direct Watch Link: [YouTube (1080p Timelapse)](https://www.youtube.com/watch?v=joLwo1rvk8w)
 - **4 Core Engineering Tenets**: Zero Semantic Distortion, Sub-Millisecond Scope Resolution, Mathematical Token Contracts, Framework-Agnostic Core.
 
 ---

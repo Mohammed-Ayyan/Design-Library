@@ -1,16 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   Cpu,
   Code2,
   Sparkles,
   Play,
-  Pause,
-  Maximize2,
-  Volume2,
-  VolumeX,
   ShieldCheck,
   Zap,
   Compass,
+  ExternalLink,
 } from 'lucide-react';
 
 interface HowItWorksSectionProps {
@@ -192,83 +189,18 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
   const [activeStageId, setActiveStageId] = useState<number>(1);
   const [activePreviewStyle, setActivePreviewStyle] = useState<string>('cyberpunk');
 
-  // Video State & Controls
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(0);
-  const [playbackRate, setPlaybackRate] = useState<number>(1);
-  const [isMuted, setIsMuted] = useState<boolean>(true);
-  const [videoError, setVideoError] = useState<boolean>(false);
+  // YouTube Video Chapter Navigation
+  const [activeChapterTime, setActiveChapterTime] = useState<number | null>(null);
 
   const activeStage = PIPELINE_STAGES.find((s) => s.id === activeStageId) || PIPELINE_STAGES[0];
 
-  const handleTogglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (!videoRef.current) return;
-    setCurrentTime(videoRef.current.currentTime);
-  };
-
-  const handleLoadedMetadata = () => {
-    if (!videoRef.current) return;
-    setDuration(videoRef.current.duration || 360);
-  };
-
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = parseFloat(e.target.value);
-    if (videoRef.current) {
-      videoRef.current.currentTime = val;
-      setCurrentTime(val);
-    }
-  };
-
   const handleJumpToChapter = (seconds: number) => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = seconds;
-      setCurrentTime(seconds);
-      if (!isPlaying) {
-        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
-      }
-    }
+    setActiveChapterTime(seconds);
   };
 
-  const handleRateChange = (rate: number) => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = rate;
-      setPlaybackRate(rate);
-    }
-  };
-
-  const handleToggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const handleToggleFullscreen = () => {
-    if (!videoRef.current) return;
-    if (document.fullscreenElement) {
-      document.exitFullscreen().catch(() => {});
-    } else {
-      videoRef.current.requestFullscreen().catch(() => {});
-    }
-  };
-
-  const formatTime = (secs: number) => {
-    const m = Math.floor(secs / 60);
-    const s = Math.floor(secs % 60);
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-  };
+  const youtubeEmbedUrl = activeChapterTime !== null
+    ? `https://www.youtube.com/embed/joLwo1rvk8w?autoplay=1&start=${activeChapterTime}`
+    : `https://www.youtube.com/embed/joLwo1rvk8w?si=eNDWLr9zJDvHFNbr`;
 
   return (
     <section
@@ -773,276 +705,128 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
                 style={{
                   fontSize: '0.6875rem',
                   fontWeight: 700,
-                  padding: '2px 6px',
+                  padding: '2px 7px',
                   borderRadius: '4px',
-                  backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                  color: '#fbbf24',
-                  border: '1px solid rgba(245, 158, 11, 0.3)',
+                  backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                  color: '#f87171',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '5px',
                 }}
               >
-                1080P TIMELAPSE (104 MB)
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ef4444' }} />
+                1080P TIMELAPSE • YOUTUBE STREAM
               </span>
             </div>
             <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f8fafc', margin: 0 }}>
               Full Engineering Build Process: Behind the Scenes
             </h3>
           </div>
-          <p style={{ margin: 0, fontSize: '0.875rem', color: '#94a3b8', maxWidth: '420px', lineHeight: 1.5 }}>
-            Watch the entire architectural codebase get constructed from scratch: the token math, AST parser,
-            32 design styles, and zero-CSS test suites.
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <p style={{ margin: 0, fontSize: '0.875rem', color: '#94a3b8', maxWidth: '380px', lineHeight: 1.5 }}>
+              Watch the entire architectural codebase get constructed from scratch: the token math, AST parser,
+              32 design styles, and zero-CSS test suites.
+            </p>
+            <a
+              id="watch-on-youtube-link"
+              href="https://www.youtube.com/watch?v=joLwo1rvk8w"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                padding: '0.55rem 1rem',
+                borderRadius: '8px',
+                border: '1px solid rgba(239, 68, 68, 0.45)',
+                backgroundColor: 'rgba(239, 68, 68, 0.12)',
+                color: '#fca5a5',
+                fontSize: '0.8125rem',
+                fontWeight: 700,
+                textDecoration: 'none',
+                transition: 'all 150ms ease',
+                flexShrink: 0,
+              }}
+            >
+              Watch on YouTube
+              <ExternalLink size={13} />
+            </a>
+          </div>
         </div>
 
-        {/* CUSTOM VIDEO PLAYER CONTAINER */}
+        {/* YOUTUBE EMBEDDED PLAYER CONTAINER (16:9 Aspect Ratio) */}
         <div
           style={{
             position: 'relative',
+            width: '100%',
+            paddingBottom: '56.25%',
             borderRadius: '12px',
             overflow: 'hidden',
             backgroundColor: '#05060a',
             border: '1px solid rgba(255, 255, 255, 0.12)',
-            boxShadow: '0 15px 40px rgba(0, 0, 0, 0.8)',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.85)',
           }}
         >
-          {/* Real Video Element */}
-          <video
-            ref={videoRef}
-            src="/build-timelapse.mp4"
-            playsInline
-            muted={isMuted}
-            onTimeUpdate={handleTimeUpdate}
-            onLoadedMetadata={handleLoadedMetadata}
-            onError={() => setVideoError(true)}
-            onClick={handleTogglePlay}
+          <iframe
+            key={youtubeEmbedUrl}
+            src={youtubeEmbedUrl}
+            title="Design Style Library — Full Engineering Build Process Timelapse"
             style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
               width: '100%',
-              maxHeight: '560px',
-              display: 'block',
-              backgroundColor: '#000000',
-              cursor: 'pointer',
+              height: '100%',
+              border: 0,
             }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           />
-
-          {/* Big Play Overlay (when paused) */}
-          {!isPlaying && (
-            <div
-              onClick={handleTogglePlay}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '1rem',
-                backgroundColor: 'rgba(0, 0, 0, 0.45)',
-                backdropFilter: 'blur(3px)',
-                cursor: 'pointer',
-              }}
-            >
-              <div
-                style={{
-                  width: '72px',
-                  height: '72px',
-                  borderRadius: '50%',
-                  backgroundColor: '#2563eb',
-                  border: '2px solid rgba(255, 255, 255, 0.4)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 0 30px rgba(37, 99, 235, 0.7)',
-                  transition: 'transform 150ms ease',
-                }}
-              >
-                <Play size={32} color="#ffffff" style={{ marginLeft: '4px' }} />
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff' }}>
-                  Play Build Process Timelapse
-                </div>
-                <div style={{ fontSize: '0.8125rem', color: '#94a3b8' }}>
-                  Click to start playback with chapter navigation
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Fallback Message if Video fails to load */}
-          {videoError && (
-            <div
-              style={{
-                padding: '2.5rem',
-                textAlign: 'center',
-                backgroundColor: '#111420',
-                color: '#f8fafc',
-              }}
-            >
-              <p style={{ margin: '0 0 0.5rem', color: '#f87171', fontWeight: 600 }}>
-                Video is buffering or streaming from repository root (104 MB MP4).
-              </p>
-              <p style={{ margin: 0, fontSize: '0.8125rem', color: '#94a3b8' }}>
-                File: <code>BuildProcessVideos/Full Build Process TimeLapse.mp4</code>
-              </p>
-            </div>
-          )}
-
-          {/* CUSTOM VIDEO CONTROLS BAR */}
-          <div
-            style={{
-              padding: '0.75rem 1.25rem',
-              backgroundColor: 'rgba(10, 12, 18, 0.95)',
-              backdropFilter: 'blur(12px)',
-              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.65rem',
-            }}
-          >
-            {/* Scrubber Slider */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <input
-                type="range"
-                min={0}
-                max={duration || 100}
-                step={0.5}
-                value={currentTime}
-                onChange={handleSeek}
-                style={{
-                  flex: 1,
-                  accentColor: '#38bdf8',
-                  cursor: 'pointer',
-                  height: '5px',
-                }}
-              />
-              <span
-                style={{
-                  fontSize: '0.75rem',
-                  fontFamily: "'JetBrains Mono', monospace",
-                  color: '#cbd5e1',
-                  minWidth: '90px',
-                  textAlign: 'right',
-                }}
-              >
-                {formatTime(currentTime)} / {formatTime(duration)}
-              </span>
-            </div>
-
-            {/* Buttons Row */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                <button
-                  onClick={handleTogglePlay}
-                  aria-label={isPlaying ? 'Pause' : 'Play'}
-                  style={{
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: '6px',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    backgroundColor: '#1b1f2e',
-                    color: '#f8fafc',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    fontSize: '0.8125rem',
-                    fontWeight: 600,
-                  }}
-                >
-                  {isPlaying ? <Pause size={14} /> : <Play size={14} />}
-                  <span>{isPlaying ? 'Pause' : 'Play'}</span>
-                </button>
-
-                <button
-                  onClick={handleToggleMute}
-                  aria-label={isMuted ? 'Unmute' : 'Mute'}
-                  style={{
-                    padding: '0.45rem 0.65rem',
-                    borderRadius: '6px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backgroundColor: '#161924',
-                    color: '#cbd5e1',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                </button>
-
-                {/* Speed Toggles */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginLeft: '0.5rem' }}>
-                  <span style={{ fontSize: '0.75rem', color: '#64748b', marginRight: '0.25rem' }}>Speed:</span>
-                  {[1, 2, 4, 8].map((rate) => (
-                    <button
-                      key={rate}
-                      onClick={() => handleRateChange(rate)}
-                      style={{
-                        padding: '2px 7px',
-                        borderRadius: '4px',
-                        border: playbackRate === rate ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                        backgroundColor: playbackRate === rate ? 'rgba(56, 189, 248, 0.2)' : '#121420',
-                        color: playbackRate === rate ? '#38bdf8' : '#94a3b8',
-                        fontSize: '0.6875rem',
-                        fontWeight: 700,
-                        cursor: 'pointer',
-                        fontFamily: "'JetBrains Mono', monospace",
-                      }}
-                    >
-                      {rate}x
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <button
-                  onClick={handleToggleFullscreen}
-                  title="Fullscreen"
-                  style={{
-                    padding: '0.45rem 0.65rem',
-                    borderRadius: '6px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backgroundColor: '#161924',
-                    color: '#cbd5e1',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Maximize2 size={14} />
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* CHAPTER JUMP BUTTONS */}
         <div style={{ marginTop: '1.25rem' }}>
-          <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', marginBottom: '0.5rem', fontFamily: "'JetBrains Mono', monospace" }}>
-            TIMECODE CHAPTER BOOKMARKS:
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.65rem' }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', fontFamily: "'JetBrains Mono', monospace" }}>
+              TIMECODE CHAPTER BOOKMARKS (CLICK TO JUMP IN PLAYER):
+            </div>
+            {activeChapterTime !== null && (
+              <span style={{ fontSize: '0.75rem', color: '#38bdf8', fontFamily: "'JetBrains Mono', monospace" }}>
+                Active: {VIDEO_CHAPTERS.find((c) => c.time === activeChapterTime)?.label || `${activeChapterTime}s`}
+              </span>
+            )}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-            {VIDEO_CHAPTERS.map((chap, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleJumpToChapter(chap.time)}
-                style={{
-                  padding: '0.35rem 0.75rem',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  backgroundColor: '#121522',
-                  color: '#cbd5e1',
-                  fontSize: '0.75rem',
-                  cursor: 'pointer',
-                  transition: 'all 120ms ease',
-                  fontFamily: "'JetBrains Mono', monospace",
-                }}
-              >
-                {chap.label}
-              </button>
-            ))}
+            {VIDEO_CHAPTERS.map((chap, idx) => {
+              const isSelected = activeChapterTime === chap.time;
+              return (
+                <button
+                  key={idx}
+                  id={`chapter-btn-${chap.time}`}
+                  onClick={() => handleJumpToChapter(chap.time)}
+                  style={{
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: '6px',
+                    border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                    backgroundColor: isSelected ? 'rgba(56, 189, 248, 0.18)' : '#121522',
+                    color: isSelected ? '#38bdf8' : '#cbd5e1',
+                    fontSize: '0.75rem',
+                    fontWeight: isSelected ? 700 : 500,
+                    cursor: 'pointer',
+                    transition: 'all 120ms ease',
+                    fontFamily: "'JetBrains Mono', monospace",
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                  }}
+                >
+                  <Play size={11} fill={isSelected ? '#38bdf8' : 'currentColor'} />
+                  {chap.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

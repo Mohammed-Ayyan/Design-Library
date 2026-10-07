@@ -8,3 +8,4 @@ export * from './components/Heading';
 export * from './components/Paragraph';
 export * from './components/Input';
 export * from './components/Badge';
+export * from './components/Main';

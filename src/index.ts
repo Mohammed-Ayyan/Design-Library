@@ -122,6 +122,7 @@ export {
   Paragraph,
   Input,
   Badge,
+  Main,
 } from './react';
 
 // 5. Types

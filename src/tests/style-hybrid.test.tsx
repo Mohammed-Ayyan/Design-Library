@@ -7,6 +7,7 @@ import { StyleScope } from '../react/components/StyleScope';
 import { Section } from '../react/components/Section';
 import { Card } from '../react/components/Card';
 import { Button } from '../react/components/Button';
+import { Main } from '../react/components/Main';
 
 describe('Style Composition & Hybrid Design Languages Suite', () => {
   let engine: StyleEngine;
@@ -201,6 +202,29 @@ describe('Style Composition & Hybrid Design Languages Suite', () => {
       expect(html).toContain('style-brutalism');
       expect(html).toContain('style-minimalism');
       expect(html).toContain('Unflinching Clarity');
+    });
+
+    it('should support <Main styleId="..."> with hybrid expressions standalone', () => {
+      const html = renderToString(
+        <Main styleId="brutalism + minimalism">
+          <header>
+            <nav>
+              <a href="#">Studio</a>
+            </nav>
+          </header>
+          <section>
+            <h1>We build things people remember.</h1>
+            <Button>View Our Work</Button>
+          </section>
+        </Main>
+      );
+
+      expect(html).toContain('style-brutalism');
+      expect(html).toContain('style-minimalism');
+      expect(html).toContain('style-hybrid');
+      expect(html).toContain('ds-main');
+      expect(html).toContain('We build things people remember.');
+      expect(html).toContain('View Our Work');
     });
   });
 });

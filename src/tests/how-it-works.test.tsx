@@ -23,8 +23,8 @@ describe('How Design Style Library Works Suite', () => {
   it('3. should render the real build process video player container with 1080p timelapse reference', () => {
     const html = renderToString(<HowItWorksSection />);
     expect(html).toContain('Full Engineering Build Process: Behind the Scenes');
-    expect(html).toContain('1080P TIMELAPSE (104 MB)');
-    expect(html).toContain('src="/build-timelapse.mp4"');
+    expect(html).toContain('1080P TIMELAPSE • YOUTUBE STREAM');
+    expect(html).toContain('https://www.youtube.com/embed/joLwo1rvk8w');
   });
 
   it('4. should render chapter bookmarks for the build process video', () => {

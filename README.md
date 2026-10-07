@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue.svg)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18-61dafb.svg)](https://react.dev/)
-[![Tests](https://img.shields.io/badge/Tests-317%20passed-success.svg)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Tests-318%20passed-success.svg)](https://vitest.dev/)
 [![Zero CSS](https://img.shields.io/badge/Zero--CSS-100%25%20Semantic%20HTML-brightgreen.svg)](#structure--style)
 [![Styles](https://img.shields.io/badge/Design%20Languages-32%20Active-purple.svg)](#available-design-languages)
 
@@ -116,6 +116,13 @@ The Style Engine supports **hybrid style composition**, allowing users and devel
   - *Modernist Grid* (`bauhaus + bento-grid`)
   - *Vapor Nostalgia* (`synthwave + y2k-aesthetic`)
   - *Tactile Soft* (`claymorphism + neumorphism`)
+- **Interactive Homepage Hybrid Showcase (`StyleHybridSection`)**:
+  - Test any pairwise combination live directly on the homepage with interactive dropdown selectors.
+  - Switch between 3 realistic content archetypes: Product Card, SaaS Pricing Tier, and Editorial Essay.
+  - Multi-tab instant code generation for React JSX, Vanilla HTML, and CLI commands with 1-click clipboard copying.
+  - Direct quick-launch links into the Custom HTML Redesign Lab and Design Studio.
+- **Zero-Provider Standalone React Support**:
+  - Components like `<StyleScope styleId="/name = wabi-sabi + glassmorphism">`, `<Section>`, `<Card>`, and `<Button>` can be rendered directly anywhere in your project without requiring a root `<StyleEngineProvider>` wrapper!
 
 ---
 
@@ -332,6 +339,27 @@ export function App() {
         </StyleScope>
       </Page>
     </StyleEngineProvider>
+  );
+}
+```
+
+#### Standalone Zero-Provider React Usage
+You can also import and use `<StyleScope>`, `<Section>`, `<Card>`, and `<Button>` anywhere **without** wrapping your root in `<StyleEngineProvider>`:
+
+```tsx
+import React from 'react';
+import 'design-library/style.css';
+import { StyleScope, Card, Button } from 'design-library';
+
+export function StandaloneHybridWidget() {
+  return (
+    <StyleScope styleId="/name = wabi-sabi + glassmorphism" level="section" as="section">
+      <Card>
+        <h3>Zen Glass Fusion</h3>
+        <p>Zero provider boilerplate needed — styles resolve gracefully out of the box.</p>
+        <Button>Explore</Button>
+      </Card>
+    </StyleScope>
   );
 }
 ```

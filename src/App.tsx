@@ -13,6 +13,7 @@ import { DevInspectorDrawer } from './components/DevInspectorDrawer';
 import { RedesignLab } from './components/RedesignLab';
 import { DeveloperDocs } from './components/docs/DeveloperDocs';
 import { HowItWorksSection } from './components/HowItWorksSection';
+import { StyleHybridSection } from './components/StyleHybridSection';
 import { SaasApp } from './components/saas/SaasApp';
 import { SiteEditorProvider, useSiteEditor } from './react/context/SiteEditorContext';
 import { SiteEditorTopBar } from './components/editor/SiteEditorTopBar';
@@ -152,6 +153,11 @@ const AppContent: React.FC = () => {
               <HowItWorksSection
                 onOpenCustomHtml={() => setActiveTab('custom-html')}
                 onOpenSaasApp={() => setActiveTab('saas-app')}
+                onOpenStudio={handleOpenStudioWithStyle}
+                onOpenDocs={handleOpenDocs}
+              />
+              <StyleHybridSection
+                onOpenCustomHtml={() => setActiveTab('custom-html')}
                 onOpenStudio={handleOpenStudioWithStyle}
                 onOpenDocs={handleOpenDocs}
               />

@@ -1,9 +1,9 @@
-var Nt = Object.defineProperty;
-var Ot = (p, t, e) => t in p ? Nt(p, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : p[t] = e;
-var U = (p, t, e) => Ot(p, typeof t != "symbol" ? t + "" : t, e);
+var Gt = Object.defineProperty;
+var Lt = (p, t, e) => t in p ? Gt(p, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : p[t] = e;
+var U = (p, t, e) => Lt(p, typeof t != "symbol" ? t + "" : t, e);
 import { jsx as A } from "react/jsx-runtime";
-import { createContext as Gt, useMemo as $, useState as at, useEffect as Lt, useContext as Wt } from "react";
-class qt {
+import { createContext as Wt, useMemo as $, useState as at, useEffect as qt, useContext as Ut } from "react";
+class Yt {
   constructor(t = []) {
     U(this, "styles", /* @__PURE__ */ new Map());
     U(this, "baseStyleId", "base");
@@ -373,7 +373,7 @@ ${a}
     };
   }
 }
-const Ut = {
+const Jt = {
   id: "base",
   name: "Base Neutral Style",
   description: "Neutral, accessible, balanced default design language with subtle curves and calm typography.",
@@ -547,7 +547,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, Yt = `
+}, jt = `
   /* Container Foundation */
   .lab-styled-preview[data-style="minimalism"],
   .minimalism-styled-container,
@@ -1676,7 +1676,7 @@ const Ut = {
     color: #71717a;
     margin: 0;
   }
-`, Jt = {
+`, Vt = {
   id: "minimalism",
   name: "Minimalism",
   description: "Clean, spacious, highly restrained aesthetic with subtle hairline borders, muted tones, and expansive negative space.",
@@ -1857,7 +1857,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, jt = `
+}, $t = `
   /* Container Foundation */
   .lab-styled-preview[data-style="brutalism"],
   .brutalism-styled-container,
@@ -2869,7 +2869,7 @@ const Ut = {
     color: #555555;
     margin: 0;
   }
-`, Vt = {
+`, Xt = {
   id: "brutalism",
   name: "Brutalism",
   description: "Uncompromising, high-contrast aesthetic featuring stark 3px solid black borders, 0px sharp corners, bold tactile offset drop shadows, uppercase typography, and electric neo-acid highlights.",
@@ -3055,7 +3055,7 @@ const Ut = {
       fontFamily: "'Space Grotesk', sans-serif"
     }
   }
-}, $t = `
+}, Kt = `
   /* ==========================================================================
      1. ATMOSPHERIC CANVAS FOUNDATION
      ========================================================================== */
@@ -4009,7 +4009,7 @@ const Ut = {
     font-size: 0.8125rem;
     color: #64748b;
   }
-`, Xt = {
+`, Qt = {
   id: "glassmorphism",
   name: "Glassmorphism",
   description: "Deep spatial aesthetic featuring frosted glass translucency, optical blur, luminous gradient rims, glowing aura shadows, and pill-shaped action surfaces.",
@@ -4188,7 +4188,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, Kt = `
+}, _t = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 
   /* Container Foundation: Warm Tactile Canvas with Micro-Lattice Grid */
@@ -5248,7 +5248,7 @@ const Ut = {
       width: 100%;
     }
   }
-`, Qt = {
+`, Zt = {
   id: "maximalism",
   name: "Maximalism",
   description: "Rich, layered, expressive visual density with curated royal crimson and saffron accents, tactile parchment foundation, and expressive display serif typography.",
@@ -5430,7 +5430,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, _t = `
+}, te = `
   /* Container Foundation: Pure Objective White with Flat Planar Geometry */
   .lab-styled-preview[data-style="swiss-design"],
   .swiss-design-styled-container,
@@ -6555,7 +6555,7 @@ const Ut = {
       width: 100%;
     }
   }
-`, Zt = {
+`, ee = {
   id: "swiss-design",
   name: "Swiss Design",
   description: "Rigorous mathematical grid clarity, asymmetrical layout hierarchies, authoritative objective sans-serif typography, stark Swiss Red (#dc2626) accents, and disciplined 1px architectural rules.",
@@ -6736,7 +6736,7 @@ const Ut = {
       fontFamily: "'Helvetica Neue', Helvetica, 'Inter', sans-serif"
     }
   }
-}, te = `
+}, ae = `
   /* ==========================================================================
      SURREALISM — ART-DIRECTED SEMANTIC STYLESHEET
      
@@ -7885,7 +7885,7 @@ const Ut = {
       display: none;
     }
   }
-`, ee = {
+`, ie = {
   id: "surrealism",
   name: "Surrealism",
   description: "Dreamlike logic, sculptural editorial serifs, atmospheric twilight haze, celestial orbit motifs, asymmetric portal curvature, and uncanny scale tension.",
@@ -8067,7 +8067,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, ae = `
+}, se = `
   /* Container Foundation: Warm Optimistic Paper with Crisp Graphic Contrast */
   .lab-styled-preview[data-style="neo-brutalism"],
   .neo-brutalism-styled-container,
@@ -9368,7 +9368,7 @@ const Ut = {
       margin-bottom: 0.75rem;
     }
   }
-`, ie = {
+`, re = {
   id: "neo-brutalism",
   name: "Neo-Brutalism",
   description: "Bold structural outlines, tactile hard-offset shadows, friendly rounded geometry, punchy saturated pop accents, and high-contrast contemporary grotesk typography.",
@@ -9550,7 +9550,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif"
     }
   }
-}, se = `
+}, oe = `
   /* ==========================================================================
      NEO-CLASSICAL — ART-DIRECTED ARCHITECTURAL STYLESHEET
      
@@ -10614,7 +10614,7 @@ const Ut = {
       font-size: clamp(2rem, 8vw, 3rem);
     }
   }
-`, re = {
+`, le = {
   id: "neo-classical",
   name: "Neo-Classical",
   description: "Classical architectural proportion, editorial serif refinement, structured rules, plinth bases, and dignified restraint.",
@@ -10796,7 +10796,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, oe = `
+}, ne = `
   /* ==========================================================================
      LUXURY TYPOGRAPHY — EDITORIAL PRESTIGE & TYPOGRAPHIC DRAMA
      
@@ -11838,7 +11838,7 @@ const Ut = {
       margin-top: 0.75rem !important;
     }
   }
-`, le = {
+`, de = {
   id: "luxury-typography",
   name: "Luxury Typography",
   description: "Editorial high-fashion restraint, dramatic Didone serif display, whisper-quiet uppercase sans, champagne accents, and generous breathing room.",
@@ -12020,7 +12020,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, ne = `
+}, ce = `
   /* ==========================================================================
      EDITORIAL DESIGN — JOURNALISTIC HIERARCHY & BROADSHEET PACING
      
@@ -13100,7 +13100,7 @@ const Ut = {
       margin-top: 0.75rem !important;
     }
   }
-`, de = {
+`, pe = {
   id: "editorial-design",
   name: "Editorial Design",
   description: "Broadsheet publishing layout, authoritative serif headlines, journalistic decks, byline metadata, and narrative reading rhythm.",
@@ -13282,7 +13282,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, ce = `
+}, ye = `
   /* ==========================================================================
      Y2K AESTHETIC — TURN-OF-THE-MILLENNIUM FUTURISTIC OPTIMISM
      
@@ -14396,7 +14396,7 @@ const Ut = {
       grid-template-columns: 1fr !important;
     }
   }
-`, pe = {
+`, me = {
   id: "y2k-aesthetic",
   name: "Y2K Aesthetic",
   description: "Year 2000 metallic chrome, glossy aqua gel buttons, bubbly translucency, and cyber optimism.",
@@ -14577,7 +14577,7 @@ const Ut = {
       fontFamily: "'Space Grotesk', -apple-system, sans-serif"
     }
   }
-}, ye = `
+}, be = `
   /* ==========================================================================
      BENTO GRID — MODULAR COMPOSITION & SPATIAL HIERARCHY
      
@@ -15760,7 +15760,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, me = {
+`, he = {
   id: "bento-grid",
   name: "Bento Grid",
   description: "Modular, compartmentalized content packaging with varied spatial hierarchy, modern geometry, and high density.",
@@ -15942,7 +15942,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', sans-serif"
     }
   }
-}, be = `
+}, ue = `
   /* ==========================================================================
      PIXEL ART — 8-Bit / 16-Bit Retro Game Interface Visual Language
      Strict Semantic CSS Mapping: Zero DOM Wrappers, 100% User HTML Preservation
@@ -17300,7 +17300,7 @@ const Ut = {
       width: 100% !important;
     }
   }
-`, he = {
+`, fe = {
   id: "pixel-art",
   name: "Pixel Art",
   description: "8-bit and 16-bit arcade aesthetics, aliased stepped borders, bitmap display typography, and retro gaming interfaces.",
@@ -17483,7 +17483,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, ue = `
+}, ge = `
   /* ==========================================================================
      CONCEPTUAL SKETCH — Architectural Study & Designer Notebook Visual Language
      Strict Semantic CSS Mapping: Zero DOM Wrappers, 100% User HTML Preservation
@@ -19139,7 +19139,7 @@ const Ut = {
       width: 100% !important;
     }
   }
-`, fe = {
+`, ve = {
   id: "conceptual-sketch",
   name: "Conceptual Sketch",
   description: "Architectural study and designer notebook aesthetic featuring graphite drafting rules, technical blue pen and revision red annotations, warm vellum grid paper, and diagrammatic composition.",
@@ -19326,7 +19326,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, ge = `
+}, xe = `
   /* ==========================================================================
      ETHEREAL — Atmospheric Light, Weightless Typography & Luminous Surfaces
      Strict Semantic CSS Mapping: Zero DOM Wrappers, 100% User HTML Preservation
@@ -20179,7 +20179,7 @@ const Ut = {
       width: 100% !important;
     }
   }
-`, ve = {
+`, we = {
   id: "ethereal",
   name: "Ethereal",
   description: "Atmospheric light, weightless typography, luminous pearl surfaces, and quiet serenity.",
@@ -20366,7 +20366,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, xe = `
+}, ke = `
   /* ==========================================================================
      FONT IMPORT: Fraunces (Display Serif), Plus Jakarta Sans (Body), Caveat (Artisan Script)
      ========================================================================== */
@@ -22047,7 +22047,7 @@ const Ut = {
       width: 100% !important;
     }
   }
-`, we = {
+`, Se = {
   id: "bohemian",
   name: "Bohemian",
   description: "Warm terracotta, sun-baked clay, artisanal typography, eclectic collected surfaces, and relaxed handcrafted character.",
@@ -22234,7 +22234,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', sans-serif"
     }
   }
-}, ke = `
+}, Ce = `
   /* ==========================================================================
      FONT IMPORT: Orbitron, Chakra Petch, Rajdhani, Share Tech Mono
      ========================================================================== */
@@ -23623,7 +23623,7 @@ const Ut = {
       padding: 1.5rem 1rem;
     }
   }
-`, Se = {
+`, ze = {
   id: "cyberpunk",
   name: "Cyberpunk",
   description: "High-tech low-life terminal aesthetic featuring chamfered polygon corners, luminescent neon cyan and hot laser magenta glows, scanlines, HUD telemetry overlays, and monospaced console tags.",
@@ -23820,7 +23820,7 @@ const Ut = {
       fontFamily: "'JetBrains Mono', monospace"
     }
   }
-}, Ce = `
+}, Te = `
   /* ==========================================================================
      ANTHROPOMORPHIC DESIGN LANGUAGE — LIVING SYSTEM WITH PERSONALITY
      ========================================================================== */
@@ -24982,7 +24982,7 @@ const Ut = {
       -webkit-overflow-scrolling: touch !important;
     }
   }
-`, ze = {
+`, Ie = {
   id: "anthropomorphic",
   name: "Anthropomorphic",
   description: "Warm, expressive, and approachable visual system with friendly organic geometry, conversational typography, living micro-interactions, and character-driven controls.",
@@ -25182,7 +25182,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif"
     }
   }
-}, Te = `
+}, Ae = `
   /* ==========================================================================
      NEUMORPHISM DESIGN LANGUAGE — CONTINUOUS MOLDED TACTILE SURFACES
      ========================================================================== */
@@ -26463,7 +26463,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Ie = {
+`, Ee = {
   id: "neumorphism",
   name: "Neumorphism",
   description: "Soft extruded monochromatic surfaces, tactile depth, subtle light/shadow relationships, and physical interface controls molded from one continuous material.",
@@ -26657,7 +26657,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif"
     }
   }
-}, Ae = `
+}, Be = `
   /* ==========================================================================
      DARK MODE UI DESIGN LANGUAGE — LAYERED SURFACES & RESTRAINED CONTRAST
      ========================================================================== */
@@ -27967,7 +27967,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Ee = {
+`, Re = {
   id: "dark-mode-ui",
   name: "Dark Mode UI",
   description: "Deep layered surfaces (#09090b, #111113, #18181b), subtle neutral borders, glare-free high-contrast typography, and restrained professional accents for comfortable viewing.",
@@ -28165,7 +28165,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, Be = `
+}, Pe = `
   /* ==========================================================================
      SCRAPBOOK DESIGN LANGUAGE — LAYERED MEMORY BOOK & COLLECTED EPHEMERA
      ========================================================================== */
@@ -29217,7 +29217,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Re = {
+`, Fe = {
   id: "scrapbook",
   name: "Scrapbook",
   description: "Layered memory book surfaces, washi tape cues, handwritten annotations, clipped ephemera, and tactile paper cards.",
@@ -29415,7 +29415,7 @@ const Ut = {
       fontFamily: "'Lora', Georgia, serif"
     }
   }
-}, Pe = `
+}, De = `
   /* ==========================================================================
      CLAYMORPHISM DESIGN LANGUAGE — INFLATED 3D SURFACES & TACTILE CLAY
      ========================================================================== */
@@ -30145,7 +30145,7 @@ const Ut = {
       padding: 1.85rem 1.25rem !important;
     }
   }
-`, Fe = {
+`, Me = {
   id: "claymorphism",
   name: "Claymorphism",
   description: "Soft molded clay surfaces, inflated 3D forms, friendly tactile controls, rounded geometry, and subtle inner highlights.",
@@ -30340,7 +30340,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif"
     }
   }
-}, De = `
+}, He = `
   /* Container Foundation */
   .lab-styled-preview[data-style="wabi-sabi"],
   .wabi-sabi-styled-container,
@@ -30826,7 +30826,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Me = {
+`, Oe = {
   id: "wabi-sabi",
   name: "Wabi-Sabi",
   description: "Organic asymmetry, tranquil negative space, warm handmade washi paper tones, natural stoneware textures, serene sumi ink typography, and mindful Japanese aesthetic harmony.",
@@ -31018,7 +31018,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, He = `
+}, Ne = `
   /* ==========================================================================
      VICTORIAN DESIGN LANGUAGE — 19TH-CENTURY PRINT & ORNATE EDITORIAL
      ========================================================================== */
@@ -32312,7 +32312,7 @@ const Ut = {
       padding-right: 8px !important;
     }
   }
-`, Ne = {
+`, Ge = {
   id: "victorian",
   name: "Victorian",
   description: "19th-century typography, ornate editorial print, engraved rules, botanical motifs, layered borders, and rich parchment surfaces.",
@@ -32503,7 +32503,7 @@ const Ut = {
       fontFamily: "'EB Garamond', 'Georgia', serif"
     }
   }
-}, Oe = `
+}, Le = `
   /* ==========================================================================
      CYBERCORE DESIGN LANGUAGE — INTERNET-NATIVE DIGITAL CULTURE
      ========================================================================== */
@@ -33684,7 +33684,7 @@ const Ut = {
       padding: 2rem 1.25rem !important;
     }
   }
-`, Ge = {
+`, We = {
   id: "cybercore",
   name: "Cybercore",
   description: "Internet-native digital culture, fragmented interfaces, selective CRT scanlines, corrupted media, and technical monospace metadata.",
@@ -33876,7 +33876,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, Le = `
+}, qe = `
   /* ==========================================================================
      SYNTHWAVE DESIGN LANGUAGE — 1980S NEON RETRO-FUTURISM
      ========================================================================== */
@@ -34774,7 +34774,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, We = {
+`, Ue = {
   id: "synthwave",
   name: "Synthwave",
   description: "1980s neon retro-futurism, outrun sunset gradients, arcade neon glows, wireframe horizon grids, and analog synthesizer consoles.",
@@ -34967,7 +34967,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, qe = `
+}, Ye = `
   /* ==========================================================================
      GRAFFITI DESIGN LANGUAGE — STREET ART & URBAN CULTURE
      ========================================================================== */
@@ -35856,7 +35856,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Ue = {
+`, Je = {
   id: "graffiti",
   name: "Graffiti",
   description: "Urban street-art culture, spray paint textures, mural typography, die-cut vinyl stickers, and raw expressive marker energy.",
@@ -36049,7 +36049,7 @@ const Ut = {
       fontFamily: "'Inter', -apple-system, sans-serif"
     }
   }
-}, Ye = `
+}, je = `
   /* ==========================================================================
      GOTHIC DESIGN LANGUAGE — CATHEDRAL ARCHITECTURE & ILLUMINATED MANUSCRIPTS
      ========================================================================== */
@@ -36921,7 +36921,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Je = {
+`, Ve = {
   id: "gothic",
   name: "Gothic",
   description: "Medieval cathedral architecture, illuminated manuscripts, dark romanticism, antique brass rules, and dramatic monumental serifs.",
@@ -37116,7 +37116,7 @@ const Ut = {
       fontFamily: "'EB Garamond', Georgia, serif"
     }
   }
-}, wt = `
+}, kt = `
   /* ==========================================================================
      MIXED MEDIA DESIGN LANGUAGE — CURATED ART DIRECTION & PRINTMAKING
      ========================================================================== */
@@ -38019,7 +38019,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, je = {
+`, $e = {
   id: "mixed-media",
   name: "Mixed Media",
   description: "Curated art direction combining photography, fine art paper, paint marks, geometric vectors, and editorial typography.",
@@ -38217,7 +38217,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, Ve = `
+}, Xe = `
   /* ==========================================================================
      ART DECO DESIGN LANGUAGE — JAZZ-AGE GEOMETRY & METALLIC ORNAMENT
      ========================================================================== */
@@ -39287,7 +39287,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, $e = {
+`, Ke = {
   id: "art-deco",
   name: "Art Deco",
   description: "1920s–1930s luxury architecture, geometric symmetry, sunburst motifs, stepped forms, and gleaming metallic gold ornament.",
@@ -39487,7 +39487,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, Xe = `
+}, Qe = `
   /* ==========================================================================
      BAUHAUS DESIGN LANGUAGE — FUNCTIONAL GEOMETRY & STRUCTURAL COLOR
      ========================================================================== */
@@ -40284,7 +40284,7 @@ const Ut = {
       transform: none !important;
     }
   }
-`, Ke = {
+`, _e = {
   id: "bauhaus",
   name: "Bauhaus",
   description: "Form follows function. Primary geometry, asymmetric architectural hierarchy, and functional primary color blocks.",
@@ -40484,7 +40484,7 @@ const Ut = {
       fontFamily: "'Inter', sans-serif"
     }
   }
-}, Qe = `
+}, Ze = `
   /* Container Foundation */
   .lab-styled-preview[data-style="solarpunk"],
   .solarpunk-styled-container,
@@ -40757,7 +40757,7 @@ const Ut = {
   .ds-scope[data-style-id="solarpunk"] section:last-child {
     border-bottom: none;
   }
-`, _e = {
+`, ta = {
   id: "solarpunk",
   name: "Solarpunk",
   description: "Lush botanical curves, stained-glass light refractions, warm polished brass, verdant leaves, and an optimistic ecological future.",
@@ -40944,7 +40944,7 @@ const Ut = {
       fontFamily: "'Plus Jakarta Sans', sans-serif"
     }
   }
-}, oa = [
+}, na = [
   {
     id: "minimalism",
     name: "Minimalism",
@@ -41297,8 +41297,7 @@ const Ut = {
     previewGradient: "linear-gradient(135deg, #f8f6f0 0%, #f1ede4 45%, #1a1918 80%, #e63926 100%)",
     features: ["Cotton rag paper foundation", "Editorial serif & modernist sans", "Painterly ink wash & paint strokes", "Geometric vector framing marks"]
   }
-], Ze = [
-  Ut,
+], ea = [
   Jt,
   Vt,
   Xt,
@@ -41322,21 +41321,22 @@ const Ut = {
   Re,
   Fe,
   Me,
-  Ne,
+  Oe,
   Ge,
   We,
   Ue,
   Je,
-  je,
+  Ve,
   $e,
   Ke,
-  _e
+  _e,
+  ta
 ];
-class ta {
-  constructor(t = Ze) {
+class Ft {
+  constructor(t = ea) {
     U(this, "registry");
     U(this, "resolver");
-    this.registry = new qt(t), this.resolver = new M(this.registry);
+    this.registry = new Yt(t), this.resolver = new M(this.registry);
   }
   /**
    * Access the underlying StyleRegistry.
@@ -41508,7 +41508,7 @@ const et = class et {
 };
 U(et, "PRICE_PATTERNS", [/[$€£¥]/, /\/mo(nth)?/i, /\/yr(ear)?/i, /pricing/i, /\b(free|pro|starter|enterprise|tier|plan)\b/i]);
 let it = et;
-class Pt {
+class Dt {
   /**
    * Retrieves the design grammar for a given style ID.
    * Safely falls back to minimalism-like base grammar if unknown.
@@ -41535,7 +41535,7 @@ class Pt {
     this.grammars[t.styleId] = t;
   }
 }
-U(Pt, "grammars", {
+U(Dt, "grammars", {
   minimalism: {
     styleId: "minimalism",
     densityBias: "spacious",
@@ -41640,7 +41640,7 @@ class X {
    * and the detected content context.
    */
   static resolveDecision(t, e, a, i, s) {
-    const o = typeof s == "object" && s !== null && "primaryContext" in s ? s.primaryContext : s || "landing-page", l = Pt.getGrammar(t), r = i || (a == null ? void 0 : a.density) || l.densityBias, n = (a == null ? void 0 : a.childCount) ?? 3;
+    const o = typeof s == "object" && s !== null && "primaryContext" in s ? s.primaryContext : s || "landing-page", l = Dt.getGrammar(t), r = i || (a == null ? void 0 : a.density) || l.densityBias, n = (a == null ? void 0 : a.childCount) ?? 3;
     switch (o) {
       case "portfolio":
         return this.resolvePortfolioContextDecision(t, e, r, n);
@@ -42757,7 +42757,7 @@ class X {
     return i > 200 ? "spacious" : i < 40 ? "compact" : "normal";
   }
 }
-class ht {
+class ut {
   /**
    * Infers the semantic component role, composition strategy, and layout decision
    * from objective structural signals, hierarchy, and content context.
@@ -43816,41 +43816,41 @@ class Y {
     };
   }
 }
-const kt = {
-  brutalism: jt,
-  minimalism: Yt,
-  glassmorphism: $t,
-  maximalism: Kt,
-  "swiss-design": _t,
-  surrealism: te,
-  "neo-brutalism": ae,
-  "neo-classical": se,
-  "luxury-typography": oe,
-  "editorial-design": ne,
-  "y2k-aesthetic": ce,
-  "bento-grid": ye,
-  "pixel-art": be,
-  "conceptual-sketch": ue,
-  ethereal: ge,
-  bohemian: xe,
-  cyberpunk: ke,
-  anthropomorphic: Ce,
-  neumorphism: Te,
-  "dark-mode-ui": Ae,
-  scrapbook: Be,
-  claymorphism: Pe,
-  victorian: He,
-  cybercore: Oe,
-  synthwave: Le,
-  graffiti: qe,
-  gothic: Ye,
-  mixedMedia: wt,
-  "mixed-media": wt,
-  "art-deco": Ve,
-  bauhaus: Xe,
-  solarpunk: Qe,
-  "wabi-sabi": De
-}, ea = {
+const St = {
+  brutalism: $t,
+  minimalism: jt,
+  glassmorphism: Kt,
+  maximalism: _t,
+  "swiss-design": te,
+  surrealism: ae,
+  "neo-brutalism": se,
+  "neo-classical": oe,
+  "luxury-typography": ne,
+  "editorial-design": ce,
+  "y2k-aesthetic": ye,
+  "bento-grid": be,
+  "pixel-art": ue,
+  "conceptual-sketch": ge,
+  ethereal: xe,
+  bohemian: ke,
+  cyberpunk: Ce,
+  anthropomorphic: Te,
+  neumorphism: Ae,
+  "dark-mode-ui": Be,
+  scrapbook: Pe,
+  claymorphism: De,
+  victorian: Ne,
+  cybercore: Le,
+  synthwave: qe,
+  graffiti: Ye,
+  gothic: je,
+  mixedMedia: kt,
+  "mixed-media": kt,
+  "art-deco": Xe,
+  bauhaus: Qe,
+  solarpunk: Ze,
+  "wabi-sabi": He
+}, aa = {
   y2k: "y2k-aesthetic",
   neobrutalism: "neo-brutalism",
   "neo-brutalist": "neo-brutalism",
@@ -43866,7 +43866,7 @@ const kt = {
   bento: "bento-grid",
   boho: "bohemian"
 };
-class aa {
+class ia {
   static getCoreAdaptiveStyles() {
     return `
 /* ==========================================================================
@@ -47450,7 +47450,7 @@ main.style-brutalism,
 `;
   }
   static getAllSemanticStyles() {
-    return Object.entries(kt).map(([t, e]) => `/* === DESIGN LANGUAGE: ${t.toUpperCase()} === */
+    return Object.entries(St).map(([t, e]) => `/* === DESIGN LANGUAGE: ${t.toUpperCase()} === */
 ` + e.replace(/@import\s+url\([^)]+\);?/g, "").trim()).join(`
 
 `);
@@ -47465,7 +47465,7 @@ main.style-brutalism,
 ${this.getAllSemanticStyles()}`;
   }
   static getStyleCSS(t) {
-    const e = ea[t.toLowerCase()] || t.toLowerCase(), a = kt[e];
+    const e = aa[t.toLowerCase()] || t.toLowerCase(), a = St[e];
     return a ? `@import url('https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -47476,16 +47476,16 @@ ${this.getAllSemanticStyles()}`;
 ` : "";
   }
 }
-function Ft(p = typeof document < "u" ? document : null) {
+function Mt(p = typeof document < "u" ? document : null) {
   if (!p || !p.head) return null;
   const t = p.getElementById("style-engine-adaptive-css");
   if (t) return t;
   const e = p.createElement("style");
-  return e.id = "style-engine-adaptive-css", e.textContent = aa.getAdaptiveStyles(), p.head.appendChild(e), e;
+  return e.id = "style-engine-adaptive-css", e.textContent = ia.getAdaptiveStyles(), p.head.appendChild(e), e;
 }
-function la(p = typeof document < "u" ? document.body : null) {
+function da(p = typeof document < "u" ? document.body : null) {
   var e;
-  if (typeof document < "u" && Ft(document), !p || typeof p.querySelectorAll != "function") return;
+  if (typeof document < "u" && Mt(document), !p || typeof p.querySelectorAll != "function") return;
   ((e = p.matches) != null && e.call(p, '[class*="style-"]') ? [p, ...Array.from(p.querySelectorAll('[class*="style-"]'))] : Array.from(p.querySelectorAll('[class*="style-"]'))).forEach((a) => {
     const i = a.className.match(/\bstyle-([a-z0-9-]+)\b/), s = i ? i[1] : "base", o = (l, r, n, b, h, d = []) => {
       var y;
@@ -47509,7 +47509,7 @@ function la(p = typeof document < "u" ? document.body : null) {
           parentRole: h,
           parentTag: (y = l.parentElement) == null ? void 0 : y.tagName.toLowerCase(),
           ancestorRoles: d
-        }), S = ht.resolveRole(B, s);
+        }), S = ut.resolveRole(B, s);
         l.setAttribute("data-role", S.role), l.setAttribute("data-composition", S.composition);
         const m = S.role === "feature-item" || S.role === "card" || S.role === "pricing-card" || c === "article";
         let k = S.variantIndex;
@@ -47539,7 +47539,7 @@ function la(p = typeof document < "u" ? document.body : null) {
     o(a, 1, 0, 1);
   });
 }
-class ut {
+class ft {
   /**
    * Cleans a URI string from null bytes, tabs, newlines and spaces to detect obfuscated protocols.
    */
@@ -47578,7 +47578,7 @@ class ut {
     return e = e.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ""), e = e.replace(/<script\b[^>]*\/?>/gi, ""), e = e.replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, ""), e = e.replace(/<iframe\b[^>]*\/?>/gi, ""), e = e.replace(/<template\b[^<]*(?:(?!<\/template>)<[^<]*)*<\/template>/gi, ""), e = e.replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, ""), e = e.replace(/<embed\b[^>]*\/?>/gi, ""), e = e.replace(/<link\b[^>]*\/?>/gi, ""), e = e.replace(/<meta\b[^>]*\/?>/gi, ""), e = e.replace(/<base\b[^>]*\/?>/gi, ""), e = e.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, ""), e = e.replace(/[\s/]on\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, ""), e = e.replace(/(?:href|src|action|formaction)\s*=\s*["']\s*(?:javascript|vbscript|data\s*:\s*text\/html)[^"']*["']/gi, 'href="#"'), e = e.replace(/(?:href|src|action|formaction)\s*=\s*(?:javascript|vbscript):[^\s>]+/gi, 'href="#"'), e;
   }
 }
-U(ut, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
+U(ft, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
   "script",
   "iframe",
   "frame",
@@ -47593,7 +47593,7 @@ U(ut, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
   "portal",
   "style"
   // We control styles through the Style Engine, not arbitrary <style> tags
-])), U(ut, "DANGEROUS_URI_SCHEMES", [
+])), U(ft, "DANGEROUS_URI_SCHEMES", [
   "javascript:",
   "vbscript:",
   "data:text/html",
@@ -47601,7 +47601,7 @@ U(ut, "FORBIDDEN_TAGS", /* @__PURE__ */ new Set([
   "data:text/javascript",
   "data:image/svg+xml"
 ]);
-class St {
+class Ct {
   static plan(t, e, a, i, s) {
     const o = s || {
       primaryContext: "landing-page",
@@ -47695,7 +47695,7 @@ class St {
     };
   }
 }
-class Ct {
+class zt {
   /**
    * Transforms an AST tree according to the CompositionPlan.
    */
@@ -47785,7 +47785,7 @@ class Ct {
     return e;
   }
 }
-class zt {
+class Tt {
   /**
    * Analyzes an HTML string or text structure to produce a ContentContext.
    */
@@ -47971,7 +47971,7 @@ class zt {
     };
   }
 }
-const Tt = /* @__PURE__ */ new Set([
+const It = /* @__PURE__ */ new Set([
   "area",
   "base",
   "br",
@@ -47987,7 +47987,7 @@ const Tt = /* @__PURE__ */ new Set([
   "track",
   "wbr"
 ]);
-class na {
+class ca {
   /**
    * Parses arbitrary HTML, sanitizes it, runs recursive structural analysis down to arbitrary depths,
    * stamps data-role, data-composition, data-layout, data-container, data-grouping, data-item-presentation,
@@ -47997,7 +47997,7 @@ class na {
    * Pass options.transformStructure = true to enable presentation-level layout wrapping transformations.
    */
   static analyzeHtml(t, e, a, i) {
-    const s = ut.sanitize(t);
+    const s = ft.sanitize(t);
     if (typeof DOMParser < "u")
       try {
         return this.analyzeWithDOMParser(s, e, a, i);
@@ -48010,15 +48010,15 @@ class na {
    * Browser-native analysis using DOMParser
    */
   static analyzeWithDOMParser(t, e, a, i) {
-    const l = new DOMParser().parseFromString(t, "text/html").body, r = Array.from(l.querySelectorAll("*")), n = l.querySelectorAll("h1, h2, h3, h4, h5, h6").length, b = l.querySelectorAll('button, input[type="submit"], a.button').length, h = l.querySelectorAll("input, textarea, select").length, d = l.textContent || "", c = /[$€£¥]|\/mo\b|pricing/i.test(d), u = [], v = zt.analyzeDOM(l), F = (f, P, D, z, H, Q = []) => {
+    const l = new DOMParser().parseFromString(t, "text/html").body, r = Array.from(l.querySelectorAll("*")), n = l.querySelectorAll("h1, h2, h3, h4, h5, h6").length, b = l.querySelectorAll('button, input[type="submit"], a.button').length, h = l.querySelectorAll("input, textarea, select").length, d = l.textContent || "", c = /[$€£¥]|\/mo\b|pricing/i.test(d), u = [], v = Tt.analyzeDOM(l), F = (f, P, D, z, H, Q = []) => {
       var pt, V;
-      const N = f.tagName.toLowerCase(), j = Array.from(f.children), rt = j.map((J) => J.tagName.toLowerCase()), tt = f.textContent || "", mt = /[$€£¥]|\/mo\b|pricing/i.test(tt), T = [], ot = (J) => {
+      const O = f.tagName.toLowerCase(), j = Array.from(f.children), rt = j.map((J) => J.tagName.toLowerCase()), tt = f.textContent || "", mt = /[$€£¥]|\/mo\b|pricing/i.test(tt), T = [], ot = (J) => {
         for (const _ of Array.from(J.children))
           T.push(_.tagName.toLowerCase()), ot(_);
       };
       ot(f);
       const G = it.analyze({
-        tag: N,
+        tag: O,
         childrenTags: rt,
         descendantTags: T,
         text: tt,
@@ -48030,19 +48030,19 @@ class na {
         parentRole: H,
         parentTag: (pt = f.parentElement) == null ? void 0 : pt.tagName.toLowerCase(),
         ancestorRoles: Q
-      }), I = ht.resolveRole(G, e, v), lt = Y.resolveRecipe(e, I, a), L = I.decision;
-      f.setAttribute("data-role", I.role), f.setAttribute("data-composition", I.composition), f.setAttribute("data-density", I.density), /^h[1-6]$/i.test(N) && f.setAttribute("data-layout-slot", "heading");
-      const nt = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(N), dt = /^(header|nav|footer)$/i.test(N), bt = I.role === "feature-item" || I.role === "card" || I.role === "pricing-card" || N === "article", ct = (I.role === "feature-group" || I.role === "card-grid" || I.role === "pricing-grid" || j.length >= 2 && j.some((J) => J.tagName.toLowerCase() === "article" || J.getAttribute("data-role") === "feature-item")) && !nt && !dt, O = !nt && !dt && (N === "section" || N === "main" || N === "form" || I.role === "hero" || I.role === "feature-section" || I.role === "pricing-grid" || I.role === "card-grid" || P === 1);
+      }), I = ut.resolveRole(G, e, v), lt = Y.resolveRecipe(e, I, a), L = I.decision;
+      f.setAttribute("data-role", I.role), f.setAttribute("data-composition", I.composition), f.setAttribute("data-density", I.density), /^h[1-6]$/i.test(O) && f.setAttribute("data-layout-slot", "heading");
+      const nt = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(O), dt = /^(header|nav|footer)$/i.test(O), bt = I.role === "feature-item" || I.role === "card" || I.role === "pricing-card" || O === "article", ct = (I.role === "feature-group" || I.role === "card-grid" || I.role === "pricing-grid" || j.length >= 2 && j.some((J) => J.tagName.toLowerCase() === "article" || J.getAttribute("data-role") === "feature-item")) && !nt && !dt, N = !nt && !dt && (O === "section" || O === "main" || O === "form" || I.role === "hero" || I.role === "feature-section" || I.role === "pricing-grid" || I.role === "card-grid" || P === 1);
       if (bt) {
         const _ = Array.from(((V = f.parentElement) == null ? void 0 : V.children) || []).filter((yt) => {
-          var vt, xt;
-          const gt = (vt = yt.tagName) == null ? void 0 : vt.toLowerCase(), Ht = (xt = yt.getAttribute) == null ? void 0 : xt.call(yt, "data-role");
-          return gt === N || Ht === I.role || gt === "article";
-        }).indexOf(f), Mt = _ >= 0 ? _ % 3 : I.variantIndex;
-        f.setAttribute("data-variant", String(Mt)), L && f.setAttribute("data-item-presentation", L.itemPresentation);
+          var xt, wt;
+          const vt = (xt = yt.tagName) == null ? void 0 : xt.toLowerCase(), Nt = (wt = yt.getAttribute) == null ? void 0 : wt.call(yt, "data-role");
+          return vt === O || Nt === I.role || vt === "article";
+        }).indexOf(f), Ot = _ >= 0 ? _ % 3 : I.variantIndex;
+        f.setAttribute("data-variant", String(Ot)), L && f.setAttribute("data-item-presentation", L.itemPresentation);
       }
-      O && L && (f.setAttribute("data-layout", L.layoutMode), f.setAttribute("data-container", L.containerTreatment), f.setAttribute("data-align", L.alignment)), ct && L && f.setAttribute("data-grouping", L.groupingTreatment), u.push({
-        tag: N,
+      N && L && (f.setAttribute("data-layout", L.layoutMode), f.setAttribute("data-container", L.containerTreatment), f.setAttribute("data-align", L.alignment)), ct && L && f.setAttribute("data-grouping", L.groupingTreatment), u.push({
+        tag: O,
         role: I.role,
         composition: I.composition,
         density: I.density,
@@ -48065,14 +48065,14 @@ class na {
       let z = "button";
       D === "hero" || D === "header" ? z = "cta-button" : D === "navigation" ? z = "nav-action" : D === "pricing-card" || D === "pricing-grid" ? z = "pricing-action" : D === "feature-item" || D === "card" || D === "card-grid" || D === "feature-group" ? z = "card-action" : D === "form" && (z = "form-submit"), f.setAttribute("data-role", z);
     });
-    const C = E[0] || l, R = C.getAttribute("data-role") || "generic-container", y = C.getAttribute("data-composition") || "generic-balanced", x = C.getAttribute("data-density") || "normal", w = u[0], B = (R === "generic-container" || R === "page") && (u.find((f) => f.role === "feature-section") || u.find((f) => f.role === "hero") || u.find((f) => f.role === "pricing-card") || u.find((f) => f.role === "article")) || w, S = (R === "generic-container" || R === "page") && (B == null ? void 0 : B.role) || R, m = St.plan(
+    const C = E[0] || l, R = C.getAttribute("data-role") || "generic-container", y = C.getAttribute("data-composition") || "generic-balanced", x = C.getAttribute("data-density") || "normal", w = u[0], B = (R === "generic-container" || R === "page") && (u.find((f) => f.role === "feature-section") || u.find((f) => f.role === "hero") || u.find((f) => f.role === "pricing-card") || u.find((f) => f.role === "article")) || w, S = (R === "generic-container" || R === "page") && (B == null ? void 0 : B.role) || R, m = Ct.plan(
       e,
       S,
       void 0,
       u.map((f) => ({ role: f.role, signals: {} })),
       v
     );
-    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformDOM(l, m);
+    (i == null ? void 0 : i.transformStructure) === !0 && zt.transformDOM(l, m);
     const k = X.resolveDecision(
       e,
       S,
@@ -48117,15 +48117,15 @@ class na {
   static analyzeWithAST(t, e, a, i) {
     const s = this.parseMiniAST(t);
     let o = 0;
-    const l = [], r = zt.analyze(t);
+    const l = [], r = Tt.analyze(t);
     let n = 0, b = 0, h = 0;
     const d = (m, k, W, f, P, D = []) => {
       var ct;
       o++;
       const z = m.tag.toLowerCase();
       /^h[1-6]$/.test(z) && n++, z === "button" && b++, (z === "input" || z === "textarea" || z === "select") && h++;
-      const H = m.children.filter((O) => typeof O != "string"), Q = H.map((O) => O.tag.toLowerCase()), N = m.text || "", j = /[$€£¥]|\/mo\b|pricing/i.test(N), rt = [], tt = (O) => {
-        for (const q of O.children)
+      const H = m.children.filter((N) => typeof N != "string"), Q = H.map((N) => N.tag.toLowerCase()), O = m.text || "", j = /[$€£¥]|\/mo\b|pricing/i.test(O), rt = [], tt = (N) => {
+        for (const q of N.children)
           typeof q != "string" && (rt.push(q.tag.toLowerCase()), tt(q));
       };
       tt(m);
@@ -48133,7 +48133,7 @@ class na {
         tag: z,
         childrenTags: Q,
         descendantTags: rt,
-        text: N,
+        text: O,
         childCount: H.length,
         hasPriceText: j,
         depth: k,
@@ -48142,9 +48142,9 @@ class na {
         parentRole: P,
         parentTag: (ct = m.parent) == null ? void 0 : ct.tag.toLowerCase(),
         ancestorRoles: D
-      }), T = ht.resolveRole(mt, e, r), ot = Y.resolveRecipe(e, T, a), G = T.decision;
+      }), T = ut.resolveRole(mt, e, r), ot = Y.resolveRecipe(e, T, a), G = T.decision;
       m.attrs["data-role"] = T.role, m.attrs["data-composition"] = T.composition, m.attrs["data-density"] = T.density, /^h[1-6]$/i.test(z) && (m.attrs["data-layout-slot"] = "heading");
-      const I = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(z), lt = /^(header|nav|footer)$/i.test(z), L = T.role === "feature-item" || T.role === "card" || T.role === "pricing-card" || z === "article", nt = (T.role === "feature-group" || T.role === "card-grid" || T.role === "pricing-grid" || H.length >= 2 && H.some((O) => O.tag.toLowerCase() === "article" || O.attrs["data-role"] === "feature-item")) && !I && !lt, dt = !I && !lt && (z === "section" || z === "main" || z === "form" || T.role === "hero" || T.role === "feature-section" || T.role === "pricing-grid" || T.role === "card-grid" || k === 1);
+      const I = /^(p|h[1-6]|span|strong|em|a|button|input|label|select|textarea|code|pre|blockquote|li|dd|dt)$/i.test(z), lt = /^(header|nav|footer)$/i.test(z), L = T.role === "feature-item" || T.role === "card" || T.role === "pricing-card" || z === "article", nt = (T.role === "feature-group" || T.role === "card-grid" || T.role === "pricing-grid" || H.length >= 2 && H.some((N) => N.tag.toLowerCase() === "article" || N.attrs["data-role"] === "feature-item")) && !I && !lt, dt = !I && !lt && (z === "section" || z === "main" || z === "form" || T.role === "hero" || T.role === "feature-section" || T.role === "pricing-grid" || T.role === "card-grid" || k === 1);
       if (L) {
         const q = (m.parent ? m.parent.children.filter((V) => typeof V != "string").filter(
           (V) => V.tag.toLowerCase() === z || V.attrs["data-role"] === T.role || V.tag.toLowerCase() === "article"
@@ -48159,12 +48159,12 @@ class na {
         decision: G,
         recipeName: ot.recipeName,
         confidence: T.confidence,
-        textSummary: N.trim().slice(0, 60),
+        textSummary: O.trim().slice(0, 60),
         depth: k
       });
       const bt = [...D, T.role];
-      H.forEach((O, q) => {
-        d(O, k + 1, q, H.length, T.role, bt);
+      H.forEach((N, q) => {
+        d(N, k + 1, q, H.length, T.role, bt);
       });
     };
     s.forEach((m, k) => {
@@ -48181,14 +48181,14 @@ class na {
       });
     };
     s.forEach((m) => c(m));
-    const u = s[0], v = (u == null ? void 0 : u.attrs["data-role"]) || "generic-container", F = (u == null ? void 0 : u.attrs["data-composition"]) || "generic-balanced", E = (u == null ? void 0 : u.attrs["data-density"]) || "normal", g = l[0], C = (v === "generic-container" || v === "page") && (l.find((m) => m.role === "feature-section") || l.find((m) => m.role === "hero") || l.find((m) => m.role === "pricing-card") || l.find((m) => m.role === "article")) || g, R = (v === "generic-container" || v === "page") && (C == null ? void 0 : C.role) || v, y = St.plan(
+    const u = s[0], v = (u == null ? void 0 : u.attrs["data-role"]) || "generic-container", F = (u == null ? void 0 : u.attrs["data-composition"]) || "generic-balanced", E = (u == null ? void 0 : u.attrs["data-density"]) || "normal", g = l[0], C = (v === "generic-container" || v === "page") && (l.find((m) => m.role === "feature-section") || l.find((m) => m.role === "hero") || l.find((m) => m.role === "pricing-card") || l.find((m) => m.role === "article")) || g, R = (v === "generic-container" || v === "page") && (C == null ? void 0 : C.role) || v, y = Ct.plan(
       e,
       R,
       void 0,
       l.map((m) => ({ role: m.role, signals: {} })),
       r
     );
-    (i == null ? void 0 : i.transformStructure) === !0 && Ct.transformAST(s, y);
+    (i == null ? void 0 : i.transformStructure) === !0 && zt.transformAST(s, y);
     const x = X.resolveDecision(
       e,
       R,
@@ -48271,7 +48271,7 @@ class na {
               text: "",
               parent: a[a.length - 1]
             };
-            a.length > 0 ? a[a.length - 1].children.push(u) : e.push(u), Tt.has(d) || !!b || a.push(u);
+            a.length > 0 ? a[a.length - 1].children.push(u) : e.push(u), It.has(d) || !!b || a.push(u);
           }
         }
       }
@@ -48283,7 +48283,7 @@ class na {
    */
   static serializeMiniNode(t) {
     const e = Object.entries(t.attrs), a = e.length > 0 ? " " + e.map(([o, l]) => `${o}="${l.replace(/"/g, "&quot;")}"`).join(" ") : "";
-    if (Tt.has(t.tag))
+    if (It.has(t.tag))
       return `<${t.tag}${a}>`;
     const s = t.children.map((o) => typeof o == "string" ? o : this.serializeMiniNode(o)).join("");
     return `<${t.tag}${a}>${s}</${t.tag}>`;
@@ -48295,15 +48295,15 @@ class na {
     return t.fingerprint;
   }
 }
-const ft = Gt(null), da = ({
+const gt = Wt(null), pa = ({
   engine: p,
   initialStyle: t,
   initialStyleId: e,
   children: a
 }) => {
-  const i = $(() => p || new ta(), [p]), [s, o] = at(t || e || "base");
-  Lt(() => {
-    typeof document < "u" && Ft(document);
+  const i = $(() => p || new Ft(), [p]), [s, o] = at(t || e || "base");
+  qt(() => {
+    typeof document < "u" && Mt(document);
   }, []);
   const l = $(() => ({
     level: "global",
@@ -48325,16 +48325,40 @@ const ft = Gt(null), da = ({
     resetToBaseStyle: n,
     createChildScope: b
   }), [i, l, r, s]);
-  return /* @__PURE__ */ A(ft.Provider, { value: h, children: a });
+  return /* @__PURE__ */ A(gt.Provider, { value: h, children: a });
 };
-function Dt() {
-  const p = Wt(ft);
-  if (!p)
-    throw new Error("useStyleEngine must be used within a StyleEngineProvider");
-  return p;
+let ht = null;
+function sa() {
+  return ht || (ht = new Ft()), ht;
+}
+function Ht() {
+  const p = Ut(gt);
+  if (p)
+    return p;
+  const t = sa(), e = {
+    level: "global",
+    styleId: "base"
+  }, a = t.resolveScope(e);
+  return {
+    engine: t,
+    currentScope: e,
+    resolvedStyle: a,
+    activeStyleId: "base",
+    setActiveStyleId: () => {
+    },
+    resetToBaseStyle: () => {
+    },
+    createChildScope: (i) => ({
+      level: i.level,
+      styleId: i.styleId || "base",
+      parentScope: e,
+      tokenOverrides: i.tokenOverrides,
+      componentOverrides: i.componentOverrides
+    })
+  };
 }
 function K() {
-  const { resolvedStyle: p } = Dt();
+  const { resolvedStyle: p } = Ht();
   return p;
 }
 const st = ({
@@ -48348,7 +48372,7 @@ const st = ({
   children: l
 }) => {
   var u;
-  const r = Dt(), n = $(() => ({
+  const r = Ht(), n = $(() => ({
     level: p,
     styleId: t || r.currentScope.styleId,
     parentScope: r.currentScope,
@@ -48372,7 +48396,7 @@ const st = ({
     ...Z.toStyleObject(b.cssVariables),
     ...s
   }), [b.cssVariables, s]), c = b.isHybrid ? b.hybridClassNames : `style-${b.styleId}`;
-  return /* @__PURE__ */ A(ft.Provider, { value: h, children: /* @__PURE__ */ A(
+  return /* @__PURE__ */ A(gt.Provider, { value: h, children: /* @__PURE__ */ A(
     o,
     {
       className: `ds-scope ds-scope-${p} ${c} ${i}`.trim(),
@@ -48384,7 +48408,7 @@ const st = ({
       children: l
     }
   ) });
-}, ca = ({ children: p, style: t = {}, className: e = "", ...a }) => {
+}, ya = ({ children: p, style: t = {}, className: e = "", ...a }) => {
   const i = K(), s = i.components.page, l = {
     ...Z.toStyleObject(i.cssVariables),
     backgroundColor: s.background,
@@ -48406,7 +48430,7 @@ const st = ({
       children: p
     }
   );
-}, It = ({
+}, At = ({
   children: p,
   style: t = {},
   className: e = "",
@@ -48421,7 +48445,7 @@ const st = ({
     ...t
   };
   return /* @__PURE__ */ A("section", { ...a, className: `ds-section ${e}`, style: o, children: p });
-}, pa = ({ styleId: p, tokenOverrides: t, ...e }) => p || t ? /* @__PURE__ */ A(st, { level: "section", styleId: p, tokenOverrides: t, as: "section", children: /* @__PURE__ */ A(It, { ...e }) }) : /* @__PURE__ */ A(It, { ...e }), At = ({
+}, ma = ({ styleId: p, tokenOverrides: t, ...e }) => p || t ? /* @__PURE__ */ A(st, { level: "section", styleId: p, tokenOverrides: t, as: "section", children: /* @__PURE__ */ A(At, { ...e }) }) : /* @__PURE__ */ A(At, { ...e }), Et = ({
   children: p,
   style: t = {},
   className: e = "",
@@ -48449,7 +48473,7 @@ const st = ({
       children: p
     }
   );
-}, ya = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "div", children: /* @__PURE__ */ A(At, { ...t }) }) : /* @__PURE__ */ A(At, { ...t }), Et = ({
+}, ba = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "div", children: /* @__PURE__ */ A(Et, { ...t }) }) : /* @__PURE__ */ A(Et, { ...t }), Bt = ({
   children: p,
   style: t = {},
   className: e = "",
@@ -48497,7 +48521,7 @@ const st = ({
       children: p
     }
   );
-}, ma = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ A(Et, { ...t }) }) : /* @__PURE__ */ A(Et, { ...t }), ba = ({
+}, ha = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ A(Bt, { ...t }) }) : /* @__PURE__ */ A(Bt, { ...t }), ua = ({
   level: p = 1,
   children: t,
   style: e = {},
@@ -48526,7 +48550,7 @@ const st = ({
     // @ts-expect-error dynamic HTML heading tag
     /* @__PURE__ */ A(n, { ...i, className: `ds-heading ds-heading-${p} ${a}`, style: r, children: t })
   );
-}, ha = ({
+}, fa = ({
   children: p,
   style: t = {},
   className: e = "",
@@ -48541,7 +48565,7 @@ const st = ({
     ...t
   };
   return /* @__PURE__ */ A("p", { ...a, className: `ds-paragraph ${e}`, style: o, children: p });
-}, Bt = ({
+}, Rt = ({
   style: p = {},
   className: t = "",
   onFocus: e,
@@ -48570,7 +48594,7 @@ const st = ({
       }
     }
   );
-}, ua = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block", width: "100%" }, children: /* @__PURE__ */ A(Bt, { ...t }) }) : /* @__PURE__ */ A(Bt, { ...t }), Rt = ({
+}, ga = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block", width: "100%" }, children: /* @__PURE__ */ A(Rt, { ...t }) }) : /* @__PURE__ */ A(Rt, { ...t }), Pt = ({
   children: p,
   style: t = {},
   className: e = "",
@@ -48581,97 +48605,97 @@ const st = ({
     ...t
   };
   return /* @__PURE__ */ A("span", { ...a, className: `ds-badge ${e}`, style: l, children: p });
-}, fa = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ A(Rt, { ...t }) }) : /* @__PURE__ */ A(Rt, { ...t });
+}, va = ({ styleId: p, ...t }) => p ? /* @__PURE__ */ A(st, { level: "component", styleId: p, as: "span", style: { display: "inline-block" }, children: /* @__PURE__ */ A(Pt, { ...t }) }) : /* @__PURE__ */ A(Pt, { ...t });
 export {
-  oa as ALL_29_STYLES,
-  aa as AdaptiveCSSGenerator,
-  fa as Badge,
-  ma as Button,
+  na as ALL_29_STYLES,
+  ia as AdaptiveCSSGenerator,
+  va as Badge,
+  ha as Button,
   Z as CSSAdapter,
-  ya as Card,
+  ba as Card,
   X as CompositionStrategyResolver,
-  na as DOMAnalyzer,
-  ut as HTMLSanitizer,
-  ba as Heading,
-  ua as Input,
-  ca as Page,
-  ha as Paragraph,
+  ca as DOMAnalyzer,
+  ft as HTMLSanitizer,
+  ua as Heading,
+  ga as Input,
+  ya as Page,
+  fa as Paragraph,
   Y as RecipeEngine,
-  ht as RoleResolver,
-  pa as Section,
+  ut as RoleResolver,
+  ma as Section,
   it as StructureAnalyzer,
-  ta as StyleEngine,
-  da as StyleEngineProvider,
-  qt as StyleRegistry,
+  Ft as StyleEngine,
+  pa as StyleEngineProvider,
+  Yt as StyleRegistry,
   M as StyleResolver,
   st as StyleScope,
-  Ce as anthropomorphicSemanticCss,
-  ze as anthropomorphicStyle,
-  Ve as artDecoSemanticCss,
-  $e as artDecoStyle,
-  Ut as baseStyle,
-  Xe as bauhausSemanticCss,
-  Ke as bauhausStyle,
-  ye as bentoGridSemanticCss,
-  me as bentoGridStyle,
-  xe as bohemianSemanticCss,
-  we as bohemianStyle,
-  Vt as brutalismStyle,
-  jt as brutalistSemanticCss,
-  Pe as claymorphicSemanticCss,
-  Fe as claymorphismStyle,
-  ue as conceptualSketchSemanticCss,
-  fe as conceptualSketchStyle,
-  Oe as cybercoreSemanticCss,
-  Ge as cybercoreStyle,
-  ke as cyberpunkSemanticCss,
-  Se as cyberpunkStyle,
-  Ae as darkModeUiSemanticCss,
-  Ee as darkModeUiStyle,
-  Ze as defaultStyles,
-  ne as editorialDesignSemanticCss,
-  de as editorialDesignStyle,
-  la as enhanceHTML,
-  ge as etherealSemanticCss,
-  ve as etherealStyle,
-  $t as glassmorphismSemanticCss,
-  Xt as glassmorphismStyle,
-  Ye as gothicSemanticCss,
-  Je as gothicStyle,
-  qe as graffitiSemanticCss,
-  Ue as graffitiStyle,
-  Ft as injectAdaptiveStyles,
-  oe as luxuryTypographySemanticCss,
-  le as luxuryTypographyStyle,
-  Qt as maximalismStyle,
-  Kt as maximalistSemanticCss,
-  Jt as minimalismStyle,
-  Yt as minimalistSemanticCss,
-  wt as mixedMediaSemanticCss,
-  je as mixedMediaStyle,
-  ie as neoBrutalismStyle,
-  ae as neoBrutalistSemanticCss,
-  se as neoClassicalSemanticCss,
-  re as neoClassicalStyle,
-  Te as neumorphicSemanticCss,
-  Ie as neumorphismStyle,
-  be as pixelArtSemanticCss,
-  he as pixelArtStyle,
-  Be as scrapbookSemanticCss,
-  Re as scrapbookStyle,
-  Qe as solarpunkSemanticCss,
-  _e as solarpunkStyle,
-  te as surrealDesignSemanticCss,
-  ee as surrealismStyle,
-  _t as swissDesignSemanticCss,
-  Zt as swissDesignStyle,
-  Le as synthwaveSemanticCss,
-  We as synthwaveStyle,
-  Dt as useStyleEngine,
-  He as victorianSemanticCss,
-  Ne as victorianStyle,
-  De as wabiSabiSemanticCss,
-  Me as wabiSabiStyle,
-  ce as y2kAestheticSemanticCss,
-  pe as y2kAestheticStyle
+  Te as anthropomorphicSemanticCss,
+  Ie as anthropomorphicStyle,
+  Xe as artDecoSemanticCss,
+  Ke as artDecoStyle,
+  Jt as baseStyle,
+  Qe as bauhausSemanticCss,
+  _e as bauhausStyle,
+  be as bentoGridSemanticCss,
+  he as bentoGridStyle,
+  ke as bohemianSemanticCss,
+  Se as bohemianStyle,
+  Xt as brutalismStyle,
+  $t as brutalistSemanticCss,
+  De as claymorphicSemanticCss,
+  Me as claymorphismStyle,
+  ge as conceptualSketchSemanticCss,
+  ve as conceptualSketchStyle,
+  Le as cybercoreSemanticCss,
+  We as cybercoreStyle,
+  Ce as cyberpunkSemanticCss,
+  ze as cyberpunkStyle,
+  Be as darkModeUiSemanticCss,
+  Re as darkModeUiStyle,
+  ea as defaultStyles,
+  ce as editorialDesignSemanticCss,
+  pe as editorialDesignStyle,
+  da as enhanceHTML,
+  xe as etherealSemanticCss,
+  we as etherealStyle,
+  Kt as glassmorphismSemanticCss,
+  Qt as glassmorphismStyle,
+  je as gothicSemanticCss,
+  Ve as gothicStyle,
+  Ye as graffitiSemanticCss,
+  Je as graffitiStyle,
+  Mt as injectAdaptiveStyles,
+  ne as luxuryTypographySemanticCss,
+  de as luxuryTypographyStyle,
+  Zt as maximalismStyle,
+  _t as maximalistSemanticCss,
+  Vt as minimalismStyle,
+  jt as minimalistSemanticCss,
+  kt as mixedMediaSemanticCss,
+  $e as mixedMediaStyle,
+  re as neoBrutalismStyle,
+  se as neoBrutalistSemanticCss,
+  oe as neoClassicalSemanticCss,
+  le as neoClassicalStyle,
+  Ae as neumorphicSemanticCss,
+  Ee as neumorphismStyle,
+  ue as pixelArtSemanticCss,
+  fe as pixelArtStyle,
+  Pe as scrapbookSemanticCss,
+  Fe as scrapbookStyle,
+  Ze as solarpunkSemanticCss,
+  ta as solarpunkStyle,
+  ae as surrealDesignSemanticCss,
+  ie as surrealismStyle,
+  te as swissDesignSemanticCss,
+  ee as swissDesignStyle,
+  qe as synthwaveSemanticCss,
+  Ue as synthwaveStyle,
+  Ht as useStyleEngine,
+  Ne as victorianSemanticCss,
+  Ge as victorianStyle,
+  He as wabiSabiSemanticCss,
+  Oe as wabiSabiStyle,
+  ye as y2kAestheticSemanticCss,
+  me as y2kAestheticStyle
 };

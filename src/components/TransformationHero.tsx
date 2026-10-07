@@ -46,6 +46,7 @@ import {
   SplitSquareVertical,
   Sliders,
   MousePointer,
+  Wand2,
 } from 'lucide-react';
 
 interface TransformationHeroProps {
@@ -401,8 +402,8 @@ export const TransformationHero: React.FC<TransformationHeroProps> = ({
           to experience the live architectural transformation.
         </p>
 
-        {/* Quick Launch CTA to Full Studio */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+        {/* Quick Launch CTA to Full Studio & Hybrids */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
           <button
             onClick={() => onOpenPlayground(selectedStyleId)}
             style={{
@@ -423,6 +424,33 @@ export const TransformationHero: React.FC<TransformationHeroProps> = ({
           >
             <Sparkles size={15} />
             Open in Design Studio
+            <ArrowRight size={14} />
+          </button>
+
+          <button
+            id="hero-explore-hybrids-btn"
+            onClick={() => {
+              const el = document.getElementById('style-hybrids-section');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.65rem 1.35rem',
+              fontSize: '0.875rem',
+              fontWeight: 700,
+              borderRadius: '8px',
+              border: '1px solid rgba(168, 85, 247, 0.45)',
+              backgroundColor: 'rgba(168, 85, 247, 0.15)',
+              color: '#c084fc',
+              cursor: 'pointer',
+              boxShadow: '0 4px 18px rgba(168, 85, 247, 0.25)',
+              transition: 'all 120ms ease',
+            }}
+          >
+            <Wand2 size={15} />
+            Explore Style Hybrids
             <ArrowRight size={14} />
           </button>
         </div>

@@ -1668,7 +1668,7 @@ solarpunk + neo-brutalism`}
             Usage in React Components
           </h4>
           <p>
-            Pass any compound expression directly into <code>styleId</code> on <code>StyleScope</code> or typed containers:
+            Pass any compound expression directly into <code>styleId</code> on <code>StyleScope</code> or typed containers. Components work standalone with zero configuration — wrapping in <code>&lt;StyleEngineProvider&gt;</code> is completely optional:
           </p>
           <CodeBlock
             code={`import React from 'react';

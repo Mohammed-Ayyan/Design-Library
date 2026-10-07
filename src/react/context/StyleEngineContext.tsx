@@ -94,12 +94,44 @@ export const StyleEngineProvider: React.FC<StyleEngineProviderProps> = ({
   );
 };
 
+let defaultEngineInstance: StyleEngine | null = null;
+
+export function getDefaultStyleEngine(): StyleEngine {
+  if (!defaultEngineInstance) {
+    defaultEngineInstance = new StyleEngine();
+  }
+  return defaultEngineInstance;
+}
+
 export function useStyleEngine(): StyleEngineContextValue {
   const ctx = useContext(StyleEngineContext);
-  if (!ctx) {
-    throw new Error('useStyleEngine must be used within a StyleEngineProvider');
+  if (ctx) {
+    return ctx;
   }
-  return ctx;
+
+  // Graceful standalone fallback when components are used without an explicit <StyleEngineProvider>
+  const engine = getDefaultStyleEngine();
+  const rootScope: ScopeContext = {
+    level: 'global',
+    styleId: 'base',
+  };
+  const resolvedStyle = engine.resolveScope(rootScope);
+
+  return {
+    engine,
+    currentScope: rootScope,
+    resolvedStyle,
+    activeStyleId: 'base',
+    setActiveStyleId: () => {},
+    resetToBaseStyle: () => {},
+    createChildScope: (options) => ({
+      level: options.level,
+      styleId: options.styleId || 'base',
+      parentScope: rootScope,
+      tokenOverrides: options.tokenOverrides,
+      componentOverrides: options.componentOverrides,
+    }),
+  };
 }
 
 export function useResolvedStyle(): ResolvedStyle {

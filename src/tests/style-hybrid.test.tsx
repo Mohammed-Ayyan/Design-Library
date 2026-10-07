@@ -5,6 +5,8 @@ import { StyleResolver } from '../core/resolver/style-resolver';
 import { StyleEngineProvider } from '../react/context/StyleEngineContext';
 import { StyleScope } from '../react/components/StyleScope';
 import { Section } from '../react/components/Section';
+import { Card } from '../react/components/Card';
+import { Button } from '../react/components/Button';
 
 describe('Style Composition & Hybrid Design Languages Suite', () => {
   let engine: StyleEngine;
@@ -169,6 +171,36 @@ describe('Style Composition & Hybrid Design Languages Suite', () => {
       expect(html).toContain('Page Root Minimal');
       expect(html).toContain('Hybrid Wabi-Glass Panel');
       expect(html).toContain('Cyber Telemetry Badge');
+    });
+
+    it('should work standalone with StyleScope, Section, Card, and Button WITHOUT StyleEngineProvider', () => {
+      const html = renderToString(
+        <div>
+          {/* Zen Frosted Glass: Wabi-Sabi organic earthiness + Glassmorphism specular blur */}
+          <StyleScope styleId="/name = wabi-sabi + glassmorphism" level="section" as="section">
+            <h2>Handcrafted Zen Interface</h2>
+            <p>Tactile washi typography with 20px frosted backdrop filtration.</p>
+            <Button>Order Vessel</Button>
+          </StyleScope>
+
+          {/* Minimal Raw: Brutalism high-contrast structural rules + Minimalism airy spacing */}
+          <Section styleId="brutalism + minimalism">
+            <h2>Unflinching Clarity</h2>
+            <Card>
+              <p>Monochrome architectural grid without ornamentation.</p>
+            </Card>
+          </Section>
+        </div>
+      );
+
+      expect(html).toContain('style-wabi-sabi');
+      expect(html).toContain('style-glassmorphism');
+      expect(html).toContain('style-hybrid');
+      expect(html).toContain('Handcrafted Zen Interface');
+      expect(html).toContain('Order Vessel');
+      expect(html).toContain('style-brutalism');
+      expect(html).toContain('style-minimalism');
+      expect(html).toContain('Unflinching Clarity');
     });
   });
 });

@@ -26,5 +26,6 @@ export interface StyleEngineProviderProps {
     children: React.ReactNode;
 }
 export declare const StyleEngineProvider: React.FC<StyleEngineProviderProps>;
+export declare function getDefaultStyleEngine(): StyleEngine;
 export declare function useStyleEngine(): StyleEngineContextValue;
 export declare function useResolvedStyle(): ResolvedStyle;
